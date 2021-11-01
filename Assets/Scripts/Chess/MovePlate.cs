@@ -54,7 +54,7 @@ public class MovePlate : MonoBehaviour
         controller.GetComponent<Game>().SetPosition(reference);
 
         //Switch Current Player
-        controller.GetComponent<Game>().NextTurn();
+        //controller.GetComponent<Game>().NextTurn();
 
         //Destroy the move plates including self
         reference.GetComponent<Chessman>().DestroyMovePlates();

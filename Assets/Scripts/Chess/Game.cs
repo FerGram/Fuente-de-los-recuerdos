@@ -25,6 +25,7 @@ public class Game : MonoBehaviour
 
     //Game Ending
     private bool gameOver = false;
+    private bool win = false;
 
     //Unity calls this right when the game starts, there are a few built in functions
     //that Unity can call for you
@@ -32,7 +33,7 @@ public class Game : MonoBehaviour
     {
         // Creamos las piezas en una posicion del tablero
         pieces = new GameObject[] { Create("white_rook", 0, 0),
-            Create("white_bishop", 2, 0), Create("white_pawn", 0, 1) };
+            Create("white_bishop", 2, 0)};
 
         playerKnight = Create("black_knight", 0, 7);
 
@@ -79,32 +80,32 @@ public class Game : MonoBehaviour
         if (x < 0 || y < 0 || x >= positions.GetLength(0) || y >= positions.GetLength(1)) return false;
         return true;
     }
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <returns></returns>
-    public string GetCurrentPlayer()
-    {
-        return "a";
-    }
 
     public bool IsGameOver()
     {
         return gameOver;
     }
-    /*
-    public void NextTurn()
+
+    public void MoveEnemies()
     {
-        if (currentPlayer == "white")
+        for (int i = 0; i < positions.GetLength(0); i++)
         {
-            currentPlayer = "black";
+            for (int j = 0; j < positions.GetLength(1); j++)
+            {
+                if (positions[i,j] != null)
+                {
+                    GameObject obj = positions[i, j];
+                    Chessman cm = obj.GetComponent<Chessman>(); //We have access to the GameObject, we need the script
+                    cm.name = name; //This is a built in variable that Unity has, so we did not have to declare it before
+                    cm.SetXBoard(x);
+                    cm.SetYBoard(y);
+                    cm.Activate(); //It has everything set up so it can now Activate()
+                }
+            }
+
         }
-        else
-        {
-            currentPlayer = "white";
-        }
+
     }
-    */
 
     public void Update()
     {
@@ -112,19 +113,23 @@ public class Game : MonoBehaviour
         {
             gameOver = false;
 
-            //Using UnityEngine.SceneManagement is needed here
-            SceneManager.LoadScene("Game"); //Restarts the game by loading the scene over again
+            if (win)
+            {
+                // next level
+            }
+            else
+            {
+                // repeat level
+            }
         }
     }
     
-    public void Winner(string playerWinner)
+    public void Winner(string text)
     {
         gameOver = true;
 
         //Using UnityEngine.UI is needed here
-        GameObject.FindGameObjectWithTag("WinnerText").GetComponent<Text>().enabled = true;
-        GameObject.FindGameObjectWithTag("WinnerText").GetComponent<Text>().text = playerWinner + " is the winner";
-
-        GameObject.FindGameObjectWithTag("RestartText").GetComponent<Text>().enabled = true;
+        GameObject.FindGameObjectWithTag("NextLevelTextChess").GetComponent<Text>().enabled = true;
+        GameObject.FindGameObjectWithTag("NextLevelTextChess").GetComponent<Text>().text = "Click for the next level";
     }
 }

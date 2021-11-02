@@ -20,6 +20,8 @@ public class Chessman : MonoBehaviour
     public Sprite black_knight;
     public Sprite white_bishop, white_rook, white_pawn;
 
+    private bool forward = true;
+
     public void Activate()
     {
         //Get the game controller
@@ -68,6 +70,11 @@ public class Chessman : MonoBehaviour
         this.transform.position = new Vector3(x, y, -1.0f);
     }
 
+    public bool GetPlayer()
+    {
+        return player;
+    }
+
     public int GetXBoard()
     {
         return xBoard;
@@ -88,14 +95,21 @@ public class Chessman : MonoBehaviour
         yBoard = y;
     }
 
-    private void OnMouseUp()
+    public bool GetForward()
     {
-        if (!controller.GetComponent<Game>().IsGameOver())
-        {
-            //Remove all moveplates relating to previously selected piece
-            DestroyMovePlates();
+        return forward;
+    }
 
-            //Create new MovePlates
+    public void SetForward(bool value)
+    {
+        forward = value;
+    }
+
+    private void OnMouseUp() // MODIFICAR PARA MOSTRAR LAS MOVEPLATES DE TODAS LAS PIEZAS
+    {
+        if (!controller.GetComponent<Game>().IsGameOver() && player == true)
+        {
+            //Create own new MovePlates
             InitiateMovePlates();
         }
     }

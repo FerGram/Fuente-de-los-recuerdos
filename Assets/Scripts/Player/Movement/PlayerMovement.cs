@@ -21,8 +21,6 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        if (DialogueManager.Instance.isPlaying) return;
-        
         if (Input.GetMouseButtonDown(1)){
 
             Vector2 mousePos = GetMouseInWorldCoords();

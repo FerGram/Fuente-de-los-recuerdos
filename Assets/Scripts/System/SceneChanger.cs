@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class SceneChanger : MonoBehaviour
 {
-    [SerializeField] string _sceneToChange;
+    [SerializeField] ScenesEnum _sceneToChange;
 
     private void OnTriggerEnter2D(Collider2D other) {
         
@@ -11,6 +11,6 @@ public class SceneChanger : MonoBehaviour
     }
 
     private void LoadScene(){
-        SceneManager.LoadScene(_sceneToChange);
+        SceneManager.LoadScene(_sceneToChange.ToString());
     }
 }

@@ -1,23 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 using Ink.Runtime;
 
-public class DialogueManager : Singleton<DialogueManager>
+public class DialogueDisplay : MonoBehaviour
 {
-    [Header("Dialogue UI")]
+   [Header("Dialogue UI")]
     [SerializeField] GameObject _dialoguePanel;
     [SerializeField] TextMeshProUGUI _nameText;
     [SerializeField] TextMeshProUGUI _dialogueText;
+    [SerializeField] Image _greyBackground;
 
     [Header("Choices UI")]
     [SerializeField] GameObject[] _choices;
 
     [Header("Other")]
     [SerializeField] float _displaySpeed = 0.01f;
+    [SerializeField] GameEvent _dialogueEnded;
 
-    private Story _currentStory; 
+    private Story _currentDialogue; 
     private TextMeshProUGUI[] _choicesText;
 
     public bool isPlaying {get; private set;}
@@ -27,6 +30,7 @@ public class DialogueManager : Singleton<DialogueManager>
     private void Awake() {
 
         _dialoguePanel.SetActive(false);
+
         isPlaying = false;
         
         _choicesText = new TextMeshProUGUI[_choices.Length];
@@ -46,9 +50,11 @@ public class DialogueManager : Singleton<DialogueManager>
 
     public void StartDialogue(TextAsset dialogue){
 
-        _currentStory = new Story(dialogue.text);
+        _currentDialogue = new Story(dialogue.text);
         isPlaying = true;
+
         _dialoguePanel.SetActive(true);
+        //_greyBackground.CrossFadeAlpha(1f, 0.5f, false);
 
         ContinueStory();
     }
@@ -57,9 +63,9 @@ public class DialogueManager : Singleton<DialogueManager>
     {
         StopAllCoroutines();
 
-        if (_currentStory.canContinue){
+        if (_currentDialogue.canContinue){
 
-            string text = _currentStory.Continue();
+            string text = _currentDialogue.Continue();
             StartCoroutine(TypeWritingEffect(text));
             DisplayChoices();
         }
@@ -71,6 +77,8 @@ public class DialogueManager : Singleton<DialogueManager>
         isPlaying = false;
         _dialoguePanel.SetActive(false);
         _dialogueText.text = "";
+        
+        _dialogueEnded.Raise();
     }
 
     IEnumerator TypeWritingEffect (string text){
@@ -88,7 +96,7 @@ public class DialogueManager : Singleton<DialogueManager>
     private void DisplayChoices(){
 
         //Get current INK file choices
-        List<Choice> currentChoices = _currentStory.currentChoices;
+        List<Choice> currentChoices = _currentDialogue.currentChoices;
 
         //INK file choices can't be 0 or more than the amount of choice G.O given to the UI 
         if (currentChoices.Count == 0) return;
@@ -109,6 +117,6 @@ public class DialogueManager : Singleton<DialogueManager>
     //This method is triggered in the OnClick Event of Choice GameObject
     public void MakeChoice(int choiceIndex){
 
-        _currentStory.ChooseChoiceIndex(choiceIndex);
+        _currentDialogue.ChooseChoiceIndex(choiceIndex);
     }
 }

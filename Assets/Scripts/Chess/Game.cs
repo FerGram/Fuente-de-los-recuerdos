@@ -14,11 +14,14 @@ public class Game : MonoBehaviour
     // Cantidad de enemigos --> seguramente cambiara en cada nivel
     // O puede ser la cantidad de piezas en pantalla --> siendo pieces[0] la pieza del jugador ?¿
     private GameObject playerKnight;
+    private GameObject Goal;
+    public int GoalPosX = 5;
+    public int GoalPosY = 5;
     private GameObject[] pieces = new GameObject[8]; 
 
     //Game Ending
     private bool gameOver = false;
-    private bool win = false;
+    public bool win = false;
 
     /*
         There are 2 enemy pieces: rook and bishop:
@@ -39,13 +42,14 @@ public class Game : MonoBehaviour
     public void Start()
     {
         // Creamos las piezas en una posicion del tablero
-        pieces = new GameObject[] { Create("rookVertical_BottomToTop", 2, 0, true), Create("rookVertical_TopToBottom", 6, 7, false),
-                                    Create("rookHorizontal_LeftToRight", 0, 5, true), Create("rookHorizotanl_RightToLeft", 7, 4, false),
+        pieces = new GameObject[] { Create("rookVertical_BottomToTop", 2, 0, true), /*Create("rookVertical_TopToBottom", 6, 7, false),/*
+                                    /*Create("rookHorizontal_LeftToRight", 0, 5, true),*/ Create("rookHorizotanl_RightToLeft", 7, 4, false),
 
-                                    Create("bishopLeft_Top", 2, 7, false), Create("bishopLeft_Bottom", 7, 0, true),
-                                    Create("bishopRight_Top", 5, 7, false), Create("bishopRight_Bottom", 0, 0, true)};
+                                    Create("bishopLeft_Top", 2, 7, false), /*Create("bishopLeft_Bottom", 7, 0, true),
+                                    Create("bishopRight_Top", 5, 7, false), Create("bishopRight_Bottom", 0, 0, true)*/};
 
         playerKnight = Create("player", 4, 4);
+        Goal = Create("goal", GoalPosX, GoalPosY);
 
         //Set all piece positions on the positions board
         for (int i = 0; i < pieces.Length; i++)
@@ -53,6 +57,7 @@ public class Game : MonoBehaviour
             SetPosition(pieces[i]);
         }
         SetPosition(playerKnight);
+        SetPosition(Goal);
     }
 
     public GameObject Create(string name, int x, int y, bool forward)
@@ -279,6 +284,9 @@ public class Game : MonoBehaviour
         if (x == playerX && y == playerY )
         {
             Destroy(GameObject.Find("player"));
+            // Temporal
+            SceneManager.LoadScene("Victor");
+            // Temporal
             return true;
         }
         else
@@ -300,6 +308,16 @@ public class Game : MonoBehaviour
             else
             {
                 // repeat level
+            }
+        }
+        else if (win)
+        {
+            for (int i = 0; i < pieces.Length; i++)
+            {
+                Destroy(pieces[i]);
+                // Temporal
+                SceneManager.LoadScene("Victor");
+                // Temporal
             }
         }
     }

@@ -24,6 +24,7 @@ public class MovePlate : MonoBehaviour
             //Set to red
             gameObject.GetComponent<SpriteRenderer>().color = new Color(1.0f, 0.0f, 0.0f, 1.0f);
         }
+
     }
 
     public void OnMouseUp()
@@ -50,11 +51,18 @@ public class MovePlate : MonoBehaviour
         //Update the matrix
         controller.GetComponent<Game>().SetPosition(reference);
 
+        //Destroy the move plates including self
+        reference.GetComponent<Chessman>().DestroyMovePlates();
+
+        if (reference.GetComponent<Chessman>().GetXBoard() == controller.GetComponent<Game>().GoalPosX &&
+            reference.GetComponent<Chessman>().GetYBoard() == controller.GetComponent<Game>().GoalPosY)
+        {
+            controller.GetComponent<Game>().win = true;
+        }
+
         //Move all the other pieces
         controller.GetComponent<Game>().MoveEnemies();
 
-        //Destroy the move plates including self
-        reference.GetComponent<Chessman>().DestroyMovePlates();
     }
 
     public void SetCoords(int x, int y)

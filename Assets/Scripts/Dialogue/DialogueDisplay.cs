@@ -11,6 +11,8 @@ public class DialogueDisplay : MonoBehaviour
     [SerializeField] GameObject _dialoguePanel;
     [SerializeField] TextMeshProUGUI _nameText;
     [SerializeField] TextMeshProUGUI _dialogueText;
+    [SerializeField] Image _mainCharImage;
+    [SerializeField] Image _NPCImage;
     [SerializeField] Image _greyBackground;
 
     [Header("Choices UI")]
@@ -48,15 +50,23 @@ public class DialogueDisplay : MonoBehaviour
         if (Input.GetMouseButtonDown(0)) ContinueStory();
     }
 
-    public void StartDialogue(TextAsset dialogue){
+    public void StartDialogue(TextAsset dialogue)
+    {
 
         _currentDialogue = new Story(dialogue.text);
         isPlaying = true;
 
         _dialoguePanel.SetActive(true);
-        //_greyBackground.CrossFadeAlpha(1f, 0.5f, false);
+        DisplayBackground(true);
 
         ContinueStory();
+    }
+
+    public void DisplayBackground(bool value)
+    {
+        Animator bgAnim = _greyBackground.GetComponent<Animator>();
+
+        if (bgAnim != null) bgAnim.SetBool("fade", value);
     }
 
     private void ContinueStory()
@@ -66,7 +76,10 @@ public class DialogueDisplay : MonoBehaviour
         if (_currentDialogue.canContinue){
 
             string text = _currentDialogue.Continue();
+            text = SetDialogueName(text);
             StartCoroutine(TypeWritingEffect(text));
+
+            DisplayTalkingCharacter();
             DisplayChoices();
         }
         else{ ExitDialogue(); }
@@ -77,8 +90,25 @@ public class DialogueDisplay : MonoBehaviour
         isPlaying = false;
         _dialoguePanel.SetActive(false);
         _dialogueText.text = "";
-        
+        DisplayBackground(false);
+
+        //Game Event
         _dialogueEnded.Raise();
+    }
+
+    private string SetDialogueName(string text){
+
+        int i = 0;
+        string name = "";
+        while(text[i] != '.'){
+
+            name += text[i];
+            i++;
+        }
+        _nameText.text = name;
+        text = text.Substring(i + 1);
+
+        return text;
     }
 
     IEnumerator TypeWritingEffect (string text){
@@ -91,6 +121,23 @@ public class DialogueDisplay : MonoBehaviour
             yield return new WaitForSeconds(_displaySpeed);
         }
 
+    }
+
+    private void DisplayTalkingCharacter(){
+
+        Animator mainAnimator = _mainCharImage.gameObject.GetComponent<Animator>();
+        Animator NPCAnimator = _NPCImage.gameObject.GetComponent<Animator>();
+
+        if (_nameText.text == "Patrick"){
+
+            if (mainAnimator != null) mainAnimator.SetBool("talks", true);
+            if (NPCAnimator != null) NPCAnimator.SetBool("talks", false);
+        }
+        else{
+
+            if (mainAnimator != null) mainAnimator.SetBool("talks", false);
+            if (NPCAnimator != null) NPCAnimator.SetBool("talks", true);
+        }
     }
 
     private void DisplayChoices(){
@@ -117,6 +164,13 @@ public class DialogueDisplay : MonoBehaviour
     //This method is triggered in the OnClick Event of Choice GameObject
     public void MakeChoice(int choiceIndex){
 
+        //Deactivate choices
+        for (int i = 0; i < _choices.Length; i++)
+        {
+            _choices[i].SetActive(false);
+        }
+
+        //Tell Ink the choice made
         _currentDialogue.ChooseChoiceIndex(choiceIndex);
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public enum ScenesEnum
 {
-    FerPreviousScene,
-    FerMainScene,
-    FerNextScene
+    Fer_PreviousScene,
+    Fer_MainScene,
+    Fer_NextScene
 };

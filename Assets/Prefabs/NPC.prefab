@@ -94,6 +94,7 @@ GameObject:
   - component: {fileID: 7018475752081965210}
   - component: {fileID: 7018475752081965211}
   - component: {fileID: 7018475752081965212}
+  - component: {fileID: 1963562974}
   m_Layer: 0
   m_Name: Visual
   m_TagString: Untagged
@@ -110,7 +111,7 @@ Transform:
   m_GameObject: {fileID: 7018475752081965213}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.01, y: 0.0605, z: 0}
-  m_LocalScale: {x: 2.4277687, y: 1.126, z: 1.126}
+  m_LocalScale: {x: 5.62, y: 2.66, z: 1}
   m_Children: []
   m_Father: {fileID: 7018475752423707605}
   m_RootOrder: 0
@@ -183,6 +184,18 @@ MonoBehaviour:
   normalStrenght: 5
   normalSmoothing: 1
   computingNormal: 0
+--- !u!114 &1963562974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7018475752081965213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab15a63f61d755748a9ee4cafbf647a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7018475752186200852
 GameObject:
   m_ObjectHideFlags: 0
@@ -255,6 +268,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _visualCue: {fileID: 7018475751041442502}
   _inkJSON: {fileID: 4900000, guid: 3a0508317503247488d1ceb1c71feea0, type: 3}
+  _triggerDialogue: {fileID: 11400000, guid: 50ecbc7cbd57cc241a7a892a45f2c2aa, type: 2}
+  _dialogueDisplay: {fileID: 0}
 --- !u!1 &7018475752423707606
 GameObject:
   m_ObjectHideFlags: 0
@@ -278,7 +293,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7018475752423707606}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.0188, y: 1.9793, z: 1}
   m_Children:

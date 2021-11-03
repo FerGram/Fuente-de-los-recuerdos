@@ -6,12 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Fer/Fer - Previous Scene.unity
+    path: Assets/Scenes/Fer/Fer_Previous cene.unity
     guid: 41216670d8749ef4d8a11d18f6308db2
   - enabled: 1
-    path: Assets/Scenes/Fer/Fer - Default.unity
+    path: Assets/Scenes/Fer/Fer_MainScene.unity
     guid: 16258819b737a854d81464c64358a4ea
   - enabled: 1
-    path: Assets/Scenes/Fer/Fer - Next Scene.unity
+    path: Assets/Scenes/Fer/Fer_NextScene.unity
     guid: 31fa21b424b4dae448633eb24e614776
   m_configObjects: {}

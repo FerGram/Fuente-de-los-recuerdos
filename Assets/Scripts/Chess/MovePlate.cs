@@ -41,8 +41,6 @@ public class MovePlate : MonoBehaviour
         //Set the Chesspiece's original location to be empty
         controller.GetComponent<Game>().SetPositionEmpty(reference.GetComponent<Chessman>().GetXBoard(), 
             reference.GetComponent<Chessman>().GetYBoard());
-        controller.GetComponent<Game>().SetPositionEmptyAux(reference.GetComponent<Chessman>().GetXBoard(),
-            reference.GetComponent<Chessman>().GetYBoard());
 
         //Move reference chess piece to this position
         reference.GetComponent<Chessman>().SetXBoard(matrixX);
@@ -51,7 +49,6 @@ public class MovePlate : MonoBehaviour
 
         //Update the matrix
         controller.GetComponent<Game>().SetPosition(reference);
-        controller.GetComponent<Game>().SetPositionAux(reference);
 
         //Move all the other pieces
         controller.GetComponent<Game>().MoveEnemies();

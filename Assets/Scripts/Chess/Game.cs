@@ -10,33 +10,61 @@ public class Game : MonoBehaviour
     public GameObject chesspiece;
 
     private GameObject[,] positions = new GameObject[8, 8];
-    private GameObject[,] positionsAux = new GameObject[8, 8];
 
     // Cantidad de enemigos --> seguramente cambiara en cada nivel
     // O puede ser la cantidad de piezas en pantalla --> siendo pieces[0] la pieza del jugador ?¿
     private GameObject playerKnight;
-    private GameObject[] pieces = new GameObject[2]; 
+    private GameObject[] pieces = new GameObject[8]; 
 
     //Game Ending
     private bool gameOver = false;
     private bool win = false;
 
+    /*
+        There are 2 enemy pieces: rook and bishop:
+
+        The rook can move Bottom-Top, Top-Bottom, Left-Right, Rigth-Left:
+            - Bottom-Top: "rookVertical_BottomToTop"
+            - Top-Bottom: "rookVertical_TopToBottom"
+            - Left-Right: "rookHorizontal_LeftToRight"
+            - Right-Left: "rookHorizotanl_RightToLeft"
+
+        The bishop has a similar movement but diagonally:
+            - Left-Right-Top: "bishopLeft_Top"
+            - Left-Right-Bottom: "bishopLeft_Bottom"
+            - Right-Left-Top: "bishopRight_Top"
+            - Right-Left-Bottom: "bishopRight_Bottom"
+    */
+
     public void Start()
     {
         // Creamos las piezas en una posicion del tablero
-        pieces = new GameObject[] { Create("white_rook", 0, 0),
-            Create("white_bishop", 2, 0)};
+        pieces = new GameObject[] { Create("rookVertical_BottomToTop", 2, 0, true), Create("rookVertical_TopToBottom", 6, 7, false),
+                                    Create("rookHorizontal_LeftToRight", 0, 5, true), Create("rookHorizotanl_RightToLeft", 7, 4, false),
 
-        playerKnight = Create("black_knight", 1, 2);
+                                    Create("bishopLeft_Top", 2, 7, false), Create("bishopLeft_Bottom", 7, 0, true),
+                                    Create("bishopRight_Top", 5, 7, false), Create("bishopRight_Bottom", 0, 0, true)};
+
+        playerKnight = Create("player", 4, 4);
 
         //Set all piece positions on the positions board
         for (int i = 0; i < pieces.Length; i++)
         {
             SetPosition(pieces[i]);
-            SetPositionAux(pieces[i]);
         }
         SetPosition(playerKnight);
-        SetPositionAux(playerKnight);
+    }
+
+    public GameObject Create(string name, int x, int y, bool forward)
+    {
+        GameObject obj = Instantiate(chesspiece, new Vector3(0, 0, -1), Quaternion.identity);
+        Chessman cm = obj.GetComponent<Chessman>(); //We have access to the GameObject, we need the script
+        cm.name = name; //This is a built in variable that Unity has, so we did not have to declare it before
+        cm.SetXBoard(x);
+        cm.SetYBoard(y);
+        cm.SetForward(forward);
+        cm.Activate(); //It has everything set up so it can now Activate()
+        return obj;
     }
 
     public GameObject Create(string name, int x, int y)
@@ -58,22 +86,9 @@ public class Game : MonoBehaviour
         positions[cm.GetXBoard(), cm.GetYBoard()] = obj;
     }
 
-    public void SetPositionAux(GameObject obj)
-    {
-        Chessman cm = obj.GetComponent<Chessman>();
-
-        //Overwrites either empty space or whatever was there
-        positionsAux[cm.GetXBoard(), cm.GetYBoard()] = obj;
-    }
-
     public void SetPositionEmpty(int x, int y)
     {
         positions[x, y] = null;
-    }
-
-    public void SetPositionEmptyAux(int x, int y)
-    {
-        positionsAux[x, y] = null;
     }
 
     public GameObject GetPosition(int x, int y)
@@ -92,103 +107,74 @@ public class Game : MonoBehaviour
         return gameOver;
     }
 
-    // Seguramente en vez de MoveEnemies es mejor tener una funcion de movimiento para cada tipo de pieza
-    // Es decir, una funcion para mover la torre y otra funcion para mover el alfil
     public void MoveEnemies()
     {
-        for (int i = 0; i < positions.GetLength(0); i++)
+        
+        for (int i = 0; i < pieces.Length; i++)
         {
-            for (int j = 0; j < positions.GetLength(1); j++)
+            if (pieces[i] != null)
             {
-                if (positions[i,j] != null)
+                GameObject obj = pieces[i];
+                Chessman cm = obj.GetComponent<Chessman>(); //We have access to the GameObject, we need the script
+
+                int boardX = cm.GetXBoard();
+                int boardY = cm.GetYBoard();
+
+                //Set the Chesspiece's original location to be empty
+
+                SetPositionEmpty(boardX, boardY);
+
+                if (cm.name == "rookVertical_BottomToTop" || cm.name == "rookVertical_TopToBottom")
                 {
-                    GameObject obj = positions[i, j];
-                    Chessman cm = obj.GetComponent<Chessman>(); //We have access to the GameObject, we need the script
-
-                    int boardX = cm.GetXBoard();
-                    int boardY = cm.GetYBoard();
-
-                    //Set the Chesspiece's original location to be empty
-
-                    SetPositionEmpty(boardX, boardY);
-                    SetPositionEmptyAux(boardX, boardY);
-
-                    if (cm.name == "white_rook")
-                    {
-                        Debug.Log("Rook is about to move");
-                        MoveRook(obj, true);
-                    }
-                    else if (cm.name == "white_bishop")
-                    {
-                        MoveBishop(obj, false);
-                    }
-
+                    MoveRook(obj, true);
                 }
-            }
-
-        }
-
-        PositionsAuxIntoPosition();
-    }
-
-    void PositionsAuxIntoPosition()
-    {
-        for (int i = 0; i < positions.GetLength(0); i++)
-        {
-            for (int j = 0; j < positions.GetLength(1); j++)
-            {
-                if (positions[i,j] != positionsAux[i,j])
+                else if (cm.name == "rookHorizontal_LeftToRight" || cm.name == "rookHorizotanl_RightToLeft")
                 {
-                    positions[i, j] = positionsAux[i, j];
+                    MoveRook(obj, false);
                 }
-            }
-        }
+                else if (cm.name == "bishopLeft_Top" || cm.name == "bishopLeft_Bottom")
+                {
+                    MoveBishop(obj, true);
+                }
+                else
+                {
+                    MoveBishop(obj, false);
+                }
+              }
+          }
     }
-
-    int DiagonalLimit(Chessman cm, bool left)
-    {
-        int x = cm.GetXBoard();
-        int y = cm.GetYBoard();
-
-        while(true)
-        {
-            if (x == 7 || y == 7) break;
-            x += 1;
-            y += 1;
-        }
-
-
-    }
-
-    // PENSAR EN EL LIMITE DEL MOVIMIENTO DIAGONAL DEL ALFIL, tanto en la funcion como en el for de MoveBishop()
 
     void MoveBishop(GameObject obj, bool left)
     {
         Chessman cm = obj.GetComponent<Chessman>();
+        int aux;
 
         if (cm.GetForward() == true)
         {
             Debug.Log("Goes Forward");
             if (left)
             {
+                aux = cm.GetXBoard();
                 Debug.Log("Goes to the Left 1");
-                for (int i = cm.GetYBoard() + 1; i <= DiagonalLimit(cm, left); i++)
+                for (int i = cm.GetYBoard() + 1; i <= aux; i++)
                 {
-                    cm.SetXBoard(cm.GetXBoard());
+                    cm.SetXBoard(cm.GetXBoard() - 1);
                     cm.SetYBoard(i);
                     cm.SetCoords();
                     if (CheckCollision(cm.GetXBoard(), i)) break;
+
                 }
             }
             else
             {
+                aux = 7 - cm.GetXBoard();
                 Debug.Log("Goes to the Right 1");
-                for (int i = cm.GetXBoard() + 1; i <= DiagonalLimit(cm, left); i++)
+                for (int i = cm.GetYBoard() + 1; i <= aux; i++)
                 {
-                    cm.SetXBoard(i);
-                    cm.SetYBoard(cm.GetYBoard());
+                    cm.SetXBoard(cm.GetXBoard() + 1);
+                    cm.SetYBoard(i);
                     cm.SetCoords();
-                    if (CheckCollision(i, cm.GetYBoard())) break;
+                    if (CheckCollision(cm.GetXBoard(), i)) break;
                 }
             }
 
@@ -199,10 +185,11 @@ public class Game : MonoBehaviour
             Debug.Log("Goes Backward");
             if (left)
             {
+                aux = cm.GetXBoard();
                 Debug.Log("Goes to the Left 2");
-                for (int i = cm.GetYBoard() - 1; i >= DiagonalLimit(cm, left); i--)
+                for (int i = cm.GetYBoard() - 1; i >= aux; i--)
                 {
-                    cm.SetXBoard(cm.GetXBoard());
+                    cm.SetXBoard(cm.GetXBoard() + 1);
                     cm.SetYBoard(i);
                     cm.SetCoords();
                     if (CheckCollision(cm.GetXBoard(), i)) break;
@@ -210,20 +197,20 @@ public class Game : MonoBehaviour
             }
             else
             {
+                aux = 7 - cm.GetXBoard();
                 Debug.Log("Goes to the Right 2");
-                for (int i = cm.GetXBoard() - 1; i >= DiagonalLimit(cm, left); i--)
+                for (int i = cm.GetYBoard() - 1; i >= aux; i--)
                 {
-                    cm.SetXBoard(i);
-                    cm.SetYBoard(cm.GetYBoard());
+                    cm.SetXBoard(cm.GetXBoard() - 1);
+                    cm.SetYBoard(i);
                     cm.SetCoords();
-                    if (CheckCollision(i, cm.GetYBoard())) break;
+                    if (CheckCollision(cm.GetXBoard(), i)) break;
                 }
             }
 
             cm.SetForward(true);
         }
-        Debug.Log("Pasa por SetPositionAux(obj)");
-        SetPositionAux(obj);
+        SetPosition(obj);
     }
 
     void MoveRook(GameObject obj, bool vertical)
@@ -232,10 +219,8 @@ public class Game : MonoBehaviour
 
         if (cm.GetForward() == true)
         {
-            Debug.Log("Goes Forward");
             if (vertical)
             {
-                Debug.Log("Goes Vertical 1");
                 for (int i = cm.GetYBoard() + 1; i <= 7; i++)
                 {
                     cm.SetXBoard(cm.GetXBoard());
@@ -259,10 +244,8 @@ public class Game : MonoBehaviour
         }
         else // !cm.GetForward()
         {
-            Debug.Log("Goes Backward");
             if (vertical)
             {
-                Debug.Log("Goes Vertical 2");
                 for (int i = cm.GetYBoard() - 1; i >= 0; i--)
                 {
                     cm.SetXBoard(cm.GetXBoard());
@@ -284,8 +267,7 @@ public class Game : MonoBehaviour
 
             cm.SetForward(true);
         }
-        Debug.Log("Pasa por SetPositionAux(obj)");
-        SetPositionAux(obj);
+        SetPosition(obj);
     }
 
     bool CheckCollision(int x, int y)
@@ -296,7 +278,7 @@ public class Game : MonoBehaviour
 
         if (x == playerX && y == playerY )
         {
-            Destroy(GameObject.Find("black_knight"));
+            Destroy(GameObject.Find("player"));
             return true;
         }
         else

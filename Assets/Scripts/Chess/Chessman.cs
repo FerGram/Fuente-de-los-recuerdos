@@ -20,7 +20,7 @@ public class Chessman : MonoBehaviour
     public Sprite black_knight;
     public Sprite white_bishop, white_rook, white_pawn;
 
-    private bool forward = true;
+    private bool forward;
 
     public void Activate()
     {
@@ -34,21 +34,19 @@ public class Chessman : MonoBehaviour
 
         switch (this.name)
         {
-            /*
-            case "black_queen": this.GetComponent<SpriteRenderer>().sprite = black_queen; player = "black"; break;
-            case "black_bishop": this.GetComponent<SpriteRenderer>().sprite = black_bishop; player = "black"; break;
-            case "black_king": this.GetComponent<SpriteRenderer>().sprite = black_king; player = "black"; break;
-            case "black_rook": this.GetComponent<SpriteRenderer>().sprite = black_rook; player = "black"; break;
-            case "black_pawn": this.GetComponent<SpriteRenderer>().sprite = black_pawn; player = "black"; break;
-            */
-            case "black_knight": this.GetComponent<SpriteRenderer>().sprite = black_knight; player = true; break;
+            case "player": this.GetComponent<SpriteRenderer>().sprite = black_knight; player = true; break;
 
-            //case "white_queen": this.GetComponent<SpriteRenderer>().sprite = white_queen; player = "white"; break;
-            //case "white_knight": this.GetComponent<SpriteRenderer>().sprite = white_knight; player = "white"; break;
-            case "white_bishop": this.GetComponent<SpriteRenderer>().sprite = white_bishop; player = false; break;
-            //case "white_king": this.GetComponent<SpriteRenderer>().sprite = white_king; player = "white"; break;
-            case "white_rook": this.GetComponent<SpriteRenderer>().sprite = white_rook; player = false; break;
-            case "white_pawn": this.GetComponent<SpriteRenderer>().sprite = white_pawn; player = false; break;
+            case "bishopLeft_Top": this.GetComponent<SpriteRenderer>().sprite = white_bishop; player = false; break;
+            case "bishopLeft_Bottom": this.GetComponent<SpriteRenderer>().sprite = white_bishop; player = false; break;
+            case "bishopRight_Top": this.GetComponent<SpriteRenderer>().sprite = white_bishop; player = false; break;
+            case "bishopRight_Bottom": this.GetComponent<SpriteRenderer>().sprite = white_bishop; player = false; break;
+
+            case "rookVertical_BottomToTop": this.GetComponent<SpriteRenderer>().sprite = white_rook; player = false; break;
+            case "rookVertical_TopToBottom": this.GetComponent<SpriteRenderer>().sprite = white_rook; player = false; break;
+            case "rookHorizontal_LeftToRight": this.GetComponent<SpriteRenderer>().sprite = white_rook; player = false; break;
+            case "rookHorizotanl_RightToLeft": this.GetComponent<SpriteRenderer>().sprite = white_rook; player = false; break;
+
+            //case "white_pawn": this.GetComponent<SpriteRenderer>().sprite = white_pawn; player = false; break;
         }
     }
 
@@ -128,34 +126,22 @@ public class Chessman : MonoBehaviour
     {
         switch (this.name)
         {
-            case "black_queen":
-            case "white_queen":
-                LineMovePlate(1, 0);
-                LineMovePlate(0, 1);
-                LineMovePlate(1, 1);
-                LineMovePlate(-1, 0);
-                LineMovePlate(0, -1);
-                LineMovePlate(-1, -1);
-                LineMovePlate(-1, 1);
-                LineMovePlate(1, -1);
-                break;
-            case "black_knight":
-            case "white_knight":
+            case "player":
                 LMovePlate();
                 break;
-            case "black_bishop":
-            case "white_bishop":
+            case "bishopLeft_Top":
+            case "bishopLeft_Bottom":
+            case "bishopRight_Top":
+            case "bishopRight_Bottom":
                 LineMovePlate(1, 1);
                 LineMovePlate(1, -1);
                 LineMovePlate(-1, 1);
                 LineMovePlate(-1, -1);
                 break;
-            case "black_king":
-            case "white_king":
-                SurroundMovePlate();
-                break;
-            case "black_rook":
-            case "white_rook":
+            case "rookVertical_BottomToTop":
+            case "rookVertical_TopToBottom":
+            case "rookHorizontal_LeftToRight":
+            case "rookHorizotanl_RightToLeft":
                 LineMovePlate(1, 0);
                 LineMovePlate(0, 1);
                 LineMovePlate(-1, 0);

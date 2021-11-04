@@ -268,8 +268,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _visualCue: {fileID: 7018475751041442502}
   _inkJSON: {fileID: 4900000, guid: 3a0508317503247488d1ceb1c71feea0, type: 3}
+  _JSONDataContainer: {fileID: 11400000, guid: c9e4d071041c07a498e78c3cdc36e9ae, type: 2}
   _triggerDialogue: {fileID: 11400000, guid: 50ecbc7cbd57cc241a7a892a45f2c2aa, type: 2}
-  _dialogueDisplay: {fileID: 0}
 --- !u!1 &7018475752423707606
 GameObject:
   m_ObjectHideFlags: 0

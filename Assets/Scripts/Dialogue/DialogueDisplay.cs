@@ -21,6 +21,7 @@ public class DialogueDisplay : MonoBehaviour
     [Header("Other")]
     [SerializeField] float _displaySpeed = 0.01f;
     [SerializeField] GameEvent _dialogueEnded;
+    [SerializeField] JSONDataContainer _JSONDataContainer;
 
     private Story _currentDialogue; 
     private TextMeshProUGUI[] _choicesText;
@@ -50,19 +51,26 @@ public class DialogueDisplay : MonoBehaviour
         if (Input.GetMouseButtonDown(0)) ContinueStory();
     }
 
-    public void StartDialogue(TextAsset dialogue)
+    public void StartDialogue()
     {
-
-        _currentDialogue = new Story(dialogue.text);
+        _currentDialogue = new Story(_JSONDataContainer.GetJSON().text);
         isPlaying = true;
 
-        _dialoguePanel.SetActive(true);
-        DisplayBackground(true);
+        DisplayDialogueUI(true);
+        FadeInBackground(true);
 
         ContinueStory();
     }
 
-    public void DisplayBackground(bool value)
+    private void DisplayDialogueUI(bool value){
+
+        for (int i = 0; i < gameObject.transform.childCount; i++)
+        {
+            gameObject.transform.GetChild(i).gameObject.SetActive(value);
+        }
+    }
+
+    public void FadeInBackground(bool value)
     {
         Animator bgAnim = _greyBackground.GetComponent<Animator>();
 
@@ -90,7 +98,9 @@ public class DialogueDisplay : MonoBehaviour
         isPlaying = false;
         _dialoguePanel.SetActive(false);
         _dialogueText.text = "";
-        DisplayBackground(false);
+        
+        DisplayDialogueUI(false);
+        FadeInBackground(false);
 
         //Game Event
         _dialogueEnded.Raise();

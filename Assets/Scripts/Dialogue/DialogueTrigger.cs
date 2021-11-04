@@ -6,8 +6,9 @@ public class DialogueTrigger : MonoBehaviour
 {
     [SerializeField] GameObject _visualCue;
     [SerializeField] TextAsset _inkJSON;
+    [SerializeField] JSONDataContainer _JSONDataContainer;
     [SerializeField] GameEvent _triggerDialogue;
-    [SerializeField] DialogueDisplay _dialogueDisplay; //TODO REMOVE
+    //[SerializeField] DialogueDisplay _dialogueDisplay; //TODO REMOVE
 
     private bool _playerInRange = false;
 
@@ -24,7 +25,7 @@ public class DialogueTrigger : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.Space)){ //TO-Do Change click on character
 
-                _dialogueDisplay.StartDialogue(_inkJSON); //How to decide which one to play if more than 1?
+                _JSONDataContainer.SetJSON(_inkJSON);
                 _triggerDialogue.Raise(); //Triggers GameEvent
                 Debug.Log("Dialogue triggered!");
             }

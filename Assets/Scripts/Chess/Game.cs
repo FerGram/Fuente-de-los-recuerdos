@@ -13,11 +13,11 @@ public class Game : MonoBehaviour
 
     // Cantidad de enemigos --> seguramente cambiara en cada nivel
     // O puede ser la cantidad de piezas en pantalla --> siendo pieces[0] la pieza del jugador ?¿
-    private GameObject playerKnight;
+    public GameObject playerKnight;
     private GameObject Goal;
     public int GoalPosX = 5;
-    public int GoalPosY = 5;
-    private GameObject[] pieces = new GameObject[8]; 
+    public int GoalPosY = 6;
+    public GameObject[] pieces = new GameObject[8]; 
 
     //Game Ending
     private bool gameOver = false;
@@ -42,11 +42,11 @@ public class Game : MonoBehaviour
     public void Start()
     {
         // Creamos las piezas en una posicion del tablero
-        pieces = new GameObject[] { Create("rookVertical_BottomToTop", 2, 0, true), /*Create("rookVertical_TopToBottom", 6, 7, false),/*
-                                    /*Create("rookHorizontal_LeftToRight", 0, 5, true),*/ Create("rookHorizotanl_RightToLeft", 7, 4, false),
+        pieces = new GameObject[] { Create("rookVertical_BottomToTop", 3, 0, true), /*Create("rookVertical_TopToBottom", 6, 7, false),*/
+                                    /*Create("rookHorizontal_LeftToRight", 0, 5, true),*/ /*Create("rookHorizotanl_RightToLeft", 7, 4, false),*/
 
-                                    Create("bishopLeft_Top", 2, 7, false), /*Create("bishopLeft_Bottom", 7, 0, true),
-                                    Create("bishopRight_Top", 5, 7, false), Create("bishopRight_Bottom", 0, 0, true)*/};
+                                    /*Create("bishopLeft_Top", 2, 7, false),*/ /*Create("bishopLeft_Bottom", 7, 0, true),
+                                    Create("bishopRight_Top", 5, 7, false),*/ Create("bishopRight_Bottom", 0, 0, true)};
 
         playerKnight = Create("player", 4, 4);
         Goal = Create("goal", GoalPosX, GoalPosY);
@@ -126,7 +126,6 @@ public class Game : MonoBehaviour
                 int boardY = cm.GetYBoard();
 
                 //Set the Chesspiece's original location to be empty
-
                 SetPositionEmpty(boardX, boardY);
 
                 if (cm.name == "rookVertical_BottomToTop" || cm.name == "rookVertical_TopToBottom")
@@ -156,61 +155,55 @@ public class Game : MonoBehaviour
 
         if (cm.GetForward() == true)
         {
-            Debug.Log("Goes Forward");
             if (left)
             {
                 aux = cm.GetXBoard();
-                Debug.Log("Goes to the Left 1");
                 for (int i = cm.GetYBoard() + 1; i <= aux; i++)
                 {
                     cm.SetXBoard(cm.GetXBoard() - 1);
                     cm.SetYBoard(i);
-                    cm.SetCoords();
                     if (CheckCollision(cm.GetXBoard(), i)) break;
 
                 }
+                cm.SetBishopCoordsCoroutine();
             }
             else
             {
                 aux = 7 - cm.GetXBoard();
-                Debug.Log("Goes to the Right 1");
                 for (int i = cm.GetYBoard() + 1; i <= aux; i++)
                 {
                     cm.SetXBoard(cm.GetXBoard() + 1);
                     cm.SetYBoard(i);
-                    cm.SetCoords();
                     if (CheckCollision(cm.GetXBoard(), i)) break;
                 }
+                cm.SetBishopCoordsCoroutine();
             }
 
             cm.SetForward(false);
         }
         else // !cm.GetForward()
         {
-            Debug.Log("Goes Backward");
             if (left)
             {
                 aux = cm.GetXBoard();
-                Debug.Log("Goes to the Left 2");
                 for (int i = cm.GetYBoard() - 1; i >= aux; i--)
                 {
                     cm.SetXBoard(cm.GetXBoard() + 1);
                     cm.SetYBoard(i);
-                    cm.SetCoords();
                     if (CheckCollision(cm.GetXBoard(), i)) break;
                 }
+                cm.SetBishopCoordsCoroutine();
             }
             else
             {
                 aux = 7 - cm.GetXBoard();
-                Debug.Log("Goes to the Right 2");
                 for (int i = cm.GetYBoard() - 1; i >= aux; i--)
                 {
                     cm.SetXBoard(cm.GetXBoard() - 1);
                     cm.SetYBoard(i);
-                    cm.SetCoords();
                     if (CheckCollision(cm.GetXBoard(), i)) break;
                 }
+                cm.SetBishopCoordsCoroutine();
             }
 
             cm.SetForward(true);
@@ -230,9 +223,11 @@ public class Game : MonoBehaviour
                 {
                     cm.SetXBoard(cm.GetXBoard());
                     cm.SetYBoard(i);
-                    cm.SetCoords();
+                    
                     if (CheckCollision(cm.GetXBoard(), i)) break;
-                }  
+
+                }
+                cm.SetRookCoordsCoroutine();
             }
             else
             {
@@ -240,9 +235,9 @@ public class Game : MonoBehaviour
                 {
                     cm.SetXBoard(i);
                     cm.SetYBoard(cm.GetYBoard());
-                    cm.SetCoords();
                     if (CheckCollision(i, cm.GetYBoard())) break;
                 }
+                cm.SetRookCoordsCoroutine();
             }
 
             cm.SetForward(false);
@@ -255,9 +250,9 @@ public class Game : MonoBehaviour
                 {
                     cm.SetXBoard(cm.GetXBoard());
                     cm.SetYBoard(i);
-                    cm.SetCoords();
                     if (CheckCollision(cm.GetXBoard(), i)) break;
                 }
+                cm.SetRookCoordsCoroutine();
             }
             else
             {
@@ -265,9 +260,9 @@ public class Game : MonoBehaviour
                 {
                     cm.SetXBoard(i);
                     cm.SetYBoard(cm.GetYBoard());
-                    cm.SetCoords();
                     if (CheckCollision(i, cm.GetYBoard())) break;
                 }
+                cm.SetRookCoordsCoroutine();
             }
 
             cm.SetForward(true);
@@ -275,7 +270,7 @@ public class Game : MonoBehaviour
         SetPosition(obj);
     }
 
-    bool CheckCollision(int x, int y)
+    public bool CheckCollision(int x, int y)
     {
         Chessman player = playerKnight.GetComponent<Chessman>();
         int playerX = player.GetXBoard();
@@ -283,9 +278,8 @@ public class Game : MonoBehaviour
 
         if (x == playerX && y == playerY )
         {
-            Destroy(GameObject.Find("player"));
             // Temporal
-            SceneManager.LoadScene("Victor");
+            //SceneManager.LoadScene("Victor");
             // Temporal
             return true;
         }

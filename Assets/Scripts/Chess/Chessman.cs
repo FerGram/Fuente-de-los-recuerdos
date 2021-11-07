@@ -15,12 +15,14 @@ public class Chessman : MonoBehaviour
 
     //Variable for keeping track of the player it belongs to "black" or "white"
     private bool player;
+    public bool playerDead = false;
 
     //References to all the possible Sprites that this Chesspiece could be
     public Sprite black_knight;
     public Sprite white_bishop, white_rook, white_pawn;
 
     private bool forward;
+
 
     public void Activate()
     {
@@ -52,7 +54,8 @@ public class Chessman : MonoBehaviour
         }
     }
 
-    public void SetCoords()
+    // Prepares SetCoords variables
+    Vector2 InitSetCoords()
     {
         //Get the board value in order to convert to xy coords
         float x = xBoard;
@@ -66,9 +69,109 @@ public class Chessman : MonoBehaviour
         x += -2.3f;
         y += -2.3f;
 
-        //Set actual unity values
-        this.transform.position = new Vector3(x, y, -1.0f);
+        return new Vector2(x, y);
     }
+
+    public void SetCoords()
+    {
+        Vector2 pos = InitSetCoords();
+
+        this.transform.position = new Vector3(pos.x, pos.y, -1.0f);
+    }
+
+    public void SetRookCoordsCoroutine()
+    {
+        Vector2 pos = InitSetCoords();
+
+        StartCoroutine(SmoothRookMovement(pos.x, pos.y));
+    }
+
+    public void SetBishopCoordsCoroutine()
+    {
+        Vector2 pos = InitSetCoords();
+
+        StartCoroutine(SmoothBishopMovement(pos.x, pos.y));
+    }
+
+    IEnumerator SmoothRookMovement(float nextX, float nextY)
+    {
+        // Actual position
+        float x = this.transform.position.x;
+        float y = this.transform.position.y;
+
+        // Distance between actual positions and next positions
+        float distanceX = Mathf.Abs(x - nextX);
+        float distanceY = Mathf.Abs(y - nextY);
+
+        // Just a number
+        int n = 4;
+
+        float distance;
+        if (distanceX > distanceY)
+        {
+            if (x > nextX) distance = -distanceX / n;
+            else distance = distanceX / n;
+            for (int i = 0; i <= n; i++)
+            {
+                yield return new WaitForSeconds(.05f);
+                this.transform.position = new Vector3(x, y, -1.0f);
+                x += distance;
+            }
+        }
+        else
+        {
+            if (y > nextX) distance = -distanceY / n;
+            else distance = distanceY / n;
+
+            for (int i = 0; i <= n; i++)
+            {
+                yield return new WaitForSeconds(.05f);
+                this.transform.position = new Vector3(x, y, -1.0f);
+
+                y += distance;
+            }
+        }
+
+        if (controller.GetComponent<Game>().CheckCollision(xBoard, yBoard))
+        {
+            Destroy(GameObject.Find("player"));
+        }
+    }
+
+    IEnumerator SmoothBishopMovement(float nextX, float nextY)
+    {
+        // Actual position
+        float x = this.transform.position.x;
+        float y = this.transform.position.y;
+
+        // Distance between actual positions and next positions
+        float distanceX = Mathf.Abs(x - nextX);
+        float distanceY = Mathf.Abs(y - nextY);
+
+        // Just a number
+        int n = 4;
+
+        if (x > nextX) distanceX = -distanceX / n;
+        else distanceX = distanceX / n;
+
+        if (y > nextY) distanceY = -distanceY / n;
+        else distanceY = distanceY / n;
+
+        for (int i = 0; i <= n; i++)
+        {
+            yield return new WaitForSeconds(.05f);
+            this.transform.position = new Vector3(x, y, -1.0f);
+            x += distanceX;
+            y += distanceY;
+        }
+        
+        // Destroys the player once the piece gets to the same player's position
+        if (controller.GetComponent<Game>().CheckCollision(xBoard, yBoard))
+        {
+            Destroy(GameObject.Find("player"));
+        }
+    }
+
 
     public bool GetPlayer()
     {
@@ -109,8 +212,14 @@ public class Chessman : MonoBehaviour
     {
         if (!controller.GetComponent<Game>().IsGameOver() && player == true)
         {
-            //Create own MovePlates
-            InitiateMovePlates();
+            //Create player's MovePlates
+            LMovePlate();
+
+            Game sc = controller.GetComponent<Game>();
+            for (int i = 0; i < sc.pieces.Length; i++)
+            {
+                InitiateMovePlates(sc.pieces[i]);
+            }
         }
     }
 
@@ -124,36 +233,105 @@ public class Chessman : MonoBehaviour
         }
     }
 
-    void InitiateMovePlates()
+    // Poner cosas omg omg omg omg jaja
+    void InitiateMovePlates(GameObject piece)
     {
-        switch (this.name)
+        bool isForward = GetComponent<Chessman>().GetForward();
+        string name = GetComponent<Chessman>().name;
+        switch (name)
         {
-            case "player":
-                LMovePlate();
-                break;
             case "bishopLeft_Top":
+                if (isForward)
+                {
+
+                }
+                else
+                {
+
+                }
+                break;
             case "bishopLeft_Bottom":
+                if (isForward)
+                {
+
+                }
+                else
+                {
+
+                }
+                break;
             case "bishopRight_Top":
+                if (isForward)
+                {
+
+                }
+                else
+                {
+
+                }
+                break;
             case "bishopRight_Bottom":
+                if (isForward)
+                {
+
+                }
+                else
+                {
+
+                }
+                break;
+                /*
                 LineMovePlate(1, 1);
                 LineMovePlate(1, -1);
                 LineMovePlate(-1, 1);
                 LineMovePlate(-1, -1);
-                break;
+                */
             case "rookVertical_BottomToTop":
+                if (isForward)
+                {
+
+                }
+                else
+                {
+
+                }
+                break;
             case "rookVertical_TopToBottom":
-            case "rookHorizontal_LeftToRight":
-            case "rookHorizotanl_RightToLeft":
-                LineMovePlate(1, 0);
+                if (isForward)
+                {
+
+                }
+                else
+                {
+
+                }
                 LineMovePlate(0, 1);
-                LineMovePlate(-1, 0);
+                break;
                 LineMovePlate(0, -1);
+            case "rookHorizontal_LeftToRight":
+                if (isForward)
+                {
+
+                }
+                else
+                {
+
+                }
+                LineMovePlate(0, 1);
                 break;
-            case "black_pawn":
-                PawnMovePlate(xBoard, yBoard - 1);
+                LineMovePlate(1, 0);
+            case "rookHorizotanl_RightToLeft":
+                if (isForward)
+                {
+
+                }
+                else
+                {
+
+                }
+                LineMovePlate(0, 1);
                 break;
-            case "white_pawn":
-                PawnMovePlate(xBoard, yBoard + 1);
+                LineMovePlate(-1, 0);
                 break;
         }
     }
@@ -185,6 +363,7 @@ public class Chessman : MonoBehaviour
         PointMovePlate(xBoard - 2, yBoard - 1);
     }
 
+    // Goal may be a King or maybe not
     void SurroundMovePlate()
     {
         PointMovePlate(xBoard, yBoard + 1);
@@ -211,28 +390,6 @@ public class Chessman : MonoBehaviour
             else if (cp.GetComponent<Chessman>().player != player)
             {
                 MovePlateAttackSpawn(x, y);
-            }
-        }
-    }
-
-    void PawnMovePlate(int x, int y)
-    {
-        Game sc = controller.GetComponent<Game>();
-        if (sc.PositionOnBoard(x, y))
-        {
-            if (sc.GetPosition(x, y) == null)
-            {
-                MovePlateSpawn(x, y);
-            }
-
-            if (sc.PositionOnBoard(x + 1, y) && sc.GetPosition(x + 1, y) != null && sc.GetPosition(x + 1, y).GetComponent<Chessman>().player != player)
-            {
-                MovePlateAttackSpawn(x + 1, y);
-            }
-
-            if (sc.PositionOnBoard(x - 1, y) && sc.GetPosition(x - 1, y) != null && sc.GetPosition(x - 1, y).GetComponent<Chessman>().player != player)
-            {
-                MovePlateAttackSpawn(x - 1, y);
             }
         }
     }

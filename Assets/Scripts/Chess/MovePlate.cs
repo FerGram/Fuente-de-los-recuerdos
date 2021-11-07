@@ -24,6 +24,12 @@ public class MovePlate : MonoBehaviour
             //Set to red
             gameObject.GetComponent<SpriteRenderer>().color = new Color(1.0f, 0.0f, 0.0f, 1.0f);
         }
+        else if (!reference.GetComponent<Chessman>().GetPlayer())
+        {
+            Debug.Log("Setting MovePlate's color to gray");
+            //Set to gray
+            gameObject.GetComponent<SpriteRenderer>().color = new Color(0.5f, 0.5f, 0.5f, 1.0f);
+        }
 
     }
 

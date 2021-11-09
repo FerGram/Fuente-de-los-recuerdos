@@ -19,7 +19,7 @@ public class Chessman : MonoBehaviour
 
     //References to all the possible Sprites that this Chesspiece could be
     public Sprite black_knight;
-    public Sprite white_bishop, white_rook, white_pawn;
+    public Sprite white_bishop, white_rook, goal;
 
     private bool forward;
 
@@ -38,7 +38,7 @@ public class Chessman : MonoBehaviour
         {
             case "player": this.GetComponent<SpriteRenderer>().sprite = black_knight; player = true; break;
 
-            case "goal": this.GetComponent<SpriteRenderer>().sprite = white_pawn; player = false; break;
+            case "goal": this.GetComponent<SpriteRenderer>().sprite = goal; player = false; break;
 
             case "bishopLeft_Top": this.GetComponent<SpriteRenderer>().sprite = white_bishop; player = false; break;
             case "bishopLeft_Bottom": this.GetComponent<SpriteRenderer>().sprite = white_bishop; player = false; break;
@@ -50,7 +50,6 @@ public class Chessman : MonoBehaviour
             case "rookHorizontal_LeftToRight": this.GetComponent<SpriteRenderer>().sprite = white_rook; player = false; break;
             case "rookHorizotanl_RightToLeft": this.GetComponent<SpriteRenderer>().sprite = white_rook; player = false; break;
 
-            //case "white_pawn": this.GetComponent<SpriteRenderer>().sprite = white_pawn; player = false; break;
         }
     }
 
@@ -208,18 +207,18 @@ public class Chessman : MonoBehaviour
         forward = value;
     }
 
-    private void OnMouseUp() // MODIFICAR PARA MOSTRAR LAS MOVEPLATES DE TODAS LAS PIEZAS
+    private void OnMouseUp()
     {
         if (!controller.GetComponent<Game>().IsGameOver() && player == true)
         {
-            //Create player's MovePlates
-            LMovePlate();
-
             Game sc = controller.GetComponent<Game>();
             for (int i = 0; i < sc.pieces.Length; i++)
             {
-                InitiateMovePlates(sc.pieces[i]);
+                if(sc.pieces[i] != null) InitiateMovePlates(sc.pieces[i]);
             }
+
+            //Create player's MovePlates
+            LMovePlate();
         }
     }
 
@@ -229,123 +228,90 @@ public class Chessman : MonoBehaviour
         GameObject[] movePlates = GameObject.FindGameObjectsWithTag("MovePlate");
         for (int i = 0; i < movePlates.Length; i++)
         {
-            Destroy(movePlates[i]); //Be careful with this function "Destroy" it is asynchronous
+            Destroy(movePlates[i]);
         }
     }
 
-    // Poner cosas omg omg omg omg jaja
     void InitiateMovePlates(GameObject piece)
     {
-        bool isForward = GetComponent<Chessman>().GetForward();
-        string name = GetComponent<Chessman>().name;
-        switch (name)
+        switch(piece.name)
         {
             case "bishopLeft_Top":
-                if (isForward)
-                {
-
-                }
-                else
-                {
-
-                }
-                break;
             case "bishopLeft_Bottom":
-                if (isForward)
+                if (piece.GetComponent<Chessman>().forward)
                 {
-
+                    LineMovePlate(-1, 1, piece);
                 }
                 else
                 {
+                    LineMovePlate(1, -1, piece);
 
                 }
                 break;
             case "bishopRight_Top":
-                if (isForward)
-                {
-
-                }
-                else
-                {
-
-                }
-                break;
             case "bishopRight_Bottom":
-                if (isForward)
+                if (piece.GetComponent<Chessman>().forward)
                 {
-
+                    LineMovePlate(1, 1, piece);
                 }
                 else
                 {
-
+                    LineMovePlate(-1, -1, piece);
                 }
                 break;
-                /*
-                LineMovePlate(1, 1);
-                LineMovePlate(1, -1);
-                LineMovePlate(-1, 1);
-                LineMovePlate(-1, -1);
-                */
             case "rookVertical_BottomToTop":
-                if (isForward)
+                if (piece.GetComponent<Chessman>().forward)
                 {
-
+                    LineMovePlate(0, 1, piece);
                 }
                 else
                 {
-
+                    LineMovePlate(0, -1, piece);
                 }
                 break;
             case "rookVertical_TopToBottom":
-                if (isForward)
+                if (piece.GetComponent<Chessman>().forward)
                 {
-
+                    LineMovePlate(0, -1, piece);
                 }
                 else
                 {
-
+                    LineMovePlate(0, 1, piece);
                 }
-                LineMovePlate(0, 1);
                 break;
-                LineMovePlate(0, -1);
             case "rookHorizontal_LeftToRight":
-                if (isForward)
+                if (piece.GetComponent<Chessman>().forward)
                 {
-
+                    LineMovePlate(1, 0, piece);
                 }
                 else
                 {
-
+                    LineMovePlate(-1, 0, piece);
                 }
-                LineMovePlate(0, 1);
                 break;
-                LineMovePlate(1, 0);
             case "rookHorizotanl_RightToLeft":
-                if (isForward)
+                if (piece.GetComponent<Chessman>().forward)
                 {
-
+                    LineMovePlate(-1, 0, piece);
                 }
                 else
                 {
-
+                    LineMovePlate(1, 0, piece);
                 }
-                LineMovePlate(0, 1);
-                break;
-                LineMovePlate(-1, 0);
                 break;
         }
     }
 
-    void LineMovePlate(int xIncrement, int yIncrement)
+    void LineMovePlate(int xIncrement, int yIncrement, GameObject piece)
     {
         Game sc = controller.GetComponent<Game>();
 
-        int x = xBoard + xIncrement;
-        int y = yBoard + yIncrement;
+        int x = piece.GetComponent<Chessman>().xBoard + xIncrement;
+        int y = piece.GetComponent<Chessman>().yBoard + yIncrement;
 
-        while (sc.PositionOnBoard(x, y) && sc.GetPosition(x, y) == null)
+        while (sc.PositionOnBoard(x, y) && (sc.GetPosition(x, y) == null || sc.GetPosition(x,y).GetComponent<Chessman>().player))
         {
-            MovePlateSpawn(x, y);
+            MovePlateSpawn(x, y, piece);
             x += xIncrement;
             y += yIncrement;
         }
@@ -413,6 +379,28 @@ public class Chessman : MonoBehaviour
 
         MovePlate mpScript = mp.GetComponent<MovePlate>();
         mpScript.SetReference(gameObject);
+        mpScript.SetCoords(matrixX, matrixY);
+    }
+
+    void MovePlateSpawn(int matrixX, int matrixY, GameObject piece)
+    {
+        //Get the board value in order to convert to xy coords
+        float x = matrixX;
+        float y = matrixY;
+
+        //Adjust by variable offset
+        x *= 0.66f;
+        y *= 0.66f;
+
+        //Add constants (pos 0,0)
+        x += -2.3f;
+        y += -2.3f;
+
+        //Set actual unity values
+        GameObject mp = Instantiate(movePlate, new Vector3(x, y, -3.0f), Quaternion.identity);
+
+        MovePlate mpScript = mp.GetComponent<MovePlate>();
+        mpScript.SetReference(piece);
         mpScript.SetCoords(matrixX, matrixY);
     }
 

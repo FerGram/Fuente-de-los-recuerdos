@@ -19,9 +19,11 @@ public class Game : MonoBehaviour
     public int GoalPosY = 6;
     public GameObject[] pieces = new GameObject[8]; 
 
-    //Game Ending
+    //Game Restart and Continuity
     private bool gameOver = false;
     public bool win = false;
+
+    private int lvl = 1;
 
     /*
         There are 2 enemy pieces: rook and bishop:
@@ -39,25 +41,16 @@ public class Game : MonoBehaviour
             - Right-Left-Bottom: "bishopRight_Bottom"
     */
 
+    
+    //pieces = new GameObject[] { Create("rookVertical_BottomToTop", 3, 0, true), /*Create("rookVertical_TopToBottom", 6, 7, false),*/
+    //                                /*Create("rookHorizontal_LeftToRight", 0, 5, true),*/ /*Create("rookHorizotanl_RightToLeft", 7, 4, false),*/
+    //
+    //                                Create("bishopLeft_Top", 2, 7, false), /*Create("bishopLeft_Bottom", 7, 0, true),
+    //                                Create("bishopRight_Top", 5, 7, false),*/ /*Create("bishopRight_Bottom", 0, 0, true)*/};
+    
     public void Start()
     {
-        // Creamos las piezas en una posicion del tablero
-        pieces = new GameObject[] { Create("rookVertical_BottomToTop", 3, 0, true), /*Create("rookVertical_TopToBottom", 6, 7, false),*/
-                                    /*Create("rookHorizontal_LeftToRight", 0, 5, true),*/ /*Create("rookHorizotanl_RightToLeft", 7, 4, false),*/
-
-                                    /*Create("bishopLeft_Top", 2, 7, false),*/ /*Create("bishopLeft_Bottom", 7, 0, true),
-                                    Create("bishopRight_Top", 5, 7, false),*/ Create("bishopRight_Bottom", 0, 0, true)};
-
-        playerKnight = Create("player", 4, 4);
-        Goal = Create("goal", GoalPosX, GoalPosY);
-
-        //Set all piece positions on the positions board
-        for (int i = 0; i < pieces.Length; i++)
-        {
-            SetPosition(pieces[i]);
-        }
-        SetPosition(playerKnight);
-        SetPosition(Goal);
+        Level1();
     }
 
     public GameObject Create(string name, int x, int y, bool forward)
@@ -289,7 +282,7 @@ public class Game : MonoBehaviour
         }
     }
 
-    public void Update()
+    void Update()
     {
         if (gameOver == true && Input.GetMouseButtonDown(0))
         {
@@ -306,13 +299,18 @@ public class Game : MonoBehaviour
         }
         else if (win)
         {
+            win = false;
+            lvl++;
+
             for (int i = 0; i < pieces.Length; i++)
             {
-                Destroy(pieces[i]);
-                // Temporal
-                SceneManager.LoadScene("Victor");
-                // Temporal
+                if(pieces[i] != null) Destroy(pieces[i]);          
             }
+
+            Destroy(GameObject.Find("player"));
+            Destroy(GameObject.Find("goal"));
+
+            NextLvL();
         }
     }
     
@@ -323,5 +321,87 @@ public class Game : MonoBehaviour
         //Using UnityEngine.UI is needed here
         GameObject.FindGameObjectWithTag("NextLevelTextChess").GetComponent<Text>().enabled = true;
         GameObject.FindGameObjectWithTag("NextLevelTextChess").GetComponent<Text>().text = "Click for the next level";
+    }
+
+    void NextLvL()
+    {
+        if (lvl == 1)
+        {
+            Level1();
+        }
+        else if (lvl == 2)
+        {
+            Level2();
+        }
+        else if (lvl == 3)
+        {
+            Level3();
+        }
+        else
+        {
+            // PLAYER HAS COMPLETED EVERY LVL
+        }
+    }
+
+    void Level1()
+    {
+        pieces = new GameObject[] { Create("rookVertical_BottomToTop", 3, 0, true),
+
+                                    Create("bishopLeft_Top", 2, 7, false)};
+
+        playerKnight = Create("player", 4, 4);
+        Goal = Create("goal", GoalPosX, GoalPosY);
+
+        //Set all piece positions on the positions board
+        for (int i = 0; i < pieces.Length; i++)
+        {
+            SetPosition(pieces[i]);
+        }
+        SetPosition(playerKnight);
+        SetPosition(Goal);
+    }
+
+    void Level2()
+    {
+        GoalPosX = 3;
+        GoalPosY = 3;
+
+        pieces = new GameObject[] { Create("rookVertical_BottomToTop", 2, 0, true),
+
+                                    Create("bishopLeft_Bottom", 4, 0, true)};
+
+        playerKnight = Create("player", 0, 7);
+        Goal = Create("goal", GoalPosX, GoalPosY);
+
+
+        //Set all piece positions on the positions board
+        for (int i = 0; i < pieces.Length; i++)
+        {
+            SetPosition(pieces[i]);
+        }
+        SetPosition(playerKnight);
+        SetPosition(Goal);
+    }
+
+    void Level3()
+    {
+        GoalPosX = 7;
+        GoalPosY = 7;
+
+        pieces = new GameObject[] { Create("rookHorizontal_LeftToRight", 0, 3, true),
+
+                                    Create("bishopLeft_Bottom", 7, 0, true)};
+
+        playerKnight = Create("player", 0, 7);
+        Goal = Create("goal", GoalPosX, GoalPosY);
+
+
+        //Set all piece positions on the positions board
+        for (int i = 0; i < pieces.Length; i++)
+        {
+            SetPosition(pieces[i]);
+        }
+        SetPosition(playerKnight);
+        SetPosition(Goal);
     }
 }

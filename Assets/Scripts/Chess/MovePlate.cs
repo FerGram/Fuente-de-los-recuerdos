@@ -67,6 +67,7 @@ public class MovePlate : MonoBehaviour
                 reference.GetComponent<Chessman>().GetYBoard() == controller.GetComponent<Game>().GoalPosY)
             {
                 controller.GetComponent<Game>().win = true;
+                controller.GetComponent<Game>().text = true;
             }
 
             //Move all the other pieces

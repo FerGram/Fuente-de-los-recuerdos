@@ -24,6 +24,7 @@ public class Game : MonoBehaviour
     public bool win = false;
 
     private int lvl = 1;
+    public bool text = false;
 
     /*
         There are 2 enemy pieces: rook and bishop:
@@ -48,6 +49,7 @@ public class Game : MonoBehaviour
     
     public void Start()
     {
+        GameObject.Find("Text").GetComponent<Text>().enabled = false;
         Level1();
     }
 
@@ -270,6 +272,7 @@ public class Game : MonoBehaviour
         if (x == playerX && y == playerY )
         {
             gameOver = true;
+            text = true;
             return true;
         }
         else
@@ -280,32 +283,40 @@ public class Game : MonoBehaviour
 
     void Update()
     {
-        if (gameOver == true && Input.GetMouseButtonDown(0))
+        Debug.Log(win);
+        Debug.Log(text);
+        if (gameOver && text)
+        {
+            GameObject.Find("Text").GetComponent<Text>().enabled = true;
+            GameObject.Find("Text").GetComponent<Text>().text = "Left Click to try again";
+            text = false;
+        }
+        else if (win && text)
+        {
+            GameObject.Find("Text").GetComponent<Text>().enabled = true;
+            GameObject.Find("Text").GetComponent<Text>().text = "Left Click to advance to the next level";
+            text = false;
+        }
+
+        if (gameOver && Input.GetMouseButtonDown(0))
         {
             gameOver = false;
+            GameObject.Find("Text").GetComponent<Text>().enabled = false;
 
             DestroyPieces();
 
             LoadLvL();
         }
-        else if (win)
+        else if (win && Input.GetMouseButtonDown(0))
         {
             win = false;
+            GameObject.Find("Text").GetComponent<Text>().enabled = false;
             lvl++;
 
             DestroyPieces();
 
             LoadLvL();
         }
-    }
-
-    public void Winner(string text)
-    {
-        gameOver = true;
-
-        //Using UnityEngine.UI is needed here
-        GameObject.FindGameObjectWithTag("NextLevelTextChess").GetComponent<Text>().enabled = true;
-        GameObject.FindGameObjectWithTag("NextLevelTextChess").GetComponent<Text>().text = "Click for the next level";
     }
 
     void DestroyPieces()

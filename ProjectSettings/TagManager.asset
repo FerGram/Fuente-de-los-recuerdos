@@ -6,6 +6,7 @@ TagManager:
   tags:
   - NPC
   - MovePlate
+  - Text
   layers:
   - Default
   - TransparentFX

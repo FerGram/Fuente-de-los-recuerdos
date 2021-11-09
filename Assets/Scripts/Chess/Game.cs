@@ -35,10 +35,8 @@ public class Game : MonoBehaviour
             - Right-Left: "rookHorizotanl_RightToLeft"
 
         The bishop has a similar movement but diagonally:
-            - Left-Right-Top: "bishopLeft_Top"
-            - Left-Right-Bottom: "bishopLeft_Bottom"
-            - Right-Left-Top: "bishopRight_Top"
-            - Right-Left-Bottom: "bishopRight_Bottom"
+            - Left-Right: "bishopLeft"
+            - Right-Left: "bishopRight"
     */
 
     
@@ -129,7 +127,7 @@ public class Game : MonoBehaviour
                 {
                     MoveRook(obj, false);
                 }
-                else if (cm.name == "bishopLeft_Top" || cm.name == "bishopLeft_Bottom")
+                else if (cm.name == "bishopLeft")
                 {
                     MoveBishop(obj, true);
                 }
@@ -271,9 +269,7 @@ public class Game : MonoBehaviour
 
         if (x == playerX && y == playerY )
         {
-            // Temporal
-            //SceneManager.LoadScene("Victor");
-            // Temporal
+            gameOver = true;
             return true;
         }
         else
@@ -288,32 +284,21 @@ public class Game : MonoBehaviour
         {
             gameOver = false;
 
-            if (win)
-            {
-                // next level
-            }
-            else
-            {
-                // repeat level
-            }
+            DestroyPieces();
+
+            LoadLvL();
         }
         else if (win)
         {
             win = false;
             lvl++;
 
-            for (int i = 0; i < pieces.Length; i++)
-            {
-                if(pieces[i] != null) Destroy(pieces[i]);          
-            }
+            DestroyPieces();
 
-            Destroy(GameObject.Find("player"));
-            Destroy(GameObject.Find("goal"));
-
-            NextLvL();
+            LoadLvL();
         }
     }
-    
+
     public void Winner(string text)
     {
         gameOver = true;
@@ -323,7 +308,18 @@ public class Game : MonoBehaviour
         GameObject.FindGameObjectWithTag("NextLevelTextChess").GetComponent<Text>().text = "Click for the next level";
     }
 
-    void NextLvL()
+    void DestroyPieces()
+    {
+        for (int i = 0; i < pieces.Length; i++)
+        {
+            if (pieces[i] != null) Destroy(pieces[i]);
+        }
+
+        Destroy(GameObject.Find("player"));
+        Destroy(GameObject.Find("goal"));
+    }
+
+    void LoadLvL()
     {
         if (lvl == 1)
         {
@@ -347,7 +343,7 @@ public class Game : MonoBehaviour
     {
         pieces = new GameObject[] { Create("rookVertical_BottomToTop", 3, 0, true),
 
-                                    Create("bishopLeft_Top", 2, 7, false)};
+                                    Create("bishopLeft", 2, 7, false)};
 
         playerKnight = Create("player", 4, 4);
         Goal = Create("goal", GoalPosX, GoalPosY);
@@ -368,7 +364,7 @@ public class Game : MonoBehaviour
 
         pieces = new GameObject[] { Create("rookVertical_BottomToTop", 2, 0, true),
 
-                                    Create("bishopLeft_Bottom", 4, 0, true)};
+                                    Create("bishopLeft", 4, 0, true)};
 
         playerKnight = Create("player", 0, 7);
         Goal = Create("goal", GoalPosX, GoalPosY);
@@ -385,12 +381,12 @@ public class Game : MonoBehaviour
 
     void Level3()
     {
-        GoalPosX = 7;
+        GoalPosX = 6;
         GoalPosY = 7;
 
         pieces = new GameObject[] { Create("rookHorizontal_LeftToRight", 0, 3, true),
 
-                                    Create("bishopLeft_Bottom", 7, 0, true)};
+                                    Create("bishopRight", 0, 0, true)};
 
         playerKnight = Create("player", 0, 7);
         Goal = Create("goal", GoalPosX, GoalPosY);

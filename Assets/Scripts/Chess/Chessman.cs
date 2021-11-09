@@ -40,10 +40,8 @@ public class Chessman : MonoBehaviour
 
             case "goal": this.GetComponent<SpriteRenderer>().sprite = goal; player = false; break;
 
-            case "bishopLeft_Top": this.GetComponent<SpriteRenderer>().sprite = white_bishop; player = false; break;
-            case "bishopLeft_Bottom": this.GetComponent<SpriteRenderer>().sprite = white_bishop; player = false; break;
-            case "bishopRight_Top": this.GetComponent<SpriteRenderer>().sprite = white_bishop; player = false; break;
-            case "bishopRight_Bottom": this.GetComponent<SpriteRenderer>().sprite = white_bishop; player = false; break;
+            case "bishopLeft": this.GetComponent<SpriteRenderer>().sprite = white_bishop; player = false; break;
+            case "bishopRight": this.GetComponent<SpriteRenderer>().sprite = white_bishop; player = false; break;
 
             case "rookVertical_BottomToTop": this.GetComponent<SpriteRenderer>().sprite = white_rook; player = false; break;
             case "rookVertical_TopToBottom": this.GetComponent<SpriteRenderer>().sprite = white_rook; player = false; break;
@@ -236,8 +234,7 @@ public class Chessman : MonoBehaviour
     {
         switch(piece.name)
         {
-            case "bishopLeft_Top":
-            case "bishopLeft_Bottom":
+            case "bishopLeft":
                 if (piece.GetComponent<Chessman>().forward)
                 {
                     LineMovePlate(-1, 1, piece);
@@ -248,8 +245,7 @@ public class Chessman : MonoBehaviour
 
                 }
                 break;
-            case "bishopRight_Top":
-            case "bishopRight_Bottom":
+            case "bishopRight":
                 if (piece.GetComponent<Chessman>().forward)
                 {
                     LineMovePlate(1, 1, piece);
@@ -329,7 +325,6 @@ public class Chessman : MonoBehaviour
         PointMovePlate(xBoard - 2, yBoard - 1);
     }
 
-    // Goal may be a King or maybe not
     void SurroundMovePlate()
     {
         PointMovePlate(xBoard, yBoard + 1);
@@ -353,7 +348,7 @@ public class Chessman : MonoBehaviour
             {
                 MovePlateSpawn(x, y);
             }
-            else if (cp.GetComponent<Chessman>().player != player)
+            else
             {
                 MovePlateAttackSpawn(x, y);
             }

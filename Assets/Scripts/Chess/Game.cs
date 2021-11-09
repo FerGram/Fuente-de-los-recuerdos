@@ -285,16 +285,22 @@ public class Game : MonoBehaviour
     {
         Debug.Log(win);
         Debug.Log(text);
-        if (gameOver && text)
+        if (gameOver && text && lvl != 3)
         {
             GameObject.Find("Text").GetComponent<Text>().enabled = true;
             GameObject.Find("Text").GetComponent<Text>().text = "Left Click to try again";
             text = false;
         }
-        else if (win && text)
+        else if (win && text && lvl != 3)
         {
             GameObject.Find("Text").GetComponent<Text>().enabled = true;
             GameObject.Find("Text").GetComponent<Text>().text = "Left Click to advance to the next level";
+            text = false;
+        }
+        else if (win && text && lvl == 3)
+        {
+            GameObject.Find("Text").GetComponent<Text>().enabled = true;
+            GameObject.Find("Text").GetComponent<Text>().text = "COMPLETED";
             text = false;
         }
 
@@ -347,6 +353,7 @@ public class Game : MonoBehaviour
         else
         {
             // PLAYER HAS COMPLETED EVERY LVL
+            //next Scene (?)
         }
     }
 

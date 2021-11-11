@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class Game : MonoBehaviour
+public class ChessGame : MonoBehaviour
 {
     //Reference from Unity IDE
     public GameObject chesspiece;
@@ -283,8 +283,6 @@ public class Game : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(win);
-        Debug.Log(text);
         if (gameOver && text && lvl != 3)
         {
             GameObject.Find("Text").GetComponent<Text>().enabled = true;

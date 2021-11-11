@@ -44,12 +44,12 @@ public class MovePlate : MonoBehaviour
             //Destroy the victim Chesspiece
             if (attack)
             {
-                GameObject cp = controller.GetComponent<Game>().GetPosition(matrixX, matrixY);
+                GameObject cp = controller.GetComponent<ChessGame>().GetPosition(matrixX, matrixY);
                 Destroy(cp);
             }
 
             //Set the Chesspiece's original location to be empty
-            controller.GetComponent<Game>().SetPositionEmpty(reference.GetComponent<Chessman>().GetXBoard(),
+            controller.GetComponent<ChessGame>().SetPositionEmpty(reference.GetComponent<Chessman>().GetXBoard(),
                 reference.GetComponent<Chessman>().GetYBoard());
 
             //Move reference chess piece to this position
@@ -58,20 +58,20 @@ public class MovePlate : MonoBehaviour
             reference.GetComponent<Chessman>().SetCoords();
 
             //Update the matrix
-            controller.GetComponent<Game>().SetPosition(reference);
+            controller.GetComponent<ChessGame>().SetPosition(reference);
 
             //Destroy the move plates including self
             reference.GetComponent<Chessman>().DestroyMovePlates();
 
-            if (reference.GetComponent<Chessman>().GetXBoard() == controller.GetComponent<Game>().GoalPosX &&
-                reference.GetComponent<Chessman>().GetYBoard() == controller.GetComponent<Game>().GoalPosY)
+            if (reference.GetComponent<Chessman>().GetXBoard() == controller.GetComponent<ChessGame>().GoalPosX &&
+                reference.GetComponent<Chessman>().GetYBoard() == controller.GetComponent<ChessGame>().GoalPosY)
             {
-                controller.GetComponent<Game>().win = true;
-                controller.GetComponent<Game>().text = true;
+                controller.GetComponent<ChessGame>().win = true;
+                controller.GetComponent<ChessGame>().text = true;
             }
 
             //Move all the other pieces
-            controller.GetComponent<Game>().MoveEnemies();
+            controller.GetComponent<ChessGame>().MoveEnemies();
         }
 
     }

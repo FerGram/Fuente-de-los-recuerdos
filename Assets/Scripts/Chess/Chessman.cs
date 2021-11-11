@@ -129,7 +129,7 @@ public class Chessman : MonoBehaviour
             }
         }
 
-        if (controller.GetComponent<Game>().CheckCollision(xBoard, yBoard))
+        if (controller.GetComponent<ChessGame>().CheckCollision(xBoard, yBoard))
         {
             Destroy(GameObject.Find("player"));
         }
@@ -163,7 +163,7 @@ public class Chessman : MonoBehaviour
         }
         
         // Destroys the player once the piece gets to the same player's position
-        if (controller.GetComponent<Game>().CheckCollision(xBoard, yBoard))
+        if (controller.GetComponent<ChessGame>().CheckCollision(xBoard, yBoard))
         {
             Destroy(GameObject.Find("player"));
         }
@@ -207,9 +207,9 @@ public class Chessman : MonoBehaviour
 
     private void OnMouseUp()
     {
-        if (!controller.GetComponent<Game>().IsGameOver() && player == true)
+        if (!controller.GetComponent<ChessGame>().IsGameOver() && player == true)
         {
-            Game sc = controller.GetComponent<Game>();
+            ChessGame sc = controller.GetComponent<ChessGame>();
             for (int i = 0; i < sc.pieces.Length; i++)
             {
                 if(sc.pieces[i] != null) InitiateMovePlates(sc.pieces[i]);
@@ -300,7 +300,7 @@ public class Chessman : MonoBehaviour
 
     void LineMovePlate(int xIncrement, int yIncrement, GameObject piece)
     {
-        Game sc = controller.GetComponent<Game>();
+        ChessGame sc = controller.GetComponent<ChessGame>();
 
         int x = piece.GetComponent<Chessman>().xBoard + xIncrement;
         int y = piece.GetComponent<Chessman>().yBoard + yIncrement;
@@ -339,7 +339,7 @@ public class Chessman : MonoBehaviour
 
     void PointMovePlate(int x, int y)
     {
-        Game sc = controller.GetComponent<Game>();
+        ChessGame sc = controller.GetComponent<ChessGame>();
         if (sc.PositionOnBoard(x, y))
         {
             GameObject cp = sc.GetPosition(x, y);

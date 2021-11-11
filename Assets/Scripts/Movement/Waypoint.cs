@@ -10,15 +10,6 @@ public class Waypoint : MonoBehaviour
 
     private int _waypointNum;
 
-    // private void Start() {
-        
-    //     for (int i = 0; i < transform.parent.childCount; i++){
-
-    //         if (transform.parent.GetChild(i) == transform) _waypointNum = i;
-    //     }
-
-    // }
-
     public int GetWaypointNum(){
         return _waypointNum;
     }

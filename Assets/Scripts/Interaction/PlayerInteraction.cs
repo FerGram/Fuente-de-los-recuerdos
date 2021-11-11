@@ -10,7 +10,7 @@ public class PlayerInteraction : MonoBehaviour
     {
         RaycastForInteractable();
 
-        if (Input.GetMouseButtonDown(0) && _currentTarget != null){
+        if (Input.GetMouseButtonDown(1) && _currentTarget != null){
             
             _currentTarget.OnInteract();
         }

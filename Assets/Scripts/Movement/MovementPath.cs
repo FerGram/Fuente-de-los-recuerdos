@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class MovementPath : MonoBehaviour
 {
-    [SerializeField] [Range(0, 2)] private float _circleRadius = 0.5f;
     [SerializeField] Color _circleColor;
     [SerializeField] Color _lineColor;
 
@@ -36,31 +35,6 @@ public class MovementPath : MonoBehaviour
                     }
                 }
                 else if (point.neighbours.Contains(possibleNeighbour)) point.neighbours.Remove(possibleNeighbour);
-            }
-        }
-    }
-
-    private void OnDrawGizmos() {
-        
-        int childNumber = GetChildCount();
-
-        if (childNumber > 0){
-
-            for(int i = 0; i < childNumber; i++){
-
-                Gizmos.color = _circleColor;
-                Gizmos.DrawWireSphere(GetChildAtIndex(i).position, _circleRadius);
-
-                List<Waypoint> childNeighbours = GetChildAtIndex(i).GetComponent<Waypoint>().neighbours;
-                if (childNumber > 1 && childNeighbours != null){
-                    
-                    for(int j = 0; j < childNeighbours.Count; j++){
-
-                        if (childNeighbours[j] == null) continue;
-                        Gizmos.color = _lineColor;
-                        Gizmos.DrawLine(GetChildAtIndex(i).position, childNeighbours[j].transform.position);
-                    }
-                }
             }
         }
     }

@@ -4,14 +4,18 @@ using UnityEngine;
 
 public class DialogueTrigger : MonoBehaviour
 {
-    [SerializeField] TextAsset _inkJSON;
-    [SerializeField] JSONDataContainer _JSONDataContainer;
+    //These are public because they must be accessed by inherited classes
+    //TO-DO make it a list of JSONS
+    public List<TextAsset> _inkJSON;
+    public List<TextAsset> _inkObjectJSON;
+    public JSONDataContainer _JSONDataContainer;
+
     [SerializeField] GameEvent _triggerDialogue;
 
     private bool _playerInRange = false;
 
 
-    private void OnTriggerEnter2D(Collider2D other) {
+    public void OnTriggerEnter2D(Collider2D other) {
         
         if (other.gameObject.tag == "Player"){
 
@@ -19,7 +23,7 @@ public class DialogueTrigger : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit2D(Collider2D other) {
+    public void OnTriggerExit2D(Collider2D other) {
         
         if (other.gameObject.tag == "Player"){
             
@@ -28,11 +32,17 @@ public class DialogueTrigger : MonoBehaviour
     }
 
     //Method triggered from GameInteraction Event
-    public void OnInteract()
+    public virtual void OnInteract()
     {
         if (_playerInRange) {
-    
-            _JSONDataContainer.SetJSON(_inkJSON);
+            _triggerDialogue.Raise(); //Triggers GameEvent
+        }
+    }
+
+    //Method triggered from DragAndDrop
+    public virtual void OnInteract(GameObject obj){
+
+        if (_playerInRange) {
             _triggerDialogue.Raise(); //Triggers GameEvent
         }
     }

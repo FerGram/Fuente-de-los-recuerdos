@@ -48,7 +48,7 @@ public class DialogueDisplay : MonoBehaviour
         
         if (!isPlaying) return;
 
-        if (Input.GetMouseButtonDown(0)) ContinueStory();
+        if (Input.GetKeyDown(KeyCode.Space)) ContinueStory();
     }
 
     public void StartDialogue()

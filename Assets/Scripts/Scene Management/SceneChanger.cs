@@ -9,7 +9,8 @@ public class SceneChanger : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other) {
         
         if (other.tag == "Player") {
-            _sceneChangeGameEvent.Raise();
+            
+            if (_sceneChangeGameEvent != null) _sceneChangeGameEvent.Raise();
             Invoke("LoadScene", 0.2f);
         }
     }

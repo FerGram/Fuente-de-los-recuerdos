@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - NPC
+  - Red Square
+  - Green Square
   layers:
   - Default
   - TransparentFX

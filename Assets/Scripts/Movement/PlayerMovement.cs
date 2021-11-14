@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
 
     private Waypoint _current;
     private Animator _animator;
+    private IInteractable _interactable;
 
     private void Start() {
 
@@ -26,6 +27,8 @@ public class PlayerMovement : MonoBehaviour
             Vector2 mousePos = GetMouseInWorldCoords();
             Waypoint target = SetTarget(mousePos);
 
+            _interactable = GetInteractable();
+
             if (target != null) {
 
                 Stack<Waypoint> path = BFS(target);
@@ -36,6 +39,15 @@ public class PlayerMovement : MonoBehaviour
                 }
             }
         }
+    }
+
+    private IInteractable GetInteractable(){
+
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction, 100);
+
+        if (hit) return hit.collider.gameObject.GetComponent<IInteractable>();
+        return null;
     }
 
     private Vector3 GetMouseInWorldCoords()
@@ -59,6 +71,7 @@ public class PlayerMovement : MonoBehaviour
             yield return null;
         }
         SetAnimatorParams(0, 0);
+        if (_interactable != null) _interactable.OnInteract();
     }
 
     private void MovePlayer(Vector3 waypointPos){

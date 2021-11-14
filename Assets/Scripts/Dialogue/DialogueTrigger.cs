@@ -4,36 +4,18 @@ using UnityEngine;
 
 public class DialogueTrigger : MonoBehaviour
 {
-    [SerializeField] GameObject _visualCue;
-    [SerializeField] TextAsset _inkJSON;
-    [SerializeField] JSONDataContainer _JSONDataContainer;
+    //These are public because they must be accessed by inherited classes
+    //TO-DO make it a list of JSONS
+    public List<TextAsset> _inkJSON;
+    public List<TextAsset> _inkObjectJSON;
+    public JSONDataContainer _JSONDataContainer;
+
     [SerializeField] GameEvent _triggerDialogue;
-    //[SerializeField] DialogueDisplay _dialogueDisplay; //TODO REMOVE
 
     private bool _playerInRange = false;
 
-    private void Awake() {
 
-        _visualCue.SetActive(false);
-    }
-
-    private void Update() {
-        
-        if (_playerInRange) {
-           
-            _visualCue.SetActive(true);
-
-            if (Input.GetKeyDown(KeyCode.Space)){ //TO-Do Change click on character
-
-                _JSONDataContainer.SetJSON(_inkJSON);
-                _triggerDialogue.Raise(); //Triggers GameEvent
-                Debug.Log("Dialogue triggered!");
-            }
-        }
-        else _visualCue.SetActive(false);
-    }
-
-    private void OnTriggerEnter2D(Collider2D other) {
+    public void OnTriggerEnter2D(Collider2D other) {
         
         if (other.gameObject.tag == "Player"){
 
@@ -41,11 +23,27 @@ public class DialogueTrigger : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit2D(Collider2D other) {
+    public void OnTriggerExit2D(Collider2D other) {
         
         if (other.gameObject.tag == "Player"){
             
             _playerInRange = false;
+        }
+    }
+
+    //Method triggered from GameInteraction Event
+    public virtual void OnInteract()
+    {
+        if (_playerInRange) {
+            _triggerDialogue.Raise(); //Triggers GameEvent
+        }
+    }
+
+    //Method triggered from DragAndDrop
+    public virtual void OnInteract(GameObject obj){
+
+        if (_playerInRange) {
+            _triggerDialogue.Raise(); //Triggers GameEvent
         }
     }
 }

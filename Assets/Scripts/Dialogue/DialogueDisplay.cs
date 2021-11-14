@@ -110,14 +110,18 @@ public class DialogueDisplay : MonoBehaviour
 
         int i = 0;
         string name = "";
-        while(text[i] != '.'){
+        while(i < text.Length && text[i] != '.'){
 
             name += text[i];
             i++;
         }
+        if (i == text.Length) {
+            _nameText.text = "Patrick";
+            return text;
+        }
+
         _nameText.text = name;
         text = text.Substring(i + 1);
-
         return text;
     }
 
@@ -182,5 +186,7 @@ public class DialogueDisplay : MonoBehaviour
 
         //Tell Ink the choice made
         _currentDialogue.ChooseChoiceIndex(choiceIndex);
+        ContinueStory();
+
     }
 }

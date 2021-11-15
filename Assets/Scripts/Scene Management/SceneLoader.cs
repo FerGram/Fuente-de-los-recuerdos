@@ -24,7 +24,6 @@ public class SceneLoader : Singleton<SceneLoader>
 
         //Raises event to make things like transitions or audio playing
         if (_sceneOutGameEvent != null) _sceneOutGameEvent.Raise();
-
         //After some time, Invoke load new scene
         StartCoroutine(LoadSceneRoutine(sceneToLoad));
     }

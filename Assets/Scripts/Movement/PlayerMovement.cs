@@ -14,7 +14,16 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start() {
 
+        //Get the closest waypoint to player and set it as current waypoint
         _current = _path.Waypoints[0];
+
+        for(int i = 1; i < _path.Waypoints.Count; i++)
+        {
+            if (Vector2.Distance(transform.position, _path.Waypoints[i].transform.position) < 
+                Vector2.Distance(transform.position, _current.transform.position)){
+                    _current = _path.Waypoints[i];
+            }
+        }
         transform.position = _current.transform.position;
 
         _animator = GetComponent<Animator>();

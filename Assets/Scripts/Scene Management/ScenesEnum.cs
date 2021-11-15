@@ -6,5 +6,6 @@ public enum ScenesEnum
 {
     Fer_PreviousScene,
     Fer_MainScene,
-    Fer_NextScene
+    Fer_NextScene,
+    ChessMinigame
 };

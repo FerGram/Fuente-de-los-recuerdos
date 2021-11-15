@@ -12,6 +12,14 @@ public class InventoryUI : MonoBehaviour
     private void Awake() {
         
         _hasAnItem = new bool[_slots.Length];
+
+        //If player has items between scenes, add them to the UI
+        for (int i = 0; i < _inventory._inventoryItems.Count; i++)
+        {
+            if (i == _slots.Length) break;
+            Instantiate(_inventory._inventoryItems[i], _slots[i].transform);
+            _hasAnItem[i] = true;
+        }
     }
 
     public void AddItemToUI(){

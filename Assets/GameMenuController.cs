@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using TMPro;
@@ -22,6 +23,7 @@ public class GameMenuController : MonoBehaviour, ISelectHandler, IDeselectHandle
 
     [Space]
     [SerializeField] int _volume;
+    [SerializeField] ScenesEnum _sceneToLoad;
 
     private int _maxVolume = 9;
 
@@ -102,6 +104,11 @@ public class GameMenuController : MonoBehaviour, ISelectHandler, IDeselectHandle
             if (i < _volume) _volumeBars[i].color = new Color32(137, 215, 142, 255);
             else _volumeBars[i].color = new Color32(0, 63, 4, 255);
         }
+    }
+
+    public void StartGame(){
+
+        SceneManager.LoadScene(_sceneToLoad.ToString());
     }
 
     public void ExitGame(){

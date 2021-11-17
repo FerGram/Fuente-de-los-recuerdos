@@ -315,7 +315,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!223 &107738548
 Canvas:
   m_ObjectHideFlags: 0
@@ -325,7 +325,7 @@ Canvas:
   m_GameObject: {fileID: 107738545}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 1
+  m_RenderMode: 2
   m_Camera: {fileID: 1496183359}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -344,19 +344,19 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 107738545}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: 0.10966478, z: -0, w: 0.99396867}
+  m_LocalPosition: {x: 0, y: 0, z: 90}
+  m_LocalScale: {x: 0.20207259, y: 0.20207259, z: 0.20207259}
   m_Children:
   - {fileID: 2056160822}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 12.592, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 17.7}
+  m_SizeDelta: {x: 1489.8461, y: 600}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &182644236
 GameObject:
   m_ObjectHideFlags: 0
@@ -1103,13 +1103,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 361144090}
-  m_LocalRotation: {x: -0.010035879, y: -0.00015086526, z: 0.0023543385, w: 0.99994683}
-  m_LocalPosition: {x: -0.65, y: 0, z: 0}
-  m_LocalScale: {x: 6.075884, y: 6.075884, z: 6.075884}
+  m_LocalRotation: {x: -0.009740414, y: 0.102723815, z: 0.0033743305, w: 0.9946565}
+  m_LocalPosition: {x: -0.77, y: 0, z: 0}
+  m_LocalScale: {x: 6.5419044, y: 6.5419044, z: 6.5419044}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: -1.15, y: -0.02, z: 0.27}
+  m_LocalEulerAnglesHint: {x: -1.15, y: 11.79, z: 0.27}
 --- !u!1 &441885003
 GameObject:
   m_ObjectHideFlags: 0
@@ -1285,6 +1285,18 @@ MonoBehaviour:
           m_TargetAssemblyTypeName: GameMenuController, Assembly-CSharp
           m_MethodName: OnDeselect
           m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 2056160825}
+          m_TargetAssemblyTypeName: GameMenuController, Assembly-CSharp
+          m_MethodName: StartGame
+          m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3686,7 +3698,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.2317551, g: 0.5660378, b: 0.27599835, a: 1}
+  m_Color: {r: 0.3818315, g: 0.6037736, b: 0.18454966, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3741,6 +3753,7 @@ MonoBehaviour:
   - {fileID: 1178132064}
   - {fileID: 2094417900}
   _volume: 5
+  _sceneToLoad: 2
 --- !u!1 &2094417898
 GameObject:
   m_ObjectHideFlags: 0

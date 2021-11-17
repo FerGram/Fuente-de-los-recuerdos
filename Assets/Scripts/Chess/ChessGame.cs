@@ -11,8 +11,6 @@ public class ChessGame : MonoBehaviour
 
     private GameObject[,] positions = new GameObject[8, 8];
 
-    // Cantidad de enemigos --> seguramente cambiara en cada nivel
-    // O puede ser la cantidad de piezas en pantalla --> siendo pieces[0] la pieza del jugador ?¿
     public GameObject playerKnight;
     private GameObject Goal;
     public int GoalPosX = 5;

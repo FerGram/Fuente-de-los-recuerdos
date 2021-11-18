@@ -5,7 +5,7 @@ using UnityEngine;
 public class Chicken : MonoBehaviour
 {
     bool shoudLerp = false;
-    bool mouse = false;
+    public bool mouse = false;
 
     float timeStartedLerping;
     float lerpTime;
@@ -25,42 +25,36 @@ public class Chicken : MonoBehaviour
 
     RaycastHit2D hit;
 
-    [SerializeField] private Camera mainCamera;
-    Vector2 mousePosition;
-
-    public GameObject pointer;
+    bool separateChickens;
 
     void Start()
     {
-        Instantiate(pointer);
 
         mouse = false;
-        scale = 5.0f;
+        scale = GetComponent<Transform>().localScale.x;
 
         horizontalBorder = GetComponent<SpriteRenderer>().sprite.bounds.size.x * scale / 2;
         verticalBorder = GetComponent<SpriteRenderer>().sprite.bounds.size.y * scale / 2;
 
-        maxX = ground.GetComponent<SpriteRenderer>().sprite.bounds.size.x * 80 / 2 - horizontalBorder;
-        maxY = ground.GetComponent<SpriteRenderer>().sprite.bounds.size.y * 80 / 2 - verticalBorder;
+        float groundScale = ground.GetComponent<Transform>().localScale.x;
+        maxX = ground.GetComponent<SpriteRenderer>().sprite.bounds.size.x * groundScale / 2 - horizontalBorder;
+        maxY = ground.GetComponent<SpriteRenderer>().sprite.bounds.size.y * groundScale / 2 - verticalBorder;
     }
 
     void Update()
     {
-        mousePosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
-        pointer.transform.position = mousePosition;
-
-        //if (mousePosition)
-
+        Debug.Log("Colision rayos:" + RayCollision());
         if (!mouse)
         {
-            if (!RayCollision())
+            if (!RayCollision() || separateChickens)
             {
+                separateChickens = false;
                 if (shoudLerp)
                 {
                     transform.position = Lerp(startPosition, endPosition, timeStartedLerping, lerpTime);
                     if (ChickenIsOut())
                     {
-                        //isLost = true;
+                        Debug.Log("Chicken is destroyed");
                         Destroy(this.gameObject);
                     }
                     else if (MovementFinished()) shoudLerp = false;
@@ -72,13 +66,19 @@ public class Chicken : MonoBehaviour
             }
             else
             {
+                separateChickens = true;
                 MoveChicken();
             }
         }
         else
         {
-
+            MouseOnChicken();
         }
+    }
+
+    void MouseOnChicken()
+    {
+
     }
 
     bool MovementFinished()
@@ -119,27 +119,11 @@ public class Chicken : MonoBehaviour
         lerpTime = Random.Range(2, 3);
         shoudLerp = true;
     }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Chicken"))
-        {
-            /*
-            Debug.Log("TRIGGERED");
-            other = collision.gameObject;
-            collisionWithOtherChicken = true;
-            */
-        }
-        else // Chicken collides with mouse
-        {
-     
-        }
-    }
     
     bool RayCollision()
     {
 
-        float length_ray = 5;
+        float length_ray = 1f;
 
         Vector2 origin = transform.position + new Vector3 (0, verticalBorder, 0);
         Vector2 direction = Vector2.up;
@@ -152,7 +136,6 @@ public class Chicken : MonoBehaviour
             if (hit.collider.CompareTag("Chicken") && hit.collider.name != this.name)
             {
                 Debug.DrawRay(origin, direction, Color.green);
-                Debug.Log("UPWARDS");
                 return true;
             }
         }
@@ -163,7 +146,6 @@ public class Chicken : MonoBehaviour
         {
             if (hit.collider.CompareTag("Chicken") && hit.collider.name != this.name)
             {
-                Debug.Log("DOWNWARDS");
                 Debug.DrawRay(origin, -direction, Color.green);
                 return true;
             }
@@ -247,7 +229,6 @@ public class Chicken : MonoBehaviour
 
         return false;
     }
-
 
     Vector3 Lerp(Vector3 start, Vector3 end, float timeStartedLerping, float lerpTime = 1)
     {

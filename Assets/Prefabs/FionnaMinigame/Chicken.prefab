@@ -97,8 +97,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5631c88d0364f8241bd52b38c382dfd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mouse: 0
   ground: {fileID: 2099018410146677336, guid: 7bb9674f73d0b334199280516954982d, type: 3}
-  mainCamera: {fileID: 5428362883249563953, guid: 230d2bd053069084286da1aeb74818da, type: 3}
 --- !u!61 &7842164687209716413
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -109,7 +109,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}

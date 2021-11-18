@@ -1,9 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DialogueTriggerTora : DialogueTrigger
 {
+    [Space]
+    [SerializeField] ScenesEnum _minigameScene;
+
     //Method triggered from GameInteraction Event
     public override void OnInteract()
     {
@@ -22,7 +24,16 @@ public class DialogueTriggerTora : DialogueTrigger
         //Decide ink file to play
         switch(type){
             case ItemEnum.GreenSquare: _JSONDataContainer.SetJSON(_inkObjectJSON[0]); break;  
-            case ItemEnum.RedSquare:   _JSONDataContainer.SetJSON(_inkObjectJSON[1]); break;  
+            case ItemEnum.RedSquare:
+
+                _JSONDataContainer.SetJSON(_inkObjectJSON[1]);
+
+                // Can load other scenes like so (maybe another script attached that triggers minigame
+                // would be a better approach):
+                
+                // SceneLoader.Instance.LoadScene(_minigameScene, LoadSceneMode.Additive);
+
+                break;  
         }
         
         //Execute base class funcitonality

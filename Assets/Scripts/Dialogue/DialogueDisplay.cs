@@ -25,6 +25,7 @@ public class DialogueDisplay : MonoBehaviour
 
     private Story _currentDialogue; 
     private TextMeshProUGUI[] _choicesText;
+    private bool _canPressSpace = true;
 
     public bool isPlaying {get; private set;}
 
@@ -48,7 +49,7 @@ public class DialogueDisplay : MonoBehaviour
         
         if (!isPlaying) return;
 
-        if (Input.GetKeyDown(KeyCode.Space)) ContinueStory();
+        if (Input.GetKeyDown(KeyCode.Space) && _canPressSpace) ContinueStory();
     }
 
     public void StartDialogue()
@@ -166,6 +167,8 @@ public class DialogueDisplay : MonoBehaviour
             Debug.LogError("Number of choices given exceeds the amount of choices the UI can support");
             return;
         }
+        //Can't continue if choice is not made
+        _canPressSpace = false;
 
         //Set the GO to be active and change its text
         for (int i = 0; i < _choicesText.Length; i++)
@@ -186,6 +189,7 @@ public class DialogueDisplay : MonoBehaviour
 
         //Tell Ink the choice made
         _currentDialogue.ChooseChoiceIndex(choiceIndex);
+        _canPressSpace = true;
         ContinueStory();
 
     }

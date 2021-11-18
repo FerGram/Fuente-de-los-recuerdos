@@ -6,7 +6,7 @@ using UnityEngine;
 public class InventoryDataContainer : ScriptableObject
 {
 
-    [SerializeField] List<GameObject> _inventoryItems;
+    public List<GameObject> _inventoryItems;
 
     public void AddItem(GameObject go)
     {

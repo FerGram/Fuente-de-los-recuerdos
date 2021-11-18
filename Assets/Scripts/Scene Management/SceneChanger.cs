@@ -1,21 +1,24 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class SceneChanger : MonoBehaviour
 {
-    [SerializeField] ScenesEnum _sceneToChange;
-    [SerializeField] GameEvent _sceneChangeGameEvent;
+    [SerializeField] ScenesEnum _sceneToLoad;
+    [SerializeField] Vector2 _nextSpawnPos;
+
+    private bool _playerInRange = false;
 
     private void OnTriggerEnter2D(Collider2D other) {
         
-        if (other.tag == "Player") {
-            
-            if (_sceneChangeGameEvent != null) _sceneChangeGameEvent.Raise();
-            Invoke("LoadScene", 0.2f);
-        }
+        if (other.tag == "Player") _playerInRange = true;
     }
 
-    private void LoadScene(){
-        SceneManager.LoadScene(_sceneToChange.ToString());
+    private void OnTriggerExit2D(Collider2D other) {
+        
+        if (other.tag == "Player") _playerInRange = false;
+    }
+
+    public void OnInteract(){
+
+        if (_playerInRange) SceneLoader.Instance.LoadScene(_sceneToLoad, _nextSpawnPos);
     }
 }

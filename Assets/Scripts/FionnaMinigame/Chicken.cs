@@ -26,9 +26,16 @@ public class Chicken : MonoBehaviour
     RaycastHit2D hit;
 
     bool separateChickens;
+    bool towardsHouse;
+    bool doIt;
 
+    static GameObject chickenHouse;
     void Start()
     {
+        doIt = true;
+
+        chickenHouse = GameObject.FindGameObjectWithTag("ChickenHouse");
+        towardsHouse = false;
 
         mouse = false;
         scale = GetComponent<Transform>().localScale.x;
@@ -43,7 +50,7 @@ public class Chicken : MonoBehaviour
 
     void Update()
     {
-        Debug.Log("Colision rayos:" + RayCollision());
+        Debug.Log("doIt: " + doIt);
         if (!mouse)
         {
             if (!RayCollision() || separateChickens)
@@ -54,20 +61,24 @@ public class Chicken : MonoBehaviour
                     transform.position = Lerp(startPosition, endPosition, timeStartedLerping, lerpTime);
                     if (ChickenIsOut())
                     {
-                        Debug.Log("Chicken is destroyed");
                         Destroy(this.gameObject);
                     }
-                    else if (MovementFinished()) shoudLerp = false;
+                    else if (MovementFinished())
+                    {
+                        shoudLerp = false;
+                        doIt = true;
+                    }
                 }
-                else
+                else if (!towardsHouse)
                 {
-                    MoveChicken();
+                    MoveChicken(SelectNextPosition());
                 }
             }
             else
             {
+                towardsHouse = false;
                 separateChickens = true;
-                MoveChicken();
+                MoveChicken(SelectNextPosition());
             }
         }
         else
@@ -78,7 +89,13 @@ public class Chicken : MonoBehaviour
 
     void MouseOnChicken()
     {
-
+        if (doIt)
+        {
+            doIt = false;
+            MoveChicken(new Vector3 (chickenHouse.transform.position.x, chickenHouse.transform.position.y, -1));
+        }
+        transform.position = Lerp(startPosition, endPosition, timeStartedLerping, lerpTime);
+        towardsHouse = true;
     }
 
     bool MovementFinished()
@@ -98,7 +115,7 @@ public class Chicken : MonoBehaviour
         x = Random.Range(-maxX, maxX);
         y = Random.Range(-maxY, maxY);
 
-        if (Random.Range(0.0f, 1.0f) > 0.90f)
+        if (Random.Range(0.0f, 1.0f) > 1.90f)
         {
             //Chicken moves outside of the screen
             if (transform.position.x < 0) x -= maxX - 2 * horizontalBorder;
@@ -110,10 +127,10 @@ public class Chicken : MonoBehaviour
         return new Vector2(x, y);
     }
 
-    void MoveChicken()
+    void MoveChicken(Vector2 vector)
     {
         startPosition = transform.position;
-        endPosition = SelectNextPosition();
+        endPosition = vector;
 
         timeStartedLerping = Time.time;
         lerpTime = Random.Range(2, 3);

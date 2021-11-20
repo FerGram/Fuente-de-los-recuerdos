@@ -7,6 +7,9 @@ public class Pointer : MonoBehaviour
     [SerializeField] private Camera mainCamera;
     Vector3 vector;
 
+    // igual no hace falta
+    public Vector3 position;
+    //
     public GameObject[] chicken;
 
     void Start()
@@ -20,6 +23,8 @@ public class Pointer : MonoBehaviour
         vector.z = -1;
         transform.position = vector;
 
+        position = transform.position;
+
         MouseOnChicken();
     }
 
@@ -32,8 +37,12 @@ public class Pointer : MonoBehaviour
                 if (Mathf.Abs(chicken[i].transform.position.x - this.transform.position.x) <= 2 && 
                     Mathf.Abs(chicken[i].transform.position.y - this.transform.position.y) <= 2)
                 {
-                    Debug.Log("hola");
-                    //chicken[i].GetComponent<Chicken>().mouse = false;
+                    //Debug.Log("hola");
+                    chicken[i].GetComponent<Chicken>().mouse = true;
+                }
+                else
+                {
+                    chicken[i].GetComponent<Chicken>().mouse = false;
                 }
             }
         }

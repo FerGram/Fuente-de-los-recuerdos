@@ -45,7 +45,7 @@ public class ChessGame : MonoBehaviour
     //                                Create("bishopLeft_Top", 2, 7, false), /*Create("bishopLeft_Bottom", 7, 0, true),
     //                                Create("bishopRight_Top", 5, 7, false),*/ /*Create("bishopRight_Bottom", 0, 0, true)*/};
     
-    public void Start()
+    void Start()
     {
         GameObject.Find("Text").GetComponent<Text>().enabled = false;
         Level1();

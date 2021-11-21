@@ -9,6 +9,7 @@ TagManager:
   - Text
   - Chicken
   - ChickenHouse
+  - ChickenBox
   layers:
   - Default
   - TransparentFX

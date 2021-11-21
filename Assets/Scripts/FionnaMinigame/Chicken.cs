@@ -23,21 +23,39 @@ public class Chicken : MonoBehaviour
     static float maxX;
     static float maxY;
 
+    float collisionMaxX;
+    float collisionMaxY;
+
     RaycastHit2D hit;
 
-    bool separateChickens;
-    bool towardsHouse;
-    bool doIt;
+    bool mouseMovesChicken;
 
-    static GameObject chickenHouse;
+    bool box;
+
+    bool upwardRayBox;
+    bool downwardRayBox;
+    bool forwardRayBox;
+    bool backwardRayBox;
+
+    bool diagonalRightRayBox;
+    bool diagonalLeftRayBox;
+
+    public GameObject chickenHouse;
+
+    static GameObject controller;
+    static ChickenGame scriptGame;
+
     void Start()
     {
-        doIt = true;
+        controller = GameObject.FindGameObjectWithTag("GameController");
+        scriptGame = controller.GetComponent<ChickenGame>();
 
         chickenHouse = GameObject.FindGameObjectWithTag("ChickenHouse");
-        towardsHouse = false;
+
+        mouseMovesChicken = true;
 
         mouse = false;
+
         scale = GetComponent<Transform>().localScale.x;
 
         horizontalBorder = GetComponent<SpriteRenderer>().sprite.bounds.size.x * scale / 2;
@@ -50,52 +68,67 @@ public class Chicken : MonoBehaviour
 
     void Update()
     {
-        Debug.Log("doIt: " + doIt);
-        if (!mouse)
+        if (!scriptGame.stop)
         {
-            if (!RayCollision() || separateChickens)
+            if (!mouseMovesChicken)
+                this.GetComponent<SpriteRenderer>().color = Color.gray;
+            else
+                this.GetComponent<SpriteRenderer>().color = Color.white;
+            
+            Debug.Log("mouse " + mouse);
+            
+            if (!mouse)
             {
-                separateChickens = false;
-                if (shoudLerp)
+                if (!RayCollision())
                 {
-                    transform.position = Lerp(startPosition, endPosition, timeStartedLerping, lerpTime);
-                    if (ChickenIsOut())
+                    if (shoudLerp)
                     {
-                        Destroy(this.gameObject);
+                        transform.position = Lerp(startPosition, endPosition, timeStartedLerping, lerpTime);
+                        if (ChickenIsOut())
+                        {
+                            Destroy(this.gameObject);
+
+                            scriptGame.lostChickens++;
+                        }
+                        else if (MovementFinished())
+                        {
+                            shoudLerp = false;
+                            mouseMovesChicken = true;
+                        }
                     }
-                    else if (MovementFinished())
+                    else
                     {
-                        shoudLerp = false;
-                        doIt = true;
+                        MoveChicken(NormalSelectNextPosition(2.0f));
                     }
                 }
-                else if (!towardsHouse)
+                else
                 {
-                    MoveChicken(SelectNextPosition());
+                    if (box)
+                    {
+                        box = false;
+                        MoveChicken(BoxSelectNextPosition());
+                    }
+                    else
+                    {
+                        MoveChicken(NormalSelectNextPosition(2.0f));
+                    }
                 }
             }
             else
             {
-                towardsHouse = false;
-                separateChickens = true;
-                MoveChicken(SelectNextPosition());
+                MouseOnChicken();
             }
-        }
-        else
-        {
-            MouseOnChicken();
         }
     }
 
     void MouseOnChicken()
     {
-        if (doIt)
+        if (mouseMovesChicken)
         {
-            doIt = false;
-            MoveChicken(new Vector3 (chickenHouse.transform.position.x, chickenHouse.transform.position.y, -1));
+            mouseMovesChicken = false;
+            MoveChicken(new Vector3 (chickenHouse.transform.position.x, chickenHouse.transform.position.y, 0));
         }
         transform.position = Lerp(startPosition, endPosition, timeStartedLerping, lerpTime);
-        towardsHouse = true;
     }
 
     bool MovementFinished()
@@ -108,14 +141,65 @@ public class Chicken : MonoBehaviour
         return (Mathf.Abs(transform.position.x) > maxX + 2 * horizontalBorder || Mathf.Abs(transform.position.y) > maxY + 2 * verticalBorder);
     }
 
-    Vector2 SelectNextPosition()
+    Vector2 BoxSelectNextPosition()
     {
         float x, y;
 
+        if (diagonalRightRayBox)
+        {
+            diagonalRightRayBox = false;
+            x = Random.Range(collisionMaxX, -maxX);
+            y = Random.Range(collisionMaxY, -maxY);
+        }
+        else if (diagonalLeftRayBox)
+        {
+            diagonalLeftRayBox = false;
+            x = Random.Range(collisionMaxX, maxX);
+            y = Random.Range(collisionMaxY, maxY);
+        }
+        else
+        {
+            if (forwardRayBox)
+            {
+                forwardRayBox = false;
+                x = Random.Range(-maxX, collisionMaxX);
+
+            }
+            else if (backwardRayBox)
+            {
+                backwardRayBox = false;
+                x = Random.Range(collisionMaxX, maxX);
+
+            }
+            else
+                x = Random.Range(-collisionMaxX, collisionMaxX);
+
+
+            if (upwardRayBox)
+            {
+                upwardRayBox = false;
+                y = Random.Range(-maxY, collisionMaxY);
+            }
+            else if (downwardRayBox)
+            {
+                downwardRayBox = false;
+                y = Random.Range(collisionMaxY, maxY);
+            }
+            else
+                y = Random.Range(-collisionMaxY, collisionMaxY);
+        }
+
+        return new Vector2(x, y);
+    }
+
+    Vector2 NormalSelectNextPosition(float probOut)
+    {
+        float x, y;
+        
         x = Random.Range(-maxX, maxX);
         y = Random.Range(-maxY, maxY);
 
-        if (Random.Range(0.0f, 1.0f) > 1.90f)
+        if (Random.Range(0.0f, 1.0f) > probOut)
         {
             //Chicken moves outside of the screen
             if (transform.position.x < 0) x -= maxX - 2 * horizontalBorder;
@@ -140,7 +224,8 @@ public class Chicken : MonoBehaviour
     bool RayCollision()
     {
 
-        float length_ray = 1f;
+        float length_ray = 0.3f;
+        float diagonal_length_ray = 0.15f;
 
         Vector2 origin = transform.position + new Vector3 (0, verticalBorder, 0);
         Vector2 direction = Vector2.up;
@@ -150,46 +235,91 @@ public class Chicken : MonoBehaviour
         // Upwards ray
         if (hit)
         {
-            if (hit.collider.CompareTag("Chicken") && hit.collider.name != this.name)
+            if (hit.transform != this.transform)
             {
-                Debug.DrawRay(origin, direction, Color.green);
-                return true;
+                if (hit.collider.CompareTag("Chicken"))
+                {
+                    Debug.DrawRay(origin, direction, Color.green);
+                    return true;
+                }
+                else if(hit.collider.CompareTag("ChickenBox"))
+                {
+                    box = true;
+                    upwardRayBox = true;
+                    collisionMaxX = maxX;
+                    collisionMaxY = hit.collider.transform.position.y - hit.collider.bounds.extents.y * 4;
+                    return true;
+                }
             }
         }
 
         // Downwards ray
+        origin = transform.position - new Vector3(0, verticalBorder, 0);
         hit = Physics2D.Raycast(origin, -direction, length_ray);
         if (hit)
         {
-            if (hit.collider.CompareTag("Chicken") && hit.collider.name != this.name)
+            if (hit.transform != this.transform)
             {
-                Debug.DrawRay(origin, -direction, Color.green);
-                return true;
+                if (hit.collider.CompareTag("Chicken"))
+                {
+                    Debug.DrawRay(origin, direction, Color.green);
+                    return true;
+                }
+                else if (hit.collider.CompareTag("ChickenBox"))
+                {
+                    box = true;
+                    downwardRayBox = true;
+                    collisionMaxX = maxX;
+                    collisionMaxY = hit.collider.transform.position.y + hit.collider.bounds.extents.y * 4;
+                    return true;
+                }
             }
         }
 
         // Forwards ray
         origin = transform.position + new Vector3(horizontalBorder, 0, 0);
         direction = Vector3.right;
-
         hit = Physics2D.Raycast(origin, direction, length_ray);
         if (hit)
         {
-            if (hit.collider.CompareTag("Chicken") && hit.collider.name != this.name)
+            if (hit.transform != this.transform)
             {
-                Debug.DrawRay(origin, direction, Color.green);
-                return true;
+                if (hit.collider.CompareTag("Chicken"))
+                {
+                    Debug.DrawRay(origin, direction, Color.green);
+                    return true;
+                }
+                else if (hit.collider.CompareTag("ChickenBox"))
+                {
+                    box = true;
+                    forwardRayBox = true;
+                    collisionMaxX = hit.collider.transform.position.x - hit.collider.bounds.extents.x * 2;
+                    collisionMaxY = maxY;
+                    return true;
+                }
             }
         }
 
         // Backwards ray
+        origin = transform.position - new Vector3(horizontalBorder, 0, 0);
         hit = Physics2D.Raycast(origin, -direction, length_ray);
         if (hit)
         {
-            if (hit.collider.CompareTag("Chicken") && hit.collider.name != this.name)
+            if (hit.transform != this.transform)
             {
-                Debug.DrawRay(origin, -direction, Color.green);
-                return true;
+                if (hit.collider.CompareTag("Chicken"))
+                {
+                    Debug.DrawRay(origin, direction, Color.green);
+                    return true;
+                }
+                else if (hit.collider.CompareTag("ChickenBox"))
+                {
+                    box = true;
+                    backwardRayBox = true;
+                    collisionMaxX = hit.collider.transform.position.x + hit.collider.bounds.extents.x * 2;
+                    collisionMaxY = maxY;
+                    return true;
+                }
             }
         }
 
@@ -197,50 +327,94 @@ public class Chicken : MonoBehaviour
         origin = transform.position + new Vector3(horizontalBorder, verticalBorder, 0);
         direction = Vector3.right + Vector3.up;
 
-        hit = Physics2D.Raycast(origin, direction, length_ray);
+        hit = Physics2D.Raycast(origin, direction, diagonal_length_ray);
         if (hit)
         {
-            if (hit.collider.CompareTag("Chicken") && hit.collider.name != this.name)
+            if (hit.transform != this.transform)
             {
-                Debug.DrawRay(origin, direction, Color.green);
-                return true;
+                if (hit.collider.CompareTag("Chicken"))
+                {
+                    Debug.DrawRay(origin, direction, Color.green);
+                    return true;
+                }
+                else if (hit.collider.CompareTag("ChickenBox"))
+                {
+                    box = true;
+                    diagonalRightRayBox = true;
+                    collisionMaxX = hit.collider.transform.position.x - hit.collider.bounds.extents.x * 2;
+                    collisionMaxY = hit.collider.transform.position.y - hit.collider.bounds.extents.y * 4;
+                    return true;
+                }
             }
         }
 
         origin = transform.position + new Vector3(-horizontalBorder, -verticalBorder, 0);
 
-        hit = Physics2D.Raycast(origin, -direction, length_ray);
+        hit = Physics2D.Raycast(origin, -direction, diagonal_length_ray);
         if (hit)
         {
-            if (hit.collider.CompareTag("Chicken") && hit.collider.name != this.name)
+            if (hit.transform != this.transform)
             {
-                Debug.DrawRay(origin, -direction, Color.green);
-                return true;
+                if (hit.collider.CompareTag("Chicken"))
+                {
+                    Debug.DrawRay(origin, direction, Color.green);
+                    return true;
+                }
+                else if (hit.collider.CompareTag("ChickenBox"))
+                {
+                    box = true;
+                    diagonalLeftRayBox = true;
+                    collisionMaxX = hit.collider.transform.position.x + hit.collider.bounds.extents.x * 2;
+                    collisionMaxY = hit.collider.transform.position.y + hit.collider.bounds.extents.y * 4;
+                    return true;
+                }
             }
         }
 
         origin = transform.position + new Vector3(-horizontalBorder, verticalBorder, 0);
         direction = Vector3.left + Vector3.up;
 
-        hit = Physics2D.Raycast(origin, direction, length_ray);
+        hit = Physics2D.Raycast(origin, direction, diagonal_length_ray);
         if (hit)
         {
-            if (hit.collider.CompareTag("Chicken") && hit.collider.name != this.name)
+            if (hit.transform != this.transform)
             {
-                Debug.DrawRay(origin, direction, Color.green);
-                return true;
+                if (hit.collider.CompareTag("Chicken"))
+                {
+                    Debug.DrawRay(origin, direction, Color.green);
+                    return true;
+                }
+                else if (hit.collider.CompareTag("ChickenBox"))
+                {
+                    box = true;
+                    diagonalLeftRayBox = true;
+                    collisionMaxX = hit.collider.transform.position.x + hit.collider.bounds.extents.x * 2;
+                    collisionMaxY = hit.collider.transform.position.y - hit.collider.bounds.extents.y * 4;
+                    return true;
+                }
             }
         }
 
         origin = transform.position + new Vector3(horizontalBorder, -verticalBorder, 0);
 
-        hit = Physics2D.Raycast(origin, -direction, length_ray);
+        hit = Physics2D.Raycast(origin, -direction, diagonal_length_ray);
         if (hit)
         {
-            if (hit.collider.CompareTag("Chicken") && hit.collider.name != this.name)
+            if (hit.transform != this.transform)
             {
-                Debug.DrawRay(origin, -direction, Color.green);
-                return true;
+                if (hit.collider.CompareTag("Chicken"))
+                {
+                    Debug.DrawRay(origin, direction, Color.green);
+                    return true;
+                }
+                else if (hit.collider.CompareTag("ChickenBox"))
+                {
+                    box = true;
+                    diagonalRightRayBox = true;
+                    collisionMaxX = hit.collider.transform.position.x - hit.collider.bounds.extents.x * 2;
+                    collisionMaxY = hit.collider.transform.position.y + hit.collider.bounds.extents.y * 4;
+                    return true;
+                }
             }
         }
 

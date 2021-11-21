@@ -159,8 +159,8 @@ public class ChickenGame : MonoBehaviour
     void Level2()
     {
         GameObject ground = Instantiate(Ground, new Vector3(0, 0, 1), Quaternion.identity);
-        ground.GetComponent<SpriteRenderer>().sprite = Ground02;
-        ground.GetComponent<SpriteRenderer>().color = Color.cyan;
+        //ground.GetComponent<SpriteRenderer>().sprite = Ground02;
+        //ground.GetComponent<SpriteRenderer>().color = Color.cyan;
 
         Instantiate(Box, new Vector3(0, 0, 0), Quaternion.identity);
 
@@ -172,7 +172,7 @@ public class ChickenGame : MonoBehaviour
     void Level3()
     {
         GameObject ground = Instantiate(Ground, new Vector3(0, 0, 1), Quaternion.identity);
-        ground.GetComponent<SpriteRenderer>().sprite = Ground03;
+        //ground.GetComponent<SpriteRenderer>().sprite = Ground03;
 
         Instantiate(Box, new Vector3(15, 0, 0), Quaternion.identity);
         Instantiate(Box, new Vector3(-20, 0, 0), Quaternion.Euler(0, 0, 90f));

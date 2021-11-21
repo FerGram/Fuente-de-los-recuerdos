@@ -98,7 +98,7 @@ public class Chicken : MonoBehaviour
                     }
                     else
                     {
-                        MoveChicken(NormalSelectNextPosition(2.0f));
+                        MoveChicken(NormalSelectNextPosition(0.95f));
                     }
                 }
                 else
@@ -110,7 +110,7 @@ public class Chicken : MonoBehaviour
                     }
                     else
                     {
-                        MoveChicken(NormalSelectNextPosition(2.0f));
+                        MoveChicken(NormalSelectNextPosition(0.90f));
                     }
                 }
             }

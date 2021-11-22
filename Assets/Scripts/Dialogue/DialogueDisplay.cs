@@ -54,7 +54,12 @@ public class DialogueDisplay : MonoBehaviour
 
     public void StartDialogue()
     {
-        _currentDialogue = new Story(_JSONDataContainer.GetJSON().text);
+		if (_currentDialogue == null)
+			_currentDialogue = new Story(_JSONDataContainer.GetJSON().text);
+
+		_currentDialogue.ChoosePathString(_JSONDataContainer.GetPath());
+		Debug.Log(_JSONDataContainer.GetPath());
+
         isPlaying = true;
 
         DisplayDialogueUI(true);

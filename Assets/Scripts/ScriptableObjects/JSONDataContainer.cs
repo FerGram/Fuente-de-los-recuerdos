@@ -6,10 +6,17 @@ using UnityEngine;
 public class JSONDataContainer : ScriptableObject
 {
     private TextAsset JSONFile;
+	private string path;
 
     public TextAsset GetJSON() => JSONFile;
+	public string GetPath() => path;
 
     public void SetJSON(TextAsset newJSON){
         JSONFile = newJSON;
     }
+
+	public void SetPath(string newPath)
+	{
+		path = newPath;
+	}
 }

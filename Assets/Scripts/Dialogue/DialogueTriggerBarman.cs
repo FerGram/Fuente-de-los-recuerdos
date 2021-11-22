@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class DialogueTriggerTora : DialogueTrigger
+public class DialogueTriggerBarman : DialogueTrigger
 {
     [Space]
     [SerializeField] ScenesEnum _minigameScene;
@@ -13,8 +13,7 @@ public class DialogueTriggerTora : DialogueTrigger
 
 		//if ()
         _JSONDataContainer.SetJSON(_inkJSON[0]);
-		_JSONDataContainer.SetPath("Tora");
-
+		_JSONDataContainer.SetPath("Barman");
         //Execute base class funcitonality
         base.OnInteract();
     }

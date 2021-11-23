@@ -803,7 +803,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.0595918, y: 1}
+    m_SensorSize: {x: 2.0588233, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -1994,7 +1994,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d9e8630d4c2529428939602530d180a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sceneToLoad: 1
+  _sceneToLoad: 2
   _nextSpawnPos: {x: -19.55, y: -1.36}
 --- !u!61 &1114588162
 BoxCollider2D:

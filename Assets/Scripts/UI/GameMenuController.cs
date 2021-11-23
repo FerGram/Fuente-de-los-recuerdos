@@ -149,7 +149,7 @@ public class GameMenuController : MonoBehaviour, ISelectHandler, IDeselectHandle
 
     public void LoadScene(){
 
-        SceneManager.LoadScene(_sceneToLoad.ToString());
+        SceneManager.LoadSceneAsync(_sceneToLoad.ToString());
     }
 
     public void ExitGame(){

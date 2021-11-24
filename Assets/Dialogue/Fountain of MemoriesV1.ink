@@ -1,67 +1,69 @@
 //-> ToraChat1
 
 === Tora ===
-
-{not ToraChat1: 
+//Story logic Tora
+{not ToraChat1:
         -> ToraChat1
 - else:
         ->ToraDefault1
- } 
+ }
 
-
-= ToraChat1
-
+=== ToraChat1
 Tora.“Welcome to the Fountain of Memories, traveler.”
 
 Tora.“This town has been abandoned since long ago, when the fountain broke.”
- 
+
 Tora.“Only our memories are left.”
 
     + “What do you mean?”
-    
+
     Tora.“No one in this town is a real person, we’re just ghosts of our past selves, longing to revive the town.”
-    ->ToraChat1Cont1
-    
-    
+
     + “Do you know where I can find a tire?”
-    
+
     Tora.“No matter what you seek, traveler, if you don’t want to become a memory like us, you’ll have to fix the fountain. But if a tire is what you’re looking for, Nudo, the farmer, may help you.”
-    ->ToraChat1Cont1
-    
-    
+
 	+ “Why did the fountain break?”
-	
+
     Tora.“It’s- no one really knows… It’s been so long ago…”
-    ->ToraChat1Cont1
-    
-    
-= ToraChat1Cont1	
-Tora.“I wish I could offer you a warm welcome, but there’s little a memory can do.” 
+
+-
+Tora.“I wish I could offer you a warm welcome, but there’s little a memory can do.”
 
 Tora.“Would you be so kind as to… fix the fountain? Or you’d rather just- abandon us, too?”
 
 Patrick.“I…”
+
 Patrick.“I don’t know…”
 ->DONE
-    
-= ToraDefault1
+
+=== ToraDefault1
 Tora.“You should find Nudo in the bar, the building over there.”
 ->DONE
 
-=== Barman === 
 
--> BarChat1
+=== Barman ===
+//Story logic for Barman
+{
+- not ToraChat1:
+		->BarmanDefault1
 
-= BarChat1
+- not BarChat1:
+        ->BarChat1
+
+- BarChat1:
+        ->BarmanDefault2
+ }
+
+
+=== BarChat1
 Barman.“A real human,” he says. “You’re not from here haha, welcome to Sander’s. I would serve you something, but- I can’t really, can I?”
 
 	+ “It’s fine.”
-	->BarChat1Cont1
-	
+
 	+ “I would really do with a warm cup of milk.”
-    ->BarChat1Cont1
-    
-= BarChat1Cont1	
+
+-
 Barman.“So, what brings you to my humble little bar?”
 
 	+ “I’m looking for the farmer, Nudo.”
@@ -70,8 +72,35 @@ Barman.“So, what brings you to my humble little bar?”
 	+ “Do you know where I can get a tire?”
 	Barman.“Nudo may help you with that. He was here just a few minutes ago along with Anton, complaining about how much his back was hurting him, but he left again to finish some work at the farm. The farm is south-east of here.”
         ->DONE
-        
- === FarmChat1
+
+=== BarmanDefault1
+Barman."I miss the old days..."
+->DONE
+
+=== BarmanDefault2
+Barman."You'll find Nudo in the farm."
+
+Barman."The farm is south-east of here."
+->DONE
+
+=== Nudo ===
+//Story logic for Nudo
+{
+- not ToraChat1:
+		Nudo."What was I going to do?"
+		//TODO can insert dialogue in the bar between the three men.
+
+- not BarChat1:
+        TODO //nudo shouldn't be visible in the farm unless the player talks with Barman.
+
+- BarChat1 and not NudoFarmChat1:
+        ->NudoFarmChat1
+
+- NudoFarmChat1:
+        ->NudoFarmDefault1
+ }
+ 
+ === NudoFarmChat1
 Nudo.“Hey there, fella, you’re not from here, are ya?”
 
 Patrick.“That’s… what everyone keeps saying.”
@@ -83,14 +112,10 @@ Nudo.“You see that field over there? I used to work it all by myself. But nowa
 Nudo.“Would you be so kind as to help me with it, please? You, young people, are always so full of energy, it shouldn’t take you too long.” 
 
 	+ “I just came to ask you for a tire.”
-    
-    ->FarmChat1Cont1
+
 	+ “Sure thing, but do you have an extra tire to lend me?”
-	
-    ->FarmChat1Cont1
-    
-    
-===FarmChat1Cont1
+
+-
 Nudo.“A tire? Yea, I do have a few spare ones. Finish the field and I’ll give you one.”
 //The player then proceeds to play the farm minigame.
 Nudo.“Well well, you did a great job. You remind me of my son, he was just as skinny as you, and he still could work from dawn ‘til dusk.”
@@ -99,12 +124,11 @@ Nudo.“What nice memories…”
 
 	+ “Could you now give me the tire?”
 	Nudo.“What’s the hurry, fella.”
-	->FarmChat1Cont2
+
 	+ “I’m glad I could be of help.”
 	Nudo.“You reminded me of many things I thought I had lost, thank you.”
-	->FarmChat1Cont2
 
-===FarmChat1Cont2	
+-
 Nudo.“Here is your tire.”
 //Reward the player with a tractor tire and change the scene to the “lively” version.
 Patrick.“But this is… a tractor tire.”
@@ -113,13 +137,37 @@ Nudo.“Huh? Oh, you need a different tire? a bike tire?”
     + “N-no, for a car, a car tire.”
     Nudo.“For that, you’ll have to visit Anton, the chess player. He lives just to the left of the fountain, I think he had a car.”
     ->DONE
-    
+
 	+ “Yes, a bike tire.”
     Nudo.“There you go, a bike tire.”
     //Reward the player with a bike tire.
 	Patrick.“Actually… I need a car tire.”
     Nudo.“For that, you’ll have to visit Anton, the chess player. He lives just to the left of the fountain, I think he had a car.”
     ->DONE
+
+===NudoFarmDefault1
+Nudo."Anton lives just to the left of the fountain."
+->DONE
+
+=== Anton ===
+{
+- not ToraChat1:
+		Anton."Serve me the usual, baldman."
+		TODO can insert dialogue in the bar between the three men.
+
+- not BarChat1:
+        TODO //nudo shouldn't be visible in his house unless the player talks with Barman.
+
+- BarChat1 and not NudoFarmChat1:
+        ->AntonDefault1
+
+- NudoFarmChat1 and not AntonHouseChat1:
+        ->AntonHouseChat1
+
+- AntonHouseChat1:
+        ->AntonDefault2
+ }
+
 
 ===AntonHouseChat1
 Anton.“Strange.”
@@ -135,17 +183,25 @@ Anton.“Would you play one last game with me?”
 
     + “Sure thing.”
     Anton.“Thanks.”
-    ->AntonHouseChat1Cont1
+
 	+ “I- don’t know how to play.”
     Anton.“Don’t worry, the rules are simple.”
-	->AntonHouseChat1Cont1
 
-===AntonHouseChat1Cont1
+-
 Anton.“All you have to do is capture my King with your Knight. My Rooks and Bishops will move in the same pattern every time you move your Knight.”
 
 Anton.“The townspeople are sick of playing against me, hehe, so I’m glad you’re up to the challenge.”
 
 Anton.“Oh- I think I forgot my pieces at the bar… Would you be so kind as to bring them back, please? With this age, my knees hurt for any small movement, and walking all the way there again…”
+->DONE
+
+===AntonDefault1
+Anton."..."
+Anton."The good old days..."
+->DONE
+
+===AntonDefault2
+Anton."The pieces should be somewhere in the bar."
 ->DONE
 
 ===BarChat2
@@ -204,19 +260,17 @@ Anton.“The poor thing blames herself for the death of the town.”
 
 
 	+“Why is that?”
-	
+
 	Anton.“Her father was the only doctor in town, and when he died… the person responsible for the maintenance of the fountain and a few others left town. Tora found herself alone, accompanied only by the fountain. She rejected everyone’s help.”
-	->AntonHouseChat2Cont1
-	
+
 	+“Maybe it’s really her fault.”
 	“I doubt that. She’s a good kid, it was an accident. Things break, people die, and memories get forgotten, that’s the way of life.”
-	
-    Patrick.“What do you mean?”
-    
-    Anton.“Her father was the only doctor in town, and when he died… the person responsible for the maintenance of the fountain and a few others left town. Tora found herself alone, accompanied only by the fountain. She rejected everyone’s help.”
-    ->AntonHouseChat2Cont1
 
-===AntonHouseChat2Cont1
+    Patrick.“What do you mean?”
+
+    Anton.“Her father was the only doctor in town, and when he died… the person responsible for the maintenance of the fountain and a few others left town. Tora found herself alone, accompanied only by the fountain. She rejected everyone’s help.”
+
+-
 Patrick.“How sad… it must have been tough for her.”
 
 Anton.“Yes, it was.”
@@ -242,11 +296,10 @@ Fionna.“Yes, you. I can tell you where to find her, but first, can you help me
     +“I guess I don’t have another option, do I?”
     Fionna.“Nop 😊.”
     Patrick.“You said they are as playful as their owner, who’s their owner?”
-    ->FionnaChat1Cont1
+    
 	+“Who’s their owner?”
-	->FionnaChat1Cont1
 
-===FionnaChat1Cont1		
+-
 Fionna.“It was… Claire, my late wife. She died of sickness when I was on a business trip. If I only stayed with her, I could have taken her to the doctor.”
 
 Fionna.“…”
@@ -259,12 +312,11 @@ Fionna.“It was after, that’s why Tora- well, never mind.”
 
 	+ “What happened to Tora’s father?”
 	Fionna.“I- I rather not say. You should ask Tora herself.”
-	->FionnaChat1Cont2
+
 	+ “Where is Tora?”
 	Fionna.“If I told you now, you’d run away from me, wouldn’t you?”
-    ->FionnaChat1Cont2
-    
-===FionnaChat1Cont2
+
+-
 Fionna.“Help me out with the chicken and we’ll talk about Tora’s whereabouts so you can ask her.”
 
 Patrick.“Yea, but I came here to ask you a different questi-”
@@ -277,12 +329,11 @@ Fionna.“Claire would thank you with an apple pie. I’m not that good with coo
 
 	+ “Where can I find Tora?”
 	Fionna.“She’s in the viaduct, east of town. She often goes there to visit her father’s tomb.”
-	
+
 	+ “Do you have an extra car tire?”
 	Fionna.“A car tire? No, I don’t have one, but Tora should know where you can find one. Didn’t she tell you yet?”
 
+- 
+TO BE CONTINUED.
 
-
-
-- They lived happily ever after.
-    ->END
+->END

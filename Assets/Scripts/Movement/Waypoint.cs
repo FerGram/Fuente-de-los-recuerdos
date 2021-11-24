@@ -6,7 +6,7 @@ public class Waypoint : MonoBehaviour
 {
     [Range(0, 5)]
     public float actionRadius = 1f;
-    public List<Waypoint> neighbours;
+    [HideInInspector] public List<Waypoint> neighbours;
 
     private int _waypointNum;
 

@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using TMPro;
+using System.Collections;
 
 public class GameMenuController : MonoBehaviour, ISelectHandler, IDeselectHandler
 {
@@ -145,6 +146,19 @@ public class GameMenuController : MonoBehaviour, ISelectHandler, IDeselectHandle
         if (_volume == 0) value = -80;
         else value = -50 + (50 / _maxVolume) * _volume;
         _audioMixer.SetFloat("volume", (float)value);
+    }
+
+
+    public void StartNewGame(){
+
+        //Need to wait for fade out screen and audio to play
+        StartCoroutine(WaitForAudio());
+    }
+    
+    IEnumerator WaitForAudio() {
+        
+        yield return new WaitForSeconds(11f);
+        LoadScene();
     }
 
     public void LoadScene(){

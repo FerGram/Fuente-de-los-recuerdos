@@ -10,12 +10,12 @@ public class DialogueTrigger : MonoBehaviour
     public List<TextAsset> _inkObjectJSON;
     public JSONDataContainer _JSONDataContainer;
 
-    [SerializeField] GameEvent _triggerDialogue;
+    public GameEvent _triggerDialogue;
 
     private bool _playerInRange = false;
 
 
-    public void OnTriggerEnter2D(Collider2D other) {
+    public virtual void OnTriggerEnter2D(Collider2D other) {
         
         if (other.gameObject.tag == "Player"){
 
@@ -23,7 +23,7 @@ public class DialogueTrigger : MonoBehaviour
         }
     }
 
-    public void OnTriggerExit2D(Collider2D other) {
+    public virtual void OnTriggerExit2D(Collider2D other) {
         
         if (other.gameObject.tag == "Player"){
             
@@ -44,6 +44,10 @@ public class DialogueTrigger : MonoBehaviour
 
         if (_playerInRange) {
             _triggerDialogue.Raise(); //Triggers GameEvent
+            
+            //At this point I just don't care about dependencies
+            InventoryUI inventory = FindObjectOfType<InventoryUI>();
+            if (inventory != null) inventory.RemoveItem(obj);
         }
     }
 }

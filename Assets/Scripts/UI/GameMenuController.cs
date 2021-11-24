@@ -151,6 +151,7 @@ public class GameMenuController : MonoBehaviour, ISelectHandler, IDeselectHandle
 
     public void StartNewGame(){
 
+        GameStateData.Instance.gameData.playFirstTime = true;
         //Need to wait for fade out screen and audio to play
         StartCoroutine(WaitForAudio());
     }

@@ -1352,6 +1352,14 @@ PrefabInstance:
       propertyPath: _sceneToLoad
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1967903223114342896, guid: 8bf463fd0b090d94499dacbe9c9f3a4f, type: 3}
+      propertyPath: _nextSpawnPos.x
+      value: -19.26
+      objectReference: {fileID: 0}
+    - target: {fileID: 1967903223114342896, guid: 8bf463fd0b090d94499dacbe9c9f3a4f, type: 3}
+      propertyPath: _nextSpawnPos.y
+      value: -1.25
+      objectReference: {fileID: 0}
     - target: {fileID: 1967903223114342898, guid: 8bf463fd0b090d94499dacbe9c9f3a4f, type: 3}
       propertyPath: _onEndHover.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 

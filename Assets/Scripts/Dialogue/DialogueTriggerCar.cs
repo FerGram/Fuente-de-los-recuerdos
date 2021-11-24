@@ -36,6 +36,6 @@ public class DialogueTriggerCar : DialogueTrigger
         //Execute base class funcitonality
         base.OnInteract(obj);
 
-        GameStateData.Instance.gameData.carPieceInPlace = true;
+        if (_playerInRange) GameStateData.Instance.gameData.carPieceInPlace = true;
     }
 }

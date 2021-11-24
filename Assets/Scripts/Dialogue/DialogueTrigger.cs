@@ -9,10 +9,10 @@ public class DialogueTrigger : MonoBehaviour
     public List<TextAsset> _inkJSON;
     public List<TextAsset> _inkObjectJSON;
     public JSONDataContainer _JSONDataContainer;
-
     public GameEvent _triggerDialogue;
-
-    private bool _playerInRange = false;
+    
+    [HideInInspector]
+    public bool _playerInRange = false;
 
 
     public virtual void OnTriggerEnter2D(Collider2D other) {

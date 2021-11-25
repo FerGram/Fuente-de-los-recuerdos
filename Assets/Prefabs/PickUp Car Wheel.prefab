@@ -29,9 +29,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4423654392373682806}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -10.57, y: -2.45, z: -0.2848201}
-  m_LocalScale: {x: 0.53586, y: 0.53586, z: 0.53586}
+  m_LocalScale: {x: 0.22284274, y: 0.22284274, z: 0.22284274}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -105,14 +105,14 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 16, y: 16}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.57, y: 3.56}
+  m_Size: {x: 30, y: 30}
   m_EdgeRadius: 0
 --- !u!114 &4423654392373682800
 MonoBehaviour:
@@ -129,7 +129,6 @@ MonoBehaviour:
   _inventory: {fileID: 11400000, guid: 6ff7cca2262e8344ba64ad44ec6f8e9a, type: 2}
   _onItemPickUp: {fileID: 11400000, guid: a33b9a9d73161c344a9210d76e737195, type: 2}
   UIItem: {fileID: 397923055122253682, guid: 8ad287a1a051818439346506ae81717e, type: 3}
-  _gameData: {fileID: 11400000, guid: 038503e3dd8b06244973ed40b9c2f699, type: 2}
 --- !u!114 &4423654392373682805
 MonoBehaviour:
   m_ObjectHideFlags: 0

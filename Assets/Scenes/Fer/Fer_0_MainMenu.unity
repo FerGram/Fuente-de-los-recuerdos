@@ -1172,7 +1172,7 @@ Transform:
   m_GameObject: {fileID: 361144090}
   m_LocalRotation: {x: -0.009740414, y: 0.102723815, z: 0.0033743305, w: 0.9946565}
   m_LocalPosition: {x: -0.77, y: 0, z: 0}
-  m_LocalScale: {x: 6.5419044, y: 6.5419044, z: 6.5419044}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -4424,7 +4424,7 @@ MonoBehaviour:
   _selectedTextColor:
     serializedVersion: 2
     rgba: 4287551369
-  _sceneToLoad: 2
+  _sceneToLoad: 1
 --- !u!82 &2056160826
 AudioSource:
   m_ObjectHideFlags: 0

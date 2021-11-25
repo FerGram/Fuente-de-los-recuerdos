@@ -4,8 +4,9 @@ using UnityEngine;
 
 public enum ScenesEnum
 {
-    Fer_PreviousScene,
+    Fer_MainMenu,
+    Fer_1_CarCrash,
+    Fer_2_ForestWalk,
     Fer_MainScene,
-    Fer_NextScene,
     ChessMinigame
 };

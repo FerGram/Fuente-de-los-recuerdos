@@ -38,4 +38,22 @@ public class InventoryUI : MonoBehaviour
             }
         }
     }
+
+    public void RemoveItem(GameObject obj){
+
+        if (_inventory != null){
+
+            for (int i = 0; i < _slots.Length; i++)
+            {
+                //If the child of the slot is the gameobject that has to be removed
+                if (_slots[i].GetChild(0).gameObject == obj){
+
+                    _inventory.RemoveItemAt(i);
+                    _hasAnItem[i] = false; 
+                    Destroy(_slots[i].GetChild(0).gameObject);
+                    break;
+                }
+            }
+        }
+    }
 }

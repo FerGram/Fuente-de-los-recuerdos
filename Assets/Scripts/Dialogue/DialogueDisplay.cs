@@ -70,10 +70,10 @@ public class DialogueDisplay : MonoBehaviour
 
     private void DisplayDialogueUI(bool value){
 
-        for (int i = 0; i < gameObject.transform.childCount; i++)
-        {
-            gameObject.transform.GetChild(i).gameObject.SetActive(value);
-        }
+        if (_greyBackground != null) _greyBackground.gameObject.SetActive(value);
+        if (_dialoguePanel != null) _dialoguePanel.gameObject.SetActive(value);
+        if (_mainCharImage != null) _mainCharImage.gameObject.SetActive(value);
+        if (_NPCImage != null) _NPCImage.gameObject.SetActive(value);
     }
 
     public void FadeInBackground(bool value)
@@ -145,8 +145,11 @@ public class DialogueDisplay : MonoBehaviour
 
     private void DisplayTalkingCharacter(){
 
-        Animator mainAnimator = _mainCharImage.gameObject.GetComponent<Animator>();
-        Animator NPCAnimator = _NPCImage.gameObject.GetComponent<Animator>();
+        Animator mainAnimator = null;
+        Animator NPCAnimator = null;
+
+        if (_mainCharImage != null) mainAnimator = _mainCharImage.gameObject.GetComponent<Animator>();
+        if (_NPCImage != null) NPCAnimator = _mainCharImage.gameObject.GetComponent<Animator>();
 
         if (_nameText.text == "Patrick"){
 

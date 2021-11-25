@@ -1,4 +1,6 @@
 //-> ToraChat1
+VAR hasPieces = false
+
 
 === Tora ===
 //Story logic Tora
@@ -51,8 +53,14 @@ Tora.“You should find Nudo in the bar, the building over there.”
 - not BarChat1:
         ->BarChat1
 
-- BarChat1:
+- BarChat1 and not AntonHouseChat1:
         ->BarmanDefault2
+
+- AntonHouseChat1 and not BarChat2:
+        ->BarChat2
+        
+- BarChat2:
+        ->BarmanDefault3
  }
 
 
@@ -164,8 +172,11 @@ Nudo."Anton lives just to the left of the fountain."
 - NudoFarmChat1 and not AntonHouseChat1:
         ->AntonHouseChat1
 
-- AntonHouseChat1:
+- AntonHouseChat1 and not hasPieces:
         ->AntonDefault2
+
+- hasPieces and not AntonHouseChat2:
+        ->AntonHouseChat2
  }
 
 
@@ -215,7 +226,7 @@ Barman.“Haha, that’s Nudo for you, always making other people help out.”
 
 Patrick.“But he wasn’t able to help me out.”
 
-Barman“So, he doesn’t have a tire, then? How strange…”
+Barman.“So, he doesn’t have a tire, then? How strange…”
 
 Patrick.“No, he did give me one, but it was a tractor tire.”
 
@@ -241,6 +252,10 @@ Barman.“Yeah, poor Anton is like that, always looking for a new partner to pla
 
 //Can send the player to pick up the pieces at Rosanna’s house.
 Barman.“His pieces should be on that table over there, just pick them up.”
+->DONE
+
+===BarmanDefault3
+Barman.“The pieces should be on that table over there, just pick them up.”
 ->DONE
 
 ===AntonHouseChat2
@@ -280,6 +295,17 @@ Anton.“Maybe you should try asking Fionna about an extra tire, her partner’s
 Anton.“You can find her in the northwest of town, in the chicken coop.”
 
 Patrick.“Okay, thanks.”
+->DONE
+
+=== Fionna ===
+{
+- not AntonHouseChat2:
+    ->FionnaDefault1
+
+- AntonHouseChat2 and not FionnaChat1:
+    ->FionnaChat1
+
+}
 ->DONE
 
 ===FionnaChat1
@@ -335,5 +361,15 @@ Fionna.“Claire would thank you with an apple pie. I’m not that good with coo
 
 - 
 TO BE CONTINUED.
+->DONE
+
+===FionnaDefault1
+Fionna."Oh, these damn chicken won't stay still."
+->DONE
+
+=== PickUpPieces ===
+~ hasPieces = true
+->Anton
+->DONE
 
 ->END

@@ -176,7 +176,7 @@ public class DialogueDisplay : MonoBehaviour
         _canPressSpace = false;
 
         //Set the GO to be active and change its text
-        for (int i = 0; i < _choicesText.Length; i++)
+        for (int i = 0; i < currentChoices.Count; i++)
         {
             _choices[i].SetActive(true);
             _choicesText[i].text = currentChoices[i].text;

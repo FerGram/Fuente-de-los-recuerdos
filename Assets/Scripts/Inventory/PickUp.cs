@@ -11,6 +11,9 @@ public class PickUp : MonoBehaviour
 
     private bool _playerInRange = false;
 
+    public virtual void Start() {
+        if (_inventory._inventoryItems.Contains(UIItem)) Destroy(gameObject);
+    }
 
     private void OnTriggerEnter2D(Collider2D other) {
         

@@ -10,8 +10,11 @@ public class DialogueTriggerTora : DialogueTrigger
     public override void OnInteract()
     {
         //Decide ink file to play
+
+		//if ()
         _JSONDataContainer.SetJSON(_inkJSON[0]);
-        
+		_JSONDataContainer.SetPath("Tora");
+
         //Execute base class funcitonality
         base.OnInteract();
     }

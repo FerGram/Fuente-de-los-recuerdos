@@ -54,7 +54,12 @@ public class DialogueDisplay : MonoBehaviour
 
     public void StartDialogue()
     {
-        _currentDialogue = new Story(_JSONDataContainer.GetJSON().text);
+		if (_currentDialogue == null)
+			_currentDialogue = new Story(_JSONDataContainer.GetJSON().text);
+
+		_currentDialogue.ChoosePathString(_JSONDataContainer.GetPath());
+		Debug.Log(_JSONDataContainer.GetPath());
+
         isPlaying = true;
 
         DisplayDialogueUI(true);
@@ -174,7 +179,7 @@ public class DialogueDisplay : MonoBehaviour
         _canPressSpace = false;
 
         //Set the GO to be active and change its text
-        for (int i = 0; i < _choicesText.Length; i++)
+        for (int i = 0; i < currentChoices.Count; i++)
         {
             _choices[i].SetActive(true);
             _choicesText[i].text = currentChoices[i].text;

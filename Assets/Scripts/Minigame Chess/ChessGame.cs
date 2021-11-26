@@ -11,8 +11,6 @@ public class ChessGame : MonoBehaviour
 
     private GameObject[,] positions = new GameObject[8, 8];
 
-    // Cantidad de enemigos --> seguramente cambiara en cada nivel
-    // O puede ser la cantidad de piezas en pantalla --> siendo pieces[0] la pieza del jugador ?¿
     public GameObject playerKnight;
     private GameObject Goal;
     public int GoalPosX = 5;
@@ -47,7 +45,7 @@ public class ChessGame : MonoBehaviour
     //                                Create("bishopLeft_Top", 2, 7, false), /*Create("bishopLeft_Bottom", 7, 0, true),
     //                                Create("bishopRight_Top", 5, 7, false),*/ /*Create("bishopRight_Bottom", 0, 0, true)*/};
     
-    public void Start()
+    void Start()
     {
         GameObject.Find("Text").GetComponent<Text>().enabled = false;
         Level1();

@@ -5,6 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+<<<<<<< HEAD
   - enabled: 1
     path: Assets/Scenes/Fer/Fer_0_MainMenu.unity
     guid: b24c4c913146428428459dcdca973e2d
@@ -20,4 +21,18 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ChessMinigame.unity
     guid: 82855b9f9c38e2144bf3d09412fa227d
+=======
+  - enabled: 0
+    path: Assets/Scenes/Fer/Fer_PreviousScene.unity
+    guid: 41216670d8749ef4d8a11d18f6308db2
+  - enabled: 0
+    path: Assets/Scenes/Fer/Fer_MainScene.unity
+    guid: 16258819b737a854d81464c64358a4ea
+  - enabled: 0
+    path: Assets/Scenes/Fer/Fer_NextScene.unity
+    guid: 31fa21b424b4dae448633eb24e614776
+  - enabled: 1
+    path: Assets/Scenes/FionnaMinigame.unity
+    guid: 19244043d67622043a9a3dc93571c716
+>>>>>>> FionnaMinigame-Haroun
   m_configObjects: {}

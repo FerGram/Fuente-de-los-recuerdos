@@ -25,6 +25,7 @@ public class DialogueDisplay : MonoBehaviour
 
     private Story _currentDialogue; 
     private TextMeshProUGUI[] _choicesText;
+    private bool _canPressSpace = true;
 
     public bool isPlaying {get; private set;}
 
@@ -48,12 +49,17 @@ public class DialogueDisplay : MonoBehaviour
         
         if (!isPlaying) return;
 
-        if (Input.GetMouseButtonDown(0)) ContinueStory();
+        if (Input.GetKeyDown(KeyCode.Space) && _canPressSpace) ContinueStory();
     }
 
     public void StartDialogue()
     {
-        _currentDialogue = new Story(_JSONDataContainer.GetJSON().text);
+		if (_currentDialogue == null)
+			_currentDialogue = new Story(_JSONDataContainer.GetJSON().text);
+
+		_currentDialogue.ChoosePathString(_JSONDataContainer.GetPath());
+		Debug.Log(_JSONDataContainer.GetPath());
+
         isPlaying = true;
 
         DisplayDialogueUI(true);
@@ -64,10 +70,10 @@ public class DialogueDisplay : MonoBehaviour
 
     private void DisplayDialogueUI(bool value){
 
-        for (int i = 0; i < gameObject.transform.childCount; i++)
-        {
-            gameObject.transform.GetChild(i).gameObject.SetActive(value);
-        }
+        if (_greyBackground != null) _greyBackground.gameObject.SetActive(value);
+        if (_dialoguePanel != null) _dialoguePanel.gameObject.SetActive(value);
+        if (_mainCharImage != null) _mainCharImage.gameObject.SetActive(value);
+        if (_NPCImage != null) _NPCImage.gameObject.SetActive(value);
     }
 
     public void FadeInBackground(bool value)
@@ -110,14 +116,18 @@ public class DialogueDisplay : MonoBehaviour
 
         int i = 0;
         string name = "";
-        while(text[i] != '.'){
+        while(i < text.Length && text[i] != '.'){
 
             name += text[i];
             i++;
         }
+        if (i == text.Length) {
+            _nameText.text = "Patrick";
+            return text;
+        }
+
         _nameText.text = name;
         text = text.Substring(i + 1);
-
         return text;
     }
 
@@ -135,8 +145,11 @@ public class DialogueDisplay : MonoBehaviour
 
     private void DisplayTalkingCharacter(){
 
-        Animator mainAnimator = _mainCharImage.gameObject.GetComponent<Animator>();
-        Animator NPCAnimator = _NPCImage.gameObject.GetComponent<Animator>();
+        Animator mainAnimator = null;
+        Animator NPCAnimator = null;
+
+        if (_mainCharImage != null) mainAnimator = _mainCharImage.gameObject.GetComponent<Animator>();
+        if (_NPCImage != null) NPCAnimator = _mainCharImage.gameObject.GetComponent<Animator>();
 
         if (_nameText.text == "Patrick"){
 
@@ -162,9 +175,11 @@ public class DialogueDisplay : MonoBehaviour
             Debug.LogError("Number of choices given exceeds the amount of choices the UI can support");
             return;
         }
+        //Can't continue if choice is not made
+        _canPressSpace = false;
 
         //Set the GO to be active and change its text
-        for (int i = 0; i < _choicesText.Length; i++)
+        for (int i = 0; i < currentChoices.Count; i++)
         {
             _choices[i].SetActive(true);
             _choicesText[i].text = currentChoices[i].text;
@@ -182,5 +197,8 @@ public class DialogueDisplay : MonoBehaviour
 
         //Tell Ink the choice made
         _currentDialogue.ChooseChoiceIndex(choiceIndex);
+        _canPressSpace = true;
+        ContinueStory();
+
     }
 }

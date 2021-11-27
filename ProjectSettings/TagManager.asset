@@ -7,6 +7,11 @@ TagManager:
   - NPC
   - MovePlate
   - Text
+  - Chicken
+  - ChickenHouse
+  - ChickenBox
+  - Wall
+  - RepulsionField
   layers:
   - Default
   - TransparentFX
@@ -14,7 +19,7 @@ TagManager:
   - 
   - Water
   - UI
-  - Camera
+  - 
   - 
   - 
   - 
@@ -41,12 +46,12 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Background
-    uniqueID: 482486257
+  - name: Bg
+    uniqueID: 2448166851
     locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Foreground
-    uniqueID: 2864312077
+  - name: Chick
+    uniqueID: 4194053319
     locked: 0

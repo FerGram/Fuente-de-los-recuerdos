@@ -73,7 +73,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 34.1, y: 29.79}
+  m_Size: {x: 34.1, y: 40}
   m_EdgeRadius: 0
 --- !u!114 &9077169192361299341
 MonoBehaviour:
@@ -88,7 +88,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sceneToLoad: 1
-  _nextSpawnPos: {x: 6.8, y: -1.36}
+  _nextSpawnPos: {x: 115.4, y: -24.8}
 --- !u!114 &9077169192361299340
 MonoBehaviour:
   m_ObjectHideFlags: 0

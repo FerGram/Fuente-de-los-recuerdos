@@ -12,6 +12,9 @@ TagManager:
   - ChickenBox
   - Wall
   - RepulsionField
+  - Plant2
+  - Plant3
+  - Plant1
   layers:
   - Default
   - TransparentFX
@@ -21,12 +24,12 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - NudoDirt1
+  - NudoDirt2
+  - NudoDirt3
+  - NudoPlant1
+  - NudoPlant2
+  - NudoPlant3
   - 
   - 
   - 

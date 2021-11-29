@@ -1,8 +1,18 @@
 //-> ToraChat1
 VAR hasPieces = false
 
+=== InitialCrash ===
+{not InitialCrashDefault : -> InitialCrashDefault }
+
+=== InitialCrashDefault
+Patrick."Damn I crashed my car."
+
+Patrick."I better find the missing wheel and fix the broken tire"
+->DONE
+
 
 === Tora ===
+TODO Save system
 //Story logic Tora
 {not ToraChat1:
         -> ToraChat1

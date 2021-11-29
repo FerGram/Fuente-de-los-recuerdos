@@ -34,7 +34,7 @@ public class GameMenuController : MonoBehaviour, ISelectHandler, IDeselectHandle
     private void Start() {
 
         //Only when in main menu
-        if (SceneManager.GetActiveScene().name == ScenesEnum.Fer_0_MainMenu.ToString()){
+        if (SceneManager.GetActiveScene().name == ScenesEnum._0_MainMenu.ToString()){
 
             //Show continue button or start game button
             if (GameStateData.Instance.gameData.playFirstTime){
@@ -183,7 +183,7 @@ public class GameMenuController : MonoBehaviour, ISelectHandler, IDeselectHandle
 
     public void LoadMainMenu(){
 
-        SceneManager.LoadSceneAsync(ScenesEnum.Fer_0_MainMenu.ToString());
+        SceneManager.LoadSceneAsync(ScenesEnum._0_MainMenu.ToString());
     }
 
     public void ExitGame(){

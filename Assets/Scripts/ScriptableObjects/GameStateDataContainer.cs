@@ -7,7 +7,7 @@ public class GameStateDataContainer : ScriptableObject {
     
     [Header("General")]
     public bool playFirstTime = false;
-    public ScenesEnum sceneToLoad = ScenesEnum.Fer_1_CarCrash;
+    public ScenesEnum sceneToLoad = ScenesEnum._1_CarCrash;
 
     [Header("Car Crash Scene")]
     public bool firstDialoguePlayed = false;

@@ -6,8 +6,7 @@ public class DialogueTrigger : MonoBehaviour
 {
     //These are public because they must be accessed by inherited classes
     //TO-DO make it a list of JSONS
-    public List<TextAsset> _inkJSON;
-    public List<TextAsset> _inkObjectJSON;
+    public TextAsset _inkJSON;
     public JSONDataContainer _JSONDataContainer;
     public GameEvent _triggerDialogue;
     

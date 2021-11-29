@@ -7,7 +7,7 @@ public class DialogueTriggerCar : DialogueTrigger
     public override void OnInteract()
     {
         //Decide ink file to play
-        _JSONDataContainer.SetJSON(_inkJSON[0]);
+        _JSONDataContainer.SetJSON(_inkJSON);
         
         //Execute base class funcitonality
         base.OnInteract();

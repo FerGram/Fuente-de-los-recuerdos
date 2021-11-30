@@ -5,11 +5,22 @@ VAR hasPieces = false
 {not InitialCrashDefault : -> InitialCrashDefault }
 
 === InitialCrashDefault
-Patrick."Damn I crashed my car."
+Patrick."Damn I crashed my car"
 
-Patrick."I better find the missing wheel and fix the broken tire"
+Patrick."I better FIND AND PLACE THE MISSING WHEEL and fix the broken tire"
 ->DONE
 
+=== CarWheel ===
+Patrick."Ok. Wheel's in place"
+
+Patrick."I'll check around if I can FIND A WAY TO FIX THE TIRE"
+->DONE
+
+=== CarDefault ===
+Patrick."Ugh! Look at its awful state"
+
+Patrick."What a disaster"
+->DONE
 
 === Tora ===
 TODO Save system

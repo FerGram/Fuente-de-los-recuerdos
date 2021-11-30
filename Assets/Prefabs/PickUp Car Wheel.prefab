@@ -128,7 +128,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _inventory: {fileID: 11400000, guid: 6ff7cca2262e8344ba64ad44ec6f8e9a, type: 2}
   _onItemPickUp: {fileID: 11400000, guid: a33b9a9d73161c344a9210d76e737195, type: 2}
-  UIItem: {fileID: 397923055122253682, guid: 8ad287a1a051818439346506ae81717e, type: 3}
+  UIItem: {fileID: 397923055122253682, guid: 0d7b5cd3ba9961644acaab74c603cb22, type: 3}
 --- !u!114 &4423654392373682805
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -6,16 +6,16 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Fer/Fer_0_MainMenu.unity
+    path: Assets/Scenes/Fer/_0_MainMenu.unity
     guid: b24c4c913146428428459dcdca973e2d
   - enabled: 1
-    path: Assets/Scenes/Fer/Fer_1_CarCrash.unity
+    path: Assets/Scenes/Fer/_1_CarCrash.unity
     guid: edd2fc36f5ed22d47b84f42c9c9d827a
   - enabled: 1
-    path: Assets/Scenes/Fer/Fer_2_ForestWalk.unity
+    path: Assets/Scenes/Fer/_2_ForestWalk.unity
     guid: f01d6528b0ec6b343ba264f4e506b261
   - enabled: 1
-    path: Assets/Scenes/Fer/Fer_3_MainScene.unity
+    path: Assets/Scenes/Fer/_4_Plaza.unity
     guid: 16258819b737a854d81464c64358a4ea
   - enabled: 1
     path: Assets/Scenes/ChessMinigame.unity

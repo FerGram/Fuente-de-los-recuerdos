@@ -10,10 +10,9 @@ public class DialogueTriggerBarman : DialogueTrigger
     public override void OnInteract()
     {
         //Decide ink file to play
-
-		//if ()
-        _JSONDataContainer.SetJSON(_inkJSON[0]);
+        _JSONDataContainer.SetJSON(_inkJSON);
 		_JSONDataContainer.SetPath("Barman");
+        
         //Execute base class funcitonality
         base.OnInteract();
     }
@@ -25,17 +24,8 @@ public class DialogueTriggerBarman : DialogueTrigger
 
         //Decide ink file to play
         switch(type){
-            case ItemEnum.GreenSquare: _JSONDataContainer.SetJSON(_inkObjectJSON[0]); break;  
-            case ItemEnum.RedSquare:
-
-                _JSONDataContainer.SetJSON(_inkObjectJSON[1]);
-
-                // Can load other scenes like so (maybe another script attached that triggers minigame
-                // would be a better approach):
-                
-                // SceneLoader.Instance.LoadScene(_minigameScene, LoadSceneMode.Additive);
-
-                break;  
+            case ItemEnum.GreenSquare: _JSONDataContainer.SetJSON(_inkJSON); break;  
+            case ItemEnum.RedSquare: _JSONDataContainer.SetJSON(_inkJSON); break;  
         }
         
         //Execute base class funcitonality

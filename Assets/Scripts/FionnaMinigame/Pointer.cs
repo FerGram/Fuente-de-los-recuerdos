@@ -36,10 +36,28 @@ public class Pointer : MonoBehaviour
         {
             if (scriptGame.chickens[i] != null)
             {
-                if (Mathf.Abs(scriptGame.chickens[i].transform.position.x - this.transform.position.x) <= 2 && 
-                    Mathf.Abs(scriptGame.chickens[i].transform.position.y - this.transform.position.y) <= 2)
+                Chicken chicken = scriptGame.chickens[i].GetComponent<Chicken>();
+                if (this.transform.position.x <= chicken.transform.position.x + chicken.horizontalBorder && 
+                    this.transform.position.x >= chicken.transform.position.x - chicken.horizontalBorder &&
+                    this.transform.position.y <= chicken.transform.position.y + chicken.verticalBorder   &&
+                    this.transform.position.y >= chicken.transform.position.y - chicken.verticalBorder)
                 {
                     scriptGame.chickens[i].GetComponent<Chicken>().mouse = true;
+                    /*
+                    public bool pointerIsLeft;
+                    public bool pointerIsRight;
+                    public bool pointerIsAbove;
+                    public bool pointerIsBelow;
+                    */
+                    if (scriptGame.chickens[i].transform.position.x > this.transform.position.x)
+                        scriptGame.chickens[i].GetComponent<Chicken>().pointerIsLeft = true;
+                    else
+                        scriptGame.chickens[i].GetComponent<Chicken>().pointerIsRight = true;
+
+                    if (scriptGame.chickens[i].transform.position.y > this.transform.position.y)
+                        scriptGame.chickens[i].GetComponent<Chicken>().pointerIsBelow = true;
+                    else
+                        scriptGame.chickens[i].GetComponent<Chicken>().pointerIsAbove = true;
                 }
                 else
                 {

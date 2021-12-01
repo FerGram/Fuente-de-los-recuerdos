@@ -12,7 +12,7 @@ public class House : MonoBehaviour
     {
         controller = GameObject.FindGameObjectWithTag("GameController");
         scriptGame = controller.GetComponent<ChickenGame>();
-        chickensToSave = scriptGame.chickens.Length / 2;
+        chickensToSave = scriptGame.chickens.Length;
 
         for (int i = 0; i < scriptGame.chickens.Length; i++)
         {

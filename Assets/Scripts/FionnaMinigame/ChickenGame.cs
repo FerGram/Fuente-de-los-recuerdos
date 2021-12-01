@@ -25,7 +25,6 @@ public class ChickenGame : MonoBehaviour
     void Start()
     {
         safeChickens = 0;
-        lostChickens = 0;
 
         stop = false;
         gameOver = false;
@@ -106,7 +105,6 @@ public class ChickenGame : MonoBehaviour
     void PrepareLvL()
     {
         safeChickens = 0;
-        lostChickens = 0;
 
         GameObject[] chickens = GameObject.FindGameObjectsWithTag("Chicken");
         GameObject chickenHouse = GameObject.FindGameObjectWithTag("ChickenHouse");

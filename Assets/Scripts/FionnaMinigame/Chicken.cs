@@ -14,10 +14,10 @@ public class Chicken : MonoBehaviour
     Vector2 startPosition;
 
     // Distance from center to border
-    static float horizontalBorder;
-    static float verticalBorder;
+    public float horizontalBorder;
+    public float verticalBorder;
 
-    static float scale;
+    static Vector2 scale;
 
     public GameObject ground;
     static float maxX;
@@ -45,6 +45,11 @@ public class Chicken : MonoBehaviour
     static GameObject controller;
     static ChickenGame scriptGame;
 
+    public bool pointerIsLeft;
+    public bool pointerIsRight;
+    public bool pointerIsAbove;
+    public bool pointerIsBelow;
+
     void Start()
     {
         controller = GameObject.FindGameObjectWithTag("GameController");
@@ -56,10 +61,11 @@ public class Chicken : MonoBehaviour
 
         mouse = false;
 
-        scale = GetComponent<Transform>().localScale.x;
+        
+        scale = new Vector2 (GetComponent<Transform>().localScale.x, GetComponent<Transform>().localScale.y);
 
-        horizontalBorder = GetComponent<SpriteRenderer>().sprite.bounds.size.x * scale / 2;
-        verticalBorder = GetComponent<SpriteRenderer>().sprite.bounds.size.y * scale / 2;
+        horizontalBorder = GetComponent<SpriteRenderer>().sprite.bounds.size.x * scale.x / 2;
+        verticalBorder = GetComponent<SpriteRenderer>().sprite.bounds.size.y * scale.y / 2;
 
         float groundScale = ground.GetComponent<Transform>().localScale.x;
         maxX = ground.GetComponent<SpriteRenderer>().sprite.bounds.size.x * groundScale / 2 - horizontalBorder;
@@ -74,8 +80,6 @@ public class Chicken : MonoBehaviour
                 this.GetComponent<SpriteRenderer>().color = Color.gray;
             else
                 this.GetComponent<SpriteRenderer>().color = Color.white;
-            
-            Debug.Log("mouse " + mouse);
             
             if (!mouse)
             {
@@ -126,7 +130,31 @@ public class Chicken : MonoBehaviour
         if (mouseMovesChicken)
         {
             mouseMovesChicken = false;
-            MoveChicken(new Vector3 (chickenHouse.transform.position.x, chickenHouse.transform.position.y, 0));
+            Vector2 v = new Vector2(transform.position.x, transform.position.y);
+            if (pointerIsLeft)
+            {
+                pointerIsLeft = false;
+                v.x = Random.Range(chickenHouse.transform.position.x, maxX);
+                MoveChicken(new Vector3(v.x, v.y, 0));
+            }
+            else if (pointerIsRight)
+            {
+                pointerIsRight = false;
+                v.x = Random.Range(chickenHouse.transform.position.x, -maxX);
+                MoveChicken(new Vector3(v.x, v.y, 0));
+            }
+            if (pointerIsBelow)
+            {
+                pointerIsBelow = false;
+                v.y = Random.Range(chickenHouse.transform.position.y, maxY);
+                MoveChicken(new Vector3(v.x, v.y, 0));
+            }
+            else if (pointerIsAbove)
+            {
+                pointerIsAbove = false;
+                v.y = Random.Range(chickenHouse.transform.position.y, -maxY);
+                MoveChicken(new Vector3 (v.x, v.y, 0));
+            }
         }
         transform.position = Lerp(startPosition, endPosition, timeStartedLerping, lerpTime);
     }
@@ -215,6 +243,16 @@ public class Chicken : MonoBehaviour
     {
         startPosition = transform.position;
         endPosition = vector;
+
+        if (endPosition.x > 0 && endPosition.x > maxX)
+            endPosition.x = maxX;
+        else if (endPosition.x < 0 && endPosition.x < -maxX)
+            endPosition.x = -maxX;
+
+        if (endPosition.y > 0 && endPosition.y > maxY)
+            endPosition.y = maxY;
+        else if (endPosition.y < 0 && endPosition.y < -maxY)
+            endPosition.y = -maxY;
 
         timeStartedLerping = Time.time;
         lerpTime = Random.Range(2, 3);

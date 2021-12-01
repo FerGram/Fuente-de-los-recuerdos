@@ -7944,7 +7944,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9185195588334180580, guid: 05b7302b4f1114544a9308c7e498ea43, type: 3}
       propertyPath: _sceneToLoad
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 9185195588334180580, guid: 05b7302b4f1114544a9308c7e498ea43, type: 3}
       propertyPath: _nextSpawnPos.x

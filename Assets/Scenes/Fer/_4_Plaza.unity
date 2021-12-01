@@ -10143,11 +10143,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9185195588334180580, guid: 05b7302b4f1114544a9308c7e498ea43, type: 3}
       propertyPath: _nextSpawnPos.x
-      value: 115.4
+      value: 73.7
       objectReference: {fileID: 0}
     - target: {fileID: 9185195588334180580, guid: 05b7302b4f1114544a9308c7e498ea43, type: 3}
       propertyPath: _nextSpawnPos.y
-      value: -24.4
+      value: -19.4
       objectReference: {fileID: 0}
     - target: {fileID: 9185195588334180581, guid: 05b7302b4f1114544a9308c7e498ea43, type: 3}
       propertyPath: _onEndHover.m_PersistentCalls.m_Calls.Array.data[0].m_Target

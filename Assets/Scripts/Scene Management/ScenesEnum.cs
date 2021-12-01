@@ -15,5 +15,6 @@ public enum ScenesEnum
     _8_Bar,
     _9_FionnaHouse,
     _10_PlazaCinematic,
+    _11_ForestToVillage,
     ChessMinigame
 };

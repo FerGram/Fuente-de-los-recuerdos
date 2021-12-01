@@ -15,4 +15,4 @@ MonoBehaviour:
   playFirstTime: 0
   sceneToLoad: 1
   firstDialoguePlayed: 1
-  carPieceInPlace: 1
+  carPieceInPlace: 0

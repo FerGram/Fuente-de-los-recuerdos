@@ -6013,7 +6013,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 67b660e3eebc33d41b1221bc1b8a0a46, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 71bdf97118c8dea4280b5a3da3c8377e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6286,7 +6286,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7786046, y: 1}
+    m_SensorSize: {x: 1.7774059, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -6913,7 +6913,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2011045667}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -91.845, y: -9.101649, z: -10}
+  m_LocalPosition: {x: -91.87523, y: -9.101649, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 673318945}
@@ -7957,10 +7957,18 @@ PrefabInstance:
     - target: {fileID: 9185195588334180581, guid: 05b7302b4f1114544a9308c7e498ea43, type: 3}
       propertyPath: _onEndHover.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1852681290}
     - target: {fileID: 9185195588334180581, guid: 05b7302b4f1114544a9308c7e498ea43, type: 3}
       propertyPath: _onStartHover.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
+      objectReference: {fileID: 1852681290}
+    - target: {fileID: 9185195588334180581, guid: 05b7302b4f1114544a9308c7e498ea43, type: 3}
+      propertyPath: _onEndHover.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: set_sprite
+      objectReference: {fileID: 0}
+    - target: {fileID: 9185195588334180581, guid: 05b7302b4f1114544a9308c7e498ea43, type: 3}
+      propertyPath: _onStartHover.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: set_sprite
       objectReference: {fileID: 0}
     - target: {fileID: 9185195588376236177, guid: 05b7302b4f1114544a9308c7e498ea43, type: 3}
       propertyPath: m_Size.y
@@ -7969,10 +7977,18 @@ PrefabInstance:
     - target: {fileID: 9185195588376236178, guid: 05b7302b4f1114544a9308c7e498ea43, type: 3}
       propertyPath: _onEndHover.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1852681290}
     - target: {fileID: 9185195588376236178, guid: 05b7302b4f1114544a9308c7e498ea43, type: 3}
       propertyPath: _onStartHover.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
+      objectReference: {fileID: 1852681290}
+    - target: {fileID: 9185195588376236178, guid: 05b7302b4f1114544a9308c7e498ea43, type: 3}
+      propertyPath: _onEndHover.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: set_sprite
+      objectReference: {fileID: 0}
+    - target: {fileID: 9185195588376236178, guid: 05b7302b4f1114544a9308c7e498ea43, type: 3}
+      propertyPath: _onStartHover.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: set_sprite
       objectReference: {fileID: 0}
     - target: {fileID: 9185195588376236189, guid: 05b7302b4f1114544a9308c7e498ea43, type: 3}
       propertyPath: m_LocalPosition.x

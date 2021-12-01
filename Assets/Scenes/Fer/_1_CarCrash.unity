@@ -419,7 +419,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 24836434}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -99.986046, y: -12.856221, z: -10}
+  m_LocalPosition: {x: -99.99732, y: -12.856232, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1744719945}
@@ -1285,6 +1285,14 @@ PrefabInstance:
       propertyPath: _onStartHover.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 543228339}
+    - target: {fileID: 1967903223114342898, guid: 8bf463fd0b090d94499dacbe9c9f3a4f, type: 3}
+      propertyPath: _onEndHover.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 21300000, guid: 71bdf97118c8dea4280b5a3da3c8377e, type: 3}
+    - target: {fileID: 1967903223114342898, guid: 8bf463fd0b090d94499dacbe9c9f3a4f, type: 3}
+      propertyPath: _onStartHover.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 21300000, guid: d4acdd1fb9420344395a00d358420d2a, type: 3}
     - target: {fileID: 1967903223114342908, guid: 8bf463fd0b090d94499dacbe9c9f3a4f, type: 3}
       propertyPath: m_Name
       value: Waypoint Change Right
@@ -3715,7 +3723,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 67b660e3eebc33d41b1221bc1b8a0a46, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 71bdf97118c8dea4280b5a3da3c8377e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -14401,7 +14409,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7786046, y: 1}
+    m_SensorSize: {x: 1.778192, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -20781,7 +20789,7 @@ MonoBehaviour:
         m_MethodName: set_sprite
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 21300000, guid: d7d495f2525ab0f40b29a80c65d519c7, type: 3}
+          m_ObjectArgument: {fileID: 21300000, guid: ff4412572fe9d054eaef48a3fb46a7dc, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -20823,7 +20831,7 @@ MonoBehaviour:
         m_MethodName: set_sprite
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 21300000, guid: 67b660e3eebc33d41b1221bc1b8a0a46, type: 3}
+          m_ObjectArgument: {fileID: 21300000, guid: 71bdf97118c8dea4280b5a3da3c8377e, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -20983,7 +20991,7 @@ PrefabInstance:
     - target: {fileID: 4423654392373682805, guid: 84c70f6235e4a4040ade4a843640794a, type: 3}
       propertyPath: _onEndHover.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 21300000, guid: 67b660e3eebc33d41b1221bc1b8a0a46, type: 3}
+      objectReference: {fileID: 21300000, guid: 71bdf97118c8dea4280b5a3da3c8377e, type: 3}
     - target: {fileID: 4423654392373682805, guid: 84c70f6235e4a4040ade4a843640794a, type: 3}
       propertyPath: _onStartHover.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
       value: 1
@@ -20991,7 +20999,7 @@ PrefabInstance:
     - target: {fileID: 4423654392373682805, guid: 84c70f6235e4a4040ade4a843640794a, type: 3}
       propertyPath: _onStartHover.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 21300000, guid: 18481009b22dbdb49a274e13c184bfe8, type: 3}
+      objectReference: {fileID: 21300000, guid: 674780dfc8f885f49a17ed3287b848b0, type: 3}
     - target: {fileID: 4423654392373682805, guid: 84c70f6235e4a4040ade4a843640794a, type: 3}
       propertyPath: _onEndHover.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Sprite, UnityEngine

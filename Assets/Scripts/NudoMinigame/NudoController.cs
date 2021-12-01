@@ -8,14 +8,12 @@ public class NudoController : MonoBehaviour
     public int numberOfPlants;
     int lvl;
 
-    [SerializeField] GameObject lvl1;
-    [SerializeField] GameObject lvl2;
-    [SerializeField] GameObject lvl3;
+    [SerializeField] GameObject level;
+
 
     GameObject[] plants;
 
     public bool lvlIsMoving;
-    Vector3 NextPosition;
     void Start()
     {
         lvlIsMoving = false;
@@ -39,13 +37,17 @@ public class NudoController : MonoBehaviour
             {
                 lvl++;
                 CurrentPlants("Plant2");
-                StartCoroutine(MoveNextLvLToCamera(lvl1, lvl2));
+                StartCoroutine(MoveNextLvLToCamera(-25.0f));
             }
             else if (lvl == 2)
             {
                 lvl++;
                 CurrentPlants("Plant3");
-                StartCoroutine(MoveNextLvLToCamera(lvl2, lvl3));
+                StartCoroutine(MoveNextLvLToCamera(-50.0f));
+            }
+            else
+            {
+                //MINIGAME COMPLETED
             }
         }
     }
@@ -56,24 +58,15 @@ public class NudoController : MonoBehaviour
         numberOfPlants = plants.Length;
     }
 
-    IEnumerator MoveNextLvLToCamera(GameObject actualLvl, GameObject nextLvl)
+    IEnumerator MoveNextLvLToCamera(float x)
     {
         lvlIsMoving = true;
-        if (lvl == 2)
-        {
-            NextPosition = new Vector3(5.48f, actualLvl.transform.position.y, actualLvl.transform.position.z);
-        }
-        else if (lvl == 3)
-        {
-            NextPosition = new Vector3(0.0f, actualLvl.transform.position.y, actualLvl.transform.position.z);
-        }
 
         while (lvlIsMoving)
         {
-            nextLvl.transform.position = Vector3.MoveTowards(nextLvl.transform.position, NextPosition, 0.1f);
-            actualLvl.transform.position = Vector3.MoveTowards(actualLvl.transform.position,
-                                       new Vector2(actualLvl.transform.position.x - 100, actualLvl.transform.position.y), 0.1f);
-            if (nextLvl.transform.position.x <= NextPosition.x)
+
+            level.transform.position = Vector3.MoveTowards(level.transform.position, new Vector2(level.transform.position.x - 100, level.transform.position.y), 0.1f);
+            if (level.transform.position.x <= x)
             {
                 lvlIsMoving = false;
 

@@ -55,7 +55,7 @@ public class Plant : MonoBehaviour
     {
         if (transform.position.y - plantTop > goodBasket.transform.position.y + basketsTop)
         {
-            transform.position = new Vector3 (transform.position.x, transform.position.y, 0.5f);
+            transform.position = new Vector3 (transform.position.x, transform.position.y, 2.0f);
         }
         else if (transform.position.y + plantTop < goodBasket.transform.position.y + basketsTop && uprooted)
         {
@@ -66,18 +66,18 @@ public class Plant : MonoBehaviour
         {
             transform.position = new Vector3(transform.position.x, transform.position.y + 0.1f, startingZ);
         }
-        else if (transform.position.y >= 4.85f)
+        else if (transform.position.y >= Camera.main.orthographicSize)
         {
             transform.position = new Vector3(transform.position.x, transform.position.y - 0.1f, startingZ);
         }
 
         if (OnScreen)
         {
-            if (transform.position.x >= 11.0f)
+            if (transform.position.x >= Camera.main.orthographicSize * Screen.width / Screen.height)
             {
                 transform.position = new Vector3(transform.position.x - 0.1f, transform.position.y, startingZ);
             }
-            else if (transform.position.x <= -11.0f)
+            else if (transform.position.x <= -Camera.main.orthographicSize * Screen.width / Screen.height)
             {
                 transform.position = new Vector3(transform.position.x + 0.1f, transform.position.y, startingZ);
             }
@@ -141,7 +141,7 @@ public class Plant : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (transform.position.z == 0.5f)
+        if (transform.position.z == 2.0f)
         {
             if (collision.gameObject == goodBasket)
             {
@@ -168,6 +168,20 @@ public class Plant : MonoBehaviour
     {
         if (collision.gameObject == ground)
             onGround = true;
+
+        if (transform.position.z == 2.0f)
+        {
+            if (collision.gameObject.CompareTag("GoodBasketHelper"))
+            {
+                transform.position = Vector3.MoveTowards(transform.position,
+                    new Vector3(goodBasket.transform.position.x, transform.position.y, 2.0f), 0.1f);
+            }
+            else if (collision.gameObject.CompareTag("BadBasketHelper"))
+            {
+                transform.position = Vector3.MoveTowards(transform.position,
+                    new Vector3(badBasket.transform.position.x, transform.position.y, 2.0f), 0.1f);
+            }
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

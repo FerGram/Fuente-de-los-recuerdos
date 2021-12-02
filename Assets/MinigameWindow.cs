@@ -34,4 +34,11 @@ public class MinigameWindow : MonoBehaviour
 		yield return new WaitForSeconds(0f);
 		transform.DOScale(_oriScale, scaleDuration).SetEase(ease);
 	}
+
+	public IEnumerator Minimize()
+	{
+		transform.DOScale(_startScale, scaleDuration).SetEase(ease);
+		yield return new WaitForSeconds(scaleDuration);
+		gameObject.SetActive(false);
+	}
 }

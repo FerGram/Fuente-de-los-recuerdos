@@ -16,21 +16,22 @@ public class MinigameController : MonoBehaviour
 
 	RectTransform _windowRect;
 
-	public static MinigameController current;
 
-	//public event Action ;
-	
-    // Start is called before the first frame update
-    void Awake()
+	// Start is called before the first frame update
+	void Start()
     {
 		_mainScene = SceneManager.GetActiveScene();
-		
+
 		//Invoke("LoadMinigame", 2f);
+
+		MinigameEvents.current.onLoadMinigame += LoadMinigame;
+		MinigameEvents.current.onUnloadMinigame += UnloadMinigame;
 	}
 
-    public void LoadMinigame()
+    public void LoadMinigame(int minigame)
 	{
 		//Get scene to load
+		_sceneIndex = minigame;
 		Scene scene = SceneManager.GetSceneByBuildIndex(_sceneIndex);
 
 		//Load scene asyncronously
@@ -41,7 +42,7 @@ public class MinigameController : MonoBehaviour
 
 		//Move window to proper position
 		Vector3 newPosWindow = Camera.main.transform.position;
-		newPosWindow.z = 0;
+		newPosWindow.z = -1; //Keep the window in front of everything
 		_minigameWindow.transform.position = newPosWindow;
 
 		//Activate window obj
@@ -53,13 +54,13 @@ public class MinigameController : MonoBehaviour
 		//Set active scene to be 
 	}
 
-	public void UnloadMinigame()
+	public void UnloadMinigame(int minigame)
 	{
 		Scene sceneToDestroy = SceneManager.GetActiveScene();
 		SceneManager.SetActiveScene(_mainScene);
 		SceneManager.UnloadSceneAsync(sceneToDestroy);
 
-		_minigameWindow.SetActive(false);
+		StartCoroutine(_minigameWindow.GetComponent<MinigameWindow>().Minimize());
 
 	}
 
@@ -69,7 +70,7 @@ public class MinigameController : MonoBehaviour
 		Debug.Log("Scene loaded:" + SceneManager.GetActiveScene().name);
 	}
 
-	public static Vector2 ConvertFromScreenToViewport(Camera minigameCam, MeshRenderer _minigameWindow)
+	public Vector2 ConvertFromScreenToViewport(Camera minigameCam, MeshRenderer _minigameWindow)
 	{
 		Vector2 mousePos = Input.mousePosition;
 

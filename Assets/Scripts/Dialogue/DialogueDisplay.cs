@@ -23,7 +23,7 @@ public class DialogueDisplay : MonoBehaviour
     [SerializeField] GameEvent _dialogueEnded;
     [SerializeField] JSONDataContainer _JSONDataContainer;
 
-    private Story _currentDialogue; 
+    public Story _currentDialogue; 
     private TextMeshProUGUI[] _choicesText;
     private bool _canPressSpace = true;
 
@@ -43,7 +43,9 @@ public class DialogueDisplay : MonoBehaviour
         {
             _choicesText[i] = _choices[i].GetComponentInChildren<TextMeshProUGUI>();
         }
-    }
+
+
+	}
 
     private void Update() {
         
@@ -55,7 +57,18 @@ public class DialogueDisplay : MonoBehaviour
     public void StartDialogue()
     {
 		if (_currentDialogue == null)
+		{
 			_currentDialogue = new Story(_JSONDataContainer.GetJSON().text);
+
+			_currentDialogue.BindExternalFunction("startMinigame", (int minigame) => {
+				MinigameEvents.current.LoadMinigame(minigame);
+			});
+
+			MinigameEvents.current.onUnloadMinigame += EnableUI;
+			//_currentDialogue.BindExternalFunction("startMinigame", (int minigame) => {
+			//	GameObject.Find("MinigameController").GetComponent<MinigameController>().LoadMinigame(minigame);
+			//});
+		}
 
 		_currentDialogue.ChoosePathString(_JSONDataContainer.GetPath());
 		Debug.Log(_JSONDataContainer.GetPath());
@@ -87,7 +100,7 @@ public class DialogueDisplay : MonoBehaviour
     {
         StopAllCoroutines();
 
-        if (_currentDialogue.canContinue){
+        if (_currentDialogue.canContinue && !MinigameEvents.current.insideMinigame){
 
             string text = _currentDialogue.Continue();
             text = SetDialogueName(text);
@@ -96,8 +109,31 @@ public class DialogueDisplay : MonoBehaviour
             DisplayTalkingCharacter();
             DisplayChoices();
         }
+		else if (MinigameEvents.current.insideMinigame)
+		{
+			Debug.Log("Inside Minigame");
+			DisableUI();
+		}
         else{ ExitDialogue(); }
     }
+
+	private void DisableUI()
+	{
+		_dialoguePanel.SetActive(false);
+		_dialogueText.text = "";
+
+		DisplayDialogueUI(false);
+		FadeInBackground(false);
+	}
+
+	private void EnableUI(int minigame)
+	{
+		_dialoguePanel.SetActive(true);
+		_dialogueText.text = "";
+
+		DisplayDialogueUI(true);
+		FadeInBackground(true);
+	}
 
     private void ExitDialogue()
     {

@@ -20,6 +20,8 @@ public class ChessGame : MonoBehaviour
 
     private GameObject[,] positions = new GameObject[8, 8];
 
+	private MinigameController minigameController;
+
     // Cantidad de enemigos --> seguramente cambiara en cada nivel
     // O puede ser la cantidad de piezas en pantalla --> siendo pieces[0] la pieza del jugador ?¿
     public GameObject playerKnight;
@@ -60,7 +62,8 @@ public class ChessGame : MonoBehaviour
     public void Start()
     {
         GameObject.Find("Text").GetComponent<Text>().enabled = false;
-		testT = GameObject.Find("TestObj").transform;
+		//testT = GameObject.Find("TestObj").transform;
+		minigameController = FindObjectOfType<MinigameController>();
 		windowRect = GameObject.Find("Minigame Window").GetComponent<MeshRenderer>();
         Level1();
     }
@@ -314,6 +317,7 @@ public class ChessGame : MonoBehaviour
             GameObject.Find("Text").GetComponent<Text>().enabled = true;
             GameObject.Find("Text").GetComponent<Text>().text = "COMPLETED";
             text = false;
+			MinigameEvents.current.UnloadMinigame(4);
         }
 
         if (gameOver && Input.GetMouseButtonDown(0))
@@ -338,11 +342,11 @@ public class ChessGame : MonoBehaviour
 
 		if (Input.GetMouseButtonDown(0))
 		{
-			Vector2 finalPos = MinigameController.ConvertFromScreenToViewport(minigameCam, windowRect);
+			Vector2 finalPos = minigameController.ConvertFromScreenToViewport(minigameCam, windowRect);
 
 
 			RaycastHit2D hit = Physics2D.Raycast(finalPos, Vector2.zero, Mathf.Infinity, layerMask);
-			testT.position = finalPos;
+			//testT.position = finalPos;
 
 			//Debug.Log("Final pos: " + finalPos);
 			

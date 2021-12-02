@@ -83,6 +83,7 @@ public class ChickenGame : MonoBehaviour
         }
         else if (win && Input.GetMouseButtonDown(0) && lvl == 3)
         {
+            Debug.Log("WIN");
             //Minigame completed --> next scene
         }
         else if (win && Input.GetMouseButtonDown(0))

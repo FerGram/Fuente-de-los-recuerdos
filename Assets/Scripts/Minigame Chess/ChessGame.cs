@@ -9,7 +9,18 @@ public class ChessGame : MonoBehaviour
     //Reference from Unity IDE
     public GameObject chesspiece;
 
+	public Camera minigameCam;
+
+	[SerializeField]
+	int minigameLayer;
+
+	public LayerMask layerMask;
+
+	private MeshRenderer windowRect;
+
     private GameObject[,] positions = new GameObject[8, 8];
+
+	private MinigameController minigameController;
 
     // Cantidad de enemigos --> seguramente cambiara en cada nivel
     // O puede ser la cantidad de piezas en pantalla --> siendo pieces[0] la pieza del jugador ?¿
@@ -26,6 +37,7 @@ public class ChessGame : MonoBehaviour
     private int lvl = 1;
     public bool text = false;
 
+	public Transform testT;
     /*
         There are 2 enemy pieces: rook and bishop:
 
@@ -50,6 +62,9 @@ public class ChessGame : MonoBehaviour
     public void Start()
     {
         GameObject.Find("Text").GetComponent<Text>().enabled = false;
+		//testT = GameObject.Find("TestObj").transform;
+		minigameController = FindObjectOfType<MinigameController>();
+		windowRect = GameObject.Find("Minigame Window").GetComponent<MeshRenderer>();
         Level1();
     }
 
@@ -62,6 +77,7 @@ public class ChessGame : MonoBehaviour
         cm.SetYBoard(y);
         cm.SetForward(forward);
         cm.Activate(); //It has everything set up so it can now Activate()
+		obj.layer = minigameLayer;
         return obj;
     }
 
@@ -73,7 +89,8 @@ public class ChessGame : MonoBehaviour
         cm.SetXBoard(x);
         cm.SetYBoard(y);
         cm.Activate(); //It has everything set up so it can now Activate()
-        return obj;
+		obj.layer = minigameLayer;
+		return obj;
     }
 
     public void SetPosition(GameObject obj)
@@ -300,6 +317,7 @@ public class ChessGame : MonoBehaviour
             GameObject.Find("Text").GetComponent<Text>().enabled = true;
             GameObject.Find("Text").GetComponent<Text>().text = "COMPLETED";
             text = false;
+			MinigameEvents.current.UnloadMinigame(4);
         }
 
         if (gameOver && Input.GetMouseButtonDown(0))
@@ -321,7 +339,38 @@ public class ChessGame : MonoBehaviour
 
             LoadLvL();
         }
-    }
+
+		if (Input.GetMouseButtonDown(0))
+		{
+			Vector2 finalPos = minigameController.ConvertFromScreenToViewport(minigameCam, windowRect);
+
+
+			RaycastHit2D hit = Physics2D.Raycast(finalPos, Vector2.zero, Mathf.Infinity, layerMask);
+			//testT.position = finalPos;
+
+			//Debug.Log("Final pos: " + finalPos);
+			
+			if (hit.collider != null)
+			{
+
+				MovePlate mp = hit.collider.gameObject.GetComponent<MovePlate>();
+				Chessman cm = hit.collider.gameObject.GetComponent<Chessman>();
+				if (mp != null)
+				{
+					//Debug.Log("Target Position: " + hit.collider.gameObject.transform.position);
+					Debug.Log("Target GameObject: " + hit.collider.gameObject.name);
+					mp.OnClickOver();
+				}
+				else if (cm != null && cm.player)
+				{
+					Debug.Log("Target GameObject: " + hit.collider.gameObject.name);
+					cm.OnClickOver();
+				}
+				
+			}
+
+		}
+	}
 
     void DestroyPieces()
     {

@@ -1,6 +1,9 @@
 //-> ToraChat1
 VAR hasPieces = false
 
+
+EXTERNAL startMinigame(minigame)
+
 === InitialCrash ===
 {not InitialCrashDefault : -> InitialCrashDefault }
 
@@ -35,6 +38,10 @@ TODO Save system
 Tora.“Welcome to the Fountain of Memories, traveler.”
 
 Tora.“This town has been abandoned since long ago, when the fountain broke.”
+
+Tora."DO you wanna play a game?"
+~ startMinigame(4)
+Tora."Let's play then."
 
 Tora.“Only our memories are left.”
 

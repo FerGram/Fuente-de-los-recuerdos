@@ -1,11 +1,11 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Chessman : MonoBehaviour
 {
     //References to objects in our Unity Scene
-    public GameObject controller;
+    public ChessGame controllerS;
     public GameObject movePlate;
 
     //Position for this Chesspiece on the Board
@@ -14,7 +14,7 @@ public class Chessman : MonoBehaviour
     private int yBoard = -1;
 
     //Variable for keeping track of the player it belongs to "black" or "white"
-    private bool player;
+    public bool player;
     public bool playerDead = false;
 
     //References to all the possible Sprites that this Chesspiece could be
@@ -26,9 +26,8 @@ public class Chessman : MonoBehaviour
 
     public void Activate()
     {
-        //Get the game controller
-        controller = GameObject.FindGameObjectWithTag("GameController");
-
+		//Get the game controller
+		controllerS = GameObject.FindGameObjectWithTag("GameController").GetComponent<ChessGame>();
         //Take the instantiated location and adjust transform
         SetCoords();
 
@@ -51,8 +50,33 @@ public class Chessman : MonoBehaviour
         }
     }
 
-    // Prepares SetCoords variables
-    Vector2 InitSetCoords()
+	private void Update()
+	{
+		if (player && Input.GetMouseButtonDown(0))
+		{
+			////controllerS.minigameCam.ScreenToWorldPoint(
+			//Vector3 firstPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+			//Vector3 viewportPos = Camera.main.WorldToViewportPoint(firstPos);
+
+			//Vector3 finalPos = controllerS.minigameCam.ViewportToWorldPoint(viewportPos);
+			//finalPos.z = 0;
+			//RaycastHit2D hit = Physics2D.Raycast(finalPos, Vector2.zero, Mathf.Infinity, controllerS.layerMask);
+
+			////Debug.Log("Final pos: " + finalPos);
+			//if (hit.collider != null)
+			//{
+			//	//Debug.Log("Target Position: " + hit.collider.gameObject.transform.position);
+			//	Debug.Log("Target GameObject: " + hit.collider.gameObject.name);
+			//	OnClickOver();
+			//}
+
+			
+		}
+	}
+
+	// Prepares SetCoords variables
+	Vector2 InitSetCoords()
     {
         //Get the board value in order to convert to xy coords
         float x = xBoard;
@@ -129,7 +153,7 @@ public class Chessman : MonoBehaviour
             }
         }
 
-        if (controller.GetComponent<ChessGame>().CheckCollision(xBoard, yBoard))
+        if (controllerS.CheckCollision(xBoard, yBoard))
         {
             Destroy(GameObject.Find("player"));
         }
@@ -163,7 +187,7 @@ public class Chessman : MonoBehaviour
         }
         
         // Destroys the player once the piece gets to the same player's position
-        if (controller.GetComponent<ChessGame>().CheckCollision(xBoard, yBoard))
+        if (controllerS.CheckCollision(xBoard, yBoard))
         {
             Destroy(GameObject.Find("player"));
         }
@@ -205,11 +229,11 @@ public class Chessman : MonoBehaviour
         forward = value;
     }
 
-    private void OnMouseUp()
+    public void OnClickOver()
     {
-        if (!controller.GetComponent<ChessGame>().IsGameOver() && player == true)
+        if (!controllerS.IsGameOver() && player == true)
         {
-            ChessGame sc = controller.GetComponent<ChessGame>();
+            ChessGame sc = controllerS;
             for (int i = 0; i < sc.pieces.Length; i++)
             {
                 if(sc.pieces[i] != null) InitiateMovePlates(sc.pieces[i]);
@@ -300,7 +324,7 @@ public class Chessman : MonoBehaviour
 
     void LineMovePlate(int xIncrement, int yIncrement, GameObject piece)
     {
-        ChessGame sc = controller.GetComponent<ChessGame>();
+        ChessGame sc = controllerS;
 
         int x = piece.GetComponent<Chessman>().xBoard + xIncrement;
         int y = piece.GetComponent<Chessman>().yBoard + yIncrement;
@@ -339,7 +363,7 @@ public class Chessman : MonoBehaviour
 
     void PointMovePlate(int x, int y)
     {
-        ChessGame sc = controller.GetComponent<ChessGame>();
+        ChessGame sc = controllerS;
         if (sc.PositionOnBoard(x, y))
         {
             GameObject cp = sc.GetPosition(x, y);
@@ -371,7 +395,7 @@ public class Chessman : MonoBehaviour
 
         //Set actual unity values
         GameObject mp = Instantiate(movePlate, new Vector3(x, y, -3.0f), Quaternion.identity);
-
+		mp.layer = controllerS.gameObject.layer;
         MovePlate mpScript = mp.GetComponent<MovePlate>();
         mpScript.SetReference(gameObject);
         mpScript.SetCoords(matrixX, matrixY);
@@ -393,7 +417,7 @@ public class Chessman : MonoBehaviour
 
         //Set actual unity values
         GameObject mp = Instantiate(movePlate, new Vector3(x, y, -3.0f), Quaternion.identity);
-
+		mp.layer = controllerS.gameObject.layer;
         MovePlate mpScript = mp.GetComponent<MovePlate>();
         mpScript.SetReference(piece);
         mpScript.SetCoords(matrixX, matrixY);
@@ -415,7 +439,7 @@ public class Chessman : MonoBehaviour
 
         //Set actual unity values
         GameObject mp = Instantiate(movePlate, new Vector3(x, y, -3.0f), Quaternion.identity);
-
+		mp.layer = controllerS.gameObject.layer;
         MovePlate mpScript = mp.GetComponent<MovePlate>();
         mpScript.attack = true;
         mpScript.SetReference(gameObject);

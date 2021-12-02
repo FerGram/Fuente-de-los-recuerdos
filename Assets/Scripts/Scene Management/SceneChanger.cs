@@ -19,6 +19,12 @@ public class SceneChanger : MonoBehaviour
 
     public void OnInteract(){
 
-        if (_playerInRange) SceneLoader.Instance.LoadScene(_sceneToLoad, _nextSpawnPos);
+        if (_playerInRange) {
+
+            //Set the new loaded scene as the scene to load if player exits the game
+            GameStateData.Instance.gameData.sceneToLoad = _sceneToLoad;
+
+            SceneLoader.Instance.LoadScene(_sceneToLoad, _nextSpawnPos);
+        }
     }
 }

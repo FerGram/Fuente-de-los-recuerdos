@@ -29,12 +29,26 @@ public class GameMenuController : MonoBehaviour, ISelectHandler, IDeselectHandle
     [SerializeField] Color32 _normalTextColor;
     [SerializeField] Color32 _selectedTextColor;
 
-    [Space]
-    [SerializeField] ScenesEnum _sceneToLoad;
-
     private int _maxVolume = 8;
 
     private void Start() {
+
+        //Only when in main menu
+        if (SceneManager.GetActiveScene().name == ScenesEnum._0_MainMenu.ToString()){
+
+            //Show continue button or start game button
+            if (GameStateData.Instance.gameData.playFirstTime){
+                _mainMenu.transform.GetChild(0).gameObject.SetActive(true);
+                _mainMenu.transform.GetChild(1).gameObject.SetActive(false);
+                _mainFirstButton = _mainMenu.transform.GetChild(0).gameObject;
+            }
+            else {
+                _mainMenu.transform.GetChild(0).gameObject.SetActive(false);
+                _mainMenu.transform.GetChild(1).gameObject.SetActive(true);
+                _mainFirstButton = _mainMenu.transform.GetChild(1).gameObject;
+                EventSystem.current.SetSelectedGameObject(_mainFirstButton);
+            }
+        }
 
         SetVolume();
     }
@@ -151,7 +165,7 @@ public class GameMenuController : MonoBehaviour, ISelectHandler, IDeselectHandle
 
     public void StartNewGame(){
 
-        GameStateData.Instance.gameData.playFirstTime = true;
+        GameStateData.Instance.gameData.playFirstTime = false;
         //Need to wait for fade out screen and audio to play
         StartCoroutine(WaitForAudio());
     }
@@ -164,7 +178,12 @@ public class GameMenuController : MonoBehaviour, ISelectHandler, IDeselectHandle
 
     public void LoadScene(){
 
-        SceneManager.LoadSceneAsync(_sceneToLoad.ToString());
+        SceneManager.LoadSceneAsync(GameStateData.Instance.gameData.sceneToLoad.ToString());
+    }
+
+    public void LoadMainMenu(){
+
+        SceneManager.LoadSceneAsync(ScenesEnum._0_MainMenu.ToString());
     }
 
     public void ExitGame(){

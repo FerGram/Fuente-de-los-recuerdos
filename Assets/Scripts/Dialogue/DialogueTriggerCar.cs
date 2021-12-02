@@ -7,7 +7,8 @@ public class DialogueTriggerCar : DialogueTrigger
     public override void OnInteract()
     {
         //Decide ink file to play
-        _JSONDataContainer.SetJSON(_inkJSON[0]);
+        _JSONDataContainer.SetJSON(_inkJSON);
+        _JSONDataContainer.SetPath("CarDefault");
         
         //Execute base class funcitonality
         base.OnInteract();
@@ -16,26 +17,18 @@ public class DialogueTriggerCar : DialogueTrigger
     //Method triggered from DragAndDrop
     public override void OnInteract(GameObject obj){
 
-        // ItemEnum type = obj.GetComponent<ItemType>().GetItemtype();
+        ItemEnum type = obj.GetComponent<ItemType>().GetItemtype();
 
-        // //Decide ink file to play
-        // switch(type){
-        //     case ItemEnum.GreenSquare: _JSONDataContainer.SetJSON(_inkObjectJSON[0]); break;  
-        //     case ItemEnum.RedSquare:
+        //Decide ink file to play
+        if (type == ItemEnum.CarWheel){
+            _JSONDataContainer.SetJSON(_inkJSON);
+            _JSONDataContainer.SetPath("CarWheel");
 
-        //         _JSONDataContainer.SetJSON(_inkObjectJSON[1]);
+            //Execute base class funcitonality
+            base.OnInteract(obj);
 
-        //         // Can load other scenes like so (maybe another script attached that triggers minigame
-        //         // would be a better approach):
-                
-        //         // SceneLoader.Instance.LoadScene(_minigameScene, LoadSceneMode.Additive);
-
-        //         break;  
-        // }
+            if (_playerInRange) GameStateData.Instance.gameData.carPieceInPlace = true;
+        }
         
-        //Execute base class funcitonality
-        base.OnInteract(obj);
-
-        if (_playerInRange) GameStateData.Instance.gameData.carPieceInPlace = true;
     }
 }

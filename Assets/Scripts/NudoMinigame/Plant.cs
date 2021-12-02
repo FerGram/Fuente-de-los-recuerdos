@@ -21,12 +21,17 @@ public class Plant : MonoBehaviour
     Vector2 difference;
 
     float startingZ;
+    float startingScaleY;
+
+    bool firstTime;
 
     Rigidbody2D rg;
     [SerializeField] GameObject controller;
 
     void Start()
     {
+        firstTime = true;
+
         if (Random.Range(0.0f, 1.0f) > 0.5f) edible = true;
         else edible = false;
 
@@ -49,6 +54,9 @@ public class Plant : MonoBehaviour
 
         basketsTop = goodBasket.GetComponent<SpriteRenderer>().sprite.bounds.size.y * goodBasket.transform.localScale.y / 2;
         plantTop = GetComponent<SpriteRenderer>().sprite.bounds.size.y * transform.localScale.y / 2;
+
+        startingScaleY = transform.localScale.y;
+        transform.localScale = new Vector3(transform.localScale.x, startingScaleY * 0.8f, transform.localScale.z);
     }
 
     void Update()
@@ -113,6 +121,13 @@ public class Plant : MonoBehaviour
         }
         else if (uprooted)
         {
+            //The first time it is uprooted
+            if (firstTime)
+            {
+                firstTime = false;
+                transform.localScale = new Vector3(transform.localScale.x, startingScaleY * 0.8f, transform.localScale.z);
+            }
+            // Can't move plant downwards when it's on the ground
             if (onGround && Camera.main.ScreenToWorldPoint(Input.mousePosition).y - difference.y >= transform.position.y)
             {
                 transform.position = new Vector3(Camera.main.ScreenToWorldPoint(Input.mousePosition).x - difference.x,

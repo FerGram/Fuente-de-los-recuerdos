@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ChessMinigame.unity
     guid: 82855b9f9c38e2144bf3d09412fa227d
+  - enabled: 1
+    path: Assets/Scenes/FionnaMinigameHaroun.unity
+    guid: 09879238a5b9a7148b3e3240a478ebb9
   m_configObjects: {}

@@ -71,7 +71,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0136b2f3a97d5324dbb4b8977391db34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _inkJSON: {fileID: 0}
+  _inkJSON: {fileID: 4900000, guid: 0e3916352f1709c4e87dea1f60d09acd, type: 3}
   _JSONDataContainer: {fileID: 11400000, guid: c9e4d071041c07a498e78c3cdc36e9ae, type: 2}
   _triggerDialogue: {fileID: 11400000, guid: 50ecbc7cbd57cc241a7a892a45f2c2aa, type: 2}
   _playerInRange: 0

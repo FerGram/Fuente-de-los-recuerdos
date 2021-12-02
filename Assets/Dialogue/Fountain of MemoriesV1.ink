@@ -38,10 +38,6 @@ Tora.“Welcome to the Fountain of Memories, traveler.”
 
 Tora.“This town has been abandoned since long ago, when the fountain broke.”
 
-Tora."DO you wanna play a game?"
-~ startMinigame(5)
-Tora."Let's play then."
-
 Tora.“Only our memories are left.”
 
     + “What do you mean?”
@@ -289,6 +285,8 @@ Barman.“The pieces should be on that table over there, just pick them up.”
 Anton.“You found them, thank Goodness. Let’s play, then.”
 
 //Start the minigame.
+~ startMinigame(12)
+Anton."Let's play."
 //After winning the minigame, the room transforms, lightening up, getting tidy, and with a few children running about.
 Anton.“Ah, the memories… How I missed this, playing against a new friend, thank you.”
 

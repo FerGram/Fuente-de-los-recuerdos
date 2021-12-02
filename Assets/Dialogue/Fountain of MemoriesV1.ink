@@ -1,6 +1,7 @@
 //-> ToraChat1
 VAR hasPieces = false
 
+
 EXTERNAL startMinigame(minigame)
 
 === InitialCrash ===
@@ -192,6 +193,7 @@ Nudo."Anton lives just to the left of the fountain."
 
 - not BarChat1:
         TODO //nudo shouldn't be visible in his house unless the player talks with Barman.
+        ->AntonDefault1
 
 - BarChat1 and not NudoFarmChat1:
         ->AntonDefault1

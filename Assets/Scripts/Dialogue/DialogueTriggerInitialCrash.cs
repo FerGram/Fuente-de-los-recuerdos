@@ -15,7 +15,8 @@ public class DialogueTriggerInitialCrash : DialogueTrigger
     IEnumerator StartMonologue(){
 
         yield return new WaitForSeconds(2f);
-        _JSONDataContainer.SetJSON(_inkJSON[0]);
+        _JSONDataContainer.SetPath("InitialCrash");
+        _JSONDataContainer.SetJSON(_inkJSON);
         _triggerDialogue.Raise();
     }
 

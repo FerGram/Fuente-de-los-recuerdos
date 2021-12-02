@@ -12,6 +12,12 @@ TagManager:
   - ChickenBox
   - Wall
   - RepulsionField
+  - Plant2
+  - Plant3
+  - Plant1
+  - Plant
+  - BadBasketHelper
+  - GoodBasketHelper
   layers:
   - Default
   - TransparentFX
@@ -21,12 +27,12 @@ TagManager:
   - UI
   - Minigame Chess
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - NudoDirt1
+  - NudoDirt2
+  - NudoDirt3
+  - NudoPlant1
+  - NudoPlant2
+  - NudoPlant3
   - 
   - 
   - 

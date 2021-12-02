@@ -185,7 +185,7 @@ public class DialogueDisplay : MonoBehaviour
         Animator NPCAnimator = null;
 
         if (_mainCharImage != null) mainAnimator = _mainCharImage.gameObject.GetComponent<Animator>();
-        if (_NPCImage != null) NPCAnimator = _mainCharImage.gameObject.GetComponent<Animator>();
+        if (_NPCImage != null) NPCAnimator = _NPCImage.gameObject.GetComponent<Animator>();
 
         if (_nameText.text == "Patrick"){
 
@@ -193,7 +193,7 @@ public class DialogueDisplay : MonoBehaviour
             if (NPCAnimator != null) NPCAnimator.SetBool("talks", false);
         }
         else{
-
+            
             if (mainAnimator != null) mainAnimator.SetBool("talks", false);
             if (NPCAnimator != null) NPCAnimator.SetBool("talks", true);
         }

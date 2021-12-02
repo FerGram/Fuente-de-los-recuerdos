@@ -14,14 +14,29 @@ public class NudoController : MonoBehaviour
     GameObject[] plants;
 
     public bool lvlIsMoving;
-    void Start()
+	public bool isDragging;
+
+	private MinigameController minigameController;
+
+	public Camera minigameCam;
+
+	private MeshRenderer windowRect;
+
+	public LayerMask layerMask;
+
+	private Plant plant;
+
+	void Start()
     {
         lvlIsMoving = false;
         lvl = 1;
         mistakes = 0;
         plants = GameObject.FindGameObjectsWithTag("Plant1");
 
-        for (int i = 0; i < plants.Length; i++)
+		minigameController = FindObjectOfType<MinigameController>();
+		windowRect = GameObject.Find("Minigame Window").GetComponent<MeshRenderer>();
+
+		for (int i = 0; i < plants.Length; i++)
         {
             plants[i].GetComponent<Plant>().OnScreen = true;
         }
@@ -50,7 +65,40 @@ public class NudoController : MonoBehaviour
                 //MINIGAME COMPLETED
             }
         }
-    }
+
+		if (Input.GetMouseButtonDown(0))
+		{
+			isDragging = true;
+
+			Vector2 finalPos = minigameController.ConvertFromScreenToViewport(minigameCam, windowRect);
+
+
+			RaycastHit2D hit = Physics2D.Raycast(finalPos, Vector2.zero, Mathf.Infinity, layerMask);
+			//testT.position = finalPos;
+
+		
+			if (hit.collider != null)
+			{
+				plant = hit.collider.gameObject.GetComponent<Plant>();
+
+				if (plant != null)
+				{
+					plant.MouseDown();
+				}
+			}
+		}
+		else if (Input.GetMouseButtonUp(0))
+		{
+			isDragging = false;
+			plant.MouseUp();
+			plant = null;
+		}
+
+		if (isDragging)
+			plant.MouseDrag();
+
+
+	}
 
     void CurrentPlants(string tag)
     {

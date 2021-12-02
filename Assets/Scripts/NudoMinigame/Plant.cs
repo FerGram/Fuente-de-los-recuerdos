@@ -26,7 +26,7 @@ public class Plant : MonoBehaviour
     bool firstTime;
 
     Rigidbody2D rg;
-    [SerializeField] GameObject controller;
+    [SerializeField] NudoController controller;
 
     void Start()
     {
@@ -44,7 +44,7 @@ public class Plant : MonoBehaviour
             GetComponent<SpriteRenderer>().color = Color.red;
         }
 
-        controller = GameObject.FindGameObjectWithTag("GameController");
+        controller = GameObject.FindGameObjectWithTag("GameController").GetComponent<NudoController>();
 
         startingZ = transform.position.z;
 
@@ -90,9 +90,12 @@ public class Plant : MonoBehaviour
                 transform.position = new Vector3(transform.position.x + 0.1f, transform.position.y, startingZ);
             }
         }
+
+		
     }
 
-    private void OnMouseDown()
+
+	public void MouseDown()
     {
         difference = new Vector2 (Camera.main.ScreenToWorldPoint(Input.mousePosition).x - transform.position.x, 
                                   Camera.main.ScreenToWorldPoint(Input.mousePosition).y - transform.position.y);
@@ -103,7 +106,7 @@ public class Plant : MonoBehaviour
         }
     }
 
-    private void OnMouseUp()
+    public void MouseUp()
     {
         if (uprooted)
         {
@@ -111,9 +114,9 @@ public class Plant : MonoBehaviour
         }
     }
 
-    private void OnMouseDrag()
+    public void MouseDrag()
     {
-        if (!uprooted && !controller.GetComponent<NudoController>().lvlIsMoving)
+        if (!uprooted && !controller.lvlIsMoving)
         {
             if (Camera.main.ScreenToWorldPoint(Input.mousePosition).y - difference.y >= transform.position.y &&
                 Mathf.Abs(Camera.main.ScreenToWorldPoint(Input.mousePosition).x - transform.position.x) <= plantWidth)
@@ -160,19 +163,19 @@ public class Plant : MonoBehaviour
         {
             if (collision.gameObject == goodBasket)
             {
-                controller.GetComponent<NudoController>().numberOfPlants--;
+                controller.numberOfPlants--;
                 if (!edible)
                 {
-                    controller.GetComponent<NudoController>().mistakes++;
+                    controller.mistakes++;
                 }
                 Destroy(this.gameObject);
             } 
             else if (collision.gameObject == badBasket)
             {
-                controller.GetComponent<NudoController>().numberOfPlants--;
+                controller.numberOfPlants--;
                 if (edible)
                 {
-                    controller.GetComponent<NudoController>().mistakes++;
+                    controller.mistakes++;
                 }
                 Destroy(this.gameObject);
             }

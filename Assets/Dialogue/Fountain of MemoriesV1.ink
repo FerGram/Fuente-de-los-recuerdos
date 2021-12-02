@@ -1,7 +1,6 @@
 //-> ToraChat1
 VAR hasPieces = false
 
-
 EXTERNAL startMinigame(minigame)
 
 === InitialCrash ===
@@ -40,7 +39,7 @@ Tora.“Welcome to the Fountain of Memories, traveler.”
 Tora.“This town has been abandoned since long ago, when the fountain broke.”
 
 Tora."DO you wanna play a game?"
-~ startMinigame(4)
+~ startMinigame(5)
 Tora."Let's play then."
 
 Tora.“Only our memories are left.”
@@ -193,7 +192,6 @@ Nudo."Anton lives just to the left of the fountain."
 
 - not BarChat1:
         TODO //nudo shouldn't be visible in his house unless the player talks with Barman.
-        ->AntonDefault1
 
 - BarChat1 and not NudoFarmChat1:
         ->AntonDefault1

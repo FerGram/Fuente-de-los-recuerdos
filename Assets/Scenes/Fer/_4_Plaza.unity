@@ -3046,7 +3046,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 11.11, y: 11.74}
+  m_Size: {x: 14.72, y: 11.74}
   m_EdgeRadius: 0
 --- !u!1 &523872894
 GameObject:
@@ -4184,7 +4184,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 11.11, y: 11.74}
+  m_Size: {x: 14.72, y: 11.74}
   m_EdgeRadius: 0
 --- !u!1 &729802042
 GameObject:
@@ -5283,7 +5283,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 884882345}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -71.1, y: -20.7, z: 0}
+  m_LocalPosition: {x: -69.94, y: -20.7, z: 0}
   m_LocalScale: {x: 0.49427083, y: 0.9602574, z: 0.48515}
   m_Children:
   - {fileID: 1906282841}
@@ -7425,7 +7425,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 11.11, y: 11.74}
+  m_Size: {x: 14.72, y: 11.74}
   m_EdgeRadius: 0
 --- !u!1 &1192081924
 GameObject:
@@ -9315,8 +9315,8 @@ PolygonCollider2D:
     m_Paths:
     - - {x: 19.953243, y: 7.2359715}
       - {x: -30.146326, y: 7.3635726}
-      - {x: -30.353561, y: -11.128019}
-      - {x: 19.863184, y: -11.137229}
+      - {x: -30.22779, y: -9.969784}
+      - {x: 19.711489, y: -10.020264}
 --- !u!4 &1608841564
 Transform:
   m_ObjectHideFlags: 0
@@ -11796,7 +11796,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7772973, y: 1}
+    m_SensorSize: {x: 1.778002, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -11960,7 +11960,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 11.11, y: 11.74}
+  m_Size: {x: 14.72, y: 11.74}
   m_EdgeRadius: 0
 --- !u!1001 &1940119046
 PrefabInstance:

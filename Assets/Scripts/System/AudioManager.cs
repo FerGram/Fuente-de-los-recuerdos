@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AudioManager : Singleton<AudioManager>
 {
-    // [SerializeField] AudioClip _audioClip;
+    [Range(0,8)] public int Volume = 5;
 
     private AudioSource[] _audioSources;
     private AudioClip _nextClip;
@@ -15,7 +15,6 @@ public class AudioManager : Singleton<AudioManager>
         _audioSources = GetComponents<AudioSource>();
         _isTrack1Playing = true;
     }
-
 
     public void SwapTrack(AudioClip newClip){ 
 

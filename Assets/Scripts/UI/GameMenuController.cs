@@ -23,13 +23,13 @@ public class GameMenuController : MonoBehaviour, ISelectHandler, IDeselectHandle
     [Space]
     [SerializeField] Image[] _volumeBars;
     [SerializeField] AudioMixer _audioMixer;
-    [Range(0,8)] [SerializeField] int _volume;
 
     [Space]
     [SerializeField] Color32 _normalTextColor;
     [SerializeField] Color32 _selectedTextColor;
 
     private int _maxVolume = 8;
+    private int _volume;
 
     private void Start() {
 
@@ -50,6 +50,7 @@ public class GameMenuController : MonoBehaviour, ISelectHandler, IDeselectHandle
             }
         }
 
+        _volume = AudioManager.Instance.Volume;
         SetVolume();
     }
 
@@ -93,8 +94,8 @@ public class GameMenuController : MonoBehaviour, ISelectHandler, IDeselectHandle
     //In game method
     private void OnEnable() {
 
-        EventSystem.current.SetSelectedGameObject(_mainFirstButton);
         Cursor.lockState = CursorLockMode.Locked;
+        EventSystem.current.SetSelectedGameObject(_mainFirstButton);
     }
 
     //In game method

@@ -60,14 +60,16 @@ public class DialogueDisplay : MonoBehaviour
 		{
 			_currentDialogue = new Story(_JSONDataContainer.GetJSON().text);
 
-			_currentDialogue.BindExternalFunction("startMinigame", (int minigame) => {
-				MinigameEvents.current.LoadMinigame(minigame);
-			});
+            _currentDialogue.BindExternalFunction("startMinigame", (int minigame) =>
+            { MinigameEvents.current.LoadMinigame(minigame);});
+            
+            if (MinigameEvents.current != null){
 
-			MinigameEvents.current.onUnloadMinigame += EnableUI;
-			//_currentDialogue.BindExternalFunction("startMinigame", (int minigame) => {
-			//	GameObject.Find("MinigameController").GetComponent<MinigameController>().LoadMinigame(minigame);
-			//});
+                MinigameEvents.current.onUnloadMinigame += EnableUI;
+                //_currentDialogue.BindExternalFunction("startMinigame", (int minigame) => {
+                //	GameObject.Find("MinigameController").GetComponent<MinigameController>().LoadMinigame(minigame);
+                //});
+            }
 		}
 
 		_currentDialogue.ChoosePathString(_JSONDataContainer.GetPath());
@@ -100,8 +102,14 @@ public class DialogueDisplay : MonoBehaviour
     {
         StopAllCoroutines();
 
-        if (_currentDialogue.canContinue && !MinigameEvents.current.insideMinigame){
+        if (_currentDialogue.canContinue){
 
+            if (MinigameEvents.current != null && MinigameEvents.current.insideMinigame) {
+
+                Debug.Log("Inside Minigame");
+                DisableUI();
+                return;
+            }
             string text = _currentDialogue.Continue();
             text = SetDialogueName(text);
             StartCoroutine(TypeWritingEffect(text));
@@ -109,11 +117,6 @@ public class DialogueDisplay : MonoBehaviour
             DisplayTalkingCharacter();
             DisplayChoices();
         }
-		else if (MinigameEvents.current.insideMinigame)
-		{
-			Debug.Log("Inside Minigame");
-			DisableUI();
-		}
         else{ ExitDialogue(); }
     }
 

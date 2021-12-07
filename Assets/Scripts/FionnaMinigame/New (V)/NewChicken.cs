@@ -13,19 +13,28 @@ public class NewChicken : MonoBehaviour
     float timerSeconds;
 
     bool mouseOnChicken;
+    bool beingRescued;
+
+    Vector3 nextPos;
+
+    static NewChickenController chickenController;
+
     void Awake()
     {
+        chickenController = GameObject.FindGameObjectWithTag("GameController").GetComponent<NewChickenController>();
+
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = dir * speed;
 
         timerSeconds = 0.0f;
         timerReady = false;
         mouseOnChicken = false;
+        beingRescued = false;
     }
 
     void Update()
     {
-        if (!mouseOnChicken)
+        if (!mouseOnChicken && !beingRescued)
         {
             if (timerSeconds <= 0.0f)
             {
@@ -39,75 +48,83 @@ public class NewChicken : MonoBehaviour
                 timerSeconds -= 1 * Time.deltaTime;
             }
         }
-        else
-        {
-
-        }
     }
 
     private void OnCollisionEnter2D(Collision2D col)
     {
-        //When colliding with a wall
-        if (col.gameObject.CompareTag("Wall"))
+        if (!beingRescued)
         {
-            // Restart timer
-            timerSeconds = Seconds();
+            //When colliding with a wall
+            if (col.gameObject.CompareTag("Wall") || col.gameObject.CompareTag("ChickenBox"))
+            {
+                // Restart timer
+                timerSeconds = Seconds();
 
-            mouseOnChicken = false;
+                mouseOnChicken = false;
 
-            //Get normal vector of hitpoint.
-            Vector2 normal = col.GetContact(0).normal;
+                //Get normal vector of hitpoint.
+                Vector2 normal = col.GetContact(0).normal;
 
-            float x = Random.Range(-0.1f, 0.1f);
-            float y = Random.Range(-0.1f, 0.1f);
+                float x = Random.Range(-0.1f, 0.1f);
+                float y = Random.Range(-0.1f, 0.1f);
 
-            if (normal.x + x >= 1 && x >= 0 || normal.x <= -1 && x < 0) x = 0;
-            if (normal.y + y >= 1 && y >= 0 || normal.y <= -1 && y < 0) y = 0;
+                if (normal.x + x >= 1 && x >= 0 || normal.x <= -1 && x < 0) x = 0;
+                if (normal.y + y >= 1 && y >= 0 || normal.y <= -1 && y < 0) y = 0;
 
-            //Calculate reflection of direction with normal
-            dir = Vector2.Reflect(dir, normal + new Vector2 (x, y));
+                //Calculate reflection of direction with normal
+                dir = Vector2.Reflect(dir, normal + new Vector2 (x, y));
 
-            rb.velocity = dir * speed;
+                rb.velocity = dir * speed;
+            }
+            else if (col.gameObject.CompareTag("Chicken"))
+            {
+                // Restart timer
+                timerSeconds = Seconds();
+
+                mouseOnChicken = false;
+
+                //Get normal vector of hitpoint.
+                Vector2 normal = col.GetContact(0).normal;
+
+                float x = Random.Range(-0.1f, 0.1f);
+                float y = Random.Range(-0.1f, 0.1f);
+
+                if (normal.x + x >= 1 && x >= 0 || normal.x <= -1 && x < 0) x = 0;
+                if (normal.y + y >= 1 && y >= 0 || normal.y <= -1 && y < 0) y = 0;
+
+                //Calculate reflection of direction with normal
+                dir = Vector2.Reflect(dir, normal + new Vector2(x, y));
+
+                rb.velocity = dir * speed;
+            }
         }
-        else if (col.gameObject.CompareTag("Chicken"))
+    }
+
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.gameObject.CompareTag("ChickenHouse"))
         {
-            // Restart timer
-            timerSeconds = Seconds();
-
-            mouseOnChicken = false;
-
-            //Get normal vector of hitpoint.
-            Vector2 normal = col.GetContact(0).normal;
-
-            float x = Random.Range(-0.1f, 0.1f);
-            float y = Random.Range(-0.1f, 0.1f);
-
-            if (normal.x + x >= 1 && x >= 0 || normal.x <= -1 && x < 0) x = 0;
-            if (normal.y + y >= 1 && y >= 0 || normal.y <= -1 && y < 0) y = 0;
-
-            //Calculate reflection of direction with normal
-            dir = Vector2.Reflect(dir, normal + new Vector2(x, y));
-
-            rb.velocity = dir * speed;
-        }
-        else if (col.gameObject.CompareTag("RepulsionField"))
-        {
-            mouseOnChicken = true;
-
-            //Calculate vector going away from center of cursor toward chick
-            dir = (transform.position - col.collider.bounds.center) * 1000; //multiply it by 1000 to make it bigger than 1.
-
-            //Normalize it
-            dir.Normalize();
-
-            rb.velocity = dir * speed;
+            beingRescued = true;
+            rb.velocity = Vector2.zero;
+            nextPos = new Vector3 (col.gameObject.transform.position.x, col.gameObject.transform.position.y, -2);
         }
     }
 
     private void OnTriggerStay2D(Collider2D col)
     {
+        if (col.gameObject.CompareTag("ChickenHouse"))
+        {
+
+            transform.position = Vector3.MoveTowards(transform.position, nextPos, 0.1f);
+            transform.localScale *= 0.90f;
+            if (transform.position == nextPos)
+            {
+                Destroy(this.gameObject);
+                chickenController.safeChickens++;
+            }
+        }
         //When entering the repulsion zone.
-        if (col.gameObject.CompareTag("RepulsionField"))
+        else if (col.gameObject.CompareTag("RepulsionField"))
         {
             mouseOnChicken = true;
 
@@ -118,9 +135,9 @@ public class NewChicken : MonoBehaviour
             dir.Normalize();
 
             rb.velocity = dir * speed;
-        }
+        }        
     }
-
+    
     float Seconds()
     {
         return Random.Range(1.5f, 3.0f);

@@ -19,6 +19,8 @@ public class NewChicken : MonoBehaviour
 
     static NewChickenController chickenController;
 
+    SpriteRenderer sR;
+
     void Awake()
     {
         chickenController = GameObject.FindGameObjectWithTag("GameController").GetComponent<NewChickenController>();
@@ -30,10 +32,14 @@ public class NewChicken : MonoBehaviour
         timerReady = false;
         mouseOnChicken = false;
         beingRescued = false;
+
+        sR = GetComponent<SpriteRenderer>();
     }
 
     void Update()
     {
+        sR.flipX = Xflip();
+
         if (!mouseOnChicken && !beingRescued)
         {
             if (timerSeconds <= 0.0f)
@@ -136,6 +142,11 @@ public class NewChicken : MonoBehaviour
 
             rb.velocity = dir * speed;
         }        
+    }
+
+    bool Xflip()
+    {
+        return dir.x < 0 && dir.x >= -1;
     }
     
     float Seconds()

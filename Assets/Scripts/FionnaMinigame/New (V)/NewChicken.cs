@@ -11,29 +11,38 @@ public class NewChicken : MonoBehaviour
 
     bool timerReady;
     float timerSeconds;
-    void Start()
+
+    bool mouseOnChicken;
+    void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = dir * speed;
 
         timerSeconds = 0.0f;
         timerReady = false;
+        mouseOnChicken = false;
     }
 
     void Update()
     {
-        if (timerSeconds <= 0.0f)
+        if (!mouseOnChicken)
         {
-            ChangeDirectionAndSpeed();
+            if (timerSeconds <= 0.0f)
+            {
+                ChangeDirectionAndSpeed();
 
-            timerSeconds = Seconds();
-            timerReady = true;
+                timerSeconds = Seconds();
+                timerReady = true;
+            }
+            else if (timerReady)
+            {
+                timerSeconds -= 1 * Time.deltaTime;
+            }
         }
-        else if (timerReady)
+        else
         {
-            timerSeconds -= 1 * Time.deltaTime;
-        }
 
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D col)
@@ -43,6 +52,8 @@ public class NewChicken : MonoBehaviour
         {
             // Restart timer
             timerSeconds = Seconds();
+
+            mouseOnChicken = false;
 
             //Get normal vector of hitpoint.
             Vector2 normal = col.GetContact(0).normal;
@@ -58,11 +69,12 @@ public class NewChicken : MonoBehaviour
 
             rb.velocity = dir * speed;
         }
-
         else if (col.gameObject.CompareTag("Chicken"))
         {
             // Restart timer
             timerSeconds = Seconds();
+
+            mouseOnChicken = false;
 
             //Get normal vector of hitpoint.
             Vector2 normal = col.GetContact(0).normal;
@@ -75,6 +87,35 @@ public class NewChicken : MonoBehaviour
 
             //Calculate reflection of direction with normal
             dir = Vector2.Reflect(dir, normal + new Vector2(x, y));
+
+            rb.velocity = dir * speed;
+        }
+        else if (col.gameObject.CompareTag("RepulsionField"))
+        {
+            mouseOnChicken = true;
+
+            //Calculate vector going away from center of cursor toward chick
+            dir = (transform.position - col.collider.bounds.center) * 1000; //multiply it by 1000 to make it bigger than 1.
+
+            //Normalize it
+            dir.Normalize();
+
+            rb.velocity = dir * speed;
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D col)
+    {
+        //When entering the repulsion zone.
+        if (col.gameObject.CompareTag("RepulsionField"))
+        {
+            mouseOnChicken = true;
+
+            //Calculate vector going away from center of cursor toward chick
+            dir = (transform.position - col.bounds.center) * 1000; //multiply it by 1000 to make it bigger than 1.
+
+            //Normalize it
+            dir.Normalize();
 
             rb.velocity = dir * speed;
         }

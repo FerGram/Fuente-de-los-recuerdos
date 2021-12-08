@@ -37,9 +37,9 @@ TODO Save system
 Tora.“Welcome to the Fountain of Memories, traveler.”
 
 Tora.“This town has been abandoned since long ago, when the fountain broke.”
-~ startMinigame(12)
+~ startMinigame(13)
 Tora.“Only our memories are left.”
-
+Tora.“Only our memories are left.”
     + “What do you mean?”
 
     Tora.“No one in this town is a real person, we’re just ghosts of our past selves, longing to revive the town.”

@@ -346,23 +346,14 @@ GameObject:
   m_Component:
   - component: {fileID: 180196952}
   - component: {fileID: 180196951}
-  - component: {fileID: 180196950}
   - component: {fileID: 180196953}
   m_Layer: 6
-  m_Name: Minigame Camera
+  m_Name: Camera1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &180196950
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 180196949}
-  m_Enabled: 1
 --- !u!20 &180196951
 Camera:
   m_ObjectHideFlags: 0
@@ -486,7 +477,9 @@ MonoBehaviour:
   level: {fileID: 1957923943}
   lvlIsMoving: 0
   isDragging: 0
+  mainCam: {fileID: 0}
   minigameCam: {fileID: 180196951}
+  cursor: {fileID: 940376326}
   layerMask:
     serializedVersion: 2
     m_Bits: 14336
@@ -1525,6 +1518,36 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 685557670926522765, guid: cea65f8a85c724841b2565b44073564b, type: 3}
   m_PrefabInstance: {fileID: 938283527}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &940376325
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 940376326}
+  m_Layer: 0
+  m_Name: Cursor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &940376326
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 940376325}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &949127232
 PrefabInstance:
   m_ObjectHideFlags: 0

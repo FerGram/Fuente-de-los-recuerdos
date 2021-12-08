@@ -12,5 +12,8 @@ public class GameStateDataContainer : ScriptableObject {
     [Header("Car Crash Scene")]
     public bool firstDialoguePlayed = false;
     public bool carPieceInPlace = false;
+
+    [Header("Plaza")]
+    [Range(0,3)] public int fountainTrickleAmount = 0;
 }
 

@@ -11,6 +11,12 @@ public class Fountain : MonoBehaviour
     {
         particles = GetComponentsInChildren<ParticleSystem>();
 
+        SetTrickle();
+        
+    }
+
+    private void SetTrickle(){
+
         switch(GameStateData.Instance.gameData.fountainTrickleAmount){
 
             case 0: NotTrickle(); break;
@@ -75,5 +81,11 @@ public class Fountain : MonoBehaviour
         {
             item.gameObject.SetActive(false);
         }
+    }
+
+    public void NextTrickle(){
+
+        GameStateData.Instance.gameData.fountainTrickleAmount++;
+        SetTrickle();
     }
 }

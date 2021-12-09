@@ -12,7 +12,6 @@ public class MinigameEvents : MonoBehaviour
 
 	public bool insideMinigame;
 
-	// Start is called before the first frame update
 	void Awake()
     {
 		current = this;

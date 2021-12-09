@@ -16,4 +16,4 @@ MonoBehaviour:
   sceneToLoad: 4
   firstDialoguePlayed: 0
   carPieceInPlace: 0
-  fountainTrickleAmount: 1
+  fountainTrickleAmount: 0

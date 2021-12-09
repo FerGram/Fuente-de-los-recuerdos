@@ -56,9 +56,12 @@ public class DialogueDisplay : MonoBehaviour
 
     public void StartDialogue()
     {
+        _currentDialogue = GameStateData.Instance.gameStory;
+
 		if (_currentDialogue == null)
 		{
-			_currentDialogue = new Story(_JSONDataContainer.GetJSON().text);
+            GameStateData.Instance.gameStory = new Story(_JSONDataContainer.GetJSON().text);
+			_currentDialogue = GameStateData.Instance.gameStory;
 
             _currentDialogue.BindExternalFunction("startMinigame", (int minigame) =>
             { EnterMinigameResponse(minigame);});

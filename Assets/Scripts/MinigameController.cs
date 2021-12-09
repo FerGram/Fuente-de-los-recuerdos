@@ -61,7 +61,6 @@ public class MinigameController : MonoBehaviour
 		SceneManager.UnloadSceneAsync(sceneToDestroy);
 
 		StartCoroutine(_minigameWindow.GetComponent<MinigameWindow>().Minimize());
-
 	}
 
 	void SetActiveScene(Scene scene, LoadSceneMode loadMode)

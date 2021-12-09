@@ -986,23 +986,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8292540829981547155, guid: 74f76cf4dde366c49b697e7d01fae057, type: 3}
       propertyPath: m_LocalScale.x
-      value: 72.82838
+      value: 90.62763
       objectReference: {fileID: 0}
     - target: {fileID: 8292540829981547155, guid: 74f76cf4dde366c49b697e7d01fae057, type: 3}
       propertyPath: m_LocalScale.y
-      value: 40.965958
+      value: 50.97804
       objectReference: {fileID: 0}
     - target: {fileID: 8292540829981547155, guid: 74f76cf4dde366c49b697e7d01fae057, type: 3}
       propertyPath: m_LocalScale.z
-      value: 2.4464
+      value: 3.0443
       objectReference: {fileID: 0}
     - target: {fileID: 8292540829981547155, guid: 74f76cf4dde366c49b697e7d01fae057, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 48.6
+      value: 48
       objectReference: {fileID: 0}
     - target: {fileID: 8292540829981547155, guid: 74f76cf4dde366c49b697e7d01fae057, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -11.3
+      value: -10.5
       objectReference: {fileID: 0}
     - target: {fileID: 8292540829981547167, guid: 74f76cf4dde366c49b697e7d01fae057, type: 3}
       propertyPath: m_IsActive
@@ -14405,10 +14405,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 177014196}
-    - target: {fileID: 2848589778168883777, guid: 92bf1be3e4ee17a45b4affebe2829a75, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetActive
-      objectReference: {fileID: 0}
     - target: {fileID: 2848589778514046775, guid: 92bf1be3e4ee17a45b4affebe2829a75, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -16875,7 +16871,7 @@ GameObject:
   - component: {fileID: 1858484583}
   - component: {fileID: 1858484582}
   m_Layer: 5
-  m_Name: Black Background
+  m_Name: Black Fade
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16897,7 +16893,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -1.7647705, y: -1.1763916}
+  m_AnchoredPosition: {x: -1.7647705, y: -1.1763611}
   m_SizeDelta: {x: 12.941, y: 14.1176}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1858484582
@@ -17306,7 +17302,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1932926825}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 48.1, y: -10.4, z: -10}
+  m_LocalPosition: {x: -24, y: -10.4, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 808227639}
@@ -17357,7 +17353,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7775002, y: 1}
+    m_SensorSize: {x: 1.777427, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -17731,7 +17727,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3973132746343038065, guid: 6f6ba25a24581d14793070edb1febd9d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 48.1
+      value: -24
       objectReference: {fileID: 0}
     - target: {fileID: 3973132746343038065, guid: 6f6ba25a24581d14793070edb1febd9d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -18126,7 +18122,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2011045667}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 48.1, y: -10.4, z: -10}
+  m_LocalPosition: {x: -24, y: -10.4, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 673318945}

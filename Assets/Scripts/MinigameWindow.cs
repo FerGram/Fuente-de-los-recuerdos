@@ -5,40 +5,48 @@ using DG.Tweening;
 
 public class MinigameWindow : MonoBehaviour
 {
-	[SerializeField]
-	float scaleDuration;
+	[SerializeField] float scaleDuration;
+	[SerializeField] Ease ease;
 
-	[SerializeField]
-	Ease ease;
-	Vector3 _oriScale, _startScale;
+	private FadeInOutBackground background;
+	private Vector3 _oriScale, _startScale;
 
     // Start is called before the first frame update
     void Start()
     {
+		background = FindObjectOfType<FadeInOutBackground>();
+		
 		_oriScale = transform.localScale;
-		_startScale = transform.localScale / 10;
+		_startScale = Vector3.zero;
 
-		StartCoroutine(TryTween());
+		transform.localScale = _startScale;
+
+		StartCoroutine(Maximize());
 	}
 
-    // Update is called once per frame
-    void Update()
-    {
-		//if (Input.GetMouseButtonDown(0))
-		//	StartCoroutine(TryTween());
-    }
-
-	IEnumerator TryTween()
+	IEnumerator Maximize()
 	{
+		yield return new WaitForSeconds(0.05f);
+		if (background != null) background.FadeInScene(false);
+
+		yield return new WaitForSeconds(1f);
 		transform.localScale = _startScale;
-		yield return new WaitForSeconds(0f);
 		transform.DOScale(_oriScale, scaleDuration).SetEase(ease);
+		
+		yield return new WaitForSeconds(2f);
+		if (background != null) background.FadeInScene(true);
 	}
 
 	public IEnumerator Minimize()
 	{
-		transform.DOScale(_startScale, scaleDuration).SetEase(ease);
-		yield return new WaitForSeconds(scaleDuration);
+		yield return new WaitForSeconds(0.05f);
+		if (background != null) background.FadeInScene(false);
+
+		yield return new WaitForSeconds(1f);
+		transform.localScale = _startScale;
 		gameObject.SetActive(false);
+		
+		yield return new WaitForSeconds(2f);
+		if (background != null) background.FadeInScene(true);
 	}
 }

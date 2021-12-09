@@ -18,6 +18,8 @@ TagManager:
   - Plant
   - BadBasketHelper
   - GoodBasketHelper
+  - Inventory
+  - MenuButton
   layers:
   - Default
   - TransparentFX

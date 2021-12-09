@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 9057233948471646019}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1, y: 1, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 1}
+  m_LocalScale: {x: 0.48, y: 0.48, z: 0.48}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 71986bc471b9ed44d91374dd3c4aadc0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c5bd66d1a53f4f342a3de6f50c8e5315, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -101,10 +101,10 @@ MonoBehaviour:
   movePlate: {fileID: 7333794928768772736, guid: 305336fb96ee5de4d91ee700bece4a85, type: 3}
   player: 0
   playerDead: 0
-  black_knight: {fileID: 21300000, guid: 71986bc471b9ed44d91374dd3c4aadc0, type: 3}
-  white_bishop: {fileID: 21300000, guid: 7364f157570db6547a82331d7e20b1b0, type: 3}
-  white_rook: {fileID: 21300000, guid: 3d90777fa0012ea45bc7c85d80faf242, type: 3}
-  goal: {fileID: 21300000, guid: 66f5c29c33af91c42ad127da66eeae46, type: 3}
+  black_knight: {fileID: 21300000, guid: c5bd66d1a53f4f342a3de6f50c8e5315, type: 3}
+  white_bishop: {fileID: 21300000, guid: f07bdf8da9e4f3347a63466d0c0904fa, type: 3}
+  white_rook: {fileID: 21300000, guid: d047793a04db1294ba7fea9914935ed8, type: 3}
+  goal: {fileID: 21300000, guid: 5c36a9270b367784cbf26194de9c9909, type: 3}
 --- !u!61 &1727498531951412303
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -122,12 +122,12 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.16, y: 0.18}
+    oldSize: {x: 1, y: 1}
     newSize: {x: 0.16, y: 0.18}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.16, y: 0.18}
+  m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0

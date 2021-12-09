@@ -61,14 +61,11 @@ public class DialogueDisplay : MonoBehaviour
 			_currentDialogue = new Story(_JSONDataContainer.GetJSON().text);
 
             _currentDialogue.BindExternalFunction("startMinigame", (int minigame) =>
-            { MinigameEvents.current.LoadMinigame(minigame);});
+            { EnterMinigameResponse(minigame);});
             
             if (MinigameEvents.current != null){
 
                 MinigameEvents.current.onUnloadMinigame += EnableUI;
-                //_currentDialogue.BindExternalFunction("startMinigame", (int minigame) => {
-                //	GameObject.Find("MinigameController").GetComponent<MinigameController>().LoadMinigame(minigame);
-                //});
             }
 		}
 
@@ -81,6 +78,12 @@ public class DialogueDisplay : MonoBehaviour
         FadeInBackground(true);
 
         ContinueStory();
+    }
+
+    private void EnterMinigameResponse(int minigame){
+
+        MinigameEvents.current.LoadMinigame(minigame);
+        DisableUI();
     }
 
     private void DisplayDialogueUI(bool value){
@@ -104,12 +107,8 @@ public class DialogueDisplay : MonoBehaviour
 
         if (_currentDialogue.canContinue){
 
-            if (MinigameEvents.current != null && MinigameEvents.current.insideMinigame) {
+            if (MinigameEvents.current != null && MinigameEvents.current.insideMinigame) return;
 
-                Debug.Log("Inside Minigame");
-                DisableUI();
-                return;
-            }
             string text = _currentDialogue.Continue();
             text = SetDialogueName(text);
             StartCoroutine(TypeWritingEffect(text));
@@ -127,6 +126,13 @@ public class DialogueDisplay : MonoBehaviour
 
 		DisplayDialogueUI(false);
 		FadeInBackground(false);
+
+        //Fuck it
+        GameObject menuButton = GameObject.FindGameObjectWithTag("MenuButton");
+        GameObject inventory = GameObject.FindGameObjectWithTag("Inventory");
+
+        if (menuButton != null) menuButton.SetActive(false);
+        if (inventory != null) inventory.SetActive(false);
 	}
 
 	private void EnableUI(int minigame)
@@ -136,6 +142,13 @@ public class DialogueDisplay : MonoBehaviour
 
 		DisplayDialogueUI(true);
 		FadeInBackground(true);
+
+        //Fuck it
+        GameObject menuButton = GameObject.FindGameObjectWithTag("MenuButton");
+        GameObject inventory = GameObject.FindGameObjectWithTag("Inventory");
+
+        if (menuButton != null) menuButton.SetActive(true);
+        if (inventory != null) inventory.SetActive(true);
 	}
 
     private void ExitDialogue()

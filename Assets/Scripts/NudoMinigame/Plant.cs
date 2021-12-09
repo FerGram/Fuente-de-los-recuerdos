@@ -13,6 +13,8 @@ public class Plant : MonoBehaviour
     [SerializeField] GameObject ground;
     [SerializeField] GameObject goodBasket;
     [SerializeField] GameObject badBasket;
+    [SerializeField] Sprite goodPlant;
+    [SerializeField] Sprite badPlant;
 
     static float basketsTop;
     static float plantTop;
@@ -39,11 +41,11 @@ public class Plant : MonoBehaviour
 
         if (edible)
         {
-            GetComponent<SpriteRenderer>().color = Color.green;
+            GetComponent<SpriteRenderer>().sprite = goodPlant;
         }
         else
         {
-            GetComponent<SpriteRenderer>().color = Color.red;
+            GetComponent<SpriteRenderer>().sprite = badPlant;
         }
 
         controller = GameObject.FindGameObjectWithTag("GameController").GetComponent<NudoController>();

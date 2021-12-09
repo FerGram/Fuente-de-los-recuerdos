@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 8506446012075280500}
   - component: {fileID: 685557670926522767}
   - component: {fileID: 685557670926522766}
-  m_Layer: 8
+  m_Layer: 13
   m_Name: Plant
-  m_TagString: Plant
+  m_TagString: Plant1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -54,7 +54,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -114,10 +114,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51e152ae930146941ac6cadd5ea38255, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnScreen: 0
   dirtEffect: {fileID: 1592220009634088726, guid: 1f53659fa76759441a222c430b7b5979, type: 3}
   ground: {fileID: 0}
   goodBasket: {fileID: 0}
   badBasket: {fileID: 0}
+  goodPlant: {fileID: 21300000, guid: be3ad3ba009ff4d4593c100d0fb91555, type: 3}
+  badPlant: {fileID: 21300000, guid: 1b42f3eaf75ace8469bd55f25e28efa8, type: 3}
   controller: {fileID: 0}
 --- !u!50 &685557670926522766
 Rigidbody2D:

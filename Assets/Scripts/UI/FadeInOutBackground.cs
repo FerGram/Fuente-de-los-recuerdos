@@ -13,5 +13,6 @@ public class FadeInOutBackground : MonoBehaviour
     public void FadeInScene(bool value){
 
         if (_anim != null) _anim.SetBool("fade", value);
+        Debug.Log(value);
     }
 }

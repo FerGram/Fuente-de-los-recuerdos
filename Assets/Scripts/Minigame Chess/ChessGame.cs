@@ -317,7 +317,7 @@ public class ChessGame : MonoBehaviour
             GameObject.Find("Text").GetComponent<Text>().enabled = true;
             GameObject.Find("Text").GetComponent<Text>().text = "COMPLETED";
             text = false;
-			MinigameEvents.current.UnloadMinigame(4);
+			MinigameEvents.current.UnloadMinigame(0);
         }
 
         if (gameOver && Input.GetMouseButtonDown(0))

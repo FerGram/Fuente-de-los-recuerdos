@@ -69,6 +69,7 @@ public class NudoController : MonoBehaviour
             {
 				//MINIGAME COMPLETED
 				Debug.Log("Won Minigame");
+				MinigameEvents.current.UnloadMinigame(0);
             }
         }
 

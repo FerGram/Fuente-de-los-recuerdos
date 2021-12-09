@@ -9,29 +9,23 @@ public class NewMouse : MonoBehaviour
     Vector2 oriPos;
 
     [SerializeField]
-    Camera cam;
+    Camera minigameCam;
 
-    Vector3 minigameWindow;
-    /*
+    MeshRenderer minigameWindow;
+
+	MinigameController minigameController;
+    
     void Awake()
     {
-        zPos = transform.position.z;
-        oriPos = transform.position;
+		minigameController = FindObjectOfType<MinigameController>();
 
-        minigameWindow = GameObject.Find("Minigame Window").transform.position;
+        minigameWindow = GameObject.Find("Minigame Window").GetComponent<MeshRenderer>();
     }
-    */
+    
 
     void Update()
     {
-        Vector3 mousePos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, -1);
-
-        // TEMPORAL
-        Debug.Log("RepulsionField position");
-        transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        transform.position = new Vector3 (transform.position.x, transform.position.y, -1);
-        //
-
-        //transform.localPosition = Camera.main.ScreenToWorldPoint(mousePos) - minigameWindow;
+		Vector2 finalPos = minigameController.ConvertFromScreenToViewport(minigameCam, minigameWindow);
+        transform.position = finalPos;
     }
 }

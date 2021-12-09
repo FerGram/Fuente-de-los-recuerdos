@@ -47,4 +47,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/NudoMinigame.unity
     guid: 6d60b5526d4070648af3867659ee25a1
+  - enabled: 1
+    path: Assets/Scenes/FionnaMinigame/NewFionnaMinigame.unity
+    guid: d62d67cdd57b52d48b3be861b4da17c8
   m_configObjects: {}

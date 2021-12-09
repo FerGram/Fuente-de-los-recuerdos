@@ -8,6 +8,7 @@ public class NewChickenController : MonoBehaviour
     [SerializeField] GameObject chicken;
     [SerializeField] GameObject chickenHouse;
     [SerializeField] GameObject box;
+	[SerializeField] int minigameLayer;
 
     GameObject[] chickensArray;
     int n_chickens;
@@ -60,12 +61,9 @@ public class NewChickenController : MonoBehaviour
         else if (changeLvL && lvl == 3)
         {
             text.enabled = true;
-            text.text = "COMPLETED";
-
-            if (Input.GetMouseButtonDown(0))
-            {
-                Debug.Log("Minigame has ended");
-            }
+			Debug.Log("Minigame has ended");
+			text.text = "COMPLETED";
+			MinigameEvents.current.UnloadMinigame(0);
         }
     }
 
@@ -98,40 +96,70 @@ public class NewChickenController : MonoBehaviour
 
     void Level2()
     {
-        Instantiate(box, new Vector3(-1.5f, 3.0f, 0), Quaternion.identity);
-        Instantiate(box, new Vector3(-4.5f, -1.3f, 0), Quaternion.identity);
-        Instantiate(box, new Vector3(2.5f, -2.3f, 0), Quaternion.identity);
-        Instantiate(box, new Vector3(3.75f, 2.0f, 0), Quaternion.Euler(0, 0, 45.0f));
+		GameObject box1 = Instantiate(box, new Vector3(-1.5f, 3.0f, 0), Quaternion.identity);
+		box1.layer = minigameLayer;
 
-        Instantiate(chickenHouse, new Vector3(-8.0f, -4.0f, -1), Quaternion.identity);
+		GameObject box2 = Instantiate(box, new Vector3(-4.5f, -1.3f, 0), Quaternion.identity);
+		box2.layer = minigameLayer;
+		GameObject box3 = Instantiate(box, new Vector3(2.5f, -2.3f, 0), Quaternion.identity);
+		box3.layer = minigameLayer;
+		GameObject box4 = Instantiate(box, new Vector3(3.75f, 2.0f, 0), Quaternion.Euler(0, 0, 45.0f));
+		box4.layer = minigameLayer;
 
-        Instantiate(chicken, new Vector3(-6.7f, 2.5f, -2), Quaternion.identity);
-        Instantiate(chicken, new Vector3(-1.5f, -2.3f, -2), Quaternion.identity);
-        Instantiate(chicken, new Vector3(0.5f, 1.65f, -2), Quaternion.identity);
-        Instantiate(chicken, new Vector3(6.4f, 3.4f, -2), Quaternion.identity);
-        Instantiate(chicken, new Vector3(6.85f, -1.4f, -2), Quaternion.identity);
-    }
+		GameObject chickenHouse1 = Instantiate(chickenHouse, new Vector3(-8.0f, -4.0f, -1), Quaternion.identity);
+		chickenHouse1.layer = minigameLayer;
 
-    void Level3()
+		GameObject chicken1 = Instantiate(chicken, new Vector3(-6.7f, 2.5f, -2), Quaternion.identity);
+		chicken1.layer = minigameLayer;
+		GameObject chicken2 = Instantiate(chicken, new Vector3(-1.5f, -2.3f, -2), Quaternion.identity);
+		chicken2.layer = minigameLayer;
+		GameObject chicken3 = Instantiate(chicken, new Vector3(0.5f, 1.65f, -2), Quaternion.identity);
+		chicken3.layer = minigameLayer;
+		GameObject chicken4 = Instantiate(chicken, new Vector3(6.4f, 3.4f, -2), Quaternion.identity);
+		chicken4.layer = minigameLayer;
+		GameObject chicken5 = Instantiate(chicken, new Vector3(6.85f, -1.4f, -2), Quaternion.identity);
+		chicken5.layer = minigameLayer;
+
+	}
+
+	void Level3()
     {
-        Instantiate(box, new Vector3(-4.0f, 2.0f, 0), Quaternion.Euler(0, 0, 45.0f));
-        Instantiate(box, new Vector3(4.0f, 2.0f, 0), Quaternion.Euler(0, 0, -45.0f));
-        Instantiate(box, new Vector3(4.0f, -2.0f, 0), Quaternion.Euler(0, 0, 45.0f));
-        Instantiate(box, new Vector3(-4.0f, -2.0f, 0), Quaternion.Euler(0, 0, -45.0f));
-        Instantiate(box, new Vector3(0.0f, -3.0f, 0), Quaternion.identity);
-        Instantiate(box, new Vector3(0.0f, 3.0f, 0), Quaternion.identity);
-        Instantiate(box, new Vector3(-7.0f, 0.0f, 0), Quaternion.identity);
-        Instantiate(box, new Vector3(7.0f, 0.0f, 0), Quaternion.identity);
+		GameObject box1 = Instantiate(box, new Vector3(-4.0f, 2.0f, 0), Quaternion.Euler(0, 0, 45.0f));
+		box1.layer = minigameLayer;
+		GameObject box2 = Instantiate(box, new Vector3(4.0f, 2.0f, 0), Quaternion.Euler(0, 0, -45.0f));
+		box2.layer = minigameLayer;
+		GameObject box3 = Instantiate(box, new Vector3(4.0f, -2.0f, 0), Quaternion.Euler(0, 0, 45.0f));
+		box3.layer = minigameLayer;
+		GameObject box4 = Instantiate(box, new Vector3(-4.0f, -2.0f, 0), Quaternion.Euler(0, 0, -45.0f));
+		box4.layer = minigameLayer;
+		GameObject box5 = Instantiate(box, new Vector3(0.0f, -3.0f, 0), Quaternion.identity);
+		box5.layer = minigameLayer;
+		GameObject box6 = Instantiate(box, new Vector3(0.0f, 3.0f, 0), Quaternion.identity);
+		box6.layer = minigameLayer;
+		GameObject box7 = Instantiate(box, new Vector3(-7.0f, 0.0f, 0), Quaternion.identity);
+		box7.layer = minigameLayer;
+		GameObject box8 = Instantiate(box, new Vector3(7.0f, 0.0f, 0), Quaternion.identity);
+		box8.layer = minigameLayer;
 
-        Instantiate(chickenHouse, new Vector3(0.0f, 0.0f, 0.0f), Quaternion.identity);
+		GameObject chickenHouse1 = Instantiate(chickenHouse, new Vector3(0.0f, 0.0f, 0.0f), Quaternion.identity);
+		chickenHouse1.layer = minigameLayer;
 
-        Instantiate(chicken, new Vector3(-7.6f, 2.7f, -2), Quaternion.identity);
-        Instantiate(chicken, new Vector3(7.1f, 3.5f, -2), Quaternion.identity);
-        Instantiate(chicken, new Vector3(7.3f, -3.65f, -2), Quaternion.identity);
-        Instantiate(chicken, new Vector3(-7.4f, -4.1f, -2), Quaternion.identity);
-        Instantiate(chicken, new Vector3(-0.0f, -4.4f, -2), Quaternion.identity);
-        Instantiate(chicken, new Vector3(0.1f, 4.25f, -2), Quaternion.identity);
-        Instantiate(chicken, new Vector3(-4.45f, -0.1f, -2), Quaternion.identity);
-        Instantiate(chicken, new Vector3(4.8f, -0.1f, -2), Quaternion.identity);
-    }
+		GameObject chicken1 = Instantiate(chicken, new Vector3(-7.6f, 2.7f, -2), Quaternion.identity);
+		chicken1.layer = minigameLayer;
+		GameObject chicken2 = Instantiate(chicken, new Vector3(7.1f, 3.5f, -2), Quaternion.identity);
+		chicken2.layer = minigameLayer;
+		GameObject chicken3 = Instantiate(chicken, new Vector3(7.3f, -3.65f, -2), Quaternion.identity);
+		chicken3.layer = minigameLayer;
+		GameObject chicken4 = Instantiate(chicken, new Vector3(-7.4f, -4.1f, -2), Quaternion.identity);
+		chicken4.layer = minigameLayer;
+		GameObject chicken5 = Instantiate(chicken, new Vector3(-0.0f, -4.4f, -2), Quaternion.identity);
+		chicken5.layer = minigameLayer;
+		GameObject chicken6 = Instantiate(chicken, new Vector3(0.1f, 4.25f, -2), Quaternion.identity);
+		chicken6.layer = minigameLayer;
+		GameObject chicken7 = Instantiate(chicken, new Vector3(-4.45f, -0.1f, -2), Quaternion.identity);
+		chicken7.layer = minigameLayer;
+		GameObject chicken8 = Instantiate(chicken, new Vector3(4.8f, -0.1f, -2), Quaternion.identity);
+		chicken8.layer = minigameLayer;
+
+	}
 }

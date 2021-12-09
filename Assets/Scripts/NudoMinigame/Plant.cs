@@ -36,17 +36,16 @@ public class Plant : MonoBehaviour
     {
         firstTime = true;
 
-        if (Random.Range(0.0f, 1.0f) > 0.5f) edible = true;
-        else edible = false;
-
-        if (edible)
+        if (Random.Range(0.0f, 1.0f) > 0.5f)
         {
+            edible = true;
             GetComponent<SpriteRenderer>().sprite = goodPlant;
         }
         else
         {
+            edible = false;
             GetComponent<SpriteRenderer>().sprite = badPlant;
-        }
+        } 
 
         controller = GameObject.FindGameObjectWithTag("GameController").GetComponent<NudoController>();
 

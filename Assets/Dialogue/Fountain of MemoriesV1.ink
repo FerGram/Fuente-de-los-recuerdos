@@ -37,17 +37,11 @@ TODO Save system
 === ToraChat1
 Tora<“Welcome to the Fountain of Memories, traveler.”
 
-<<<<<<< Updated upstream
-Tora.“This town has been abandoned since long ago, when the fountain broke.”
-//~ startMinigame(12)
-Tora.“Only our memories are left.”
-Tora.“Only our memories are left.”
-=======
+
 Tora<“This town has been abandoned since long ago, when the fountain broke.”
 //~ startMinigame(12)
 Tora<“Only our memories are left.”
 Tora<“Only our memories are left.”
->>>>>>> Stashed changes
     + “What do you mean?”
 
     Tora<“No one in this town is a real person, we’re just ghosts of our past selves, longing to revive the town.”
@@ -67,13 +61,12 @@ Tora<“Would you be so kind as to… fix the fountain? Or you’d rather just- 
 
 Patrick<“I…”
 
-<<<<<<< Updated upstream
+
 Patrick.“I don’t know…”
 
-~ startCinematic()
-=======
 Patrick<“I don’t know…”
->>>>>>> Stashed changes
+~ startCinematic()
+
 ->DONE
 
 === ToraDefault1

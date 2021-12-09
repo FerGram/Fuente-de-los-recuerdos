@@ -178,11 +178,12 @@ public class DialogueDisplay : MonoBehaviour
 
         int i = 0;
         string name = "";
-        while(i < text.Length && text[i] != '.'){
+        while(i < text.Length && text[i] != '<'){
 
             name += text[i];
             i++;
         }
+
         if (i == text.Length) {
             _nameText.text = "Patrick";
             return text;

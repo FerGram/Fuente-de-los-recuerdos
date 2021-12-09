@@ -2,6 +2,7 @@
 VAR hasPieces = false
 
 EXTERNAL startMinigame(minigame)
+EXTERNAL startCinematic()
 
 === InitialCrash ===
 {not InitialCrashDefault : -> InitialCrashDefault }
@@ -37,7 +38,7 @@ TODO Save system
 Tora.“Welcome to the Fountain of Memories, traveler.”
 
 Tora.“This town has been abandoned since long ago, when the fountain broke.”
-~ startMinigame(12)
+//~ startMinigame(12)
 Tora.“Only our memories are left.”
 Tora.“Only our memories are left.”
     + “What do you mean?”
@@ -60,6 +61,8 @@ Tora.“Would you be so kind as to… fix the fountain? Or you’d rather just- 
 Patrick.“I…”
 
 Patrick.“I don’t know…”
+
+~ startCinematic()
 ->DONE
 
 === ToraDefault1

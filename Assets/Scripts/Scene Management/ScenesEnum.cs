@@ -11,7 +11,7 @@ public enum ScenesEnum
     _4_Plaza,
     _5_AlleyToBar,
     _6_AlleyToFarm,
-    _7_AlleyToFionna,
+    _7_Bifurcation,
     _8_Bar,
     _9_FionnaHouse,
     _10_PlazaCinematic,

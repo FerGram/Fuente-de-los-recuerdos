@@ -27,7 +27,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Fer/_6_AlleyToFarm.unity
     guid: c7d7573fc3366cf4c941bedaa07e7a37
   - enabled: 1
-    path: Assets/Scenes/Fer/_7_AlleyToFiona.unity
+    path: Assets/Scenes/Fer/_7_Bifurcation.unity
     guid: 48cbcfd8bcd60ab41ae6f4cc479a1abe
   - enabled: 1
     path: Assets/Scenes/Fer/_8_Bar.unity

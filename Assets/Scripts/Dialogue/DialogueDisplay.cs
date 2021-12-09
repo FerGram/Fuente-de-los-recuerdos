@@ -65,6 +65,8 @@ public class DialogueDisplay : MonoBehaviour
 
             _currentDialogue.BindExternalFunction("startMinigame", (int minigame) =>
             { EnterMinigameResponse(minigame);});
+            _currentDialogue.BindExternalFunction("startCinematic", () =>
+            { LoadCinematic();});
             
             if (MinigameEvents.current != null){
 
@@ -87,6 +89,11 @@ public class DialogueDisplay : MonoBehaviour
 
         MinigameEvents.current.LoadMinigame(minigame);
         DisableUI();
+    }
+
+    private void LoadCinematic(){
+
+        SceneLoader.Instance.LoadScene(ScenesEnum._10_PlazaCinematic);
     }
 
     private void DisplayDialogueUI(bool value){

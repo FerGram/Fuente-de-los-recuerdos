@@ -88,4 +88,8 @@ public class Fountain : MonoBehaviour
         GameStateData.Instance.gameData.fountainTrickleAmount++;
         SetTrickle();
     }
+
+    public void CinematicEnded(){
+        SceneLoader.Instance.LoadScene(GameStateData.Instance.gameData.sceneToLoad);
+    }
 }

@@ -50,4 +50,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/FionnaMinigame/NewFionnaMinigame.unity
     guid: d62d67cdd57b52d48b3be861b4da17c8
+  - enabled: 1
+    path: Assets/Scenes/Fer/_12_Farm.unity
+    guid: ed2be088ef6456b49a1b274d0e31721a
   m_configObjects: {}

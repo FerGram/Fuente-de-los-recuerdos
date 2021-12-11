@@ -24,6 +24,6 @@ public class DialogueTriggerInitialCrash : DialogueTrigger
     public void OnDialogueEnded(){
 
         GameStateData.Instance.gameData.firstDialoguePlayed = true;
-        Destroy(gameObject);
+        Destroy(gameObject, 0.1f);
     }
 }

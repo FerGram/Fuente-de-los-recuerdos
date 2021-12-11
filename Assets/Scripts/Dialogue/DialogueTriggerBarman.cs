@@ -3,9 +3,6 @@ using UnityEngine.SceneManagement;
 
 public class DialogueTriggerBarman : DialogueTrigger
 {
-    [Space]
-    [SerializeField] ScenesEnum _minigameScene;
-
     //Method triggered from GameInteraction Event
     public override void OnInteract()
     {

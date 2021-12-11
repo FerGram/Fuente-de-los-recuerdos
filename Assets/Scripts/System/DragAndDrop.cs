@@ -2,8 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using TMPro;
 
-public class DragAndDrop : MonoBehaviour, IDragHandler, IDropHandler, IPointerDownHandler
+public class DragAndDrop : MonoBehaviour, IDragHandler, IDropHandler, IPointerDownHandler, 
+                           IPointerEnterHandler, IPointerExitHandler
 {
     private Vector2 _slotPos;
 
@@ -29,6 +31,8 @@ public class DragAndDrop : MonoBehaviour, IDragHandler, IDropHandler, IPointerDo
 
             if (trigger != null) trigger.OnInteract(gameObject);
         }
+        TextMeshProUGUI objectName = FindObjectOfType<InventoryUI>().transform.parent.GetComponentInChildren<TextMeshProUGUI>();
+        objectName.text = "";
     }
 
     private GameObject GetDropObject(){
@@ -38,5 +42,17 @@ public class DragAndDrop : MonoBehaviour, IDragHandler, IDropHandler, IPointerDo
 
         if (hit) return hit.collider.gameObject;
         return null;
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        TextMeshProUGUI objectName = FindObjectOfType<InventoryUI>().transform.parent.GetComponentInChildren<TextMeshProUGUI>();
+        objectName.text = gameObject.name.TrimEnd("UI(Clone)".ToCharArray());
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+       TextMeshProUGUI objectName = FindObjectOfType<InventoryUI>().transform.parent.GetComponentInChildren<TextMeshProUGUI>();
+        objectName.text = "";
     }
 }

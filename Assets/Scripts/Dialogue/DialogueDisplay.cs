@@ -75,7 +75,6 @@ public class DialogueDisplay : MonoBehaviour
 		}
 
 		_currentDialogue.ChoosePathString(_JSONDataContainer.GetPath());
-		Debug.Log(_JSONDataContainer.GetPath());
 
         isPlaying = true;
 
@@ -131,6 +130,10 @@ public class DialogueDisplay : MonoBehaviour
 
 	private void DisableUI()
 	{
+        if (_dialoguePanel == null) Debug.Log("Panel null");
+        else{Debug.Log("Panel Not Null");}
+        if (_dialogueText == null) Debug.Log("Text null");
+        else{Debug.Log("Text Not Null");}
 		_dialoguePanel.SetActive(false);
 		_dialogueText.text = "";
 

@@ -79,7 +79,7 @@ public class PlayerMovement : MonoBehaviour
             MovePlayer(nextPoint.transform.position);
             yield return null;
         }
-        SetAnimatorParams(0, 0);
+        SetAnimatorParam(0);
         if (_interactable != null) _interactable.OnInteract();
     }
 
@@ -88,10 +88,21 @@ public class PlayerMovement : MonoBehaviour
         transform.position = Vector2.MoveTowards(transform.position, waypointPos, 
             Time.deltaTime * _speed);
 
-        if (_animator != null){
+        //Flip X
+        if (waypointPos.x - transform.position.x < 0) {
+            transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x) * -1,
+                                                         transform.localScale.y, 
+                                                         transform.localScale.z);
+        }
+        else if (waypointPos.x - transform.position.x > 0) {
+            transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x),
+                                                         transform.localScale.y,
+                                                         transform.localScale.z);
+        }
 
-            Vector3 dir = Vector3.Normalize(waypointPos - transform.position);
-            SetAnimatorParams(dir.x, dir.y);
+
+        if (_animator != null){
+            SetAnimatorParam(1);
         }
     }
 
@@ -147,8 +158,7 @@ public class PlayerMovement : MonoBehaviour
         return path;
     }
 
-    private void SetAnimatorParams(float x, float y){
+    private void SetAnimatorParam(float x){
         _animator.SetFloat("x", x);
-        _animator.SetFloat("y", y);
     }
 }

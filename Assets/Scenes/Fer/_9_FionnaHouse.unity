@@ -288,6 +288,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3471433915031473496, guid: c99e454b11d988f4eb47ba64361e7367, type: 3}
+      propertyPath: m_Delegates.Array.data[2].callback.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 1852681288}
+    - target: {fileID: 3471433915031473496, guid: c99e454b11d988f4eb47ba64361e7367, type: 3}
+      propertyPath: m_Delegates.Array.data[2].callback.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: SetActive
+      objectReference: {fileID: 0}
     - target: {fileID: 3471433915031473500, guid: c99e454b11d988f4eb47ba64361e7367, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -1424,12 +1432,44 @@ PrefabInstance:
     m_TransformParent: {fileID: 2065749503}
     m_Modifications:
     - target: {fileID: 2848589778168883777, guid: 92bf1be3e4ee17a45b4affebe2829a75, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2848589778168883777, guid: 92bf1be3e4ee17a45b4affebe2829a75, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2848589778168883777, guid: 92bf1be3e4ee17a45b4affebe2829a75, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 198712185}
     - target: {fileID: 2848589778168883777, guid: 92bf1be3e4ee17a45b4affebe2829a75, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1768769825}
+    - target: {fileID: 2848589778168883777, guid: 92bf1be3e4ee17a45b4affebe2829a75, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2848589778168883777, guid: 92bf1be3e4ee17a45b4affebe2829a75, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 2848589778168883777, guid: 92bf1be3e4ee17a45b4affebe2829a75, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 2848589778168883777, guid: 92bf1be3e4ee17a45b4affebe2829a75, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 2848589778168883777, guid: 92bf1be3e4ee17a45b4affebe2829a75, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2848589778168883777, guid: 92bf1be3e4ee17a45b4affebe2829a75, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 2848589778514046775, guid: 92bf1be3e4ee17a45b4affebe2829a75, type: 3}
       propertyPath: m_Pivot.x
@@ -1524,6 +1564,11 @@ PrefabInstance:
 --- !u!224 &1768769824 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2848589778514046775, guid: 92bf1be3e4ee17a45b4affebe2829a75, type: 3}
+  m_PrefabInstance: {fileID: 1768769823}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1768769825 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2848589778168883779, guid: 92bf1be3e4ee17a45b4affebe2829a75, type: 3}
   m_PrefabInstance: {fileID: 1768769823}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1852681288
@@ -1901,7 +1946,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7775002, y: 1}
+    m_SensorSize: {x: 1.7768844, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -2254,7 +2299,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2011045667}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -91.87283, y: -9.101649, z: -10}
+  m_LocalPosition: {x: -91.88834, y: -9.101649, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 673318945}

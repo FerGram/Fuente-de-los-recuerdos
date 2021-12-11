@@ -9,6 +9,8 @@ public class ChessGame : MonoBehaviour
     //Reference from Unity IDE
     public GameObject chesspiece;
 
+    Text text;
+
 	public Camera minigameCam;
 
 	[SerializeField]
@@ -35,7 +37,8 @@ public class ChessGame : MonoBehaviour
     public bool win = false;
 
     private int lvl = 1;
-    public bool text = false;
+
+    public bool canSpawnMovePlates;
 
 	public Transform testT;
     /*
@@ -61,7 +64,9 @@ public class ChessGame : MonoBehaviour
     
     public void Start()
     {
-        GameObject.Find("Text").GetComponent<Text>().enabled = false;
+        text = GameObject.FindGameObjectWithTag("Text").GetComponent<Text>();
+        text.enabled = false;
+        canSpawnMovePlates = true;
 		//testT = GameObject.Find("TestObj").transform;
 		minigameController = FindObjectOfType<MinigameController>();
 		windowRect = GameObject.Find("Minigame Window").GetComponent<MeshRenderer>();
@@ -289,7 +294,6 @@ public class ChessGame : MonoBehaviour
         if (x == playerX && y == playerY )
         {
             gameOver = true;
-            text = true;
             return true;
         }
         else
@@ -300,30 +304,26 @@ public class ChessGame : MonoBehaviour
 
     void Update()
     {
-        if (gameOver && text && lvl != 3)
+        if (win && lvl == 3)
         {
-            GameObject.Find("Text").GetComponent<Text>().enabled = true;
-            GameObject.Find("Text").GetComponent<Text>().text = "Left Click to try again";
-            text = false;
+            MinigameEvents.current.UnloadMinigame(0);
         }
-        else if (win && text && lvl != 3)
+
+        if (win)
         {
-            GameObject.Find("Text").GetComponent<Text>().enabled = true;
-            GameObject.Find("Text").GetComponent<Text>().text = "Left Click to advance to the next level";
-            text = false;
+            text.enabled = true;
+            text.text = "Left click to advance";
         }
-        else if (win && text && lvl == 3)
+        else if (gameOver)
         {
-            GameObject.Find("Text").GetComponent<Text>().enabled = true;
-            GameObject.Find("Text").GetComponent<Text>().text = "COMPLETED";
-            text = false;
-			MinigameEvents.current.UnloadMinigame(0);
+            text.enabled = true;
+            text.text = "Left click to try again";
         }
 
         if (gameOver && Input.GetMouseButtonDown(0))
         {
             gameOver = false;
-            GameObject.Find("Text").GetComponent<Text>().enabled = false;
+            text.enabled = false;
 
             DestroyPieces();
 
@@ -332,7 +332,8 @@ public class ChessGame : MonoBehaviour
         else if (win && Input.GetMouseButtonDown(0))
         {
             win = false;
-            GameObject.Find("Text").GetComponent<Text>().enabled = false;
+            text.enabled = false;
+
             lvl++;
 
             DestroyPieces();

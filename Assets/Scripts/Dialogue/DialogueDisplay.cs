@@ -181,11 +181,11 @@ public class DialogueDisplay : MonoBehaviour
 
     IEnumerator TypeWritingEffect (string text){
 
-        _dialogueText.text = "";
-
-        foreach (char letter in text.ToCharArray())
+        _dialogueText.text = text;
+		
+        for (int i = 0; i < text.Length; i++)
         {
-            _dialogueText.text += letter;
+			_dialogueText.maxVisibleCharacters = i;
             yield return new WaitForSeconds(_displaySpeed);
         }
 

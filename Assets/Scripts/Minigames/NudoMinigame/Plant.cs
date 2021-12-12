@@ -47,7 +47,7 @@ public class Plant : MonoBehaviour
         uprooted = false;
         rg = gameObject.transform.GetComponent<Rigidbody2D>();
 
-        basketsTop = goodBasket.GetComponent<SpriteRenderer>().sprite.bounds.size.y * goodBasket.transform.localScale.y / 2;
+        basketsTop = goodBasket.GetComponent<SpriteRenderer>().sprite.bounds.size.y * goodBasket.transform.localScale.y / 2 -0.6f;
         plantTop = GetComponent<SpriteRenderer>().sprite.bounds.size.y * transform.localScale.y / 2;
 
         startingScaleY = transform.localScale.y;
@@ -60,9 +60,11 @@ public class Plant : MonoBehaviour
     {
         if (transform.position.y - plantTop > goodBasket.transform.position.y + basketsTop)
         {
+            Debug.Log(goodBasket.transform.position.y);
+            Debug.Log(basketsTop);
             transform.position = new Vector3 (transform.position.x, transform.position.y, 2.0f);
         }
-        else if (transform.position.y + plantTop < goodBasket.transform.position.y + basketsTop && uprooted)
+        else if (transform.position.y + plantTop < goodBasket.transform.position.y)
         {
             transform.position = new Vector3(transform.position.x, transform.position.y, startingZ);
         }
@@ -184,7 +186,7 @@ public class Plant : MonoBehaviour
         if (collision.gameObject == ground)
             onGround = true;
 
-        if (transform.position.z == 2.0f && !controller.isDragging)
+        if (!controller.isDragging)
         {
             if (collision.gameObject.CompareTag("GoodBasketHelper"))
             {

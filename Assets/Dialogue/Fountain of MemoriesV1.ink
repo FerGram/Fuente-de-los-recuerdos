@@ -3,26 +3,38 @@ VAR hasPieces = false
 
 EXTERNAL startMinigame(minigame)
 EXTERNAL startCinematic()
+EXTERNAL startEndCinematic()
 
 === InitialCrash ===
 {not InitialCrashDefault : -> InitialCrashDefault }
 
 === InitialCrashDefault
-Patrick<"Damn I crashed my car"
-
-Patrick<"I better FIND AND PLACE THE MISSING WHEEL and fix the broken tire"
+Patrick<"OH MY GOD"
+Patrick<"Ok, that was terrifying"
+Patrick<"I'm still in one piece though which is a start"
+Patrick<"And although the horrendous actual state of the car I think I might be able to fix it just enough to take me back home"
+Patrick<"Wait, where am I?"
+Patrick<"Anyway, I better <color=yellow>find <color=black>and <color=yellow>place <color=red>the missing wheel <color=black>and fix the flat tire"
 ->DONE
 
 === CarWheel ===
-Patrick<"Ok. Wheel's in place"
-
-Patrick<"I'll check around if I can FIND A WAY TO FIX THE TIRE"
+Patrick<"Ok. Wheel's ready"
+Patrick<"I hope it stays in place"
+Patrick<"I'll check around if I can <color=red>find a way to fix the flat tire <color=black> and get back home"
 ->DONE
 
 === CarDefault ===
 Patrick<"Ugh! Look at its awful state"
-
 Patrick<"What a disaster"
+->DONE
+
+=== CarFull ===
+Patrick<"Ah... Finally"
+Patrick<"Just a few adjustments and I'll be able to get this thing back home"
+Patrick<"Although I'm gonna need a miracle.."
+Patrick<"I'm glad I could help those memories get their fountain back"
+Patrick<"I hope they find what they are looking for"
+~ startEndCinematic()
 ->DONE
 
 === Tora ===

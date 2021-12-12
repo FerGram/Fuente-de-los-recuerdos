@@ -18,5 +18,10 @@ public enum ScenesEnum
     _11_ForestToVillage,
     ChessMinigame,
     FionnaMinigame,
-    NudoMinigame
+    NudoMinigame,
+    _12_Farm,
+    _13_CarCrash_Day,
+    _14_ForestWalk_Day,
+    _15_FarVillage_Day,
+    _16_Plaza_Day
 };

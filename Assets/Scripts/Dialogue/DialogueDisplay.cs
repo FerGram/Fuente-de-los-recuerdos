@@ -61,18 +61,9 @@ public class DialogueDisplay : MonoBehaviour
 		if (_currentDialogue == null)
 		{
             GameStateData.Instance.gameStory = new Story(_JSONDataContainer.GetJSON().text);
+            GameStateData.Instance.BindStoryFunctions();
 			_currentDialogue = GameStateData.Instance.gameStory;
-
-            _currentDialogue.BindExternalFunction("startMinigame", (int minigame) =>
-            { EnterMinigameResponse(minigame);});
-            _currentDialogue.BindExternalFunction("startCinematic", () =>
-            { LoadCinematic();});
-            
-            if (MinigameEvents.current != null){
-
-                MinigameEvents.current.onUnloadMinigame += EnableUI;
-            }
-		}
+        }
 
 		_currentDialogue.ChoosePathString(_JSONDataContainer.GetPath());
 
@@ -84,17 +75,17 @@ public class DialogueDisplay : MonoBehaviour
         ContinueStory();
     }
 
-    private void EnterMinigameResponse(int minigame){
+    public void EnterMinigameResponse(int minigame){
 
-        MinigameEvents.current.LoadMinigame(minigame);
         DisableUI();
+        MinigameEvents.current.LoadMinigame(minigame);
     }
 
-    private void LoadCinematic(){
+    public void LoadCinematic(){
 
         SceneLoader.Instance.LoadScene(ScenesEnum._10_PlazaCinematic);
     }
-
+    
     private void DisplayDialogueUI(bool value){
 
         if (_greyBackground != null) _greyBackground.gameObject.SetActive(value);
@@ -105,6 +96,7 @@ public class DialogueDisplay : MonoBehaviour
 
     public void FadeInBackground(bool value)
     {
+        if (_greyBackground == null) return;
         Animator bgAnim = _greyBackground.GetComponent<Animator>();
 
         if (bgAnim != null) bgAnim.SetBool("fade", value);
@@ -130,15 +122,6 @@ public class DialogueDisplay : MonoBehaviour
 
 	private void DisableUI()
 	{
-        //Imma leave this here bc apparently sometimes this gives nullExceptions        
-        if (_dialoguePanel == null) Debug.Log("Panel null");
-        else{Debug.Log("Panel Not Null");}
-        if (_dialogueText == null) Debug.Log("Text null");
-        else{Debug.Log("Text Not Null");}
-        
-		_dialoguePanel.SetActive(false);
-		_dialogueText.text = "";
-
 		DisplayDialogueUI(false);
 		FadeInBackground(false);
 
@@ -150,11 +133,8 @@ public class DialogueDisplay : MonoBehaviour
         if (inventory != null) inventory.SetActive(false);
 	}
 
-	private void EnableUI(int minigame)
+	public void EnableUI(int minigame)
 	{
-		_dialoguePanel.SetActive(true);
-		_dialogueText.text = "";
-
 		DisplayDialogueUI(true);
 		FadeInBackground(true);
 

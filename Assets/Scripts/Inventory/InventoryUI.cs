@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class InventoryUI : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class InventoryUI : MonoBehaviour
         {
             if (i == _slots.Length) break;
             Instantiate(_inventory._inventoryItems[i], _slots[i].transform);
+            
             _hasAnItem[i] = true;
         }
     }
@@ -31,7 +33,10 @@ public class InventoryUI : MonoBehaviour
                 //Slot free
                 if (!_hasAnItem[i]){
 
-                    Instantiate(_inventory.GetLast(), _slots[i].transform);
+                    GameObject go = Instantiate(_inventory.GetLast(), _slots[i].transform);
+                    Vector3 intialScale = go.transform.localScale;
+                    go.transform.localScale *= 0.25f;
+                    go.transform.DOScale(intialScale, 0.25f).SetEase(Ease.InOutBack);
                     _hasAnItem[i] = true; 
                     break;
                 }

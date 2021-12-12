@@ -5,7 +5,8 @@ using UnityEngine;
 public enum ItemEnum{
     RedSquare,
     GreenSquare,
-    CarWheel
+    CarWheel,
+    CarTire
 }
 
 public class ItemType : MonoBehaviour

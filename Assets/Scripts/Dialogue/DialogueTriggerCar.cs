@@ -21,13 +21,19 @@ public class DialogueTriggerCar : DialogueTrigger
 
         //Decide ink file to play
         if (type == ItemEnum.CarWheel){
-            _JSONDataContainer.SetJSON(_inkJSON);
             _JSONDataContainer.SetPath("CarWheel");
 
             //Execute base class funcitonality
             base.OnInteract(obj);
 
             if (_playerInRange) GameStateData.Instance.gameData.carPieceInPlace = true;
+        }
+
+        if (type == ItemEnum.CarTire){
+            _JSONDataContainer.SetPath("CarFull");
+
+            //Execute base class funcitonality
+            base.OnInteract(obj);
         }
         
     }

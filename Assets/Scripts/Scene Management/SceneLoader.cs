@@ -37,7 +37,6 @@ public class SceneLoader : Singleton<SceneLoader>
     public void LoadScene(ScenesEnum sceneToLoad, Vector2 nextSpawnPos){
 
         _nextSpawnPos = nextSpawnPos;
-
         if (_sceneOutGameEvent != null) _sceneOutGameEvent.Raise();
         StartCoroutine(LoadSceneRoutine(sceneToLoad));
     }
@@ -58,14 +57,21 @@ public class SceneLoader : Singleton<SceneLoader>
     //To fix spawn position (not the best place to do this but it will do)
     private void OnSceneLoaded(Scene oldScene, Scene newScene){
 
+        if (oldScene.name == ScenesEnum.ChessMinigame.ToString() ||
+            oldScene.name == ScenesEnum.FionnaMinigame.ToString() ||
+            oldScene.name == ScenesEnum.NudoMinigame.ToString() ||
+            newScene.name == ScenesEnum.ChessMinigame.ToString() ||
+            newScene.name == ScenesEnum.FionnaMinigame.ToString() ||
+            newScene.name == ScenesEnum.NudoMinigame.ToString()) return;
+
         if (_sceneInGameEvent != null) _sceneInGameEvent.Raise();
 
         PlayerMovement player = FindObjectOfType<PlayerMovement>();
 
         //The vector2 comparison is to test if _nextSpawnPos has been assigned a value
-        if (player != null && _nextSpawnPos != new Vector2(0,0)){
+        if (player != null && _nextSpawnPos != new Vector2(0, 0))
+        {
             player.transform.position = _nextSpawnPos;
         }
     }
-
 }

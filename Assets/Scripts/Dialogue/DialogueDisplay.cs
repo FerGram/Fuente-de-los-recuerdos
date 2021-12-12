@@ -130,10 +130,12 @@ public class DialogueDisplay : MonoBehaviour
 
 	private void DisableUI()
 	{
+        //Imma leave this here bc apparently sometimes this gives nullExceptions        
         if (_dialoguePanel == null) Debug.Log("Panel null");
         else{Debug.Log("Panel Not Null");}
         if (_dialogueText == null) Debug.Log("Text null");
         else{Debug.Log("Text Not Null");}
+        
 		_dialoguePanel.SetActive(false);
 		_dialogueText.text = "";
 

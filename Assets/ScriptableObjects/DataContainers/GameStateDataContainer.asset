@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: GameStateDataContainer
   m_EditorClassIdentifier: 
   playFirstTime: 0
-  sceneToLoad: 1
+  sceneToLoad: 4
   firstDialoguePlayed: 1
   carPieceInPlace: 1
   fountainTrickleAmount: 1

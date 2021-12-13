@@ -5,6 +5,23 @@ EXTERNAL startMinigame(minigame)
 EXTERNAL startCinematic()
 EXTERNAL startEnding()
 
+//ITEMS
+VAR wheel = "Fernadito"
+VAR chessPiece = "Chess Piece"
+
+//OBJECTIVES
+VAR find = "find"
+
+=== function item(name) ===
+~return "<color=red>" + name + "</color>"
+
+=== function InitializeItems ===
+{
+    - true:
+            ~wheel = item(wheel)
+            ~chessPiece = item(chessPiece)
+}
+
 //Fer Edits
 === InitialCrash ===
 {not InitialCrashDefault : -> InitialCrashDefault }
@@ -64,6 +81,7 @@ Martha<"Ahh, don't you worry about it! We are explorers, aren't we?"
 TODO Save system
 //Story logic Tora
 {not ToraChat1:
+        ~InitializeItems() //Initialize all items, should move to the very first scene.
         -> ToraChat1
 - else:
         ->ToraDefault1
@@ -72,6 +90,7 @@ TODO Save system
 === ToraChat1
 Tora<“Welcome to the Fountain of Memories, traveler.”
 
+Patrick<"Anyway, I better {wheel} <color=yellow>find</color> and <color=yellow>place</color> <color=red>the missing wheel</color> and fix the flat tire."
 
 Tora<“This town has been abandoned since long ago, when the fountain broke.”
 ~ startMinigame(14)

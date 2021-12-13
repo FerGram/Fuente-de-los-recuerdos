@@ -1806,7 +1806,6 @@ MonoBehaviour:
   _JSONDataContainer: {fileID: 11400000, guid: c9e4d071041c07a498e78c3cdc36e9ae, type: 2}
   _triggerDialogue: {fileID: 11400000, guid: 50ecbc7cbd57cc241a7a892a45f2c2aa, type: 2}
   _playerInRange: 0
-  _minigameScene: 3
 --- !u!61 &515865025
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -14396,7 +14395,6 @@ MonoBehaviour:
   _JSONDataContainer: {fileID: 11400000, guid: c9e4d071041c07a498e78c3cdc36e9ae, type: 2}
   _triggerDialogue: {fileID: 11400000, guid: 50ecbc7cbd57cc241a7a892a45f2c2aa, type: 2}
   _playerInRange: 0
-  _minigameScene: 0
 --- !u!61 &1172458513
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -16810,7 +16808,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7768844, y: 1}
+    m_SensorSize: {x: 1.7777778, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0

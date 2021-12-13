@@ -3,7 +3,7 @@ VAR hasPieces = false
 
 EXTERNAL startMinigame(minigame)
 EXTERNAL startCinematic()
-EXTERNAL startEndCinematic()
+EXTERNAL startEnding()
 
 //Fer Edits
 === InitialCrash ===
@@ -35,7 +35,7 @@ Patrick<"Just a few adjustments and I'll be able to get this thing back home"
 Patrick<"Although I'm gonna need a miracle.."
 Patrick<"I'm glad I could help those memories get their fountain back"
 Patrick<"I hope they find what they are looking for"
-~ startEndCinematic()
+~ startEnding()
 ->DONE
 
 === HikersInitial ===
@@ -74,7 +74,7 @@ Tora<“Welcome to the Fountain of Memories, traveler.”
 
 
 Tora<“This town has been abandoned since long ago, when the fountain broke.”
-~ startMinigame(12)
+~ startMinigame(14)
 Tora<“Only our memories are left.”
 Tora<“Only our memories are left.”
     + “What do you mean?”

@@ -80,11 +80,6 @@ public class DialogueDisplay : MonoBehaviour
         DisableUI();
         MinigameEvents.current.LoadMinigame(minigame);
     }
-
-    public void LoadCinematic(){
-
-        SceneLoader.Instance.LoadScene(ScenesEnum._10_PlazaCinematic);
-    }
     
     private void DisplayDialogueUI(bool value){
 

@@ -18,7 +18,6 @@ public class DialogueTriggerHikers : DialogueTrigger
 
     IEnumerator StartMonologue(){
 
-        
         switch(_lineToDisplay){
             case 0: if (!GameStateData.Instance.gameData.nextMorningShown) yield return new WaitForSeconds(5f);
                     _JSONDataContainer.SetPath("HikersInitial"); 

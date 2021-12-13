@@ -14,7 +14,6 @@ public class BlackBackgroundIntro : MonoBehaviour
             GetComponent<Animator>().enabled = true; 
             return;
         }
-        GameStateData.Instance.gameData.nextMorningShown = true;
         _text = GetComponentInChildren<TextMeshProUGUI>();
         StartCoroutine(FadeIn());
     }
@@ -25,5 +24,6 @@ public class BlackBackgroundIntro : MonoBehaviour
         yield return new WaitForSeconds(4f);
         GetComponent<Animator>().enabled = true;
         _text.DOFade(0, 1f);
+        GameStateData.Instance.gameData.nextMorningShown = true;
     }
 }

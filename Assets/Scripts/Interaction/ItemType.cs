@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public enum ItemEnum{
-    RedSquare,
-    GreenSquare,
+    TractorTire,
+    BikeTire,
     CarWheel,
     CarTire
 }

@@ -24,8 +24,10 @@ public class GameStateData : Singleton<GameStateData>
         { EnterMinigameResponse(minigame);});
         gameStory.BindExternalFunction("startCinematic", () =>
         { LoadCinematic();});
-        gameStory.BindExternalFunction("startEndCinematic", () =>
-        { LoadEndCinematic();});
+        gameStory.BindExternalFunction("startEnding", () =>
+        { LoadEnding();});
+
+        AssignMinigameEvent();
     }
 
     private void EnterMinigameResponse(int minigame){
@@ -34,13 +36,11 @@ public class GameStateData : Singleton<GameStateData>
     }
 
     private void LoadCinematic(){
-        DialogueDisplay dd = FindObjectOfType<DialogueDisplay>();
-        if (dd != null) dd.LoadCinematic();
+        SceneLoader.Instance.LoadScene(ScenesEnum._10_PlazaCinematic);
     }
 
-    private void LoadEndCinematic(){
-        // DialogueDisplay dd = FindObjectOfType<DialogueDisplay>();
-        // if (dd != null) dd.LoadEndCinematic();
+    private void LoadEnding(){
+        SceneLoader.Instance.LoadScene(ScenesEnum._13_CarCrash_Day, new Vector2(13.8f, -25.5f));
     }
 
     private void EnableUI(int minigame){

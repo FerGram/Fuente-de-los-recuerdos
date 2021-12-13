@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1798253057702285571}
   - component: {fileID: -3214256543159920799}
   m_Layer: 0
-  m_Name: Car Wheel UI
+  m_Name: Bike Tire UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -101,4 +101,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c65e8c389867d040a726472a9a44c84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemType: 2
+  _itemType: 1

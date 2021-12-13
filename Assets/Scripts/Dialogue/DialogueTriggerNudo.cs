@@ -24,8 +24,8 @@ public class DialogueTriggerNudo : DialogueTrigger
 		//Decide ink file to play
 		switch (type)
 		{
-			case ItemEnum.GreenSquare: _JSONDataContainer.SetJSON(_inkJSON); break;
-			case ItemEnum.RedSquare: _JSONDataContainer.SetJSON(_inkJSON); break;
+			case ItemEnum.BikeTire: _JSONDataContainer.SetJSON(_inkJSON); break;
+			case ItemEnum.TractorTire: _JSONDataContainer.SetJSON(_inkJSON); break;
 		}
 
 		//Execute base class funcitonality

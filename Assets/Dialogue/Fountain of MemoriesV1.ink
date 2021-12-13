@@ -5,36 +5,55 @@ EXTERNAL startMinigame(minigame)
 EXTERNAL startCinematic()
 EXTERNAL startEndCinematic()
 
+
 //Fer Edits
+
+//ITEMS
+VAR wheel = "Wheel"
+VAR car = "<color=red>car</color>"
+
+//OBJECTIVES
+VAR find = "find"
+
+=== function item(name) ===
+~return "<color=red>" + name + "</color>"
+
+=== function InitializeItems ===
+{
+    - true:  
+            ~wheel = item(wheel)
+}
+
+
 === InitialCrash ===
 {not InitialCrashDefault : -> InitialCrashDefault }
 
 === InitialCrashDefault
-Patrick<"OH MY GOD"
-Patrick<"Ok, that was terrifying"
-Patrick<"I'm still in one piece though which is a start"
+Patrick<"OH MY GOD."
+Patrick<"Ok, that was terrifying."
+Patrick<"I'm still in one piece though which is a start."
 Patrick<"And although the horrendous actual state of the car I think I might be able to fix it just enough to take me back home"
 Patrick<"Wait, where am I?"
-Patrick<"Anyway, I better <color=yellow>find <color=black>and <color=yellow>place <color=red>the missing wheel <color=black>and fix the flat tire"
+Patrick<"Anyway, I better <color=yellow>find <color=black>and <color=yellow>place <color=red>the missing wheel <color=black>and fix the flat tire."
 ->DONE
 
 === CarWheel ===
-Patrick<"Ok. Wheel's ready"
-Patrick<"I hope it stays in place"
-Patrick<"I'll check around if I can <color=red>find a way to fix the flat tire <color=black> and get back home"
+Patrick<"Ok. Wheel's ready."
+Patrick<"I hope it stays in place."
+Patrick<"I'll check around if I can <color=red>find a way to fix the flat tire <color=black> and get back home."
 ->DONE
 
 === CarDefault ===
-Patrick<"Ugh! Look at its awful state"
-Patrick<"What a disaster"
+Patrick<"Ugh! Look at its awful state."
+Patrick<"What a disaster."
 ->DONE
 
 === CarFull ===
-Patrick<"Ah... Finally"
-Patrick<"Just a few adjustments and I'll be able to get this thing back home"
-Patrick<"Although I'm gonna need a miracle.."
-Patrick<"I'm glad I could help those memories get their fountain back"
-Patrick<"I hope they find what they are looking for"
+Patrick<"Ah... Finally."
+Patrick<"Just a few adjustments and I'll be able to get this thing back home."
+Patrick<"Although I'm gonna need a miracle..."
+Patrick<"I'm glad I could help those memories get their fountain back."
+Patrick<"I hope they find what they are looking for."
 ~ startEndCinematic()
 ->DONE
 
@@ -64,6 +83,7 @@ Martha<"Ahh, don't you worry about it! We are explorers, aren't we?"
 TODO Save system
 //Story logic Tora
 {not ToraChat1:
+        ~InitializeItems() //Initialize all items, should move to the very first scene.
         -> ToraChat1
 - else:
         ->ToraDefault1
@@ -71,7 +91,7 @@ TODO Save system
 
 === ToraChat1
 Tora<“Welcome to the Fountain of Memories, traveler.”
-
+Patrick<"Anyway, I better {wheel} <color=yellow>find</color> and <color=yellow>place</color> <color=red>the missing wheel</color> and fix the flat tire."
 
 Tora<“This town has been abandoned since long ago, when the fountain broke.”
 ~ startMinigame(12)

@@ -37,7 +37,7 @@ public class GameMenuController : MonoBehaviour, ISelectHandler, IDeselectHandle
         if (SceneManager.GetActiveScene().name == ScenesEnum._0_MainMenu.ToString()){
 
             //Show continue button or start game button
-            if (GameStateData.Instance.gameData.playFirstTime){
+            if (GameStateData.Instance.gameData.firstTimePlaying){
                 _mainMenu.transform.GetChild(0).gameObject.SetActive(true);
                 _mainMenu.transform.GetChild(1).gameObject.SetActive(false);
                 _mainFirstButton = _mainMenu.transform.GetChild(0).gameObject;
@@ -166,7 +166,7 @@ public class GameMenuController : MonoBehaviour, ISelectHandler, IDeselectHandle
 
     public void StartNewGame(){
 
-        GameStateData.Instance.gameData.playFirstTime = false;
+        GameStateData.Instance.gameData.firstTimePlaying = false;
         //Need to wait for fade out screen and audio to play
         StartCoroutine(WaitForAudio());
     }

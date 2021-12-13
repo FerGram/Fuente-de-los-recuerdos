@@ -6,7 +6,7 @@ using UnityEngine;
 public class GameStateDataContainer : ScriptableObject {
     
     [Header("General")]
-    public bool playFirstTime = false;
+    public bool firstTimePlaying = false;
     public ScenesEnum sceneToLoad = ScenesEnum._1_CarCrash;
 
     [Header("Car Crash Scene")]
@@ -15,5 +15,9 @@ public class GameStateDataContainer : ScriptableObject {
 
     [Header("Plaza")]
     [Range(0,3)] public int fountainTrickleAmount = 0;
+
+    [Header("Ending")]
+    public bool isInCinematic = false;
+    public bool nextMorningShown = false;
 }
 

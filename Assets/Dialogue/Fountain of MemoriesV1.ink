@@ -5,6 +5,7 @@ EXTERNAL startMinigame(minigame)
 EXTERNAL startCinematic()
 EXTERNAL startEndCinematic()
 
+//Fer Edits
 === InitialCrash ===
 {not InitialCrashDefault : -> InitialCrashDefault }
 
@@ -36,6 +37,28 @@ Patrick<"I'm glad I could help those memories get their fountain back"
 Patrick<"I hope they find what they are looking for"
 ~ startEndCinematic()
 ->DONE
+
+=== HikersInitial ===
+Lewis<"Martha... I think we might have missed the right hiking track"
+Martha<"Ahh, don't you worry about it! We are explorers, aren't we?"
+Lewis<"Ermm..."
+Martha<"Come on, let's go into the wilds for a bit"
+Martha<"I can see some footsteps on the floor so someone must have been here not so long ago"
+Martha<"Footsteps go in both forwards and backwards so he or she was able to make it back"
+Lewis<"I guess you're right"
+->DONE
+
+=== HikersFarVillage ===
+Lewis<"Martha... I think we might have missed the right hiking track"
+Martha<"Ahh, don't you worry about it! We are explorers, aren't we?"
+->DONE
+
+=== HikersInFountain ===
+Lewis<"Martha... I think we might have missed the right hiking track"
+Martha<"Ahh, don't you worry about it! We are explorers, aren't we?"
+->DONE
+
+//END Fer Edits
 
 === Tora ===
 TODO Save system

@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7ee7f9bf0ce6874e867fe4c7ddd3a92, type: 3}
   m_Name: GameStateDataContainer
   m_EditorClassIdentifier: 
-  playFirstTime: 0
-  sceneToLoad: 1
+  firstTimePlaying: 0
+  sceneToLoad: 19
   firstDialoguePlayed: 1
   carPieceInPlace: 1
-  fountainTrickleAmount: 2
+  fountainTrickleAmount: 3
+  isInCinematic: 1
+  nextMorningShown: 0

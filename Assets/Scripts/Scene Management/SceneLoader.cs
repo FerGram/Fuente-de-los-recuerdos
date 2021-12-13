@@ -66,12 +66,17 @@ public class SceneLoader : Singleton<SceneLoader>
 
         if (_sceneInGameEvent != null) _sceneInGameEvent.Raise();
 
-        PlayerMovement player = FindObjectOfType<PlayerMovement>();
+        PlayerMovement[] player = FindObjectsOfType<PlayerMovement>();
 
-        //The vector2 comparison is to test if _nextSpawnPos has been assigned a value
-        if (player != null && _nextSpawnPos != new Vector2(0, 0))
+        //For loop because there can be more than 1 player (ending cinematic)
+        for (int i = 0; i < player.Length; i++)
         {
-            player.transform.position = _nextSpawnPos;
+            //The vector2 comparison is to test if _nextSpawnPos has been assigned a value
+            if (player[i] != null && _nextSpawnPos != new Vector2(0, 0))
+            {
+                player[i].transform.position = _nextSpawnPos + 
+                                                new Vector2(i * 1.1f * _nextSpawnPos.x / Mathf.Abs(_nextSpawnPos.x), 0);
+            }
         }
     }
 }

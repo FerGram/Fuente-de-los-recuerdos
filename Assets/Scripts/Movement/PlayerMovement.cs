@@ -31,21 +31,47 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(1)){
+        if (Input.GetMouseButtonDown(1) && !GameStateData.Instance.gameData.isInCinematic){
 
-            Vector2 mousePos = GetMouseInWorldCoords();
-            Waypoint target = SetTarget(mousePos);
+            CalculateMovement();
+        }
+    }
 
-            _interactable = GetInteractable();
+    public void CalculateMovement(){
 
-            if (target != null) {
+        Vector2 mousePos = GetMouseInWorldCoords();
+        Waypoint target = SetTarget(mousePos);
 
-                Stack<Waypoint> path = BFS(target);
+        _interactable = GetInteractable();
 
-                if(path != null && path.Count > 1) {
-                    StopAllCoroutines();
-                    StartCoroutine(MovementRoutine(path, target));
-                }
+        if (target != null)
+        {
+
+            Stack<Waypoint> path = BFS(target);
+
+            if (path != null && path.Count > 1)
+            {
+                StopAllCoroutines();
+                StartCoroutine(MovementRoutine(path, target));
+            }
+        }
+    }
+
+    public void CalculateMovement(Waypoint destination){
+
+        Waypoint target = destination;
+
+        _interactable = GetInteractable();
+
+        if (target != null)
+        {
+
+            Stack<Waypoint> path = BFS(target);
+
+            if (path != null && path.Count > 1)
+            {
+                StopAllCoroutines();
+                StartCoroutine(MovementRoutine(path, target));
             }
         }
     }

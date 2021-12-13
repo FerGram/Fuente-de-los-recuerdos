@@ -53,4 +53,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/_12_Farm.unity
     guid: ed2be088ef6456b49a1b274d0e31721a
+  - enabled: 1
+    path: Assets/Scenes/_13_CarCrash_Day.unity
+    guid: 19ed4b9ed3530ee42821980be56b4b7b
+  - enabled: 1
+    path: Assets/Scenes/_14_ForestWalk_Day.unity
+    guid: 36de6fd2e721487499c6f3fe0788108b
+  - enabled: 1
+    path: Assets/Scenes/_15_FarVillage_Day.unity
+    guid: 29ee54798c2d2484394fca562efd912b
+  - enabled: 1
+    path: Assets/Scenes/_16_Plaza_Day.unity
+    guid: 7d85b8b67ccd9de498e3a94be21b8d78
   m_configObjects: {}

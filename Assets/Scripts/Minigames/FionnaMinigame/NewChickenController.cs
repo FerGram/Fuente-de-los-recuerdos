@@ -141,7 +141,7 @@ public class NewChickenController : MonoBehaviour
 
 		GameObject chicken1 = Instantiate(chicken, new Vector3(-7.6f + bGPos.x, 2.7f + bGPos.y, -2), Quaternion.identity);
 		chicken1.layer = minigameLayer;
-		GameObject chicken2 = Instantiate(chicken, new Vector3(7.1f + bGPos.x, 3.5f + bGPos.y, -2), Quaternion.identity);
+		GameObject chicken2 = Instantiate(chicken, new Vector3(7.1f + bGPos.x, 3.25f + bGPos.y, -2), Quaternion.identity);
 		chicken2.layer = minigameLayer;
 		GameObject chicken3 = Instantiate(chicken, new Vector3(7.3f + bGPos.x, -3.65f + bGPos.y, -2), Quaternion.identity);
 		chicken3.layer = minigameLayer;
@@ -149,7 +149,7 @@ public class NewChickenController : MonoBehaviour
 		chicken4.layer = minigameLayer;
 		GameObject chicken5 = Instantiate(chicken, new Vector3(-0.0f + bGPos.x, -4.4f + bGPos.y, -2), Quaternion.identity);
 		chicken5.layer = minigameLayer;
-		GameObject chicken6 = Instantiate(chicken, new Vector3(0.8f + bGPos.x, 4.25f + bGPos.y, -2), Quaternion.identity);
+		GameObject chicken6 = Instantiate(chicken, new Vector3(0.8f + bGPos.x, 3.25f + bGPos.y, -2), Quaternion.identity);
 		chicken6.layer = minigameLayer;
 		GameObject chicken7 = Instantiate(chicken, new Vector3(-4.45f + bGPos.x, -0.1f + bGPos.y, -2), Quaternion.identity);
 		chicken7.layer = minigameLayer;

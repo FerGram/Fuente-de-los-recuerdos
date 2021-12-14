@@ -41,13 +41,13 @@ Patrick<"Ok, that was terrifying."
 Patrick<"I'm still in one piece though which is a start."
 Patrick<"And although the horrendous actual state of the car I think I might be able to fix it just enough to take me back home."
 Patrick<"Wait, where am I?"
-Patrick<"Anyway, I better <color=yellow>find <color=black>and <color=yellow>place <color=red>the missing wheel <color=black>and fix the flat tire."
+Patrick<"Anyway, I better <color=yellow>find </color>and <color=yellow>place <color=red>the missing wheel </color></color>and fix the flat tire."
 ->DONE
 
 === CarWheel ===
 Patrick<"Ok. Wheel's ready."
 Patrick<"I hope it stays in place."
-Patrick<"I'll check around if I can <color=red>find a way to fix the flat tire <color=black> and get back home."
+Patrick<"I'll check around if I can <color=red>find a way to fix the flat tire </color> and get back home."
 ->DONE
 
 === CarDefault ===
@@ -66,22 +66,45 @@ Patrick<"I hope they find what they are looking for."
 
 === HikersInitial ===
 Lewis<"Martha... I think we might have missed the right hiking track."
-Martha<"Ahh, don't you worry about it! We are explorers, aren't we?"
+Martha<"Ahh, don't you worry about it. We are explorers! aren't we?"
 Lewis<"Ermm..."
-Martha<"Come on, let's go into the wilds for a bit"
-Martha<"I can see some footsteps on the floor so someone must have been here not so long ago."
+Martha<"Come on, let's go into the wilds for a bit."
+Martha<"..."
+Martha<"Hmm. I can see some footsteps on the floor. Someone must have been here not so long ago."
 Martha<"Footsteps go in both forwards and backwards so he or she was able to make it back."
 Lewis<"I guess you're right."
 ->DONE
 
 === HikersFarVillage ===
-Lewis<"Martha... I think we might have missed the right hiking track."
-Martha<"Ahh, don't you worry about it! We are explorers, aren't we?"
+Martha<"Lewis! Look! Look!"
+Martha<"See that village in the distance?"
+Lewis<"I think I do, Martha."
+Lewis<"It's quite impossible not to see it."
+Martha<"Hurry! Let's take a closer look."
+
 ->DONE
 
 === HikersInFountain ===
-Lewis<"Martha... I think we might have missed the right hiking track."
-Martha<"Ahh, don't you worry about it! We are explorers, aren't we?"
+Martha<"WOOOOW look at this place."
+Lewis<"It seems abandoned."
+Martha<"Right, but the fountain is still working."
+Lewis<"And it's still in pretty good shape to be honest."
+Lewis<"I wonder why everybody left..."
+Lewis<"It's a pretty decent village to live in."
+Martha<"Imagine we could restore the place and bring the village back to life, Lewis."
+Lewis<"Ermm..."
+Martha<"I could talk to a few people and make them join the project!."
+Lewis<"Wait, Martha... The project?"
+Martha<"AND WE CAN RUN THE LOCAL BAKERY!."
+Lewis<"Martha, slow down."
+Martha<"AND I'LL BE THE MAYORESS!!."
+Lewis<"Hey how come you'll be the mayoress and not me?"
+Martha<"Because I said it first."
+Lewis<"That's not how it works!"
+Martha<"I guess I can share a little bit of my power with you..."
+Martha<"WE'LL BOTH BE MAYORS!!"
+Martha<"Let's get back to the car. I have to make tons of calls!"
+Lewis<"Let's talk about it first!"
 ->DONE
 
 //END Fer Edits

@@ -1502,8 +1502,8 @@ MonoBehaviour:
   m_LightType: 4
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
-  m_Color: {r: 0.6309185, g: 0.64571387, b: 0.8018868, a: 1}
-  m_Intensity: 0.61
+  m_Color: {r: 0.65882355, g: 0.6784314, b: 0.85882354, a: 1}
+  m_Intensity: 0.6
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
   m_ApplyToSortingLayers: 00000000f127c21c
@@ -5697,6 +5697,38 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2065749503}
     m_Modifications:
+    - target: {fileID: 7721076824048965480, guid: f5f7086b56dfc664c905b0025687bac4, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7721076824048965480, guid: f5f7086b56dfc664c905b0025687bac4, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7721076824048965480, guid: f5f7086b56dfc664c905b0025687bac4, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7721076824048965480, guid: f5f7086b56dfc664c905b0025687bac4, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7721076824743387376, guid: f5f7086b56dfc664c905b0025687bac4, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7721076824743387376, guid: f5f7086b56dfc664c905b0025687bac4, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7721076824743387376, guid: f5f7086b56dfc664c905b0025687bac4, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7721076824743387376, guid: f5f7086b56dfc664c905b0025687bac4, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7721076825221348636, guid: f5f7086b56dfc664c905b0025687bac4, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -6966,7 +6998,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7784492, y: 1}
+    m_SensorSize: {x: 1.7822785, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -7619,7 +7651,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2011045667}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -42.634594, y: -8.667159, z: -10}
+  m_LocalPosition: {x: -42.53807, y: -8.667129, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 673318945}
@@ -8174,8 +8206,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d9e8630d4c2529428939602530d180a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sceneToLoad: 3
-  _nextSpawnPos: {x: -105.29, y: -19.4}
+  _sceneToLoad: 9
+  _nextSpawnPos: {x: -96.6, y: -19.4}
 --- !u!61 &6366433940579194243
 BoxCollider2D:
   m_ObjectHideFlags: 0

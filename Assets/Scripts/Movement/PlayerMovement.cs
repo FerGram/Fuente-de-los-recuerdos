@@ -187,4 +187,10 @@ public class PlayerMovement : MonoBehaviour
     private void SetAnimatorParam(float x){
         _animator.SetFloat("x", x);
     }
+
+    //Not important method. It's just for moving characters away when game ends 
+    public void MovementGameEnding(Waypoint point){
+
+        CalculateMovement(point);
+    }
 }

@@ -13,7 +13,6 @@ public class Plant : MonoBehaviour
     [SerializeField] GameObject ground;
     [SerializeField] GameObject goodBasket;
     [SerializeField] GameObject badBasket;
-    [SerializeField] Sprite goodPlant;
     [SerializeField] Sprite badPlant;
 
     static float basketsTop;
@@ -60,8 +59,6 @@ public class Plant : MonoBehaviour
     {
         if (transform.position.y - plantTop > goodBasket.transform.position.y + basketsTop)
         {
-            Debug.Log(goodBasket.transform.position.y);
-            Debug.Log(basketsTop);
             transform.position = new Vector3 (transform.position.x, transform.position.y, 2.0f);
         }
         else if (transform.position.y + plantTop < goodBasket.transform.position.y)

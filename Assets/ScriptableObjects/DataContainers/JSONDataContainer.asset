@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b011623b87813d04c8e08b891d51a36f, type: 3}
   m_Name: JSONDataContainer
   m_EditorClassIdentifier: 
+  JSONFile: {fileID: 4900000, guid: 0e3916352f1709c4e87dea1f60d09acd, type: 3}

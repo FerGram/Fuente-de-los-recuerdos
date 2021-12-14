@@ -19,7 +19,7 @@ VAR find = "find"
 //CHARACTER LOCATIONS
 VAR toraLoc = "_4_Plaza"
 VAR barmanLoc = "_8_Bar"
-VAR nudoLoc = "_999_Limbo"
+VAR nudoLoc = "_4_Plaza"
 VAR antonLoc = "_8_Bar"
 VAR fionnaLoc = "_9_FionnaHouse"
 
@@ -167,12 +167,19 @@ Patrick<“I…”
 Patrick<“I don’t know…”
 
 Patrick<“I don’t know…”
-~ startCinematic()
+
+{
+    -true:
+        ~nudoLoc = "_999_Limbo"
+}
+
+//~ startCinematic()
 
 ->DONE
 
 === ToraDefault1
 Tora<“You should find Nudo in the bar, the building over there.”
+{~nudoLoc = "_12_Farm"}
 ->DONE
 
 

@@ -9,17 +9,26 @@ EXTERNAL startEnding()
 VAR wheel = "Fernadito"
 VAR chessPiece = "Chess Piece"
 
+//Names
+VAR nudo = "Nudo"
+VAR tora = "Tora"
+
 //OBJECTIVES
 VAR find = "find"
 
 === function item(name) ===
 ~return "<color=red>" + name + "</color>"
 
+=== function character(name) ===
+~return "<color=black>" + name + "</color>"
+
 === function InitializeItems ===
 {
     - true:
             ~wheel = item(wheel)
             ~chessPiece = item(chessPiece)
+            ~nudo = character(nudo)
+            ~tora = character(tora)
 }
 
 //Fer Edits
@@ -27,51 +36,51 @@ VAR find = "find"
 {not InitialCrashDefault : -> InitialCrashDefault }
 
 === InitialCrashDefault
-Patrick<"OH MY GOD"
-Patrick<"Ok, that was terrifying"
-Patrick<"I'm still in one piece though which is a start"
-Patrick<"And although the horrendous actual state of the car I think I might be able to fix it just enough to take me back home"
+Patrick<"OH MY GOD."
+Patrick<"Ok, that was terrifying."
+Patrick<"I'm still in one piece though which is a start."
+Patrick<"And although the horrendous actual state of the car I think I might be able to fix it just enough to take me back home."
 Patrick<"Wait, where am I?"
-Patrick<"Anyway, I better <color=yellow>find <color=black>and <color=yellow>place <color=red>the missing wheel <color=black>and fix the flat tire"
+Patrick<"Anyway, I better <color=yellow>find <color=black>and <color=yellow>place <color=red>the missing wheel <color=black>and fix the flat tire."
 ->DONE
 
 === CarWheel ===
-Patrick<"Ok. Wheel's ready"
-Patrick<"I hope it stays in place"
-Patrick<"I'll check around if I can <color=red>find a way to fix the flat tire <color=black> and get back home"
+Patrick<"Ok. Wheel's ready."
+Patrick<"I hope it stays in place."
+Patrick<"I'll check around if I can <color=red>find a way to fix the flat tire <color=black> and get back home."
 ->DONE
 
 === CarDefault ===
-Patrick<"Ugh! Look at its awful state"
-Patrick<"What a disaster"
+Patrick<"Ugh! Look at its awful state."
+Patrick<"What a disaster."
 ->DONE
 
 === CarFull ===
-Patrick<"Ah... Finally"
-Patrick<"Just a few adjustments and I'll be able to get this thing back home"
-Patrick<"Although I'm gonna need a miracle.."
-Patrick<"I'm glad I could help those memories get their fountain back"
-Patrick<"I hope they find what they are looking for"
+Patrick<"Ah... Finally."
+Patrick<"Just a few adjustments and I'll be able to get this thing back home."
+Patrick<"Although I'm gonna need a miracle..."
+Patrick<"I'm glad I could help those memories get their fountain back."
+Patrick<"I hope they find what they are looking for."
 ~ startEnding()
 ->DONE
 
 === HikersInitial ===
-Lewis<"Martha... I think we might have missed the right hiking track"
+Lewis<"Martha... I think we might have missed the right hiking track."
 Martha<"Ahh, don't you worry about it! We are explorers, aren't we?"
 Lewis<"Ermm..."
 Martha<"Come on, let's go into the wilds for a bit"
-Martha<"I can see some footsteps on the floor so someone must have been here not so long ago"
-Martha<"Footsteps go in both forwards and backwards so he or she was able to make it back"
-Lewis<"I guess you're right"
+Martha<"I can see some footsteps on the floor so someone must have been here not so long ago."
+Martha<"Footsteps go in both forwards and backwards so he or she was able to make it back."
+Lewis<"I guess you're right."
 ->DONE
 
 === HikersFarVillage ===
-Lewis<"Martha... I think we might have missed the right hiking track"
+Lewis<"Martha... I think we might have missed the right hiking track."
 Martha<"Ahh, don't you worry about it! We are explorers, aren't we?"
 ->DONE
 
 === HikersInFountain ===
-Lewis<"Martha... I think we might have missed the right hiking track"
+Lewis<"Martha... I think we might have missed the right hiking track."
 Martha<"Ahh, don't you worry about it! We are explorers, aren't we?"
 ->DONE
 
@@ -90,12 +99,7 @@ TODO Save system
 === ToraChat1
 Tora<“Welcome to the Fountain of Memories, traveler.”
 
-Patrick<"Anyway, I better {wheel} <color=yellow>find</color> and <color=yellow>place</color> <color=red>the missing wheel</color> and fix the flat tire."
-
 Tora<“This town has been abandoned since long ago, when the fountain broke.”
-~ startMinigame(14)
-Tora<“Only our memories are left.”
-Tora<“Only our memories are left.”
     + “What do you mean?”
 
     Tora<“No one in this town is a real person, we’re just ghosts of our past selves, longing to revive the town.”
@@ -116,7 +120,7 @@ Tora<“Would you be so kind as to… fix the fountain? Or you’d rather just- 
 Patrick<“I…”
 
 
-Patrick.“I don’t know…”
+Patrick<“I don’t know…”
 
 Patrick<“I don’t know…”
 ~ startCinematic()

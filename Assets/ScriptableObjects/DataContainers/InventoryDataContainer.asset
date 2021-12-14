@@ -12,6 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 091ea040ab032d1459ecfd8653eca78a, type: 3}
   m_Name: InventoryDataContainer
   m_EditorClassIdentifier: 
-  _inventoryItems:
-  - {fileID: 397923055122253682, guid: e0d900ae814901745a23dbf134309710, type: 3}
-  - {fileID: 397923055122253682, guid: 3f17b905384799d4fa9d3121128d22e5, type: 3}
+  _inventoryItems: []

@@ -67,8 +67,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Dialogue
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 20fecae59c3d29747bac4baa7fab30d7, type: 2}
-  m_sharedMaterial: {fileID: -5790027550495128633, guid: 20fecae59c3d29747bac4baa7fab30d7, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: dc69d83489a548343a84787a3ba7c90f, type: 2}
+  m_sharedMaterial: {fileID: -6389030766165492493, guid: bb54a9c35dd9d9a44b03ec99b77608bc, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -92,8 +92,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 18
+  m_fontSizeBase: 18
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -131,7 +131,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &5810053162844547847
@@ -233,7 +233,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 0}
-    m_HighlightedColor: {r: 1, g: 0.8720647, b: 0, a: 0.49019608}
+    m_HighlightedColor: {r: 0.40997687, g: 0.7830189, b: 0.6712983, a: 0.49019608}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.6415094, g: 0.6415094, b: 0.6415094, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
@@ -366,7 +366,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 0}
-    m_HighlightedColor: {r: 1, g: 0.8720647, b: 0, a: 0.49019608}
+    m_HighlightedColor: {r: 0.40997687, g: 0.7830189, b: 0.6712983, a: 0.49019608}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.6415094, g: 0.6415094, b: 0.6415094, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
@@ -467,7 +467,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Button
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 20fecae59c3d29747bac4baa7fab30d7, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: dc69d83489a548343a84787a3ba7c90f, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -714,7 +714,7 @@ MonoBehaviour:
   _nameText: {fileID: 5810053163630226196}
   _dialogueText: {fileID: 5810053162620793063}
   _mainCharImage: {fileID: 5810053164648296396}
-  _NPCImage: {fileID: 0}
+  _NPCImage: {fileID: 5810053163904667027}
   _greyBackground: {fileID: 5810053163009550959}
   _choices:
   - {fileID: 5810053164508551636}
@@ -790,7 +790,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Button
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 20fecae59c3d29747bac4baa7fab30d7, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: dc69d83489a548343a84787a3ba7c90f, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -1174,7 +1174,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Name
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 20fecae59c3d29747bac4baa7fab30d7, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: dc69d83489a548343a84787a3ba7c90f, type: 2}
   m_sharedMaterial: {fileID: -5790027550495128633, guid: 20fecae59c3d29747bac4baa7fab30d7, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -1199,13 +1199,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 26
-  m_fontSizeBase: 26
+  m_fontSize: 24
+  m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -1403,7 +1403,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Button
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 20fecae59c3d29747bac4baa7fab30d7, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: dc69d83489a548343a84787a3ba7c90f, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -1569,7 +1569,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 0}
-    m_HighlightedColor: {r: 1, g: 0.8720647, b: 0, a: 0.49019608}
+    m_HighlightedColor: {r: 0.40997687, g: 0.7830189, b: 0.6712983, a: 0.49019608}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.6415094, g: 0.6415094, b: 0.6415094, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}

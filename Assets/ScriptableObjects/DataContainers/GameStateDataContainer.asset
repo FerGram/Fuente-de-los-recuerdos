@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firstTimePlaying: 0
   sceneToLoad: 19
-  firstDialoguePlayed: 0
+  firstDialoguePlayed: 1
   carPieceInPlace: 0
   fountainTrickleAmount: 3
-  isInCinematic: 1
-  nextMorningShown: 1
+  isInCinematic: 0
+  nextMorningShown: 0

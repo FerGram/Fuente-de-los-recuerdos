@@ -64,6 +64,20 @@ Patrick<"I hope they find what they are looking for."
 ~ startEnding()
 ->DONE
 
+=== SignDefault ===
+Patrick<"FNTNFMRIES..."
+Patrick<"It's barely readable."
+Patrick<"But it's a sign so it must indicate some place."
+Patrick<"I'll have a look."
+->DONE
+
+=== SignHikers ===
+Martha<"FNTNFMRIES..."
+Martha<"It's barely readable."
+Martha<"But it's a sign so it must indicate some place."
+Martha<"I'll have a look."
+->DONE
+
 === HikersInitial ===
 Lewis<"Martha... I think we might have missed the right hiking track."
 Martha<"Ahh, don't you worry about it. We are explorers! aren't we?"

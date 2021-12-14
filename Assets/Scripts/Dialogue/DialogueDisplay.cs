@@ -43,11 +43,21 @@ public class DialogueDisplay : MonoBehaviour
         {
             _choicesText[i] = _choices[i].GetComponentInChildren<TextMeshProUGUI>();
         }
-
-
 	}
 
-    private void Update() {
+	private void Start()
+	{
+		_currentDialogue = GameStateData.Instance.gameStory;
+
+		if (_currentDialogue == null)
+		{
+			GameStateData.Instance.gameStory = new Story(_JSONDataContainer.GetJSON().text);
+			GameStateData.Instance.BindStoryFunctions();
+			_currentDialogue = GameStateData.Instance.gameStory;
+		}
+	}
+
+	private void Update() {
         
         if (!isPlaying) return;
 
@@ -56,14 +66,14 @@ public class DialogueDisplay : MonoBehaviour
 
     public void StartDialogue()
     {
-        _currentDialogue = GameStateData.Instance.gameStory;
+		//_currentDialogue = GameStateData.Instance.gameStory;
 
-		if (_currentDialogue == null)
-		{
-            GameStateData.Instance.gameStory = new Story(_JSONDataContainer.GetJSON().text);
-            GameStateData.Instance.BindStoryFunctions();
-			_currentDialogue = GameStateData.Instance.gameStory;
-        }
+		//if (_currentDialogue == null)
+		//{
+		//	GameStateData.Instance.gameStory = new Story(_JSONDataContainer.GetJSON().text);
+		//	GameStateData.Instance.BindStoryFunctions();
+		//	_currentDialogue = GameStateData.Instance.gameStory;
+		//}
 
 		_currentDialogue.ChoosePathString(_JSONDataContainer.GetPath());
 

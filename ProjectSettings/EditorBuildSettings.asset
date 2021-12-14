@@ -65,4 +65,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/_16_Plaza_Day.unity
     guid: 7d85b8b67ccd9de498e3a94be21b8d78
+  - enabled: 1
+    path: Assets/Scenes/_17_AntonHouse.unity
+    guid: 4fe6cd324975c79418005ecbd28d684a
   m_configObjects: {}

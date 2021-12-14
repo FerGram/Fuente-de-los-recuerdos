@@ -5,7 +5,7 @@ using UnityEngine;
 public class DialogueTrigger : MonoBehaviour
 {
     //These are public because they must be accessed by inherited classes
-    //TO-DO make it a list of JSONS
+    //TODO _inkJSON can be removed from here. It is assigned once in JSONDataContainer
     public TextAsset _inkJSON;
     public JSONDataContainer _JSONDataContainer;
     public GameEvent _triggerDialogue;

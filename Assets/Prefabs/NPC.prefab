@@ -75,7 +75,6 @@ MonoBehaviour:
   _JSONDataContainer: {fileID: 11400000, guid: c9e4d071041c07a498e78c3cdc36e9ae, type: 2}
   _triggerDialogue: {fileID: 11400000, guid: 50ecbc7cbd57cc241a7a892a45f2c2aa, type: 2}
   _playerInRange: 0
-  _minigameScene: 3
 --- !u!114 &1179346715507068478
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -295,7 +294,7 @@ Transform:
   m_GameObject: {fileID: 4796907812293731711}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -5.45, y: -1.2, z: 0}
-  m_LocalScale: {x: 3.2, y: 2.7522, z: 2.7522}
+  m_LocalScale: {x: 3.1999998, y: 2.7522, z: 2.7522}
   m_Children:
   - {fileID: 4796907811427710515}
   - {fileID: 4796907811323278778}

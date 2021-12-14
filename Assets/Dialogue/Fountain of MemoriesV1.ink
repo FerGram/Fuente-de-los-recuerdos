@@ -16,6 +16,13 @@ VAR tora = "Tora"
 //OBJECTIVES
 VAR find = "find"
 
+//CHARACTER LOCATIONS
+VAR toraLoc = "_4_Plaza"
+VAR barmanLoc = "_8_Bar"
+VAR nudoLoc = "_999_Limbo"
+VAR antonLoc = "_8_Bar"
+VAR fionnaLoc = "_9_FionnaHouse"
+
 === function item(name) ===
 ~return "<color=red>" + name + "</color>"
 
@@ -286,7 +293,8 @@ Nudo<"Anton lives just to the left of the fountain."
 === Anton ===
 {
 - not ToraChat1:
-		Anton<"Serve me the usual, baldman."
+		Anton<"Serve me the usual, bald man."
+		->DONE
 		TODO can insert dialogue in the bar between the three men.
 
 - not BarChat1:

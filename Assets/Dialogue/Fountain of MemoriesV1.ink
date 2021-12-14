@@ -65,14 +65,14 @@ Patrick<"I hope they find what they are looking for."
 ->DONE
 
 === SignDefault ===
-Patrick<"FNTNFMRIES..."
+Patrick<"KPNTVLEY..."
 Patrick<"It's barely readable."
 Patrick<"But it's a sign so it must indicate some place."
 Patrick<"I'll have a look."
 ->DONE
 
 === SignHikers ===
-Martha<"FNTNFMRIES..."
+Martha<"KPNTVLEY..."
 Martha<"It's barely readable."
 Martha<"But it's a sign so it must indicate some place."
 Martha<"I'll have a look."
@@ -134,7 +134,7 @@ TODO Save system
  }
 
 === ToraChat1
-Tora<“Welcome to the Fountain of Memories, traveler.”
+Tora<“Welcome to Kiponut Valley, traveler.”
 
 Tora<“This town has been abandoned since long ago, when the fountain broke.”
     + “What do you mean?”

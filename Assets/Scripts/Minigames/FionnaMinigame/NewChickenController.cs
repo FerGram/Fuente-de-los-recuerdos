@@ -141,7 +141,7 @@ public class NewChickenController : MonoBehaviour
 
 		GameObject chicken1 = Instantiate(chicken, new Vector3(-7.6f + bGPos.x, 2.7f + bGPos.y, -2), Quaternion.identity);
 		chicken1.layer = minigameLayer;
-		GameObject chicken2 = Instantiate(chicken, new Vector3(7.1f + bGPos.x, 3.25f + bGPos.y, -2), Quaternion.identity);
+		GameObject chicken2 = Instantiate(chicken, new Vector3(7.1f + bGPos.x, 2.85f + bGPos.y, -2), Quaternion.identity);
 		chicken2.layer = minigameLayer;
 		GameObject chicken3 = Instantiate(chicken, new Vector3(7.3f + bGPos.x, -3.65f + bGPos.y, -2), Quaternion.identity);
 		chicken3.layer = minigameLayer;

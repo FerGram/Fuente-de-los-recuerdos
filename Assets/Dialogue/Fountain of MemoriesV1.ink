@@ -12,6 +12,9 @@ VAR chessPiece = "Chess Piece"
 //Names
 VAR nudo = "Nudo"
 VAR tora = "Tora"
+VAR anton = "Anton"
+VAR barman = "Barman"
+VAR fionna = "Fionna"
 
 //OBJECTIVES
 VAR find = "find"
@@ -19,7 +22,7 @@ VAR find = "find"
 //CHARACTER LOCATIONS
 VAR toraLoc = "_4_Plaza"
 VAR barmanLoc = "_8_Bar"
-VAR nudoLoc = "_4_Plaza"
+VAR nudoLoc = "_999_Limbo"
 VAR antonLoc = "_8_Bar"
 VAR fionnaLoc = "_9_FionnaHouse"
 
@@ -36,6 +39,9 @@ VAR fionnaLoc = "_9_FionnaHouse"
             ~chessPiece = item(chessPiece)
             ~nudo = character(nudo)
             ~tora = character(tora)
+            ~anton = character(anton)
+            ~barman = character(barman)
+            ~fionna = character(fionna)
 }
 
 //Fer Edits
@@ -150,7 +156,7 @@ Tora<“This town has been abandoned since long ago, when the fountain broke.”
 
     + “Do you know where I can find a tire?”
 
-    Tora<“No matter what you seek, traveler, if you don’t want to become a memory like us, you’ll have to fix the fountain. But if a tire is what you’re looking for, Nudo, the farmer, may help you.”
+    Tora<“No matter what you seek, traveler, if you don’t want to become a memory like us, you’ll have to fix the fountain. But if a tire is what you’re looking for, {nudo}, the farmer, may help you.”
 
 	+ “Why did the fountain break?”
 
@@ -161,23 +167,17 @@ Tora<“I wish I could offer you a warm welcome, but there’s little a memory c
 
 Tora<“Would you be so kind as to… fix the fountain? Or you’d rather just- abandon us, too?”
 
-~nudoLoc = "_12_Farm"
 Patrick<“I…”
 
-~startMinigame(12)
 Patrick<“I don’t know…”
 
+Patrick<"Where can I find {nudo}?"
 
-
-
-
-//~ startCinematic()
-
+Tora<“You should find {nudo} in the bar, the building to the right of the fountain.”
 ->DONE
 
 === ToraDefault1
-Tora<“You should find Nudo in the bar, the building over there.”
-{~nudoLoc = "_12_Farm"}
+Tora<“You should find {nudo} in the bar, the building over there.”
 ->DONE
 
 
@@ -211,13 +211,16 @@ Barman<"You’re not from here haha, welcome to Sander’s. I would serve you so
 
 -
 Barman<“So, what brings you to my humble little bar?”
-
+~nudoLoc = "_12_Farm"
 	+ “I’m looking for the farmer, Nudo.”
 	Barman<“Nudo? He was here just a few minutes ago along with Anton, complaining about how much his back was hurting him, but he left again to finish some work at the farm. The farm is south-east of here.”
-	    ->DONE
+	    
 	+ “Do you know where I can get a tire?”
 	Barman<“Nudo may help you with that. He was here just a few minutes ago along with Anton, complaining about how much his back was hurting him, but he left again to finish some work at the farm. The farm is south-east of here.”
-        ->DONE
+        
+-
+
+->DONE
 
 === BarmanDefault1
 Barman<"I miss the old days..."
@@ -263,7 +266,7 @@ Nudo<“Would you be so kind as to help me with it, please? You, young people, a
 
 -
 Nudo<“A tire? Yea, I do have a few spare ones. Finish the field and I’ll give you one.”
-//The player then proceeds to play the farm minigame.
+~startMinigame(13)
 Nudo<“Well well, you did a great job. You remind me of my son, he was just as skinny as you, and he still could work from dawn ‘til dusk.”
 
 Nudo<“What nice memories…”
@@ -297,13 +300,10 @@ Nudo<"Anton lives just to the left of the fountain."
 
 === Anton ===
 {
-- not ToraChat1:
+- not BarChat1:
 		Anton<"Serve me the usual, bald man."
 		->DONE
 		TODO can insert dialogue in the bar between the three men.
-
-- not BarChat1:
-        TODO //nudo shouldn't be visible in his house unless the player talks with Barman.
 
 - BarChat1 and not NudoFarmChat1:
         ->AntonDefault1
@@ -346,8 +346,8 @@ Anton<“Oh- I think I forgot my pieces at the bar… Would you be so kind as to
 ->DONE
 
 ===AntonDefault1
-Anton<"..."
-Anton<"The good old days..."
+Anton<"Looking for Nudo huh?"
+Anton<"He should be in the farm, right of here."
 ->DONE
 
 ===AntonDefault2

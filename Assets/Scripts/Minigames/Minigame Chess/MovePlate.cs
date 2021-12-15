@@ -25,14 +25,16 @@ public class MovePlate : MonoBehaviour
 		if (attack)
         {
             //Set to red
+            gameObject.transform.localScale *= 2;
             gameObject.GetComponent<SpriteRenderer>().color = new Color(1.0f, 0.0f, 0.0f, 1.0f);
         }
         else if (!piece.GetPlayer())
         {
-            //Set to gray
-            gameObject.GetComponent<SpriteRenderer>().color = new Color(0.5f, 0.5f, 0.5f, 1.0f);
+            //Change Color
+            gameObject.transform.localScale *= 2;
+            gameObject.GetComponent<SpriteRenderer>().color = new Color(0.8332132f, 0.0f, 0.8396226f, 1.0f);
+            gameObject.GetComponent<BoxCollider2D>().enabled = false;
         }
-
     }
 
 	private void Update()
@@ -44,6 +46,7 @@ public class MovePlate : MonoBehaviour
     {
         if (reference.GetComponent<Chessman>().GetPlayer())
         {
+            controllerS.canSpawnMovePlates = true;
             //Destroy the victim Chesspiece
             if (attack)
             {
@@ -70,13 +73,11 @@ public class MovePlate : MonoBehaviour
                 reference.GetComponent<Chessman>().GetYBoard() == controllerS.GoalPosY)
             {
                 controllerS.win = true;
-                controllerS.text = true;
             }
 
             //Move all the other pieces
             controllerS.MoveEnemies();
         }
-
     }
 
     public void SetCoords(int x, int y)

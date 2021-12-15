@@ -231,8 +231,9 @@ public class Chessman : MonoBehaviour
 
     public void OnClickOver()
     {
-        if (!controllerS.IsGameOver() && player == true)
+        if (!controllerS.IsGameOver() && player == true && controllerS.canSpawnMovePlates)
         {
+            controllerS.canSpawnMovePlates = false;
             ChessGame sc = controllerS;
             for (int i = 0; i < sc.pieces.Length; i++)
             {

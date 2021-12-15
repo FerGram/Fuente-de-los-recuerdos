@@ -149,7 +149,7 @@ TODO Save system
 === ToraChat1
 Tora<“Welcome to Kiponut Valley, traveler.”
 
-~startMinigame(12)
+~startMinigame(14)
 
 Tora<“This town has been abandoned since long ago, when the fountain broke.”
     + “What do you mean?”

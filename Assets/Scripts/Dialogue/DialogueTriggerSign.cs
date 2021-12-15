@@ -13,6 +13,7 @@ public class DialogueTriggerSign : DialogueTrigger
         switch(_lineToPlay){
             case 0: _JSONDataContainer.SetPath("SignDefault"); break;
             case 1: _JSONDataContainer.SetPath("SignHikers"); break;
+            case 2: _JSONDataContainer.SetPath("CarDefault"); break; //Pos aqui se queda me cago en dios
         }
         
         

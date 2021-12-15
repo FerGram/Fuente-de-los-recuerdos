@@ -24,11 +24,16 @@ public class DialogueTriggerAnton : DialogueTrigger
 		//Decide ink file to play
 		switch (type)
 		{
-			case ItemEnum.BikeTire: _JSONDataContainer.SetPath("PickUpPieces"); break;
-			case ItemEnum.TractorTire: _JSONDataContainer.SetPath("PickUpPieces"); break;
+			case ItemEnum.ChessPieces:
+				
+				_JSONDataContainer.SetPath("PickUpPieces");
+				base.OnInteract(obj);
+				
+				break;
+			//case ItemEnum.TractorTire: _JSONDataContainer.SetPath("PickUpPieces"); break;
 		}
 
 		//Execute base class funcitonality
-		base.OnInteract(obj);
+		
 	}
 }

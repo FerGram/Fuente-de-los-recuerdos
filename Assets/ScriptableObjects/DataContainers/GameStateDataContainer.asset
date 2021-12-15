@@ -17,5 +17,5 @@ MonoBehaviour:
   firstDialoguePlayed: 1
   carPieceInPlace: 1
   fountainTrickleAmount: 3
-  isInCinematic: 1
-  nextMorningShown: 1
+  isInCinematic: 0
+  nextMorningShown: 0

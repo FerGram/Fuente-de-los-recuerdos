@@ -6,7 +6,8 @@ public enum ItemEnum{
     TractorTire,
     BikeTire,
     CarWheel,
-    CarTire
+    CarTire,
+	ChessPieces
 }
 
 public class ItemType : MonoBehaviour

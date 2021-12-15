@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: GameStateDataContainer
   m_EditorClassIdentifier: 
   firstTimePlaying: 0
-  sceneToLoad: 17
+  sceneToLoad: 19
   firstDialoguePlayed: 1
   carPieceInPlace: 0
   chessPiecesInPlace: 0

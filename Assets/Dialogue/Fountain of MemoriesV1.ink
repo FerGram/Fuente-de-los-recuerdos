@@ -26,6 +26,9 @@ VAR nudoLoc = "_999_Limbo"
 VAR antonLoc = "_8_Bar"
 VAR fionnaLoc = "_9_FionnaHouse"
 
+//ITEM LOCS
+VAR chessPiecesLoc = "_999_Limbo"
+
 === function item(name) ===
 ~return "<color=red>" + name + "</color>"
 
@@ -347,6 +350,8 @@ Anton<“Would you play one last game with me?”
 Anton<“All you have to do is capture my King with your Knight. My Rooks and Bishops will move in the same pattern every time you move your Knight.”
 
 Anton<“The townspeople are sick of playing against me, hehe, so I’m glad you’re up to the challenge.”
+
+~chessPiecesLoc = "_8_Bar"
 
 Anton<“Oh- I think I forgot my pieces at the bar… Would you be so kind as to bring them back, please? With this age, my knees hurt for any small movement, and walking all the way there again…”
 ->DONE

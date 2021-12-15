@@ -27,6 +27,7 @@ public class DialogueTriggerAnton : DialogueTrigger
 			case ItemEnum.ChessPieces:
 				
 				_JSONDataContainer.SetPath("PickUpPieces");
+				GameStateData.Instance.gameData.chessPiecesInPlace = true; 
 				base.OnInteract(obj);
 				
 				break;

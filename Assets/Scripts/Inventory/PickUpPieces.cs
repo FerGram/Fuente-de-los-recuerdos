@@ -7,6 +7,6 @@ public class PickUpPieces : PickUp
 	public override void Start()
 	{
 		base.Start();
-		if (GameStateData.Instance.gameData.carPieceInPlace) Destroy(gameObject);
+		if (GameStateData.Instance.gameData.chessPiecesInPlace) Destroy(gameObject);
 	}
 }

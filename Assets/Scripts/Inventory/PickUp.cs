@@ -31,7 +31,7 @@ public class PickUp : MonoBehaviour
         }
     }
 
-    public void OnInteract(){
+    public virtual void OnInteract(){
 
         if (_playerInRange){
 

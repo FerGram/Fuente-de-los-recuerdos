@@ -26,6 +26,6 @@ public class DialogueTriggerTora : DialogueTrigger
         }
         
         //Execute base class funcitonality
-        base.OnInteract(obj);
+        //base.OnInteract(obj);
     }
 }

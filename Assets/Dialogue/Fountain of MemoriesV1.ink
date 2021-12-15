@@ -149,7 +149,7 @@ TODO Save system
 === ToraChat1
 Tora<“Welcome to Kiponut Valley, traveler.”
 
-~startMinigame(14)
+//~startMinigame(14)
 
 Tora<“This town has been abandoned since long ago, when the fountain broke.”
     + “What do you mean?”
@@ -214,6 +214,8 @@ Barman<"You’re not from here haha, welcome to Sander’s. I would serve you so
 -
 Barman<“So, what brings you to my humble little bar?”
 ~nudoLoc = "_12_Farm"
+~antonLoc = "_17_AntonHouse"
+
 	+ “I’m looking for the farmer, Nudo.”
 	Barman<“Nudo? He was here just a few minutes ago along with Anton, complaining about how much his back was hurting him, but he left again to finish some work at the farm. The farm is south-east of here.”
 	Barman<“The farm is south-east of here.”
@@ -244,7 +246,7 @@ Barman<"The farm is south-east of here."
 		//TODO can insert dialogue in the bar between the three men.
 
 - not BarChat1:
-        TODO //nudo shouldn't be visible in the farm unless the player talks with Barman.
+        //nudo shouldn't be visible in the farm unless the player talks with Barman.
 
 - BarChat1 and not NudoFarmChat1:
         ->NudoFarmChat1
@@ -253,7 +255,7 @@ Barman<"The farm is south-east of here."
         ->NudoFarmDefault1
  }
  
- === NudoFarmChat1
+=== NudoFarmChat1
 Nudo<“Hey there, fella, you’re not from here, are ya?”
 
 Patrick<“That’s… what everyone keeps saying.”
@@ -270,7 +272,7 @@ Nudo<“Would you be so kind as to help me with it, please? You, young people, a
 
 -
 Nudo<“A tire? Yea, I do have a few spare ones. Finish the field and I’ll give you one.”
-~startMinigame(12)
+~startMinigame(13)
 Nudo<“Well well, you did a great job. You remind me of my son, he was just as skinny as you, and he still could work from dawn ‘til dusk.”
 
 Nudo<“What nice memories…”
@@ -351,7 +353,7 @@ Anton<“Oh- I think I forgot my pieces at the bar… Would you be so kind as to
 
 ===AntonDefault1
 Anton<"Looking for Nudo huh?"
-Anton<"He should be in the farm, right of here."
+Anton<"He should be in the farm, all the way to the right of here."
 ->DONE
 
 ===AntonDefault2

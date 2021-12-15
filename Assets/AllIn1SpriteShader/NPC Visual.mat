@@ -170,7 +170,7 @@ Material:
     - _OutlineTexToggle: 0
     - _OutlineTexXSpeed: 10
     - _OutlineTexYSpeed: 0
-    - _OutlineWidth: 0.009
+    - _OutlineWidth: 0.01
     - _OverlayBlend: 1
     - _OverlayGlow: 1
     - _PinchUvAmount: 0.35

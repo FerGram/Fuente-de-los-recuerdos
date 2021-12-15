@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 685557670926522763}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3.71, y: -2.047, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 1}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -115,11 +115,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OnScreen: 0
-  dirtEffect: {fileID: 1592220009634088726, guid: 1f53659fa76759441a222c430b7b5979, type: 3}
   ground: {fileID: 0}
   goodBasket: {fileID: 0}
   badBasket: {fileID: 0}
-  goodPlant: {fileID: 21300000, guid: be3ad3ba009ff4d4593c100d0fb91555, type: 3}
   badPlant: {fileID: 21300000, guid: 1b42f3eaf75ace8469bd55f25e28efa8, type: 3}
   controller: {fileID: 0}
 --- !u!50 &685557670926522766

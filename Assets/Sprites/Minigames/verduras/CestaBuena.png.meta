@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<< HEAD:Assets/Sprites/MainMenu.png.meta
 guid: 3961969a3bd2baf4685c2486fdb2bc55
-=======
-guid: 6bfe295193265fa44a883f1eb3c59b25
->>>>>>> fc7caa4c60e629da0a37d50660fab873bd3bc508:Assets/Sprites/Minigames/verduras/CestaBuena.png.meta
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -65,7 +61,7 @@ TextureImporter:
   compressionQualitySet: 0
   textureFormatSet: 0
   ignorePngGamma: 0
-  applyGammaDecoding: 0
+  applyGammaDecoding: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform

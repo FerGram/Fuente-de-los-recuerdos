@@ -501,7 +501,7 @@ Patrick<“Yea, but I came here to ask you a different questi-”
 
 Fionna<“No buts, time to catch some chicken.”
 
-//Start the minigame.
+~ startMinigame(14)
 //After finishing the minigame and seeing the scene get alive…
 Fionna<“Claire would thank you with an apple pie. I’m not that good with cooking, so I’ll answer your questions as promised.”
 

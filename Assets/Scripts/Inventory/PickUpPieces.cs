@@ -4,16 +4,9 @@ using UnityEngine;
 
 public class PickUpPieces : PickUp
 {
-	public override void OnInteract()
+	public override void Start()
 	{
-
-		if (_playerInRange)
-		{
-
-			if (UIItem != null) _inventory.AddItem(UIItem);
-			if (_onItemPickUp != null) _onItemPickUp.Raise();
-
-			Destroy(gameObject);
-		}
+		base.Start();
+		if (GameStateData.Instance.gameData.carPieceInPlace) Destroy(gameObject);
 	}
 }

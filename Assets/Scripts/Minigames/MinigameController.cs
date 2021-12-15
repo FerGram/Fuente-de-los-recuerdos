@@ -43,7 +43,7 @@ public class MinigameController : MonoBehaviour
 		//Move window to proper position
 		Vector3 newPosWindow = Camera.main.transform.position;
 		newPosWindow.z = -1; //Keep the window in front of everything
-		_minigameWindow.transform.position = newPosWindow;
+		//_minigameWindow.transform.position = newPosWindow;
 
 		//Activate window obj
 

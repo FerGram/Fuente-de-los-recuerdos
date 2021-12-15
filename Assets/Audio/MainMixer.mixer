@@ -1,19 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!244 &-5216266477178524072
-AudioMixerEffectController:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  m_EffectID: 58cb4974f245aca49865be709500778f
-  m_EffectName: Attenuation
-  m_MixLevel: 5d7466c61191c494d81b34801489d7a9
-  m_Parameters: []
-  m_SendTarget: {fileID: 0}
-  m_EnableWetMix: 0
-  m_Bypass: 0
 --- !u!244 &-1467380613773464003
 AudioMixerEffectController:
   m_ObjectHideFlags: 3
@@ -50,7 +36,6 @@ AudioMixerController:
   - guids:
     - 56585fab06711b3489b05188982cc830
     - 967a271a268d1664ba903a6b9038c6e1
-    - 3b82127d0ecf87743b68d31601fb5e64
     name: View
   m_CurrentViewIndex: 0
   m_TargetSnapshot: {fileID: 24500006}
@@ -65,7 +50,6 @@ AudioMixerGroupController:
   m_GroupID: 56585fab06711b3489b05188982cc830
   m_Children:
   - {fileID: 7859347515936811405}
-  - {fileID: 7069041211007121523}
   m_Volume: 47a3349b475632a43b25d331cc95400e
   m_Pitch: 716fafad5a96a5342b78b1a9e0588983
   m_Send: 00000000000000000000000000000000
@@ -99,29 +83,16 @@ AudioMixerSnapshotController:
   m_AudioMixer: {fileID: 24100000}
   m_SnapshotID: 6529829de66f5ce48bd81980cdcfe3bc
   m_FloatValues:
-    92369af19a2f4f74ea3974e0202a1723: 0.04171297
+    0e2eeeb0bb4ec734b8d49d7a7267198f: 601
+    f116aa81dd498b3419cccad90b59332a: 0.94
+    92369af19a2f4f74ea3974e0202a1723: -20.362972
     5f0f1a221689ce54490ef73afb10001c: -0.025776725
+    d3dd14c5ab8b3a444b5d889cd512973e: 0.9
     47a3349b475632a43b25d331cc95400e: 0
+    ec1eeabd1bb5cd248ba9e70990ac6035: -10000
+    a726e9fd3460d7242ba161323deeeb64: -1563
+    595dd29eea3146243959d59dcb8a257a: 1
   m_TransitionOverrides: {}
---- !u!243 &7069041211007121523
-AudioMixerGroupController:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Music
-  m_AudioMixer: {fileID: 24100000}
-  m_GroupID: 3b82127d0ecf87743b68d31601fb5e64
-  m_Children: []
-  m_Volume: 92369af19a2f4f74ea3974e0202a1723
-  m_Pitch: 595dd29eea3146243959d59dcb8a257a
-  m_Send: 00000000000000000000000000000000
-  m_Effects:
-  - {fileID: -5216266477178524072}
-  m_UserColorIndex: 0
-  m_Mute: 0
-  m_Solo: 0
-  m_BypassEffects: 0
 --- !u!243 &7859347515936811405
 AudioMixerGroupController:
   m_ObjectHideFlags: 0

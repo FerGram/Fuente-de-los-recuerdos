@@ -2152,6 +2152,7 @@ GameObject:
   - component: {fileID: 865330780}
   - component: {fileID: 865330779}
   - component: {fileID: 865330782}
+  - component: {fileID: 865330783}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -2168,7 +2169,7 @@ AudioSource:
   m_GameObject: {fileID: 865330778}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 7069041211007121523, guid: 35ca340fb16096747aad29eb8ca658a9, type: 2}
+  OutputAudioMixerGroup: {fileID: 7859347515936811405, guid: 35ca340fb16096747aad29eb8ca658a9, type: 2}
   m_audioClip: {fileID: 8300000, guid: 0e31a4cc3e41def4688e364f1683cfeb, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -2268,6 +2269,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Volume: 5
+  _ambientForestClip: {fileID: 8300000, guid: 9b4aaa28f83e2e74191cf4f8f612b047, type: 3}
+  _barGramophoneClip: {fileID: 8300000, guid: a516ee0092079fc41bdc629c6b563e73, type: 3}
+  _minigameClip: {fileID: 8300000, guid: c1ae307b8ffb05648a39ddc6607c8d60, type: 3}
 --- !u!4 &865330781
 Transform:
   m_ObjectHideFlags: 0
@@ -2296,7 +2300,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -2378,6 +2382,34 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &865330783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 865330778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a6eaa5940ab7a54cba0e79e3c3b445b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gameEvent: {fileID: 11400000, guid: 9a306b07936c2954696c20db35003fbf, type: 2}
+  _response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 865330780}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: OnSceneChange
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &887977242
 GameObject:
   m_ObjectHideFlags: 0

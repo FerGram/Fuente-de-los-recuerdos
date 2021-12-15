@@ -23,7 +23,7 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
 
     private void Awake() {
         if (_instance != null){
-            Destroy(this);
+            Destroy(gameObject);
         }
         else{
             _instance = this as T;

@@ -214,9 +214,11 @@ Barman<“So, what brings you to my humble little bar?”
 ~nudoLoc = "_12_Farm"
 	+ “I’m looking for the farmer, Nudo.”
 	Barman<“Nudo? He was here just a few minutes ago along with Anton, complaining about how much his back was hurting him, but he left again to finish some work at the farm. The farm is south-east of here.”
+	Barman<“The farm is south-east of here.”
 	    
 	+ “Do you know where I can get a tire?”
-	Barman<“Nudo may help you with that. He was here just a few minutes ago along with Anton, complaining about how much his back was hurting him, but he left again to finish some work at the farm. The farm is south-east of here.”
+	Barman<“Nudo may help you with that. He was here just a few minutes ago along with Anton, complaining about how much his back was hurting him, but he left again to finish some work at the farm.”
+	Barman<“The farm is south-east of here.”
         
 -
 

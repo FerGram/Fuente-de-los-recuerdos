@@ -16,6 +16,13 @@ VAR tora = "Tora"
 //OBJECTIVES
 VAR find = "find"
 
+//CHARACTER LOCATIONS
+VAR toraLoc = "_4_Plaza"
+VAR barmanLoc = "_8_Bar"
+VAR nudoLoc = "_4_Plaza"
+VAR antonLoc = "_8_Bar"
+VAR fionnaLoc = "_9_FionnaHouse"
+
 === function item(name) ===
 ~return "<color=red>" + name + "</color>"
 
@@ -62,6 +69,20 @@ Patrick<"Although I'm gonna need a miracle..."
 Patrick<"I'm glad I could help those memories get their fountain back."
 Patrick<"I hope they find what they are looking for."
 ~ startEnding()
+->DONE
+
+=== SignDefault ===
+Patrick<"KPNTVLEY..."
+Patrick<"It's barely readable."
+Patrick<"But it's a sign so it must indicate some place."
+Patrick<"I'll have a look."
+->DONE
+
+=== SignHikers ===
+Martha<"KPNTVLEY..."
+Martha<"It's barely readable."
+Martha<"But it's a sign so it must indicate some place."
+Martha<"I'll have a look."
 ->DONE
 
 === HikersInitial ===
@@ -120,7 +141,7 @@ TODO Save system
  }
 
 === ToraChat1
-Tora<“Welcome to the Fountain of Memories, traveler.”
+Tora<“Welcome to Kiponut Valley, traveler.”
 
 Tora<“This town has been abandoned since long ago, when the fountain broke.”
     + “What do you mean?”
@@ -146,12 +167,19 @@ Patrick<“I…”
 Patrick<“I don’t know…”
 
 Patrick<“I don’t know…”
-~ startCinematic()
+
+{
+    -true:
+        ~nudoLoc = "_999_Limbo"
+}
+
+//~ startCinematic()
 
 ->DONE
 
 === ToraDefault1
 Tora<“You should find Nudo in the bar, the building over there.”
+{~nudoLoc = "_12_Farm"}
 ->DONE
 
 
@@ -272,7 +300,8 @@ Nudo<"Anton lives just to the left of the fountain."
 === Anton ===
 {
 - not ToraChat1:
-		Anton<"Serve me the usual, baldman."
+		Anton<"Serve me the usual, bald man."
+		->DONE
 		TODO can insert dialogue in the bar between the three men.
 
 - not BarChat1:

@@ -11,7 +11,7 @@ public class DialogueTriggerFionna : DialogueTrigger
 	public override void OnInteract()
 	{
 		//Decide ink file to play
-		_JSONDataContainer.SetJSON(_inkJSON);
+		//_JSONDataContainer.SetJSON(_inkJSON);
 		_JSONDataContainer.SetPath("Fionna");
 
 		//Execute base class funcitonality
@@ -27,8 +27,8 @@ public class DialogueTriggerFionna : DialogueTrigger
 		//Decide ink file to play
 		switch (type)
 		{
-			case ItemEnum.BikeTire: _JSONDataContainer.SetJSON(_inkJSON); break;
-			case ItemEnum.TractorTire: _JSONDataContainer.SetJSON(_inkJSON); break;
+			//case ItemEnum.BikeTire: _JSONDataContainer.SetJSON(_inkJSON); break;
+			//case ItemEnum.TractorTire: _JSONDataContainer.SetJSON(_inkJSON); break;
 		}
 
 		//Execute base class funcitonality

@@ -5,6 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "JSONDataContainer", menuName = "JSONDataContainer", order = 52)]
 public class JSONDataContainer : ScriptableObject
 {
+	[SerializeField]
     private TextAsset JSONFile;
 	private string path;
 

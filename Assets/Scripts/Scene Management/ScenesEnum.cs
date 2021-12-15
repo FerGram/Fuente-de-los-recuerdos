@@ -23,5 +23,6 @@ public enum ScenesEnum
     _13_CarCrash_Day,
     _14_ForestWalk_Day,
     _15_FarVillage_Day,
-    _16_Plaza_Day
+    _16_Plaza_Day,
+	_17_AntonHouse
 };

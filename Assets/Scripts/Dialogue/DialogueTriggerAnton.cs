@@ -8,7 +8,7 @@ public class DialogueTriggerAnton : DialogueTrigger
 	public override void OnInteract()
 	{
 		//Decide ink file to play
-		_JSONDataContainer.SetJSON(_inkJSON);
+		//_JSONDataContainer.SetJSON(_inkJSON);
 		_JSONDataContainer.SetPath("Anton");
 		
 		//Execute base class funcitonality
@@ -25,7 +25,7 @@ public class DialogueTriggerAnton : DialogueTrigger
 		switch (type)
 		{
 			case ItemEnum.BikeTire: _JSONDataContainer.SetPath("PickUpPieces"); break;
-			case ItemEnum.TractorTire: _JSONDataContainer.SetJSON(_inkJSON); break;
+			case ItemEnum.TractorTire: _JSONDataContainer.SetPath("PickUpPieces"); break;
 		}
 
 		//Execute base class funcitonality

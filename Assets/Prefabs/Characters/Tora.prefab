@@ -230,8 +230,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 2e45388852cb1c14c84d1dca2c955215, type: 3}
-  m_Color: {r: 0.6227483, g: 0.9245283, b: 0.7645486, a: 0.6313726}
+  m_Sprite: {fileID: 21300000, guid: 12b16d928c869f24d952172ee88422ad, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -278,8 +278,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4796907812293731708}
+  - component: {fileID: 876116340}
   m_Layer: 0
-  m_Name: NPC
+  m_Name: Tora
   m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -301,3 +302,16 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &876116340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4796907812293731711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54d12fc9b18bc2347a1da99308dc3c35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locVarName: toraLoc

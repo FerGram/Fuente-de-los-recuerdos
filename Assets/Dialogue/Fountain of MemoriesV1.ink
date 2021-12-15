@@ -161,17 +161,15 @@ Tora<“I wish I could offer you a warm welcome, but there’s little a memory c
 
 Tora<“Would you be so kind as to… fix the fountain? Or you’d rather just- abandon us, too?”
 
+~nudoLoc = "_12_Farm"
 Patrick<“I…”
 
-
+~startMinigame(12)
 Patrick<“I don’t know…”
 
-Patrick<“I don’t know…”
 
-{
-    -true:
-        ~nudoLoc = "_999_Limbo"
-}
+
+
 
 //~ startCinematic()
 

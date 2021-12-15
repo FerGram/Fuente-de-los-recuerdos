@@ -61,6 +61,8 @@ crashlytics-build.properties
 Packages/manifest.json
 Packages/packages-lock.json
 Packages/manifest.json
-Assets/StreamingAssets/build_info
-Assets/StreamingAssets/build_info
+Assets/Dialogue/Fountain of MemoriesV1.json
+Assets/Dialogue/Fountain of MemoriesV1.ink
+Assets/Packages/AllIn1SpriteShader/URP_Import_All1Sh.unitypackage.meta
+Assets/Packages/Ink/Demos/Basic Demo.unitypackage.meta
 Assets/StreamingAssets/build_info

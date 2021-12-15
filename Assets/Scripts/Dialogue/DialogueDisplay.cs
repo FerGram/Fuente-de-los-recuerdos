@@ -148,6 +148,8 @@ public class DialogueDisplay : MonoBehaviour
 
 	public void EnableUI(int minigame)
 	{
+		Debug.Log("Inside Enable UI3");
+
 		DisplayDialogueUI(true);
 		FadeInBackground(true);
 

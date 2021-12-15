@@ -268,7 +268,7 @@ Nudo<“Would you be so kind as to help me with it, please? You, young people, a
 
 -
 Nudo<“A tire? Yea, I do have a few spare ones. Finish the field and I’ll give you one.”
-~startMinigame(13)
+~startMinigame(12)
 Nudo<“Well well, you did a great job. You remind me of my son, he was just as skinny as you, and he still could work from dawn ‘til dusk.”
 
 Nudo<“What nice memories…”

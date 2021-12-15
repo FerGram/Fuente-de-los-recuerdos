@@ -18,6 +18,14 @@ public class DialogueDisplay : MonoBehaviour
     [Header("Choices UI")]
     [SerializeField] GameObject[] _choices;
 
+    [Header("Dialogue sprites")]
+    [SerializeField] Sprite _toraSprite;
+    [SerializeField] Sprite _nudoSprite;
+    [SerializeField] Sprite _barmanSprite;
+    [SerializeField] Sprite _antonSprite;
+    [SerializeField] Sprite _fionnaSprite;
+    [SerializeField] Sprite _marthaSprite;
+
     [Header("Other")]
     [SerializeField] float _displaySpeed = 0.01f;
     [SerializeField] GameEvent _dialogueEnded;
@@ -140,6 +148,8 @@ public class DialogueDisplay : MonoBehaviour
 
 	public void EnableUI(int minigame)
 	{
+		Debug.Log("Inside Enable UI3");
+
 		DisplayDialogueUI(true);
 		FadeInBackground(true);
 
@@ -202,10 +212,20 @@ public class DialogueDisplay : MonoBehaviour
         Animator NPCAnimator = null;
 
         if (_mainCharImage != null) mainAnimator = _mainCharImage.gameObject.GetComponent<Animator>();
-        if (_NPCImage != null) NPCAnimator = _NPCImage.gameObject.GetComponent<Animator>();
+        if (_NPCImage != null){
+            NPCAnimator = _NPCImage.gameObject.GetComponent<Animator>();
+            switch(_nameText.text){
+                case "Tora": _NPCImage.sprite = _toraSprite; break;
+                case "Nudo": _NPCImage.sprite = _nudoSprite; break;
+                case "Fionna": _NPCImage.sprite = _fionnaSprite; break;
+                case "Anton": _NPCImage.sprite = _antonSprite; break;
+                case "Barman": _NPCImage.sprite = _barmanSprite; break;
+                case "Martha": _NPCImage.sprite = _marthaSprite; break;
+            }
+        }
 
         //Patrick: Main character, Lewis: Hiker
-        if (_nameText.text == "Patrick" ||_nameText.text == "Lewis"){
+        if (_nameText.text == "Patrick" || _nameText.text == "Lewis"){
 
             if (mainAnimator != null) mainAnimator.SetBool("talks", true);
             if (NPCAnimator != null) NPCAnimator.SetBool("talks", false);

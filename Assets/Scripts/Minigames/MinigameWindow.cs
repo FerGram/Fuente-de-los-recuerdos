@@ -35,6 +35,7 @@ public class MinigameWindow : MonoBehaviour
 		
 		yield return new WaitForSeconds(2f);
 		if (background != null) background.FadeInScene(true);
+		AudioManager.Instance.OnSceneChange();
 	}
 
 	public IEnumerator Minimize()
@@ -48,5 +49,6 @@ public class MinigameWindow : MonoBehaviour
 		
 		yield return new WaitForSeconds(2f);
 		if (background != null) background.FadeInScene(true);
+		AudioManager.Instance.OnSceneChange();
 	}
 }

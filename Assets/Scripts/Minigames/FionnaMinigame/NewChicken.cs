@@ -26,7 +26,6 @@ public class NewChicken : MonoBehaviour
         chickenController = GameObject.FindGameObjectWithTag("GameController").GetComponent<NewChickenController>();
 
         rb = GetComponent<Rigidbody2D>();
-        rb.velocity = dir * speed;
 
         timerSeconds = 0.0f;
         timerReady = false;
@@ -39,7 +38,6 @@ public class NewChicken : MonoBehaviour
     void Update()
     {
         sR.flipX = Xflip();
-
         if (!mouseOnChicken && !beingRescued)
         {
             if (timerSeconds <= 0.0f)
@@ -112,7 +110,7 @@ public class NewChicken : MonoBehaviour
         {
             beingRescued = true;
             rb.velocity = Vector2.zero;
-            nextPos = new Vector3 (col.gameObject.transform.position.x, col.gameObject.transform.position.y, -2);
+            nextPos = new Vector3 (col.gameObject.transform.position.x, col.gameObject.transform.position.y - 0.5f, -2);
         }
     }
 
@@ -157,7 +155,7 @@ public class NewChicken : MonoBehaviour
     void ChangeDirectionAndSpeed()
     {
         dir = new Vector2(Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 1.0f));
-        speed = Random.Range(4.0f, 5.5f);
+        speed = Random.Range(2.5f, 2.5f);
         rb.velocity = dir * speed;
     }
 }

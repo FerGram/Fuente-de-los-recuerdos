@@ -9,23 +9,17 @@ public class Plant : MonoBehaviour
     bool onGround;
     public bool OnScreen;
 
-    [SerializeField] ParticleSystem dirtEffect;
+    //[SerializeField] ParticleSystem dirtEffect;
     [SerializeField] GameObject ground;
     [SerializeField] GameObject goodBasket;
     [SerializeField] GameObject badBasket;
-    [SerializeField] Sprite goodPlant;
     [SerializeField] Sprite badPlant;
 
     static float basketsTop;
     static float plantTop;
 
-    static float plantWidth;
-    Vector2 difference;
-
     float startingZ;
     float startingScaleY;
-
-    bool firstTime;
 
 	private Transform originalParent;
 
@@ -34,12 +28,10 @@ public class Plant : MonoBehaviour
 
     void Start()
     {
-        firstTime = true;
 
         if (Random.Range(0.0f, 1.0f) > 0.5f)
         {
             edible = true;
-            GetComponent<SpriteRenderer>().sprite = goodPlant;
         }
         else
         {
@@ -51,11 +43,10 @@ public class Plant : MonoBehaviour
 
         startingZ = transform.position.z;
 
-        plantWidth = GetComponent<SpriteRenderer>().sprite.bounds.size.x * transform.localScale.x / 2;
         uprooted = false;
         rg = gameObject.transform.GetComponent<Rigidbody2D>();
 
-        basketsTop = goodBasket.GetComponent<SpriteRenderer>().sprite.bounds.size.y * goodBasket.transform.localScale.y / 2;
+        basketsTop = goodBasket.GetComponent<SpriteRenderer>().sprite.bounds.size.y * goodBasket.transform.localScale.y / 2 -0.6f;
         plantTop = GetComponent<SpriteRenderer>().sprite.bounds.size.y * transform.localScale.y / 2;
 
         startingScaleY = transform.localScale.y;
@@ -70,7 +61,7 @@ public class Plant : MonoBehaviour
         {
             transform.position = new Vector3 (transform.position.x, transform.position.y, 2.0f);
         }
-        else if (transform.position.y + plantTop < goodBasket.transform.position.y + basketsTop && uprooted)
+        else if (transform.position.y + plantTop < goodBasket.transform.position.y)
         {
             transform.position = new Vector3(transform.position.x, transform.position.y, startingZ);
         }
@@ -86,17 +77,16 @@ public class Plant : MonoBehaviour
 
         if (OnScreen)
         {
-            if (transform.position.x >= controller.minigameCam.orthographicSize * Screen.width / Screen.height)
+            if (transform.position.x >= controller.minigameCam.orthographicSize * Screen.width / Screen.height - 0.1f)
             {
                 transform.position = new Vector3(transform.position.x - 0.1f, transform.position.y, startingZ);
             }
-            else if (transform.position.x <= -controller.minigameCam.orthographicSize * Screen.width / Screen.height)
+            else if (transform.position.x <= -controller.minigameCam.orthographicSize * Screen.width / Screen.height + 0.1f)
             {
                 transform.position = new Vector3(transform.position.x + 0.1f, transform.position.y, startingZ);
             }
         }
     }
-
 
 	public void MouseDown()
     {
@@ -108,10 +98,9 @@ public class Plant : MonoBehaviour
 		//difference = new Vector2 (controller.mainCam.ScreenToWorldPoint(Input.mousePosition).x - transform.position.x, 
   //                                Camera.main.ScreenToWorldPoint(Input.mousePosition).y - transform.position.y);
 
-        if (uprooted)
-        {
-            rg.bodyType = RigidbodyType2D.Kinematic;
-        }
+
+        rg.bodyType = RigidbodyType2D.Kinematic;
+
     }
 
     public void MouseUp()
@@ -120,10 +109,9 @@ public class Plant : MonoBehaviour
 
 		//Debug.Log("Inside mouse up of plat: " + gameObject.name);
 
-		if (uprooted)
-        {
-            rg.bodyType = RigidbodyType2D.Dynamic;
-        }
+
+        rg.bodyType = RigidbodyType2D.Dynamic;
+        
     }
 
     public void MouseDrag()
@@ -161,11 +149,6 @@ public class Plant : MonoBehaviour
     {
         if (collision.gameObject == ground)
         {
-            if (!uprooted)
-            {
-                Instantiate(dirtEffect, new Vector3(transform.position.x, transform.position.y - plantWidth, -2), Quaternion.identity);
-                uprooted = true;
-            }
             onGround = false;
         }
     }
@@ -200,17 +183,17 @@ public class Plant : MonoBehaviour
         if (collision.gameObject == ground)
             onGround = true;
 
-        if (transform.position.z == 2.0f)
+        if (!controller.isDragging)
         {
             if (collision.gameObject.CompareTag("GoodBasketHelper"))
             {
-                //transform.position = Vector3.MoveTowards(transform.position,
-                //    new Vector3(goodBasket.transform.position.x, transform.position.y, 2.0f), 0.1f);
+                transform.position = Vector3.MoveTowards(transform.position,
+                    new Vector3(goodBasket.transform.position.x, transform.position.y, 2.0f), 0.1f);
             }
             else if (collision.gameObject.CompareTag("BadBasketHelper"))
             {
-                //transform.position = Vector3.MoveTowards(transform.position,
-                //    new Vector3(badBasket.transform.position.x, transform.position.y, 2.0f), 0.1f);
+                transform.position = Vector3.MoveTowards(transform.position,
+                    new Vector3(badBasket.transform.position.x, transform.position.y, 2.0f), 0.1f);
             }
         }
     }

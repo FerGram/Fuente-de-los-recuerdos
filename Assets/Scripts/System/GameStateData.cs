@@ -32,7 +32,11 @@ public class GameStateData : Singleton<GameStateData>
 
     private void EnterMinigameResponse(int minigame){
         DialogueDisplay dd = FindObjectOfType<DialogueDisplay>();
-        if (dd != null) dd.EnterMinigameResponse(minigame);
+		if (dd != null)
+		{
+			dd.EnterMinigameResponse(minigame);
+			AssignMinigameEvent();
+		}
     }
 
     private void LoadCinematic(){
@@ -45,6 +49,7 @@ public class GameStateData : Singleton<GameStateData>
 
     private void EnableUI(int minigame){
         DialogueDisplay dd = FindObjectOfType<DialogueDisplay>();
+		Debug.Log("Inside Enable UI" + dd);
         if (dd != null) dd.EnableUI(minigame);
     }
 

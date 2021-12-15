@@ -25,11 +25,11 @@ public class DialogueTriggerFionna : DialogueTrigger
 		ItemEnum type = obj.GetComponent<ItemType>().GetItemtype();
 
 		//Decide ink file to play
-		switch (type)
-		{
+		// switch (type)
+		// {
 			//case ItemEnum.BikeTire: _JSONDataContainer.SetJSON(_inkJSON); break;
 			//case ItemEnum.TractorTire: _JSONDataContainer.SetJSON(_inkJSON); break;
-		}
+		// }
 
 		//Execute base class funcitonality
 		base.OnInteract(obj);

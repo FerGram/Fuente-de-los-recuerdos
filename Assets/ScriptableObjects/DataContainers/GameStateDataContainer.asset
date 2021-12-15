@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: GameStateDataContainer
   m_EditorClassIdentifier: 
   firstTimePlaying: 0
-  sceneToLoad: 9
+  sceneToLoad: 19
   firstDialoguePlayed: 1
-  carPieceInPlace: 0
-  fountainTrickleAmount: 5
-  isInCinematic: 0
-  nextMorningShown: 0
+  carPieceInPlace: 1
+  fountainTrickleAmount: 3
+  isInCinematic: 1
+  nextMorningShown: 1

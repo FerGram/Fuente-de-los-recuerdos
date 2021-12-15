@@ -67,8 +67,15 @@ public class NudoController : MonoBehaviour
             }
             else
             {
-				//MINIGAME COMPLETED
-				Debug.Log("Won Minigame");
+                if (mistakes == 0)
+                {
+                    //MINIGAME COMPLETED
+                }
+                else
+                {
+                    //MINIGAME FAILED
+                }
+				Debug.Log("FIX");
 				MinigameEvents.current.UnloadMinigame(0);
             }
         }

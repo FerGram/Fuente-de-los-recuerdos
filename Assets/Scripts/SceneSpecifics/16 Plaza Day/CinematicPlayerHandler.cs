@@ -17,7 +17,6 @@ public class CinematicPlayerHandler : MonoBehaviour
             for (int i = 0; i < player.Length; i++)
             {
                 player[i].CalculateMovement(_movementDestination);
-                player[i].GetComponent<PlayerInteraction>().enabled = false;
             }
             
             Destroy(gameObject, 2f);

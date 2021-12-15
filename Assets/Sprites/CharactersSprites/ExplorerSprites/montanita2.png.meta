@@ -1,31 +1,31 @@
 fileFormatVersion: 2
-guid: 15fa6f284f0a28541986a056aa5668be
+guid: b207f4cb4db2b774184292c4f2a1bd5c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 386354720579567726
-    second: montanita1_0
+      213: -3819813698726476991
+    second: montanita2_0
   - first:
-      213: 342678526390259614
-    second: montanita1_1
+      213: -5132307088719491460
+    second: montanita2_1
   - first:
-      213: 9001206714946612139
-    second: montanita1_2
+      213: -7528372886905495516
+    second: montanita2_2
   - first:
-      213: -6628956328788680284
-    second: montanita1_3
+      213: 698537012480060530
+    second: montanita2_3
   - first:
-      213: -3642550027706686928
-    second: montanita1_4
+      213: 8492763106603619388
+    second: montanita2_4
   - first:
-      213: -3221933735369740488
-    second: montanita1_5
+      213: 1623858636661514777
+    second: montanita2_5
   - first:
-      213: 1849338129220478192
-    second: montanita1_6
+      213: 4489147459525887283
+    second: montanita2_6
   - first:
-      213: 4436088301423770441
-    second: montanita1_7
+      213: 5864315836815676071
+    second: montanita2_7
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -127,7 +127,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: montanita1_0
+      name: montanita2_0
       rect:
         serializedVersion: 2
         x: 0
@@ -141,14 +141,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e60c075429b9c5500800000000000000
-      internalID: 386354720579567726
+      spriteID: 143cc33edab4dfac0800000000000000
+      internalID: -3819813698726476991
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: montanita1_1
+      name: montanita2_1
       rect:
         serializedVersion: 2
         x: 141
@@ -162,14 +162,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e9f45addd4071c400800000000000000
-      internalID: 342678526390259614
+      spriteID: c7ec7aa15e166c8b0800000000000000
+      internalID: -5132307088719491460
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: montanita1_2
+      name: montanita2_2
       rect:
         serializedVersion: 2
         x: 282
@@ -183,14 +183,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: babe04a11d5baec70800000000000000
-      internalID: 9001206714946612139
+      spriteID: 420e0531fb8d58790800000000000000
+      internalID: -7528372886905495516
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: montanita1_3
+      name: montanita2_3
       rect:
         serializedVersion: 2
         x: 423
@@ -204,14 +204,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4a129f637573104a0800000000000000
-      internalID: -6628956328788680284
+      spriteID: 27c265b36b3b1b900800000000000000
+      internalID: 698537012480060530
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: montanita1_4
+      name: montanita2_4
       rect:
         serializedVersion: 2
         x: 564
@@ -225,14 +225,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 03224f18c00137dc0800000000000000
-      internalID: -3642550027706686928
+      spriteID: c34d6a28c0b5cd570800000000000000
+      internalID: 8492763106603619388
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: montanita1_5
+      name: montanita2_5
       rect:
         serializedVersion: 2
         x: 705
@@ -246,14 +246,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 83f607596546943d0800000000000000
-      internalID: -3221933735369740488
+      spriteID: 912e8a393da198610800000000000000
+      internalID: 1623858636661514777
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: montanita1_6
+      name: montanita2_6
       rect:
         serializedVersion: 2
         x: 846
@@ -267,14 +267,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0f4a5c5fa3b2aa910800000000000000
-      internalID: 1849338129220478192
+      spriteID: 335436574d7ac4e30800000000000000
+      internalID: 4489147459525887283
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: montanita1_7
+      name: montanita2_7
       rect:
         serializedVersion: 2
         x: 987
@@ -288,8 +288,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 94b31a68ec6209d30800000000000000
-      internalID: 4436088301423770441
+      spriteID: 7a29810ee2c326150800000000000000
+      internalID: 5864315836815676071
       vertices: []
       indices: 
       edges: []
@@ -297,7 +297,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: e37d291096f421e4b82274e7624a44ab
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 

@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 public class AudioManager : Singleton<AudioManager>
 {
     [Range(0,8)] public int Volume = 5;
+    
+    [Header("Audio Clips")]
     [SerializeField] AudioClip _ambientForestClip;
     [SerializeField] AudioClip _barGramophoneClip;
     [SerializeField] AudioClip _minigameClip;

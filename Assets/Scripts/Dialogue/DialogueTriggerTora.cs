@@ -4,17 +4,17 @@ using UnityEngine.SceneManagement;
 public class DialogueTriggerTora : DialogueTrigger
 {
 
-	private void Start()
-	{
-		if (SceneManager.GetActiveScene().name == ScenesEnum._1_CarCrash.ToString())
-		{
-			DialogueDisplay dd = FindObjectOfType<DialogueDisplay>();
-			if (dd != null)
-			{
-				dd._NPCImage.sprite = dd._toraSprite;
-			}
-		}
-	}
+	//private void Start()
+	//{
+	//	if (SceneManager.GetActiveScene().name == ScenesEnum._1_CarCrash.ToString())
+	//	{
+	//		DialogueDisplay dd = FindObjectOfType<DialogueDisplay>();
+	//		if (dd != null)
+	//		{
+	//			dd._NPCImage.sprite = dd._toraSprite;
+	//		}
+	//	}
+	//}
 
 	//Method triggered from GameInteraction Event
 	public override void OnInteract()

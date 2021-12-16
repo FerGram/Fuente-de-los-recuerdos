@@ -20,12 +20,13 @@ public class DialogueTriggerBarman : DialogueTrigger
         ItemEnum type = obj.GetComponent<ItemType>().GetItemtype();
 
         //Decide ink file to play
-        // switch(type){
-            //case ItemEnum.BikeTire: _JSONDataContainer.SetJSON(_inkJSON); break;  
-            //case ItemEnum.TractorTire: _JSONDataContainer.SetJSON(_inkJSON); break;  
-        // }
+         switch(type){
+            case ItemEnum.TractorTire: _JSONDataContainer.SetPath("BarmanTractorTire"); break;  
+            case ItemEnum.BikeTire: _JSONDataContainer.SetPath("BarmanTractorTire"); break;  
+            case ItemEnum.ChessPieces: _JSONDataContainer.SetPath("BarmanChessPieces"); break;
+		}
         
         //Execute base class funcitonality
-        base.OnInteract(obj);
+        base.OnInteract();
     }
 }

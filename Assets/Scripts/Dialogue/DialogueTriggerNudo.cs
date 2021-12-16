@@ -29,6 +29,6 @@ public class DialogueTriggerNudo : DialogueTrigger
 		}
 
 		//Execute base class funcitonality
-		base.OnInteract(obj);
+		base.OnInteract();
 	}
 }

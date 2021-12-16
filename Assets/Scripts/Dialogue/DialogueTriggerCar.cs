@@ -35,6 +35,18 @@ public class DialogueTriggerCar : DialogueTrigger
             //Execute base class funcitonality
             base.OnInteract(obj);
         }
-        
-    }
+
+		if (type == ItemEnum.BikeTire)
+		{
+			_JSONDataContainer.SetPath("CarBikeTire");
+			base.OnInteract();
+		}
+
+		if (type == ItemEnum.TractorTire)
+		{
+			_JSONDataContainer.SetPath("CarTractorTire");
+			base.OnInteract();
+		}
+
+	}
 }

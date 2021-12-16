@@ -23,6 +23,15 @@ public class DialogueTriggerSign : DialogueTrigger
 
     //Method triggered from DragAndDrop
     public override void OnInteract(GameObject obj){
+		ItemEnum type = obj.GetComponent<ItemType>().GetItemtype();
 
-    }
+		//Decide ink file to play
+		switch (type)
+		{
+			default: _JSONDataContainer.SetPath("ItemToSign"); break;
+		}
+
+		//Execute base class funcitonality
+		base.OnInteract();
+	}
 }

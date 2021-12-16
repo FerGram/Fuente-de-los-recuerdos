@@ -219,7 +219,7 @@ public class DialogueDisplay : MonoBehaviour
                 case "Nudo": _NPCImage.sprite = _nudoSprite; break;
                 case "Fionna": _NPCImage.sprite = _fionnaSprite; break;
                 case "Anton": _NPCImage.sprite = _antonSprite; break;
-                case "Barman": _NPCImage.sprite = _barmanSprite; break;
+                case "Helen": _NPCImage.sprite = _barmanSprite; break;
                 case "Martha": _NPCImage.sprite = _marthaSprite; break;
             }
         }

@@ -332,9 +332,9 @@ MonoBehaviour:
   _response:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 866222550138190977}
+      - m_Target: {fileID: 7721076823936561211}
         m_TargetAssemblyTypeName: InventoryUI, Assembly-CSharp
-        m_MethodName: 
+        m_MethodName: AddItemToUI
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

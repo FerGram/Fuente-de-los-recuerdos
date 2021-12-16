@@ -151,34 +151,60 @@ TODO Save system
 
 === ToraChat1
 Tora<“Welcome to Kiponut Valley, traveler.”
-
+Patrick<“A... ARE YOU...? WHAT ARE YOU?!”
+Tora<“Worry not, traveler. We are harmless.”
+Patrick<“W... WE?!”
+Tora<“Ah, yes. Excuse me.”
 //~startMinigame(14)
+Tora<“As I was saying. Welcome to Kiponut Valley.”
+Patrick<“Okay...”
+Tora<“This town was abandoned long ago, when the fountain broke.”
+Tora<“What remains here are just ghosts of our past selves.”
+Tora<“Forgotten souls that wander around waiting for the day...”
+Tora<“For the day the town comes back to live.”
 
-Tora<“This town has been abandoned since long ago, when the fountain broke.”
     + “What do you mean?”
 
-    Tora<“No one in this town is a real person, we’re just ghosts of our past selves, longing to revive the town.”
+    Tora<“In its time, this town was a lively place. Full of joyful people which fed the town's natural atractive.”
+    Tora<“The main structure of the village was the fountain I'm next to right now.”
+    Tora<“It was usual to see people gaze at its beautiful shape at any time of the day.”
+    Tora<“But people started leaving town and the fountain suddenly wasn't spilling water like before.”
+    Tora<“And people kept leaving town till no more water came out of its beautiful spouts.”
+    Tora<“It's like the fountain needed the people in town to keep going.”
 
-    + “Do you know where I can find a tire?”
+    + “Do you know where I can find a car tire?”
 
-    Tora<“No matter what you seek, traveler, if you don’t want to become a memory like us, you’ll have to fix the fountain. But if a tire is what you’re looking for, {nudo}, the farmer, may help you.”
+    Tora<“I'm afraid I don't have what you are looking for, traveler. But I know someone who might be able to help you.”
 
 	+ “Why did the fountain break?”
 
-    Tora<“It’s- no one really knows… It’s been so long ago…”
+    Tora<“First, it was Isaiah: the town's baker.”
+    Tora<“He had to move to the city because he wanted to expand his business.”
+    Tora<“The day after his departure, the fountain did not spill water like before.”
+    Tora<“Then it was Friederick: the mailman”
+    Tora<“He was transfered to the city because the company was short on staff.”
+    Tora<“The day after, even less water was spilled from the fountain.”
+    Tora<“And people kept leaving town till no more water came out of its beautiful spouts.”
+    Tora<“It's like the fountain needed the people in town to keep going.”
 
 -
 Tora<“I wish I could offer you a warm welcome, but there’s little a memory can do.”
 
-Tora<“Would you be so kind as to… fix the fountain? Or you’d rather just- abandon us, too?”
+Tora<“May I ask you for a favour while you stay in town?”
 
-Patrick<“I…”
+Patrick<“I… Yes what is it?”
 
-Patrick<“I don’t know…”
+Tora<“People left in town haven't seen a new face in some time.” 
 
-Patrick<"Where can I find {nudo}?"
+Tora<“If you talk to any of them, listen to their stories. Help them remember their good old times in town, retrieve their memories.”
 
-Tora<“You should find {nudo} in the bar, the building to the right of the fountain.”
+Patrick<“I guess I can do that”
+
+Tora<“Thank you, Patrick.” 
+
+Patrick<“Wait, how do you...?”
+
+Tora<“You should find {nudo} in the bar, the building to the right of the fountain. He might help you with what you are looking for.”
 ->DONE
 
 === ToraDefault1
@@ -294,14 +320,19 @@ Nudo<“Huh? Oh, you need a different tire? a bike tire?”
 
     + “N-no, for a car, a car tire.”
     Nudo<“For that, you’ll have to visit Anton, the chess player. He lives just to the left of the fountain, I think he had a car.”
-    ->DONE
 
 	+ “Yes, a bike tire.”
     Nudo<“There you go, a bike tire.”
     //Reward the player with a bike tire.
 	Patrick<“Actually… I need a car tire.”
     Nudo<“For that, you’ll have to visit Anton, the chess player. He lives just to the left of the fountain, I think he had a car.”
-    ->DONE
+    
+-
+Nudo<“...”
+Nudo<“Thanks again for this traveler.”
+Nudo<“<size=25><i> Oh, only if you knew how much I miss you, son... </i></size>”
+~startCinematic()
+->DONE
 
 ===NudoFarmDefault1
 Nudo<"Anton lives just to the left of the fountain."
@@ -421,21 +452,24 @@ Patrick<“I’m glad I could help.”
 
 Patrick<“Em… Anton, would you, by any chance, have an extra car tire I can borrow?”
 
-Anton<“A car tire… No, I don’t think I have one. You see, I left town in my car, like everyone else. I’m not sure if any car was left behind. Tora was the last one to leave, she should know if any car was left behind.”
+Anton<“A car tire… No, I don’t think I have one. You see, I left town in my car, like everyone else. I’m not sure if any car was left behind. 
+Anton<“Tora was the last one to leave, she should know if any car was left behind.”
 
 Anton<“The poor thing blames herself for the death of the town.”
 
 
 	+“Why is that?”
 
-	Anton<“Her father was the only doctor in town, and when he died… the person responsible for the maintenance of the fountain and a few others left town. Tora found herself alone, accompanied only by the fountain. She rejected everyone’s help.”
+	Anton<“Her father was the only doctor in town, and when he died… the person responsible for the maintenance of the fountain and a few others left town.”
+	Anton<“Tora found herself alone, accompanied only by the fountain. She rejected everyone’s help.”
 
 	+“Maybe it’s really her fault.”
 	“I doubt that. She’s a good kid, it was an accident. Things break, people die, and memories get forgotten, that’s the way of life.”
 
     Patrick<“What do you mean?”
 
-    Anton<“Her father was the only doctor in town, and when he died… the person responsible for the maintenance of the fountain and a few others left town. Tora found herself alone, accompanied only by the fountain. She rejected everyone’s help.”
+    Anton<“Her father was the only doctor in town, and when he died… the person responsible for the maintenance of the fountain and a few others left town.”
+    Anton<“Tora found herself alone, accompanied only by the fountain. She rejected everyone’s help.”
 
 -
 Patrick<“How sad… it must have been tough for her.”
@@ -446,7 +480,15 @@ Anton<“Maybe you should try asking Fionna about an extra tire, her partner’s
 
 Anton<“You can find her in the northwest of town, in the chicken coop.”
 
-Patrik<“Okay, thanks.”
+Patrick<“Okay, thanks.”
+
+Anton<“No. Thanks to you, son.”
+
+Anton<“Thanks for playing one last game of chess with me.”
+
+Anton<“I almost forgot how good it feels...”
+
+~startCinematic()
 ->DONE
 
 === Fionna ===
@@ -513,6 +555,7 @@ Fionna<“Claire would thank you with an apple pie. I’m not that good with coo
 
 - 
 TO BE CONTINUED.
+~startCinematic()
 ->DONE
 
 ===FionnaDefault1

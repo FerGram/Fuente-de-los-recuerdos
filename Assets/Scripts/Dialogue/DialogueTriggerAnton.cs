@@ -30,7 +30,7 @@ public class DialogueTriggerAnton : DialogueTrigger
 				GameStateData.Instance.gameData.chessPiecesInPlace = true; 
 				base.OnInteract(obj);
 				break;
-			//case ItemEnum.TractorTire: _JSONDataContainer.SetPath("PickUpPieces"); break;
+			case ItemEnum.TractorTire: _JSONDataContainer.SetPath("AntonDefaultItem"); break;
 		}
 
 		//Execute base class funcitonality

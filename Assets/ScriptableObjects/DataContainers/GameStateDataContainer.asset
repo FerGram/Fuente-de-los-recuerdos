@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: GameStateDataContainer
   m_EditorClassIdentifier: 
   firstTimePlaying: 0
-  sceneToLoad: 20
+  sceneToLoad: 1
   firstDialoguePlayed: 1
   carPieceInPlace: 1
   chessPiecesInPlace: 0
-  fountainTrickleAmount: 0
+  fountainTrickleAmount: 3
   isInCinematic: 0
   nextMorningShown: 0

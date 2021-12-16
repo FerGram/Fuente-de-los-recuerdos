@@ -7,6 +7,15 @@ public class DialogueTriggerTora : DialogueTrigger
     public override void OnInteract()
     {
         //Decide ink file to play
+		if (SceneManager.GetActiveScene().name == ScenesEnum._1_CarCrash.ToString())
+		{
+			DialogueDisplay dd = FindObjectOfType<DialogueDisplay>();
+			if (dd != null)
+			{
+				dd._NPCImage.sprite = dd._toraSprite;
+			}
+		}
+
         _JSONDataContainer.SetJSON(_inkJSON);
 		_JSONDataContainer.SetPath("Tora");
 
@@ -28,8 +37,12 @@ public class DialogueTriggerTora : DialogueTrigger
             case ItemEnum.BikeTire:
 				_JSONDataContainer.SetPath("ToraBikeTire");
 				base.OnInteract();
-				break;  
-        }
+				break;
+			case ItemEnum.ChessPieces:
+				_JSONDataContainer.SetPath("ToraChessPieces");
+				base.OnInteract();
+				break;
+		}
         
         //Execute base class funcitonality
         //base.OnInteract(obj);

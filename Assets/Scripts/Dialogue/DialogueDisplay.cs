@@ -12,14 +12,14 @@ public class DialogueDisplay : MonoBehaviour
     [SerializeField] TextMeshProUGUI _nameText;
     [SerializeField] TextMeshProUGUI _dialogueText;
     [SerializeField] Image _mainCharImage;
-    [SerializeField] Image _NPCImage;
+    public Image _NPCImage;
     [SerializeField] Image _greyBackground;
 
     [Header("Choices UI")]
     [SerializeField] GameObject[] _choices;
 
     [Header("Dialogue sprites")]
-    [SerializeField] Sprite _toraSprite;
+    public Sprite _toraSprite;
     [SerializeField] Sprite _nudoSprite;
     [SerializeField] Sprite _barmanSprite;
     [SerializeField] Sprite _antonSprite;

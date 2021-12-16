@@ -72,7 +72,8 @@ VAR chessPiecesLoc = "_999_Limbo"
 ->DONE
 
 === InitialCrashDefault
-~InitializeColorVariables()
+~InitializeColorVariables() 
+TODO call function only once. It's also called in Tora for test purpuses.
 Patrick<"OH MY GOD."
 Patrick<"Ok, that was- terrifying."
 Patrick<"I'm still in one piece though, which is a start."
@@ -90,6 +91,14 @@ Patrick<"I'll check around if I can {find} a way to fix the flat {carTire}."
 === CarDefault ===
 Patrick<"Ugh! Look at its awful state."
 Patrick<"What a disaster..."
+->DONE
+
+=== CarTractorWheel
+TODO add contemt
+->DONE
+
+=== CarBikeWheel
+
 ->DONE
 
 === CarFull ===
@@ -170,6 +179,8 @@ TODO Save system
 - not NudoFarmChat1:
         ->ToraDefault1
 
+- FionnaChat1:
+        ->ToraChat2Car
 - else:
         Tora<"I see you're making new frinds and helping out the townspeople."
         Tora<"Thanks..."
@@ -182,6 +193,10 @@ Tora<"A {tractorTire}, will that help you fix your car?"
 
 === ToraBikeTire
 Tora<"Ohh, a {bikeTire}, I used to have an amazing bike, but I lost it somewhere..."
+->DONE
+
+=== ToraChessPieces ===
+Tora<"Me, playing chess? I don't even know the names of the pieces."
 ->DONE
 
 === ToraChat1
@@ -259,9 +274,12 @@ Tora<“You should find {nudo} in the bar, the building over there.”
 - BarChat1 and not AntonHouseChat1:
         ->BarmanDefault2
 
-- AntonHouseChat1 and not BarChat2:
+- AntonHouseChat1 && not AntonHouseChat2 and not BarChat2:
         ->BarChat2
-        
+
+- AntonHouseChat2:
+        Barman<"{tora} was looking for you. I think she went to {fionna}'s home."
+        ->DONE
 - BarChat2:
         ->BarmanDefault3
  }
@@ -494,7 +512,7 @@ Anton<“You found them, thank Goodness. Let’s play, then.”
 ~toraLoc = "_999_Limbo"
 
 //Start the minigame.
-~ startMinigame(12)
+//~ startMinigame(12)
 
 //After winning the minigame, the room transforms, lightening up, getting tidy, and with a few children running about.
 Anton<“Ah, the memories… How I missed this, playing against a new friend, thank you.”
@@ -539,7 +557,7 @@ Anton<“Thanks for playing one last game of chess with me.”
 
 Anton<“I almost forgot how good it feels...”
 
-~startCinematic()
+//~startCinematic()
 ->DONE
 
 === Fionna ===
@@ -594,7 +612,7 @@ Patrick<“Yea, but I came here to ask you a different questi-”
 
 Fionna<“No buts, time to catch some chicken.”
 
-~ startMinigame(14)
+//~ startMinigame(14)
 //After finishing the minigame and seeing the scene get alive…
 Fionna<“Claire would thank you with an apple pie. I’m not that good with cooking, so I’ll answer your questions as promised.”
 ~toraLoc = "_1_CarCrash"
@@ -607,12 +625,11 @@ Fionna<“Claire would thank you with an apple pie. I’m not that good with coo
 	Fionna<“A {carTire}? No, I don’t have one, but Tora should know where you can find one. Didn’t she tell you yet? You can find her where you broke your car, in the forest.”
 
 - 
-~startCinematic()
+//~startCinematic()
 ->DONE
 
 ===FionnaDefault1
 Fionna<"Oh, these damn chicken won't stay still."
-//~giveItem(0)
 ->DONE
 
 ===FionnaTractorTire
@@ -641,7 +658,7 @@ Tora<"You're not... mad at me, for not telling you sooner?"
     Tora<"It's just- I wanted the town to go back to life so badly, and there's no one else to help-"
 -
 Tora<"Once more, I'm sorry for trying to deceive you. Here's the {carTire}. I hope you have a safe return to your home. If you ever feel like visiting us, you're always welcome."
-//Give item.
+~giveItem(2)
 
 ->DONE
 
@@ -650,12 +667,11 @@ Tora<"Once more, I'm sorry for trying to deceive you. Here's the {carTire}. I ho
 ->Anton
 ->DONE
 
-=== PickUpPiecesBarman ===
+=== BarmanChessPieces ===
 Barman<"You found them, {anton}"'s {chessPiece}."
 Barman<"He loves this set. He's always bragging about winning against some World Champion with them."
 ->DONE
 
-=== PickUpPiecesTora ===
-Tora<"Me, playing chess? I don't even know the names of the pieces."
+
 
 ->END

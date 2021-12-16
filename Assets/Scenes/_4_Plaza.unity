@@ -178,6 +178,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bird (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7263979623321842461, guid: 216039775ef42d745b814da28aee86a5, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 216039775ef42d745b814da28aee86a5, type: 3}
 --- !u!4 &20317950 stripped
@@ -2151,6 +2155,10 @@ PrefabInstance:
     - target: {fileID: 7263979623321842461, guid: 216039775ef42d745b814da28aee86a5, type: 3}
       propertyPath: m_Name
       value: Bird (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7263979623321842461, guid: 216039775ef42d745b814da28aee86a5, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 216039775ef42d745b814da28aee86a5, type: 3}
@@ -14975,6 +14983,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bird (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 7263979623321842461, guid: 216039775ef42d745b814da28aee86a5, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 216039775ef42d745b814da28aee86a5, type: 3}
 --- !u!4 &1117692491 stripped
@@ -17129,6 +17141,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bird
       objectReference: {fileID: 0}
+    - target: {fileID: 7263979623321842461, guid: 216039775ef42d745b814da28aee86a5, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 216039775ef42d745b814da28aee86a5, type: 3}
 --- !u!4 &1840357369 stripped
@@ -17609,7 +17625,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.777551, y: 1}
+    m_SensorSize: {x: 1.7791411, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -17672,6 +17688,10 @@ PrefabInstance:
     - target: {fileID: 7263979623321842461, guid: 216039775ef42d745b814da28aee86a5, type: 3}
       propertyPath: m_Name
       value: Bird (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7263979623321842461, guid: 216039775ef42d745b814da28aee86a5, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 216039775ef42d745b814da28aee86a5, type: 3}
@@ -18097,6 +18117,10 @@ PrefabInstance:
     - target: {fileID: 3973132746343038070, guid: 6f6ba25a24581d14793070edb1febd9d, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 3973132746343038070, guid: 6f6ba25a24581d14793070edb1febd9d, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3973132746343038071, guid: 6f6ba25a24581d14793070edb1febd9d, type: 3}
       propertyPath: _path

@@ -19,4 +19,4 @@ MonoBehaviour:
   chessPiecesInPlace: 0
   fountainTrickleAmount: 3
   isInCinematic: 0
-  nextMorningShown: 0
+  nextMorningShown: 1

@@ -95,10 +95,11 @@ Patrick<"What a disaster..."
 
 === CarTractorWheel
 TODO add contemt
+Patrick<"I don't think my car can handle such a wheel."
 ->DONE
 
 === CarBikeWheel
-
+Patrick<"I don't think such a wheel can handle my car."
 ->DONE
 
 === CarFull ===
@@ -615,7 +616,7 @@ Fionna<“No buts, time to catch some chicken.”
 //~ startMinigame(14)
 //After finishing the minigame and seeing the scene get alive…
 Fionna<“Claire would thank you with an apple pie. I’m not that good with cooking, so I’ll answer your questions as promised.”
-~toraLoc = "_1_CarCrash"
+~toraLoc = "_3_FarVillage"
 
 	+ “Where can I find Tora?”
 	Fionna<“She’s went to check on your car, in the forest.”

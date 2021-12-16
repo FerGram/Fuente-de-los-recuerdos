@@ -714,7 +714,7 @@ MonoBehaviour:
   _nameText: {fileID: 5810053163630226196}
   _dialogueText: {fileID: 5810053162620793063}
   _mainCharImage: {fileID: 5810053164648296396}
-  _NPCImage: {fileID: 0}
+  _NPCImage: {fileID: 5810053163904667027}
   _greyBackground: {fileID: 5810053163009550959}
   _choices:
   - {fileID: 5810053164508551636}
@@ -723,7 +723,7 @@ MonoBehaviour:
   _toraSprite: {fileID: 21300000, guid: 13ed4e0db7481564cb64c27c1c5ad9a4, type: 3}
   _nudoSprite: {fileID: 21300000, guid: 0c406e479b1904549ab84695e449edbb, type: 3}
   _barmanSprite: {fileID: 21300000, guid: f8f0138ab74773846ae72e169e8b2e64, type: 3}
-  _antonSprite: {fileID: 0}
+  _antonSprite: {fileID: 21300000, guid: e13ef3f22557c49469afcb7093e19a89, type: 3}
   _fionnaSprite: {fileID: 21300000, guid: 316db40a9ea931b4d933ee56b31d24b4, type: 3}
   _marthaSprite: {fileID: 0}
   _displaySpeed: 0.01

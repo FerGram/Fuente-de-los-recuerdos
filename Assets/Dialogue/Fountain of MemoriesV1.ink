@@ -10,7 +10,7 @@ EXTERNAL startCinematic()
 EXTERNAL startEnding()
 
 //ITEMS
-VAR drivingWheel = "Fernadito"
+VAR drivingWheel = "Wheel"
 VAR chessPiece = "Chess Pieces"
 VAR carTire = "Tire"
 VAR tractorTire = "Tractor Tire"
@@ -26,6 +26,10 @@ VAR fionna = "Fionna"
 //OBJECTIVES
 VAR find = "find"
 VAR place = "place"
+VAR drag = "drag"
+VAR play = "play"
+VAR bring = "bring"
+VAR car = "car"
 
 //CHARACTER LOCATIONS
 VAR toraLoc = "_4_Plaza"
@@ -41,10 +45,10 @@ VAR chessPiecesLoc = "_999_Limbo"
 ~return "<color=orange>" + name + "</color>"
 
 === function character(name) ===
-~return "<color=black>" + name + "</color>"
+~return "<color=orange>" + name + "</color>"
 
 === function action(name) ===
-~return "<color=blue>" + name + "</color>"
+~return "<color=purple>" + name + "</color>"
 
 === function InitializeColorVariables ===
 {
@@ -52,8 +56,8 @@ VAR chessPiecesLoc = "_999_Limbo"
             ~drivingWheel = item(drivingWheel)
             ~chessPiece = item(chessPiece)
             ~carTire = item(carTire)
-            ~tractorTire = "item(tractorTire)"
-            ~bikeTire = "item(bikeTire)"
+            ~tractorTire = item(tractorTire)
+            ~bikeTire = item(bikeTire)
             
             ~nudo = character(nudo)
             ~tora = character(tora)
@@ -63,6 +67,10 @@ VAR chessPiecesLoc = "_999_Limbo"
             
             ~find = action(find)
             ~place = action(place)
+            ~drag = action(drag)
+            ~play = action(play)
+            ~bring = action(bring)
+            ~car = action(car)
             
 }
 
@@ -83,7 +91,7 @@ Patrick<"Anyway, I better {find} and {place} the missing {drivingWheel} and fix 
 ->DONE
 
 === CarWheel ===
-Patrick<"Ok. {drivingWheel} ready."
+Patrick<"Ok. Wheel's ready."
 Patrick<"I hope it stays in place."
 Patrick<"I'll check around if I can {find} a way to fix the flat {carTire}."
 ->DONE
@@ -93,8 +101,13 @@ Patrick<"Ugh! Look at its awful state."
 Patrick<"What a disaster..."
 ->DONE
 
+=== PickedUpCarWheel ===
+Patrick<"Let's {place} it back in the car."
+Patrick<"I'll {drag} it onto the car"
+->DONE
+
 === CarTractorWheel
-TODO add contemt
+//TODO add contemt
 Patrick<"I don't think my car can handle such a wheel."
 ->DONE
 
@@ -172,6 +185,7 @@ Lewis<"Let's talk about it first!"
 
 === Tora ===
 TODO Save system
+~InitializeColorVariables() 
 //Story logic Tora
 {
 - not ToraChat1:
@@ -333,6 +347,9 @@ Barman<"The farm is south-east of here."
 
 - NudoFarmChat1:
         ->NudoFarmDefault1
+- else: 
+    Nudo<“My back still hurts a little.”
+    ->DONE
  }
  
 ===NudoTractorTire
@@ -363,7 +380,7 @@ Nudo<“Would you be so kind as to help me with it, please? You, young people, a
 
 -
 Nudo<“A {carTire}? Yea, I do have a few spare ones. Finish the field and I’ll give you one.” 
-//~startMinigame(13)
+~startMinigame(13)
 Nudo<“Well well, you did a great job. You remind me of my son, he was just as skinny as you, and he still could work from dawn ‘til dusk.”
 
 Nudo<“What nice memories…”
@@ -397,7 +414,7 @@ Nudo<“Huh? Oh, you need a different tire? a {bikeTire}?”
 Nudo<“...”
 Nudo<“Thanks again for this, traveler.”
 Nudo<“<size=25><i> Oh, only if you knew how much I miss you, son... </i></size>”
-//~startCinematic()
+~startCinematic()
 ->DONE
 
 ===NudoFarmDefault1
@@ -421,6 +438,9 @@ Nudo<"{anton} lives just to the left of the fountain."
 
 - hasPieces and not AntonHouseChat2:
         ->AntonHouseChat2
+- else: 
+    Anton<“Those trophies mean the world to me.”
+    ->DONE
  }
 
 ===AntonDefaultItem
@@ -438,7 +458,7 @@ Anton<“But once the time to leave came, I couldn’t bring myself to take them
 Anton<“It was as if they belonged here, in this small town, and nowhere else. They stayed in my place.”
 
 //He turns around to face the player.
-Anton<“Would you {~action(play)} one last game with me?”
+Anton<“Would you {play} one last game with me?”
 
     + “Sure thing.”
     Anton<“Thanks.”
@@ -453,7 +473,8 @@ Anton<“The townspeople are sick of playing against me, hehe, so I’m glad you
 
 ~chessPiecesLoc = "_8_Bar"
 
-Anton<“Oh- I think I forgot my {chessPiece} at the bar… Would you be so kind as to {~action(bring)} them back, please? With this age, my knees hurt for any small movement, and walking all the way there again…”
+Anton<“Oh- I think I forgot my {chessPiece} at the bar… Would you be so kind as to {bring} them back, please?”
+Anton<“With this age, my knees hurt for any small movement, and walking all the way there again…”
 ->DONE
 
 ===AntonDefault1
@@ -513,7 +534,7 @@ Anton<“You found them, thank Goodness. Let’s play, then.”
 ~toraLoc = "_999_Limbo"
 
 //Start the minigame.
-//~ startMinigame(12)
+~ startMinigame(12)
 
 //After winning the minigame, the room transforms, lightening up, getting tidy, and with a few children running about.
 Anton<“Ah, the memories… How I missed this, playing against a new friend, thank you.”
@@ -546,7 +567,7 @@ Patrick<“How sad… it must have been tough for her.”
 
 Anton<“Yes, it was.”
 
-Anton<“Maybe you should try asking Fionna about an extra tire, her partner’s car could have been left behind.”
+Anton<“Maybe you should try asking {fionna} about an extra tire, her partner’s car could have been left behind.”
 
 Anton<“You can find her in the norteast of town, in the chicken coop.”
 
@@ -558,7 +579,7 @@ Anton<“Thanks for playing one last game of chess with me.”
 
 Anton<“I almost forgot how good it feels...”
 
-//~startCinematic()
+~startCinematic()
 ->DONE
 
 === Fionna ===
@@ -568,7 +589,9 @@ Anton<“I almost forgot how good it feels...”
 
 - AntonHouseChat2 and not FionnaChat1:
     ->FionnaChat1
-
+- else: 
+    Fionna<“Oh, my beautiful chicken.”
+    ->DONE
 }
 ->DONE
 
@@ -613,7 +636,7 @@ Patrick<“Yea, but I came here to ask you a different questi-”
 
 Fionna<“No buts, time to catch some chicken.”
 
-//~ startMinigame(14)
+~ startMinigame(14)
 //After finishing the minigame and seeing the scene get alive…
 Fionna<“Claire would thank you with an apple pie. I’m not that good with cooking, so I’ll answer your questions as promised.”
 ~toraLoc = "_3_FarVillage"
@@ -623,10 +646,10 @@ Fionna<“Claire would thank you with an apple pie. I’m not that good with coo
 
 	//Fionna<“She’s in the viaduct, east of town. She often goes there to visit her father’s tomb.”
 	+ “Do you have an extra car tire?”
-	Fionna<“A {carTire}? No, I don’t have one, but Tora should know where you can find one. Didn’t she tell you yet? You can find her where you broke your car, in the forest.”
+	Fionna<“A {carTire}? No, I don’t have one, but Tora should know where you can find one. Didn’t she tell you yet? You can {find} her where you broke your car, in the forest.”
 
 - 
-//~startCinematic()
+~startCinematic()
 ->DONE
 
 ===FionnaDefault1

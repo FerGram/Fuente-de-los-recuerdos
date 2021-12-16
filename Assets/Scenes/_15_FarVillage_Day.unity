@@ -7228,7 +7228,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 0c28374e1869dc043a6b4abe65b91fbc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ba3a61540480e1b489a61bb6c84bf2d1, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -7889,7 +7889,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ccf658637b78d244ea3f585c07e9d106, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9024932c8fad36e428a8e637d980dd02, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -8316,7 +8316,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7786163, y: 1}
+    m_SensorSize: {x: 1.7790786, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -8758,12 +8758,12 @@ MonoBehaviour:
   - {fileID: 1898168292}
   - {fileID: 1638255140}
   - {fileID: 1435588400}
-  _toraSprite: {fileID: 0}
+  _toraSprite: {fileID: 21300000, guid: 9024932c8fad36e428a8e637d980dd02, type: 3}
   _nudoSprite: {fileID: 0}
   _barmanSprite: {fileID: 0}
   _antonSprite: {fileID: 0}
   _fionnaSprite: {fileID: 0}
-  _marthaSprite: {fileID: 0}
+  _marthaSprite: {fileID: 21300000, guid: 9024932c8fad36e428a8e637d980dd02, type: 3}
   _displaySpeed: 0.01
   _dialogueEnded: {fileID: 11400000, guid: e97fc77aa998ebc4e8e3f5babf0aac15, type: 2}
   _JSONDataContainer: {fileID: 11400000, guid: c9e4d071041c07a498e78c3cdc36e9ae, type: 2}
@@ -8940,7 +8940,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1366408671}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -67.67682, y: -3.4241505, z: -10}
+  m_LocalPosition: {x: -67.665184, y: -3.4241304, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1957574045}

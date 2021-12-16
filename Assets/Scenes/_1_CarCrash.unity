@@ -9726,6 +9726,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tora
       objectReference: {fileID: 0}
+    - target: {fileID: 4796907812293731711, guid: 7fd372d730cc8db47b152d82e85b67a9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7fd372d730cc8db47b152d82e85b67a9, type: 3}
 --- !u!4 &1512156680 stripped
@@ -10609,7 +10613,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7791411, y: 1}
+    m_SensorSize: {x: 1.7790786, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -16829,6 +16833,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5810053163434416076, guid: dd4fdb321d64fab4586f97875bad542f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5810053163434416077, guid: dd4fdb321d64fab4586f97875bad542f, type: 3}
+      propertyPath: _NPCImage
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5810053163457581862, guid: dd4fdb321d64fab4586f97875bad542f, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

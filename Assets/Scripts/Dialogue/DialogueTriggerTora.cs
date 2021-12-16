@@ -3,10 +3,9 @@ using UnityEngine.SceneManagement;
 
 public class DialogueTriggerTora : DialogueTrigger
 {
-    //Method triggered from GameInteraction Event
-    public override void OnInteract()
-    {
-        //Decide ink file to play
+
+	private void Start()
+	{
 		if (SceneManager.GetActiveScene().name == ScenesEnum._1_CarCrash.ToString())
 		{
 			DialogueDisplay dd = FindObjectOfType<DialogueDisplay>();
@@ -15,7 +14,13 @@ public class DialogueTriggerTora : DialogueTrigger
 				dd._NPCImage.sprite = dd._toraSprite;
 			}
 		}
+	}
 
+	//Method triggered from GameInteraction Event
+	public override void OnInteract()
+    {
+        //Decide ink file to play
+		
         _JSONDataContainer.SetJSON(_inkJSON);
 		_JSONDataContainer.SetPath("Tora");
 

@@ -531,6 +531,8 @@ Barman<“The pieces should be on that stool over there, just {~action(pick)} th
 
 ===AntonHouseChat2
 Anton<“You found them, thank Goodness. Let’s play, then.”
+Anton<“Let me tell you the rules again.”
+Anton<“All you have to do is capture my King with your Knight. My Rooks and Bishops will move in the same pattern every time you move your Knight.”
 ~toraLoc = "_999_Limbo"
 
 //Start the minigame.

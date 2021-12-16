@@ -214,6 +214,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1852681290}
     - target: {fileID: 4796907811427710514, guid: 7fd372d730cc8db47b152d82e85b67a9, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4796907811427710514, guid: 7fd372d730cc8db47b152d82e85b67a9, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 592037487}
@@ -17625,7 +17629,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7791411, y: 1}
+    m_SensorSize: {x: 1.7790786, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -18070,6 +18074,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 380410235}
     m_Modifications:
+    - target: {fileID: 3973132746343038064, guid: 6f6ba25a24581d14793070edb1febd9d, type: 3}
+      propertyPath: m_SortingOrder
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3973132746343038065, guid: 6f6ba25a24581d14793070edb1febd9d, type: 3}
       propertyPath: m_RootOrder
       value: 3

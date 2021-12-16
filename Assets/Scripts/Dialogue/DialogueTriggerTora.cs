@@ -21,8 +21,14 @@ public class DialogueTriggerTora : DialogueTrigger
 
         //Decide ink file to play
         switch(type){
-            case ItemEnum.BikeTire: _JSONDataContainer.SetJSON(_inkJSON); break;  
-            case ItemEnum.TractorTire:  _JSONDataContainer.SetJSON(_inkJSON); break;  
+            case ItemEnum.TractorTire:
+				_JSONDataContainer.SetPath("ToraTractorTire");
+				base.OnInteract();
+				break;  
+            case ItemEnum.BikeTire:
+				_JSONDataContainer.SetPath("ToraBikeTire");
+				base.OnInteract();
+				break;  
         }
         
         //Execute base class funcitonality

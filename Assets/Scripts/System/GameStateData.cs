@@ -28,7 +28,11 @@ public class GameStateData : Singleton<GameStateData>
         { LoadEnding();});
 
         AssignMinigameEvent();
-    }
+
+		//Binding pickup funcs
+		gameStory.BindExternalFunction("giveItem", (int itemI) =>
+		{ GiveItem(itemI); });
+	}
 
     private void EnterMinigameResponse(int minigame){
         DialogueDisplay dd = FindObjectOfType<DialogueDisplay>();
@@ -49,7 +53,7 @@ public class GameStateData : Singleton<GameStateData>
 
     private void EnableUI(int minigame){
         DialogueDisplay dd = FindObjectOfType<DialogueDisplay>();
-		Debug.Log("Inside Enable UI" + dd);
+
         if (dd != null) dd.EnableUI(minigame);
     }
 
@@ -60,4 +64,11 @@ public class GameStateData : Singleton<GameStateData>
             MinigameEvents.current.onUnloadMinigame += EnableUI;
         }
     }
+
+	//Logic of pickup from storyline
+	public void GiveItem(int itemI)
+	{
+		PickUpFromStory pu = FindObjectOfType<PickUpFromStory>();
+		if (pu != null) pu.GiveItem(itemI);
+	}
 }

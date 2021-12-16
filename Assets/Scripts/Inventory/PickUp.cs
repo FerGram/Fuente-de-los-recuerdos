@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PickUp : MonoBehaviour
 {
-    [SerializeField] InventoryDataContainer _inventory;
-    [SerializeField] GameEvent _onItemPickUp;
+    public InventoryDataContainer _inventory;
+    public GameEvent _onItemPickUp;
     [Space]
     [SerializeField] GameObject UIItem;
 

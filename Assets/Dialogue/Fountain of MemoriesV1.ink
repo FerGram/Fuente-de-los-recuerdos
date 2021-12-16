@@ -1,15 +1,22 @@
-//-> ToraChat1
+//Fountain of Memories
+
 VAR hasPieces = false
 
+//EXTERNAL FUNCTIONS
 EXTERNAL startMinigame(minigame)
+EXTERNAL giveItem(item)
+
 EXTERNAL startCinematic()
 EXTERNAL startEnding()
 
 //ITEMS
-VAR wheel = "Fernadito"
-VAR chessPiece = "Chess Piece"
+VAR drivingWheel = "Fernadito"
+VAR chessPiece = "Chess Pieces"
+VAR carTire = "Tire"
+VAR tractorTire = "Tractor Tire"
+VAR bikeTire = "Bike Tire"
 
-//Names
+//NAMES
 VAR nudo = "Nudo"
 VAR tora = "Tora"
 VAR anton = "Anton"
@@ -18,6 +25,7 @@ VAR fionna = "Fionna"
 
 //OBJECTIVES
 VAR find = "find"
+VAR place = "place"
 
 //CHARACTER LOCATIONS
 VAR toraLoc = "_4_Plaza"
@@ -30,45 +38,58 @@ VAR fionnaLoc = "_9_FionnaHouse"
 VAR chessPiecesLoc = "_999_Limbo"
 
 === function item(name) ===
-~return "<color=red>" + name + "</color>"
+~return "<color=orange>" + name + "</color>"
 
 === function character(name) ===
 ~return "<color=black>" + name + "</color>"
 
-=== function InitializeItems ===
+=== function action(name) ===
+~return "<color=blue>" + name + "</color>"
+
+=== function InitializeColorVariables ===
 {
     - true:
-            ~wheel = item(wheel)
+            ~drivingWheel = item(drivingWheel)
             ~chessPiece = item(chessPiece)
+            ~carTire = item(carTire)
+            ~tractorTire = "item(tractorTire)"
+            ~bikeTire = "item(bikeTire)"
+            
             ~nudo = character(nudo)
             ~tora = character(tora)
             ~anton = character(anton)
             ~barman = character(barman)
             ~fionna = character(fionna)
+            
+            ~find = action(find)
+            ~place = action(place)
+            
 }
 
 //Fer Edits
 === InitialCrash ===
 {not InitialCrashDefault : -> InitialCrashDefault }
+->DONE
 
 === InitialCrashDefault
+~InitializeColorVariables()
 Patrick<"OH MY GOD."
-Patrick<"Ok, that was terrifying."
-Patrick<"I'm still in one piece though which is a start."
-Patrick<"And although the horrendous actual state of the car I think I might be able to fix it just enough to take me back home."
+Patrick<"Ok, that was- terrifying."
+Patrick<"I'm still in one piece though, which is a start."
+Patrick<"And despite the horrendous state of the car I think I might be able to fix it... At least just enough to carry me back home."
 Patrick<"Wait, where am I?"
-Patrick<"Anyway, I better <color=yellow>find </color>and <color=yellow>place <color=red>the missing wheel </color></color>and fix the flat tire."
+Patrick<"Anyway, I better {find} and {place} the missing {drivingWheel} and fix the flat {carTire}."
 ->DONE
 
 === CarWheel ===
-Patrick<"Ok. Wheel's ready."
+Patrick<"Ok. {drivingWheel} ready."
 Patrick<"I hope it stays in place."
-Patrick<"I'll check around if I can <color=red>find a way to fix the flat tire </color> and get back home."
+Patrick<"I'll check around if I can {find} a way to fix the flat {carTire}."
 ->DONE
 
 === CarDefault ===
 Patrick<"Ugh! Look at its awful state."
-Patrick<"What a disaster."
+Patrick<"What a disaster..."
 ->DONE
 
 === CarFull ===
@@ -76,14 +97,14 @@ Patrick<"Ah... Finally."
 Patrick<"Just a few adjustments and I'll be able to get this thing back home."
 Patrick<"Although I'm gonna need a miracle..."
 Patrick<"I'm glad I could help those memories get their fountain back."
-Patrick<"I hope they find what they are looking for."
+Patrick<"I hope they can find what they are looking for."
 ~ startEnding()
 ->DONE
 
 === SignDefault ===
 Patrick<"KPNTVLEY..."
 Patrick<"It's barely readable."
-Patrick<"But it's a sign so it must indicate some place."
+Patrick<"But it's a sign, so it must indicate some place."
 Patrick<"I'll have a look."
 ->DONE
 
@@ -142,12 +163,26 @@ Lewis<"Let's talk about it first!"
 === Tora ===
 TODO Save system
 //Story logic Tora
-{not ToraChat1:
-        ~InitializeItems() //Initialize all items, should move to the very first scene.
+{
+- not ToraChat1:
+        ~InitializeColorVariables() //Initialize all items, should move to the very first scene.
         -> ToraChat1
-- else:
+- not NudoFarmChat1:
         ->ToraDefault1
+
+- else:
+        Tora<"I see you're making new frinds and helping out the townspeople."
+        Tora<"Thanks..."
+        ->DONE
  }
+
+=== ToraTractorTire
+Tora<"A {tractorTire}, will that help you fix your car?"
+->DONE
+
+=== ToraBikeTire
+Tora<"Ohh, a {bikeTire}, I used to have an amazing bike, but I lost it somewhere..."
+->DONE
 
 === ToraChat1
 Tora<“Welcome to Kiponut Valley, traveler.”
@@ -194,11 +229,11 @@ Tora<“May I ask you for a favour while you stay in town?”
 
 Patrick<“I… Yes what is it?”
 
-Tora<“People left in town haven't seen a new face in some time.” 
+Tora<“The people left in town haven't seen a new face in some time.” 
 
 Tora<“If you talk to any of them, listen to their stories. Help them remember their good old times in town, retrieve their memories.”
 
-Patrick<“I guess I can do that”
+Patrick<“I guess I can do that.”
 
 Tora<“Thank you, Patrick.” 
 
@@ -234,7 +269,7 @@ Tora<“You should find {nudo} in the bar, the building over there.”
 
 === BarChat1
 Barman<“A real human."
-Barman<"You’re not from here haha, welcome to Sander’s. I would serve you something, but- I can’t really, can I?”
+Barman<"I see you’re not from here, welcome to Sander’s. I would serve you something, but- I can’t really, can I?”
 
 	+ “It’s fine.”
 
@@ -246,23 +281,20 @@ Barman<“So, what brings you to my humble little bar?”
 ~antonLoc = "_17_AntonHouse"
 
 	+ “I’m looking for the farmer, Nudo.”
-	Barman<“Nudo? He was here just a few minutes ago along with Anton, complaining about how much his back was hurting him, but he left again to finish some work at the farm. The farm is south-east of here.”
-	Barman<“The farm is south-east of here.”
-	    
+	Barman<“{nudo}? He was here just a few minutes ago, complaining about how much his back hurt, but he left again to finish some work at the farm.”
+	
 	+ “Do you know where I can get a tire?”
-	Barman<“Nudo may help you with that. He was here just a few minutes ago along with Anton, complaining about how much his back was hurting him, but he left again to finish some work at the farm.”
-	Barman<“The farm is south-east of here.”
-        
+	Barman<“{nudo} may help you with that. He was here just a few minutes ago, complaining about how much his back was hurting him, but he left again to finish some work at the farm.” 
 -
-
+Barman<“The farm is east of here.”
 ->DONE
 
 === BarmanDefault1
-Barman<"I miss the old days..."
+Barman<"I'm tierd of cleaning all this dust. I should hire someone to do it."
 ->DONE
 
 === BarmanDefault2
-Barman<"You'll find Nudo in the farm."
+Barman<"You'll find {nudo} in the farm."
 
 Barman<"The farm is south-east of here."
 ->DONE
@@ -271,7 +303,7 @@ Barman<"The farm is south-east of here."
 //Story logic for Nudo
 {
 - not ToraChat1:
-		Nudo<"What was I going to do?"
+		Nudo<"My back hurts. pour me another one, Barman."
 		//TODO can insert dialogue in the bar between the three men.
 
 - not BarChat1:
@@ -284,10 +316,21 @@ Barman<"The farm is south-east of here."
         ->NudoFarmDefault1
  }
  
+===NudoTractorTire
+{
+    -not NudoTractorTire:
+        Nudo<"You can keep that, you earned it."
+    -else:
+        Nudo<"What is it that you don't understand, it's yours now."
+        
+}
+
+->DONE
+
 === NudoFarmChat1
 Nudo<“Hey there, fella, you’re not from here, are ya?”
 
-Patrick<“That’s… what everyone keeps saying.”
+Patrick<“That’s… what the barlady said.”
 
 Nudo<“Don’t sweat it, we didn’t use to care much about outsiders, thousands of people came every year to see and taste the fountain… But now, it’s all dust and weed, and forgotten memories…”
 
@@ -300,8 +343,8 @@ Nudo<“Would you be so kind as to help me with it, please? You, young people, a
 	+ “Sure thing, but do you have an extra tire to lend me?”
 
 -
-Nudo<“A tire? Yea, I do have a few spare ones. Finish the field and I’ll give you one.”
-~startMinigame(13)
+Nudo<“A {carTire}? Yea, I do have a few spare ones. Finish the field and I’ll give you one.” 
+//~startMinigame(13)
 Nudo<“Well well, you did a great job. You remind me of my son, he was just as skinny as you, and he still could work from dawn ‘til dusk.”
 
 Nudo<“What nice memories…”
@@ -313,37 +356,40 @@ Nudo<“What nice memories…”
 	Nudo<“You reminded me of many things I thought I had lost, thank you.”
 
 -
-Nudo<“Here is your tire.”
+Nudo<“Here is your {carTire}.”
+~giveItem(0)
+~carTire = "Car Tire"
+
 //Reward the player with a tractor tire and change the scene to the “lively” version.
 Patrick<“But this is… a tractor tire.”
-Nudo<“Huh? Oh, you need a different tire? a bike tire?”
+Nudo<“Huh? Oh, you need a different tire? a {bikeTire}?”
 
     + “N-no, for a car, a car tire.”
-    Nudo<“For that, you’ll have to visit Anton, the chess player. He lives just to the left of the fountain, I think he had a car.”
+    Nudo<“For that, you’ll have to visit {anton}, the chess player. He lives just to the left of the fountain, I think he had a car.”
 
 	+ “Yes, a bike tire.”
-    Nudo<“There you go, a bike tire.”
+    Nudo<“There you go, a {bikeTire}.”
+    ~giveItem(1)
     //Reward the player with a bike tire.
 	Patrick<“Actually… I need a car tire.”
-    Nudo<“For that, you’ll have to visit Anton, the chess player. He lives just to the left of the fountain, I think he had a car.”
+    Nudo<“For that, you’ll have to visit {anton}, the chess player. He lives just to the left of the fountain, I think he had a car.”
     
 -
 Nudo<“...”
-Nudo<“Thanks again for this traveler.”
+Nudo<“Thanks again for this, traveler.”
 Nudo<“<size=25><i> Oh, only if you knew how much I miss you, son... </i></size>”
-~startCinematic()
+//~startCinematic()
 ->DONE
 
 ===NudoFarmDefault1
-Nudo<"Anton lives just to the left of the fountain."
+Nudo<"{anton} lives just to the left of the fountain."
 ->DONE
 
 === Anton ===
 {
 - not BarChat1:
-		Anton<"Serve me the usual, bald man."
+		Anton<"Serve me the usual, {barman}."
 		->DONE
-		TODO can insert dialogue in the bar between the three men.
 
 - BarChat1 and not NudoFarmChat1:
         ->AntonDefault1
@@ -358,6 +404,10 @@ Nudo<"Anton lives just to the left of the fountain."
         ->AntonHouseChat2
  }
 
+===AntonDefaultItem
+Anton<"I doubt we can play chess with that."
+TODO try the minigame with it.
+->DONE
 
 ===AntonHouseChat1
 Anton<“Strange.”
@@ -369,7 +419,7 @@ Anton<“But once the time to leave came, I couldn’t bring myself to take them
 Anton<“It was as if they belonged here, in this small town, and nowhere else. They stayed in my place.”
 
 //He turns around to face the player.
-Anton<“Would you play one last game with me?”
+Anton<“Would you {~action(play)} one last game with me?”
 
     + “Sure thing.”
     Anton<“Thanks.”
@@ -384,7 +434,7 @@ Anton<“The townspeople are sick of playing against me, hehe, so I’m glad you
 
 ~chessPiecesLoc = "_8_Bar"
 
-Anton<“Oh- I think I forgot my pieces at the bar… Would you be so kind as to bring them back, please? With this age, my knees hurt for any small movement, and walking all the way there again…”
+Anton<“Oh- I think I forgot my {chessPiece} at the bar… Would you be so kind as to {~action(bring)} them back, please? With this age, my knees hurt for any small movement, and walking all the way there again…”
 ->DONE
 
 ===AntonDefault1
@@ -399,60 +449,61 @@ Anton<"The pieces should be somewhere in the bar."
 ===BarChat2
 Barman<"Hey, welcome again.”
 
-Barman<“Did you find Nudo?”
+Barman<“Did you find {nudo}?”
 
 Patrick<“Yes, he asked me to help him with the farm.”
 
-Barman<“Haha, that’s Nudo for you, always making other people help out.”
+Barman<“Haha, that’s {nudo} for you, always making other people help out.”
 
 Patrick<“But he wasn’t able to help me out.”
 
-Barman<“So, he doesn’t have a tire, then? How strange…”
+Barman<“So, he doesn’t have a {carTire}, then? How strange…”
 
-Patrick<“No, he did give me one, but it was a tractor tire.”
+Patrick<“No, he did give me one, but it was a {tractorTire}.”
 
-Barman<“Hahaha, a tractor tire.”
+Barman<“Hahaha, a {tractorTire}.”
 
-Patrick<“Do you know anyone else who may have an extra car tire?”
+Patrick<“Do you know anyone else who may have an extra {carTire}?”
 
-Barman<“Not really. Tora is the one who knows everything around here.”
+Barman<“Not really. {tora} is the one who knows everything around here.”
 
-Patrick<“She told me that Nudo may have one, but I guess she was wrong.”
+Patrick<“She told me that {nudo} may have one, but I guess she was wrong.”
 
 Barman<“…”
 
-Barman<“If Tora doesn’t know anyone-”
+Barman<“If {tora} doesn’t know anyone-”
 
 Barman<“Never mind…”
 
-Barman<“Have you tried asking Anton?”
+Barman<“Have you tried asking {anton}?”
 
 Patrick<“The chess player? Not yet. Actually, I was looking for his chess set, he seemed very eager to play a game with me.”
 
-Barman<“Yeah, poor Anton is like that, always looking for a new partner to play with. He hasn’t been able to play new people since the chess club here in town closed.”
+Barman<“Yeah, poor {anton} is like that, always looking for a new partner to play with. He hasn’t been able to play new people since the chess club here in town closed.”
 
 //Can send the player to pick up the pieces at Rosanna’s house.
 Barman<“His pieces should be on that table over there, just pick them up.”
 ->DONE
 
 ===BarmanDefault3
-Barman<“The pieces should be on that table over there, just pick them up.”
+Barman<“The pieces should be on that stool over there, just {~action(pick)} them up.”
 ->DONE
 
 ===AntonHouseChat2
 Anton<“You found them, thank Goodness. Let’s play, then.”
+~toraLoc = "_999_Limbo"
 
 //Start the minigame.
 ~ startMinigame(12)
-Anton<"Let's play."
+
 //After winning the minigame, the room transforms, lightening up, getting tidy, and with a few children running about.
 Anton<“Ah, the memories… How I missed this, playing against a new friend, thank you.”
 
 Patrick<“I’m glad I could help.”
 
-Patrick<“Em… Anton, would you, by any chance, have an extra car tire I can borrow?”
+Patrick<“Em… Anton, would you, by any chance, have an extra {carTire} I can borrow?”
 
-Anton<“A car tire… No, I don’t think I have one. You see, I left town in my car, like everyone else. I’m not sure if any car was left behind. 
+Anton<“A {carTire}… No, I don’t think I have one. You see, I left town in my car, like everyone else. I’m not sure if any car was left behind. 
 Anton<“Tora was the last one to leave, she should know if any car was left behind.”
 
 Anton<“The poor thing blames herself for the death of the town.”
@@ -478,7 +529,7 @@ Anton<“Yes, it was.”
 
 Anton<“Maybe you should try asking Fionna about an extra tire, her partner’s car could have been left behind.”
 
-Anton<“You can find her in the northwest of town, in the chicken coop.”
+Anton<“You can find her in the norteast of town, in the chicken coop.”
 
 Patrick<“Okay, thanks.”
 
@@ -505,9 +556,9 @@ Anton<“I almost forgot how good it feels...”
 ===FionnaChat1
 Fionna<“Hey, welcome to our little town.”
 //Maybe the player can see the chicken from the beginning, throughout the whole map?
-Patrick<“Hi, I was looking for Fionna, would you know where I can find her?”
+Patrick<“Hi, I was looking for {fionna}, would you know where I can find her?”
 
-Fionna<She smiles. “Yes, it’s me, Tora was looking for you.”
+Fionna<“Yes, it’s me. You're the new guy in town everyone is talking about. {tora} was looking for you.”
 
 Patrick<“For me?”
 
@@ -520,7 +571,7 @@ Fionna<“Yes, you. I can tell you where to find her, but first, can you help me
 	+“Who’s their owner?”
 
 -
-Fionna<“It was… Claire, my late wife. She died of sickness when I was on a business trip. If I only stayed with her, I could have taken her to the doctor.”
+Fionna<“It was… Claire, my late wife. She died of illness when I was on a business trip. If I only stayed with her, I could have taken her to the doctor.”
 
 Fionna<“…”
 
@@ -546,25 +597,65 @@ Fionna<“No buts, time to catch some chicken.”
 ~ startMinigame(14)
 //After finishing the minigame and seeing the scene get alive…
 Fionna<“Claire would thank you with an apple pie. I’m not that good with cooking, so I’ll answer your questions as promised.”
+~toraLoc = "_1_CarCrash"
 
 	+ “Where can I find Tora?”
-	Fionna<“She’s in the viaduct, east of town. She often goes there to visit her father’s tomb.”
+	Fionna<“She’s went to check on your car, in the forest.”
 
+	//Fionna<“She’s in the viaduct, east of town. She often goes there to visit her father’s tomb.”
 	+ “Do you have an extra car tire?”
-	Fionna<“A car tire? No, I don’t have one, but Tora should know where you can find one. Didn’t she tell you yet?”
+	Fionna<“A {carTire}? No, I don’t have one, but Tora should know where you can find one. Didn’t she tell you yet? You can find her where you broke your car, in the forest.”
 
 - 
-TO BE CONTINUED.
 ~startCinematic()
 ->DONE
 
 ===FionnaDefault1
 Fionna<"Oh, these damn chicken won't stay still."
+//~giveItem(0)
+->DONE
+
+===FionnaTractorTire
+Fionna<"Where did you get that from?"
+->DONE
+
+===FionnaBikeTire
+Fionna<"A {bikeTire}, it can come in handy if you have a bike."
+->DONE
+
+===ToraChat2Car
+Tora<"Hey..."
+Patrick<"{fionna} said you were looking for me."
+Tora<"I- I have something to tell you."
+Patrick<"O...kay, sure."
+Tora<"I'm- I have the thing you're looking for. A- {carTire}."
+Patrick<"That's great."
+Tora<"You're not... mad at me, for not telling you sooner?"
+    + "No, of coruse not. Why would I be mad at you?"
+    Patrick<"I got to know very interesting people, and I even got the chance to help them."
+    Tora<"Really? Thank you, thank you very much for understanding."
+    Tora<"It- it was my fault that the fountain broke... And I have been waiting for so long for someone to fix it..."
+    ->DONE
+    + "Well, I'm a little annoyed, to be honest. I only thing I want right now is to go home and sleep."
+    Tora<"I'm very sorry, I truly am."
+    Tora<"It's just- I wanted the town to go back to life so badly, and there's no one else to help-"
+-
+Tora<"Once more, I'm sorry for trying to deceive you. Here's the {carTire}. I hope you have a safe return to your home. If you ever feel like visiting us, you're always welcome."
+//Give item.
+
 ->DONE
 
 === PickUpPieces ===
 ~ hasPieces = true
 ->Anton
 ->DONE
+
+=== PickUpPiecesBarman ===
+Barman<"You found them, {anton}"'s {chessPiece}."
+Barman<"He loves this set. He's always bragging about winning against some World Champion with them."
+->DONE
+
+=== PickUpPiecesTora ===
+Tora<"Me, playing chess? I don't even know the names of the pieces."
 
 ->END

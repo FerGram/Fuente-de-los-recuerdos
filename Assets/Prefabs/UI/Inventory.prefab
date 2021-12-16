@@ -360,7 +360,7 @@ MonoBehaviour:
   _slots:
   - {fileID: 7721076824048965480}
   - {fileID: 7721076824743387376}
-  - {fileID: 7721076824743387376}
+  - {fileID: 3252645085142894869}
 --- !u!1 &7721076824048965481
 GameObject:
   m_ObjectHideFlags: 0

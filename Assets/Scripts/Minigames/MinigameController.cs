@@ -22,8 +22,6 @@ public class MinigameController : MonoBehaviour
     {
 		_mainScene = SceneManager.GetActiveScene();
 
-		//Invoke("LoadMinigame", 2f);
-
 		MinigameEvents.current.onLoadMinigame += LoadMinigame;
 		MinigameEvents.current.onUnloadMinigame += UnloadMinigame;
 	}
@@ -39,19 +37,6 @@ public class MinigameController : MonoBehaviour
 		SceneManager.LoadScene(_sceneIndex, LoadSceneMode.Additive);
 		SceneManager.sceneLoaded += SetActiveScene;
 		_minigameWindow.SetActive(true);
-
-		//Move window to proper position
-		Vector3 newPosWindow = Camera.main.transform.position;
-		newPosWindow.z = -1; //Keep the window in front of everything
-		//_minigameWindow.transform.position = newPosWindow;
-
-		//Activate window obj
-
-
-		
-		//Cursor.lockState = CursorLockMode.Confined;
-
-		//Set active scene to be 
 	}
 
 	public void UnloadMinigame(int minigame)
@@ -66,7 +51,7 @@ public class MinigameController : MonoBehaviour
 	void SetActiveScene(Scene scene, LoadSceneMode loadMode)
 	{
 		SceneManager.SetActiveScene(scene);
-		Debug.Log("Scene loaded:" + SceneManager.GetActiveScene().name);
+		//Debug.Log("Scene loaded:" + SceneManager.GetActiveScene().name);
 	}
 
 	public Vector2 ConvertFromScreenToViewport(Camera minigameCam, MeshRenderer _minigameWindow)

@@ -86,7 +86,6 @@ VAR chessPiecesLoc = "_999_Limbo"
 
 === InitialCrashDefault
 ~InitializeColorVariables()
-TODO call function only once. It's also called in Tora for test purpuses.
 Patrick<"OH MY GOD."
 Patrick<"Ok, that was- terrifying."
 Patrick<"I'm still in one piece though, which is a start."
@@ -138,6 +137,7 @@ Patrick<"I'll have a look."
 
 === ItemToSign
 Patrick<"Why in the world would I throw an object at a sign?"
+->DONE
 
 === SignHikers ===
 Martha<"KPNTVLEY..."
@@ -325,7 +325,9 @@ Helen<"I see you’re not from here, welcome to Sander’s. I would serve you so
 
 -
 Helen<“So, what brings you to my humble little bar?”
+
 ~nudoLoc = "_12_Farm"
+
 ~antonLoc = "_17_AntonHouse"
 
 	+ “I’m looking for the farmer, Nudo.”

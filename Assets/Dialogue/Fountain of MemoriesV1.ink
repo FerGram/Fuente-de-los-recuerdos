@@ -197,7 +197,7 @@ TODO Save system
 //Story logic Tora
 {
 - not ToraChat1:
-        ~InitializeColorVariables() //Initialize all items, should move to the very first scene.
+        ~InitializeColorVariables()
         -> ToraChat1
 - not NudoFarmChat1:
         ->ToraDefault1
@@ -226,6 +226,9 @@ Tora<"Me, playing chess? I don't even know the names of the pieces."
 Tora<“Welcome to Kiponut Valley, traveler.”
 Patrick<“A... ARE YOU...? WHAT ARE YOU?!”
 Tora<“Worry not, traveler. We are harmless.”
+
+~startMinigame(14)
+
 Patrick<“W... WE?!”
 Tora<“Ah, yes. Excuse me.”
 //~startMinigame(14)

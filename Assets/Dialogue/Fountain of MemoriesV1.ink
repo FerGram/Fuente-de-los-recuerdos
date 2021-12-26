@@ -227,8 +227,6 @@ Tora<“Welcome to Kiponut Valley, traveler.”
 Patrick<“A... ARE YOU...? WHAT ARE YOU?!”
 Tora<“Worry not, traveler. We are harmless.”
 
-~startMinigame(14)
-
 Patrick<“W... WE?!”
 Tora<“Ah, yes. Excuse me.”
 //~startMinigame(14)

@@ -37,6 +37,9 @@ public class DialogueDisplay : MonoBehaviour
 
     public bool isPlaying {get; private set;}
 
+	private bool _isTyping;
+	private int _dialogueTextLength;
+
     //public Animator _animator;
     
     private void Awake() {
@@ -69,7 +72,7 @@ public class DialogueDisplay : MonoBehaviour
         
         if (!isPlaying) return;
 
-        if (Input.GetKeyDown(KeyCode.Space) && _canPressSpace) ContinueStory();
+        if (Input.GetKeyDown(KeyCode.Space) && (_canPressSpace || _isTyping)) ContinueStory();
     }
 
     public void StartDialogue()
@@ -118,6 +121,12 @@ public class DialogueDisplay : MonoBehaviour
     private void ContinueStory()
     {
         StopAllCoroutines();
+		if (_isTyping)
+		{
+			_isTyping = false;
+			_dialogueText.maxVisibleCharacters = _dialogueTextLength;
+			return;
+		}
 
         if (_currentDialogue.canContinue){
 
@@ -195,7 +204,8 @@ public class DialogueDisplay : MonoBehaviour
     }
 
     IEnumerator TypeWritingEffect (string text){
-
+		_isTyping = true;
+		_dialogueTextLength = text.Length;
         _dialogueText.text = text;
 		
         for (int i = 0; i < text.Length; i++)
@@ -204,6 +214,7 @@ public class DialogueDisplay : MonoBehaviour
             yield return new WaitForSeconds(_displaySpeed);
         }
 
+		_isTyping = false;
     }
 
     private void DisplayTalkingCharacter(){

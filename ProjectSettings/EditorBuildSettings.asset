@@ -68,4 +68,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/_17_AntonHouse.unity
     guid: 4fe6cd324975c79418005ecbd28d684a
+  - enabled: 1
+    path: Assets/Scenes/Minigames/BarMinigame.unity
+    guid: 0372e308e759109469020171f3eee7fa
   m_configObjects: {}

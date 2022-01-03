@@ -20,6 +20,7 @@ TagManager:
   - GoodBasketHelper
   - Inventory
   - MenuButton
+  - Metaball_liquid
   layers:
   - Default
   - TransparentFX
@@ -35,7 +36,7 @@ TagManager:
   - NudoPlant1
   - NudoPlant2
   - NudoPlant3
-  - 
+  - Fluids
   - 
   - 
   - 

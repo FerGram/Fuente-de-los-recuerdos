@@ -677,6 +677,7 @@ MonoBehaviour:
   minigameCam: {fileID: 959785556}
   beerBottle: {fileID: 8606923741957454239}
   selectedBottle: {fileID: 0}
+  filledBottles: 0
 --- !u!4 &1878900389
 Transform:
   m_ObjectHideFlags: 0

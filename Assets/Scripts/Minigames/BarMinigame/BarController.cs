@@ -46,8 +46,10 @@ public class BarController : MonoBehaviour
             if (hit.collider != null && beerBottle.fillBottle == false)
             {
                 selectedBottle = hit.collider.gameObject;
-                //Debug.Log(selectedBottle);
-                beerBottle.fillBottle = true;
+                if (!selectedBottle.transform.GetChild(1).gameObject.GetComponent<Renderer>().isVisible)
+                {
+                    beerBottle.fillBottle = true;
+                }
                 
                 Debug.Log("Bottle hit");
             }

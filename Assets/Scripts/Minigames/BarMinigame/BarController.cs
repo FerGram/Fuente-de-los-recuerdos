@@ -14,9 +14,11 @@ public class BarController : MonoBehaviour
 
     [SerializeField] BeerBottle beerBottle;
     public GameObject selectedBottle;
-    int filledBottle;
-    void Awake()
+    public int filledBottles;
+    void Start()
     {
+        filledBottles = 0;
+
         beerBottle = beerBottle.GetComponent<BeerBottle>();
 
         minigameController = FindObjectOfType<MinigameController>();
@@ -27,6 +29,12 @@ public class BarController : MonoBehaviour
     {
         //transform.position = minigameController.ConvertFromScreenToViewport(minigameCam, minigameRenderer);
         transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+        if (filledBottles >= 3)
+        {
+            Debug.Log("Minigame finished");
+        }
+
 
         if (Input.GetMouseButtonDown(0))
         {
@@ -44,6 +52,5 @@ public class BarController : MonoBehaviour
                 Debug.Log("Bottle hit");
             }
         }
-
     }
 }

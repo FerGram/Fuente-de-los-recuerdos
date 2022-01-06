@@ -44,20 +44,21 @@ public class BeerBottle : MonoBehaviour
             }
             else if (movingBackward)
             {
-                transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.identity, 2);
-                transform.position = Vector3.MoveTowards(transform.position, startingPos, 0.05f);
+                transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.identity, 1.5f);
+                transform.position = Vector3.MoveTowards(transform.position, startingPos, 0.075f);
 
                 if (transform.position == startingPos && transform.rotation == Quaternion.Euler(0, 0, 0))
                 {
                     movingBackward = false;
                     preparePositions = true;
                     fillBottle = false;
+                    controller.filledBottles++;
                 }
             }
-            else
+            else //movingForward
             {
-                transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0, 0, 160), 2);
-                transform.position = Vector3.MoveTowards(transform.position, fillingPos, 0.05f);
+                transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0, 0, 160), 1.5f);
+                transform.position = Vector3.MoveTowards(transform.position, fillingPos, 0.075f);
 
                 if (transform.rotation == Quaternion.Euler(0, 0, 160) && transform.position == fillingPos && movingForward == true)
                 {
@@ -65,7 +66,14 @@ public class BeerBottle : MonoBehaviour
                     movingForward = false;
                     // Fill bottle
                     transform.GetChild(0).gameObject.SetActive(true);
-                    StartCoroutine(InstantiateBeer(5));
+                    if (selectedBottle.name == "1Bottle")
+                    {
+                        StartCoroutine(InstantiateBeer(100));
+                    }
+                    else
+                    {
+                        StartCoroutine(InstantiateBeer(60));
+                    }
                 }
             }
         }
@@ -78,10 +86,14 @@ public class BeerBottle : MonoBehaviour
         for (int i = 0; i < n; i++)
         {
             Instantiate(beerLiquid, beerExitPos, Quaternion.identity);
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.15f);
         }
-        selectedBottle.transform.GetChild(1).gameObject.SetActive(true);
+
+        yield return new WaitForSeconds(0.25f);
         transform.GetChild(0).gameObject.SetActive(false);
         movingBackward = true;
+
+        yield return new WaitForSeconds(0.5f);
+        selectedBottle.transform.GetChild(1).gameObject.SetActive(true);
     }
 }

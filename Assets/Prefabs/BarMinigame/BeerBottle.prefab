@@ -210,3 +210,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49cf01dab18ed144e819f992585ea5fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  beerLiquid: {fileID: 0}
+  fillBottle: 0

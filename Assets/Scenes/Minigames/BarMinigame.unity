@@ -756,26 +756,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1205236841}
     m_Modifications:
-    - target: {fileID: 416488968864431736, guid: 5229ff95e3e54da469eb976e31ff06c1, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.832622
-      objectReference: {fileID: 0}
-    - target: {fileID: 416488968864431736, guid: 5229ff95e3e54da469eb976e31ff06c1, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.9948554
-      objectReference: {fileID: 0}
-    - target: {fileID: 416488968864431736, guid: 5229ff95e3e54da469eb976e31ff06c1, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 416488968864431736, guid: 5229ff95e3e54da469eb976e31ff06c1, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.116
-      objectReference: {fileID: 0}
-    - target: {fileID: 491163630059583901, guid: 5229ff95e3e54da469eb976e31ff06c1, type: 3}
-      propertyPath: outlineWidth
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 894346974256883468, guid: 5229ff95e3e54da469eb976e31ff06c1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.158
@@ -787,46 +767,6 @@ PrefabInstance:
     - target: {fileID: 894346974256883468, guid: 5229ff95e3e54da469eb976e31ff06c1, type: 3}
       propertyPath: m_LocalPosition.z
       value: -2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2783498575537641722, guid: 5229ff95e3e54da469eb976e31ff06c1, type: 3}
-      propertyPath: m_Color.b
-      value: 0.2784314
-      objectReference: {fileID: 0}
-    - target: {fileID: 2783498575537641722, guid: 5229ff95e3e54da469eb976e31ff06c1, type: 3}
-      propertyPath: m_Color.g
-      value: 0.34509805
-      objectReference: {fileID: 0}
-    - target: {fileID: 2783498575537641722, guid: 5229ff95e3e54da469eb976e31ff06c1, type: 3}
-      propertyPath: m_Color.r
-      value: 0.25882354
-      objectReference: {fileID: 0}
-    - target: {fileID: 3019037073050142986, guid: 5229ff95e3e54da469eb976e31ff06c1, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3019037073050142986, guid: 5229ff95e3e54da469eb976e31ff06c1, type: 3}
-      propertyPath: outlineMode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3019037073050142986, guid: 5229ff95e3e54da469eb976e31ff06c1, type: 3}
-      propertyPath: outlineColor.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3019037073050142986, guid: 5229ff95e3e54da469eb976e31ff06c1, type: 3}
-      propertyPath: outlineColor.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3019037073050142986, guid: 5229ff95e3e54da469eb976e31ff06c1, type: 3}
-      propertyPath: outlineColor.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3019037073050142986, guid: 5229ff95e3e54da469eb976e31ff06c1, type: 3}
-      propertyPath: precomputeOutline
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4455517023972801184, guid: 5229ff95e3e54da469eb976e31ff06c1, type: 3}
-      propertyPath: m_Layer
-      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7027887227192218587, guid: 5229ff95e3e54da469eb976e31ff06c1, type: 3}
       propertyPath: m_RenderingLayerMask
@@ -912,8 +852,7 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 3019037073050142986, guid: 5229ff95e3e54da469eb976e31ff06c1, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5229ff95e3e54da469eb976e31ff06c1, type: 3}
 --- !u!1 &7027887228012544296 stripped
 GameObject:

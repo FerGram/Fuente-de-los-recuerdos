@@ -28,7 +28,7 @@ public class BarController : MonoBehaviour
     void Update()
     {
         //transform.position = minigameController.ConvertFromScreenToViewport(minigameCam, minigameRenderer);
-        transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        transform.position = new Vector3 (Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y, -5);
 
         if (filledBottles >= 3)
         {

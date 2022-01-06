@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 894346974256883468}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: PouringPos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 286348988977426272}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.351, y: 1.194, z: -48.505623}
+  m_LocalPosition: {x: 0.351, y: 1.194, z: -1}
   m_LocalScale: {x: 0.4, y: 0.4, z: 1}
   m_Children: []
   m_Father: {fileID: 7027887227938379115}

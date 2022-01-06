@@ -12,11 +12,13 @@ public class BarController : MonoBehaviour
     MeshRenderer minigameRenderer;
     MinigameController minigameController;
 
-    [SerializeField] GameObject BeerBottle;
-    GameObject selectedBottle;
+    [SerializeField] BeerBottle beerBottle;
+    public GameObject selectedBottle;
     int filledBottle;
     void Awake()
     {
+        beerBottle = beerBottle.GetComponent<BeerBottle>();
+
         minigameController = FindObjectOfType<MinigameController>();
         minigameRenderer = GameObject.Find("Minigame Window").GetComponent<MeshRenderer>();
     }
@@ -33,11 +35,13 @@ public class BarController : MonoBehaviour
             cursor.position = finalPos;
             RaycastHit2D hit = Physics2D.Raycast(finalPos, Vector2.zero, Mathf.Infinity, layerMask);
 
-            if (hit.collider != null)
+            if (hit.collider != null && beerBottle.fillBottle == false)
             {
-                selectedBottle = hit.collider.gameObject; 
+                selectedBottle = hit.collider.gameObject;
+                //Debug.Log(selectedBottle);
+                beerBottle.fillBottle = true;
+                
                 Debug.Log("Bottle hit");
-
             }
         }
 

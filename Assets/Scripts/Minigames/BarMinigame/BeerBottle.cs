@@ -72,7 +72,7 @@ public class BeerBottle : MonoBehaviour
                     }
                     else
                     {
-                        StartCoroutine(InstantiateBeer(60));
+                        StartCoroutine(InstantiateBeer(65));
                     }
                 }
             }

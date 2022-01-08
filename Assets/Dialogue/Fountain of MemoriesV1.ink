@@ -205,7 +205,7 @@ TODO Save system
 - FionnaChat1:
         ->ToraChat2Car
 - else:
-        Tora<"I see you're making new frinds and helping out the townspeople."
+        Tora<"I see you're making new friends and helping out the townspeople."
         Tora<"Thanks..."
         ->DONE
  }
@@ -229,28 +229,28 @@ Tora<“Worry not, traveler. We are harmless.”
 
 Patrick<“W... WE?!”
 Tora<“Ah, yes. Excuse me.”
-~startMinigame(21)
-Tora<“As I was saying. Welcome to Kiponut Valley.”
-Patrick<“Okay...”
-Tora<“This town was abandoned long ago, when the fountain broke.”
-Tora<“What remains here are just ghosts of our past selves.”
-Tora<“Forgotten souls that wander around waiting for the day...”
+// ~startMinigame(21)
+// Tora<“As I was saying. Welcome to Kiponut Valley.”
+// Patrick<“Okay...”
+// Tora<“This town was abandoned long ago, when the fountain broke.”
+// Tora<“What remains here are just ghosts of our past selves.”
+// Tora<“Forgotten souls that wander around waiting for the day...”
 Tora<“For the day the town comes back to live.”
 
     + “What do you mean?”
 
     Tora<“In its time, this town was a lively place. Full of joyful people which fed the town's natural atractive.”
-    Tora<“The main structure of the village was the fountain I'm next to right now.”
-    Tora<“It was usual to see people gaze at its beautiful shape at any time of the day.”
-    Tora<“But people started leaving town and the fountain suddenly wasn't spilling water like before.”
-    Tora<“And people kept leaving town till no more water came out of its beautiful spouts.”
-    Tora<“It's like the fountain needed the people in town to keep going.”
+//     Tora<“The main structure of the village was the fountain I'm next to right now.”
+//     Tora<“It was usual to see people gaze at its beautiful shape at any time of the day.”
+//     Tora<“But people started leaving town and the fountain suddenly wasn't spilling water like before.”
+//     Tora<“And people kept leaving town till no more water came out of its beautiful spouts.”
+//     Tora<“It's like the fountain needed the people in town to keep going.”
 
     + “Do you know where I can find a car tire?”
 
     Tora<“I'm afraid I don't have what you are looking for, traveler. But I know someone who might be able to help you.”
 
-	+ “Why did the fountain break?”
+    + “Why did the fountain break?”
 
     Tora<“First, it was Isaiah: the town's baker.”
     Tora<“He had to move to the city because he wanted to expand his business.”
@@ -301,7 +301,7 @@ Tora<“You should find {nudo} in the bar, the building over there.”
 - NudoFarmChat1 and not AntonHouseChat1 and not BarChat2:
         ->BarChat2
 
-- AntonHouseChat1:
+- AntonHouseChat1 and not BarChat3:
         ->BarChat3
 
 - BarChat2:
@@ -311,7 +311,7 @@ Tora<“You should find {nudo} in the bar, the building over there.”
         Helen<"{tora} was looking for you. I think she went to {fionna}'s home."
         ->DONE
 
-- BarChat2:
+- BarChat3:
         ->BarmanDefault3
  }
 

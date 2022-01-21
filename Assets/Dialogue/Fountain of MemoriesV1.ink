@@ -229,7 +229,7 @@ Tora<“Worry not, traveler. We are harmless.”
 
 Patrick<“W... WE?!”
 Tora<“Ah, yes. Excuse me.”
- ~startMinigame(13)
+//~startMinigame(13)
 // Tora<“As I was saying. Welcome to Kiponut Valley.”
 // Patrick<“Okay...”
 // Tora<“This town was abandoned long ago, when the fountain broke.”
@@ -348,6 +348,7 @@ Helen<“The farm is east of here.”
 
 === BarmanDefault1
 Helen<"I'm tired of cleaning all this dust. I should hire someone to do it."
+//~startMinigame(21)
 ->DONE
 
 === BarmanDefault2

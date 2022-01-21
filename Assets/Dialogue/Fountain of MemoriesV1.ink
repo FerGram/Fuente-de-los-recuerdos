@@ -229,7 +229,7 @@ Tora<“Worry not, traveler. We are harmless.”
 
 Patrick<“W... WE?!”
 Tora<“Ah, yes. Excuse me.”
-// ~startMinigame(21)
+ ~startMinigame(13)
 // Tora<“As I was saying. Welcome to Kiponut Valley.”
 // Patrick<“Okay...”
 // Tora<“This town was abandoned long ago, when the fountain broke.”
@@ -319,10 +319,15 @@ Tora<“You should find {nudo} in the bar, the building over there.”
 === BarChat1
 Helen<“A real human."
 Helen<"I see you’re not from here, welcome to Sander’s. I would serve you something, but- I can’t really, can I?”
+Helen<"Would you give me a hand please?"
+
+~startMinigame(21)
+
+Helen<"Thanks for the help, it's been a long time since those bottles were filled."
 
 	+ “It’s fine.”
 
-	+ “I would really do with a warm cup of milk.”
+	+ “I would really do with a warm cup of milk though.”
 
 -
 
@@ -342,7 +347,7 @@ Helen<“The farm is east of here.”
 ->DONE
 
 === BarmanDefault1
-Helen<"I'm tierd of cleaning all this dust. I should hire someone to do it."
+Helen<"I'm tired of cleaning all this dust. I should hire someone to do it."
 ->DONE
 
 === BarmanDefault2
@@ -400,7 +405,7 @@ Nudo<“Would you be so kind as to help me with it, please? You, young people, a
 -
 Nudo<“A {carTire}? Yea, I do have a few spare ones. Finish the field and I’ll give you one.”
 Nudo<"You just have to put the good vegetables on the left basket, and the weed on the right basket."
-//~startMinigame(13)
+~startMinigame(13)
 Nudo<“Well well, you did a great job. You remind me of my son, he was just as skinny as you, and he still could work from dawn ‘til dusk.”
 
 Nudo<“What nice memories…”

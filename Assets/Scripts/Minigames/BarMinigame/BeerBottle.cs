@@ -21,7 +21,7 @@ public class BeerBottle : MonoBehaviour
     Vector3 beerExitPos;
     void Start()
     {
-        startingPos = transform.position;
+        startingPos = new Vector3(-0.36f, -3.28f, 1.5f);
 
         controller = GameObject.FindGameObjectWithTag("GameController").GetComponent<BarController>();
         fillBottle = false;

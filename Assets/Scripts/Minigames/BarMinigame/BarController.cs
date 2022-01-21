@@ -17,15 +17,17 @@ public class BarController : MonoBehaviour
     public int filledBottles;
 
 	bool isMinigameFinished;
-
+    
 	void Start()
     {
         filledBottles = 0;
 
         beerBottle = beerBottle.GetComponent<BeerBottle>();
+        StartCoroutine(MoveToInitPos());
 
         minigameController = FindObjectOfType<MinigameController>();
         minigameRenderer = GameObject.Find("Minigame Window").GetComponent<MeshRenderer>();
+
     }
 
     void Update()
@@ -59,6 +61,16 @@ public class BarController : MonoBehaviour
                 
                 Debug.Log("Bottle hit");
             }
+        }
+    }
+
+    IEnumerator MoveToInitPos()
+    {
+        while (true)
+        {
+            beerBottle.transform.position = Vector3.MoveTowards(beerBottle.transform.position, new Vector3(-0.36f, -3.28f, 1.5f), 0.5f);
+            if (beerBottle.transform.position.y <= -3.28f) break;
+            yield return new WaitForSeconds(0.05f);
         }
     }
 

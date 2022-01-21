@@ -14684,7 +14684,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sceneToLoad: 8
-  _nextSpawnPos: {x: -47.7, y: 15.22}
+  _nextSpawnPos: {x: -47.7, y: 2.09}
 --- !u!61 &1067979230
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -17578,7 +17578,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1932926825}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -21.37, y: -10.4, z: -10}
+  m_LocalPosition: {x: 30, y: -10.4, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 808227639}
@@ -18080,7 +18080,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3973132746343038065, guid: 6f6ba25a24581d14793070edb1febd9d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -21.37
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 3973132746343038065, guid: 6f6ba25a24581d14793070edb1febd9d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -18445,7 +18445,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2011045667}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -21.37, y: -10.4, z: -10}
+  m_LocalPosition: {x: 29.229519, y: -10.398809, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 72184312}
@@ -19410,6 +19410,22 @@ PrefabInstance:
     - target: {fileID: 9077169192361299338, guid: da7afe65209425243ad191c47f078d0a, type: 3}
       propertyPath: m_Offset.y
       value: -2.6083908
+      objectReference: {fileID: 0}
+    - target: {fileID: 9077169192361299338, guid: da7afe65209425243ad191c47f078d0a, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.x
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 9077169192361299338, guid: da7afe65209425243ad191c47f078d0a, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.y
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 9077169192361299338, guid: da7afe65209425243ad191c47f078d0a, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 9077169192361299338, guid: da7afe65209425243ad191c47f078d0a, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 9077169192361299340, guid: da7afe65209425243ad191c47f078d0a, type: 3}
       propertyPath: _onEndHover.m_PersistentCalls.m_Calls.Array.size

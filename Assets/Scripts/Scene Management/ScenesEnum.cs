@@ -24,5 +24,6 @@ public enum ScenesEnum
     _14_ForestWalk_Day,
     _15_FarVillage_Day,
     _16_Plaza_Day,
-	_17_AntonHouse
+	_17_AntonHouse,
+	BarMinigame
 };

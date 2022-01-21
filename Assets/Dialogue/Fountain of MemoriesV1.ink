@@ -229,7 +229,7 @@ Tora<“Worry not, traveler. We are harmless.”
 
 Patrick<“W... WE?!”
 Tora<“Ah, yes. Excuse me.”
-//~startMinigame(13)
+//~startMinigame(21)
 // Tora<“As I was saying. Welcome to Kiponut Valley.”
 // Patrick<“Okay...”
 // Tora<“This town was abandoned long ago, when the fountain broke.”

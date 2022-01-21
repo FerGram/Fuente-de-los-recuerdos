@@ -52,6 +52,7 @@ public class MinigameController : MonoBehaviour
 	{
 		SceneManager.SetActiveScene(scene);
 		//Debug.Log("Scene loaded:" + SceneManager.GetActiveScene().name);
+		SceneManager.sceneLoaded -= SetActiveScene;
 	}
 
 	public Vector2 ConvertFromScreenToViewport(Camera minigameCam, MeshRenderer _minigameWindow)

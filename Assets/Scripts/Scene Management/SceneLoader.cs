@@ -60,9 +60,13 @@ public class SceneLoader : Singleton<SceneLoader>
         if (oldScene.name == ScenesEnum.ChessMinigame.ToString() ||
             oldScene.name == ScenesEnum.FionnaMinigame.ToString() ||
             oldScene.name == ScenesEnum.NudoMinigame.ToString() ||
-            newScene.name == ScenesEnum.ChessMinigame.ToString() ||
+			oldScene.name == ScenesEnum.BarMinigame.ToString() ||
+
+			newScene.name == ScenesEnum.ChessMinigame.ToString() ||
             newScene.name == ScenesEnum.FionnaMinigame.ToString() ||
-            newScene.name == ScenesEnum.NudoMinigame.ToString()) return;
+            newScene.name == ScenesEnum.NudoMinigame.ToString() ||
+			newScene.name == ScenesEnum.BarMinigame.ToString()) return;
+
 
         if (_sceneInGameEvent != null) _sceneInGameEvent.Raise();
 

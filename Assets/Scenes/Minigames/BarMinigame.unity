@@ -318,7 +318,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 904395237}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Cursor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -760,18 +760,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1205236841}
     m_Modifications:
-    - target: {fileID: 894346974256883468, guid: 5229ff95e3e54da469eb976e31ff06c1, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.158
-      objectReference: {fileID: 0}
-    - target: {fileID: 894346974256883468, guid: 5229ff95e3e54da469eb976e31ff06c1, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.133
-      objectReference: {fileID: 0}
-    - target: {fileID: 894346974256883468, guid: 5229ff95e3e54da469eb976e31ff06c1, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -2
-      objectReference: {fileID: 0}
     - target: {fileID: 7027887227192218587, guid: 5229ff95e3e54da469eb976e31ff06c1, type: 3}
       propertyPath: m_RenderingLayerMask
       value: 1
@@ -922,18 +910,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1205236841}
     m_Modifications:
-    - target: {fileID: 2905282229560880507, guid: 0d6e7b1d2d9de334e8de13e0d83fe91e, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.054
-      objectReference: {fileID: 0}
-    - target: {fileID: 2905282229560880507, guid: 0d6e7b1d2d9de334e8de13e0d83fe91e, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.259
-      objectReference: {fileID: 0}
-    - target: {fileID: 2905282229560880507, guid: 0d6e7b1d2d9de334e8de13e0d83fe91e, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -2
-      objectReference: {fileID: 0}
     - target: {fileID: 3107256716768074547, guid: 0d6e7b1d2d9de334e8de13e0d83fe91e, type: 3}
       propertyPath: m_Enabled
       value: 0

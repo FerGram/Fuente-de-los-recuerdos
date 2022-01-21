@@ -68,7 +68,7 @@ public class BeerBottle : MonoBehaviour
                     transform.GetChild(0).gameObject.SetActive(true);
                     if (selectedBottle.name == "1Bottle")
                     {
-                        StartCoroutine(InstantiateBeer(100));
+                        StartCoroutine(InstantiateBeer(90));
                     }
                     else
                     {
@@ -86,7 +86,7 @@ public class BeerBottle : MonoBehaviour
         for (int i = 0; i < n; i++)
         {
             Instantiate(beerLiquid, beerExitPos, Quaternion.identity);
-            yield return new WaitForSeconds(0.15f);
+            yield return new WaitForSeconds(0.06f);
         }
 
         yield return new WaitForSeconds(0.25f);

@@ -1565,7 +1565,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 732118619}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -37.731415, y: -8.602111, z: -10}
+  m_LocalPosition: {x: -37.725883, y: -8.602111, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1647309354}
@@ -3589,7 +3589,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7782178, y: 1}
+    m_SensorSize: {x: 1.7784371, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -4229,23 +4229,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2100000, guid: 924702baceb124246af2ca92fc6c3c47, type: 2}
     - target: {fileID: 980000852091537662, guid: 117e2c37280c17743a7aacef7c95845f, type: 3}
-      propertyPath: _onInteract.m_PersistentCalls.m_Calls.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 980000852091537662, guid: 117e2c37280c17743a7aacef7c95845f, type: 3}
-      propertyPath: _onInteract.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 980000852091537662, guid: 117e2c37280c17743a7aacef7c95845f, type: 3}
       propertyPath: _onEndHover.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 980000853444311678}
     - target: {fileID: 980000852091537662, guid: 117e2c37280c17743a7aacef7c95845f, type: 3}
       propertyPath: _onEndHover.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 1852681290}
-    - target: {fileID: 980000852091537662, guid: 117e2c37280c17743a7aacef7c95845f, type: 3}
-      propertyPath: _onInteract.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1852681290}
     - target: {fileID: 980000852091537662, guid: 117e2c37280c17743a7aacef7c95845f, type: 3}
@@ -4257,32 +4245,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1852681290}
     - target: {fileID: 980000852091537662, guid: 117e2c37280c17743a7aacef7c95845f, type: 3}
-      propertyPath: _onInteract.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 980000852091537662, guid: 117e2c37280c17743a7aacef7c95845f, type: 3}
       propertyPath: _onEndHover.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SetOutline
       objectReference: {fileID: 0}
     - target: {fileID: 980000852091537662, guid: 117e2c37280c17743a7aacef7c95845f, type: 3}
-      propertyPath: _onInteract.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: set_sprite
-      objectReference: {fileID: 0}
-    - target: {fileID: 980000852091537662, guid: 117e2c37280c17743a7aacef7c95845f, type: 3}
       propertyPath: _onStartHover.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SetOutline
-      objectReference: {fileID: 0}
-    - target: {fileID: 980000852091537662, guid: 117e2c37280c17743a7aacef7c95845f, type: 3}
-      propertyPath: _onInteract.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: UnityEngine.UI.Image, UnityEngine.UI
-      objectReference: {fileID: 0}
-    - target: {fileID: 980000852091537662, guid: 117e2c37280c17743a7aacef7c95845f, type: 3}
-      propertyPath: _onInteract.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
-      value: 
-      objectReference: {fileID: 21300000, guid: 674780dfc8f885f49a17ed3287b848b0, type: 3}
-    - target: {fileID: 980000852091537662, guid: 117e2c37280c17743a7aacef7c95845f, type: 3}
-      propertyPath: _onInteract.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Sprite, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 980000852289144593, guid: 117e2c37280c17743a7aacef7c95845f, type: 3}
       propertyPath: m_Name

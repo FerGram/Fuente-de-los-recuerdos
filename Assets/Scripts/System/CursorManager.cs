@@ -12,7 +12,7 @@ public class CursorManager : MonoBehaviour
     {
         transform.position = Input.mousePosition;
 
-        if (Input.GetMouseButtonDown(1)){
+        if (Input.GetMouseButtonDown(1) || Input.GetMouseButtonDown(0)){
             // GetComponent<ParticleSystem>().Play();
             // Debug.Log(GetComponent<ParticleSystem>().isEmitting);
             StartCoroutine(Click());

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -16,10 +17,18 @@ public class MinigameController : MonoBehaviour
 
 	RectTransform _windowRect;
 
+	[SerializeField]
+	Sprite minigameCursorSprite;
+
+	Sprite prevImageCursor;
+
+	GameObject cursor;
 
 	// Start is called before the first frame update
 	void Start()
     {
+		cursor = GameObject.FindGameObjectWithTag("Cursor");
+
 		_mainScene = SceneManager.GetActiveScene();
 
 		MinigameEvents.current.onLoadMinigame += LoadMinigame;
@@ -31,6 +40,11 @@ public class MinigameController : MonoBehaviour
 		//Get scene to load
 		_sceneIndex = minigame;
 		Scene scene = SceneManager.GetSceneByBuildIndex(_sceneIndex);
+
+		// Save previous image
+		prevImageCursor = cursor.GetComponent<Image>().sprite;
+		// Change Cursor's image
+		cursor.GetComponent<Image>().sprite = minigameCursorSprite;
 
 		//Load scene asyncronously
 		//SceneManager.LoadSceneAsync(_sceneIndex, LoadSceneMode.Additive, LoadSceneParameters );
@@ -44,6 +58,9 @@ public class MinigameController : MonoBehaviour
 		Scene sceneToDestroy = SceneManager.GetActiveScene();
 		SceneManager.SetActiveScene(_mainScene);
 		SceneManager.UnloadSceneAsync(sceneToDestroy);
+
+		// Change Cursor's image
+		cursor.GetComponent<Image>().sprite = prevImageCursor;
 
 		StartCoroutine(_minigameWindow.GetComponent<MinigameWindow>().Minimize());
 	}

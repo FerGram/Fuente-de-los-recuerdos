@@ -21,6 +21,7 @@ TagManager:
   - Inventory
   - MenuButton
   - Metaball_liquid
+  - Cursor
   layers:
   - Default
   - TransparentFX

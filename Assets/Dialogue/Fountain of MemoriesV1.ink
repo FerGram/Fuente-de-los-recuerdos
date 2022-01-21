@@ -85,8 +85,8 @@ VAR chessPiecesLoc = "_999_Limbo"
 ->DONE
 
 === InitialCrashDefault
-~InitializeColorVariables()
 Patrick<"OH MY GOD."
+~InitializeColorVariables()
 Patrick<"Ok, that was- terrifying."
 Patrick<"I'm still in one piece though, which is a start."
 Patrick<"And despite the horrendous state of the car I think I might be able to fix it... At least just enough to carry me back home."

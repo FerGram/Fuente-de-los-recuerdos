@@ -11217,6 +11217,14 @@ PrefabInstance:
       propertyPath: _onStartHover.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: set_sprite
       objectReference: {fileID: 0}
+    - target: {fileID: 9077169192361299341, guid: da7afe65209425243ad191c47f078d0a, type: 3}
+      propertyPath: _nextSpawnPos.x
+      value: 67.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9077169192361299341, guid: da7afe65209425243ad191c47f078d0a, type: 3}
+      propertyPath: _nextSpawnPos.y
+      value: -29.1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da7afe65209425243ad191c47f078d0a, type: 3}
 --- !u!4 &2606036532563493532 stripped

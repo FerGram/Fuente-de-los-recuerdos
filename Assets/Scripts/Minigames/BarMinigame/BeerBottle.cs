@@ -72,7 +72,7 @@ public class BeerBottle : MonoBehaviour
                     }
                     else
                     {
-                        StartCoroutine(InstantiateBeer(65));
+                        StartCoroutine(InstantiateBeer(75));
                     }
                 }
             }
@@ -86,7 +86,7 @@ public class BeerBottle : MonoBehaviour
         for (int i = 0; i < n; i++)
         {
             Instantiate(beerLiquid, beerExitPos, Quaternion.identity);
-            yield return new WaitForSeconds(0.06f);
+            yield return new WaitForSeconds(0.055f);
         }
 
         yield return new WaitForSeconds(0.25f);

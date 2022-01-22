@@ -74,7 +74,8 @@ public class AudioManager : Singleton<AudioManager>
         if (SceneManager.GetActiveScene().name == ScenesEnum._8_Bar.ToString()){ SwapTrack(_barGramophoneClip);}
         else if (SceneManager.GetActiveScene().name == ScenesEnum.ChessMinigame.ToString() ||
                  SceneManager.GetActiveScene().name == ScenesEnum.FionnaMinigame.ToString() ||
-                 SceneManager.GetActiveScene().name == ScenesEnum.NudoMinigame.ToString())
+                 SceneManager.GetActiveScene().name == ScenesEnum.NudoMinigame.ToString() ||
+                 SceneManager.GetActiveScene().name == ScenesEnum.BarMinigame.ToString())
              { SwapTrack(_minigameClip);}
         else { SwapTrack(_ambientForestClip);}
     }

@@ -47,8 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sceneIndex: 4
   _minigameWindow: {fileID: 8292540829981547167}
-  minigameCursorSprite: {fileID: 21300000, guid: 67ab3016de15ba54eaaa531a2d606162, type: 3}
-  prevImageCursor: {fileID: 21300000, guid: 71bdf97118c8dea4280b5a3da3c8377e, type: 3}
+  minigameCursorSprite: {fileID: 21300000, guid: 5b7918993f9ed87429b40c807778725f, type: 3}
 --- !u!114 &8292540829314088622
 MonoBehaviour:
   m_ObjectHideFlags: 0

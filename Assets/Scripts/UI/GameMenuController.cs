@@ -178,7 +178,7 @@ public class GameMenuController : MonoBehaviour, ISelectHandler, IDeselectHandle
     }
 
     public void LoadScene(){
-
+        Debug.Log("Loading next scene: " + GameStateData.Instance.gameData.sceneToLoad.ToString());
         SceneManager.LoadSceneAsync(GameStateData.Instance.gameData.sceneToLoad.ToString());
     }
 

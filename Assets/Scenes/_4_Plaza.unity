@@ -14698,7 +14698,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.08820057, y: 0.083999634}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -14709,7 +14709,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 16, y: 16}
+  m_Size: {x: 25.397562, y: 18.855957}
   m_EdgeRadius: 0
 --- !u!212 &1067979231
 SpriteRenderer:
@@ -17629,7 +17629,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.777559, y: 1}
+    m_SensorSize: {x: 1.7784371, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -18445,7 +18445,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2011045667}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 29.229519, y: -10.398809, z: -10}
+  m_LocalPosition: {x: 29.207405, y: -10.39878, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 72184312}
@@ -19397,19 +19397,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9077169192361299338, guid: da7afe65209425243ad191c47f078d0a, type: 3}
       propertyPath: m_Size.x
-      value: 44.44323
+      value: 26.79727
       objectReference: {fileID: 0}
     - target: {fileID: 9077169192361299338, guid: da7afe65209425243ad191c47f078d0a, type: 3}
       propertyPath: m_Size.y
-      value: 30.2714
+      value: 20.980837
       objectReference: {fileID: 0}
     - target: {fileID: 9077169192361299338, guid: da7afe65209425243ad191c47f078d0a, type: 3}
       propertyPath: m_Offset.x
-      value: -19.10506
+      value: 0.38376808
       objectReference: {fileID: 0}
     - target: {fileID: 9077169192361299338, guid: da7afe65209425243ad191c47f078d0a, type: 3}
       propertyPath: m_Offset.y
-      value: -2.6083908
+      value: -0.1511488
       objectReference: {fileID: 0}
     - target: {fileID: 9077169192361299338, guid: da7afe65209425243ad191c47f078d0a, type: 3}
       propertyPath: m_SpriteTilingProperty.newSize.x

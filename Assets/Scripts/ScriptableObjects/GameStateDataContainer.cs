@@ -15,6 +15,7 @@ public class GameStateDataContainer : ScriptableObject {
 
 	[Header("Bar")]
 	public bool chessPiecesInPlace = false;
+	public bool bottlesFilled = false;
 
 	[Header("Plaza")]
     [Range(0,3)] public int fountainTrickleAmount = 0;

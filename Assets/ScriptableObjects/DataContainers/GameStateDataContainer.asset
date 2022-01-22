@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7ee7f9bf0ce6874e867fe4c7ddd3a92, type: 3}
   m_Name: GameStateDataContainer
   m_EditorClassIdentifier: 
-  firstTimePlaying: 0
-  sceneToLoad: 1
+  firstTimePlaying: 1
+  sceneToLoad: 8
   firstDialoguePlayed: 0
   carPieceInPlace: 0
   chessPiecesInPlace: 0
+  bottlesFilled: 1
   fountainTrickleAmount: 0
   isInCinematic: 0
   nextMorningShown: 0

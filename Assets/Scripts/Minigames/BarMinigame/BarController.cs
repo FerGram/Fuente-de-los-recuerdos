@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BarController : MonoBehaviour
 {
+    GameObject sceneBottles;
+
     public Transform cursor;
 
     public LayerMask layerMask;
@@ -20,6 +22,8 @@ public class BarController : MonoBehaviour
     
 	void Start()
     {
+        sceneBottles = GameObject.FindGameObjectWithTag("Bottles");
+
         filledBottles = 0;
 
         beerBottle = beerBottle.GetComponent<BeerBottle>();
@@ -38,7 +42,11 @@ public class BarController : MonoBehaviour
         if (filledBottles >= 3 && !isMinigameFinished)
         {
 			isMinigameFinished = true;
-			StartCoroutine(FinishMinigame());
+
+            sceneBottles.GetComponent<FillBottles>().bottlesFilled = true;
+            GameStateData.Instance.gameData.bottlesFilled = true;
+
+            StartCoroutine(FinishMinigame());
             Debug.Log("Minigame finished");
         }
 

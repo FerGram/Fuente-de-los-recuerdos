@@ -46,7 +46,7 @@ public class Plant : MonoBehaviour
         uprooted = false;
         rg = gameObject.transform.GetComponent<Rigidbody2D>();
 
-        basketsTop = goodBasket.GetComponent<SpriteRenderer>().sprite.bounds.size.y * goodBasket.transform.localScale.y / 2 -0.5f;
+        basketsTop = goodBasket.GetComponent<SpriteRenderer>().sprite.bounds.size.y * goodBasket.transform.localScale.y / 2 -0.7f;
         plantTop = GetComponent<SpriteRenderer>().sprite.bounds.size.y * transform.localScale.y / 2;
 
         startingScaleY = transform.localScale.y;

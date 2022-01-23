@@ -202,9 +202,13 @@ TODO Save system
 - not NudoFarmChat1:
         ->ToraDefault1
 
-- FionnaChat1:
+- FionnaChat1 and not ToraChat2Car:
         ->ToraChat2Car
 
+- ToraChat2Car:
+        Tora<"Have a safe trip back home, traveler."
+        ->DONE
+        
 - else:
         Tora<"I see you're making new friends and helping out the townspeople."
         Tora<"Thanks..."

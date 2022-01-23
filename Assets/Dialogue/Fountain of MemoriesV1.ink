@@ -358,8 +358,6 @@ Helen<"I'm tired of cleaning all this dust. I should hire someone to do it."
 
 === BarmanDefault2
 Helen<"You'll find {nudo} in the farm."
-->DONE
-
 Helen<"The farm is south-east of here."
 ->DONE
 
@@ -423,21 +421,23 @@ Nudo<"What nice memories…"
 	Nudo<"You reminded me of many things I thought I had lost, thank you."
 
 -
-Nudo<"Here is your {carTire}."
+//Nudo<"Here is your {carTire}."
+Nudo<"Here it is, a {carTire}."
 
 ~carTire = item("Car Tire")
 
 //Reward the player with a tractor tire and change the scene to the "lively" version.
 Patrick<"But this is… a tractor tire."
-~giveItem(0)
+//~giveItem(0)
 Nudo<"Huh? Oh, you need a different tire? a {bikeTire}?"
 
     + "N-no, for a car, a car tire."
     Nudo<"For that, you’ll have to visit {anton}, the chess player. He lives just to the left of the fountain, I think he had a car."
 
-	+ "Yes, a bike tire."
-	~giveItem(1)
-    Nudo<"There you go, a {bikeTire}."
+    + "If only I had a bike."
+	//+ "Yes, a bike tire."
+	//~giveItem(1)
+    //Nudo<"There you go, a {bikeTire}."
 
     //Reward the player with a bike tire.
 	Patrick<"Actually… I need a car tire."

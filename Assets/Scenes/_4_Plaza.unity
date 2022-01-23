@@ -213,6 +213,10 @@ PrefabInstance:
       propertyPath: _onStartHover.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1852681290}
+    - target: {fileID: 1179346715507068478, guid: 7fd372d730cc8db47b152d82e85b67a9, type: 3}
+      propertyPath: _onInteract.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 21300000, guid: ff4412572fe9d054eaef48a3fb46a7dc, type: 3}
     - target: {fileID: 4796907811427710514, guid: 7fd372d730cc8db47b152d82e85b67a9, type: 3}
       propertyPath: m_SortingOrder
       value: 2
@@ -17629,7 +17633,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7784371, y: 1}
+    m_SensorSize: {x: 1.778664, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -18445,7 +18449,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2011045667}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 29.207405, y: -10.39878, z: -10}
+  m_LocalPosition: {x: 29.201683, y: -10.398769, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 72184312}

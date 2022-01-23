@@ -89,7 +89,7 @@ Patrick<"OH MY GOD."
 ~InitializeColorVariables()
 Patrick<"Ok, that was- terrifying."
 Patrick<"I'm still in one piece though, which is a start."
-Patrick<"And despite the horrendous state of the car I think I might be able to fix it... At least just enough to carry me back home."
+Patrick<"And despite the horrendous state of the car, I think I might be able to fix it... At least just enough to carry me back home."
 Patrick<"Wait, where am I?"
 Patrick<"Anyway, I better {find} and {place} the missing {drivingWheel} and fix the flat {carTire}."
 ->DONE
@@ -131,7 +131,7 @@ Patrick<"I hope they can find what they are looking for."
 === SignDefault ===
 Patrick<"KPNTVLEY..."
 Patrick<"It's barely readable."
-Patrick<"But it's a sign, so it must indicate some place."
+Patrick<"But it's a sign, so it must indicate someplace."
 Patrick<"I'll have a look."
 ->DONE
 
@@ -142,7 +142,7 @@ Patrick<"Why in the world would I throw an object at a sign?"
 === SignHikers ===
 Martha<"KPNTVLEY..."
 Martha<"It's barely readable."
-Martha<"But it's a sign so it must indicate some place."
+Martha<"But it's a sign so it must indicate someplace."
 Martha<"I'll have a look."
 ->DONE
 
@@ -153,7 +153,7 @@ Lewis<"Ermm..."
 Martha<"Come on, let's go into the wilds for a bit."
 Martha<"..."
 Martha<"Hmm. I can see some footsteps on the floor. Someone must have been here not so long ago."
-Martha<"Footsteps go in both forwards and backwards so he or she was able to make it back."
+Martha<"Footsteps go in both forwards and backward so he or she was able to make it back."
 Lewis<"I guess you're right."
 ->DONE
 
@@ -170,7 +170,7 @@ Martha<"Hurry! Let's take a closer look."
 Martha<"WOOOOW look at this place."
 Lewis<"It seems abandoned."
 Martha<"Right, but the fountain is still working."
-Lewis<"And it's still in pretty good shape to be honest."
+Lewis<"And it's still in pretty good shape, to be honest."
 Lewis<"I wonder why everybody left..."
 Lewis<"It's a pretty decent village to live in."
 Martha<"Imagine we could restore the place and bring the village back to life, Lewis."
@@ -237,14 +237,14 @@ Tora<"Ah, yes. Excuse me."
 //~startMinigame(21)
 // Tora<"As I was saying. Welcome to Kiponut Valley."
 // Patrick<"Okay..."
-// Tora<"This town was abandoned long ago, when the fountain broke."
+// Tora<"This town was abandoned long ago when the fountain broke."
 // Tora<"What remains here are just ghosts of our past selves."
 // Tora<"Forgotten souls that wander around waiting for the day..."
 Tora<"For the day the town comes back to live."
 
     + "What do you mean?"
 
-    Tora<"In its time, this town was a lively place. Full of joyful people which fed the town's natural atractive."
+    Tora<"In its time, this town was a lively place. Full of joyful people which fed the town's natural attractive."
 //     Tora<"The main structure of the village was the fountain I'm next to right now."
 //     Tora<"It was usual to see people gaze at its beautiful shape at any time of the day."
 //     Tora<"But people started leaving town and the fountain suddenly wasn't spilling water like before."
@@ -261,7 +261,7 @@ Tora<"For the day the town comes back to live."
     Tora<"He had to move to the city because he wanted to expand his business."
     Tora<"The day after his departure, the fountain did not spill water like before."
     Tora<"Then it was Friederick: the mailman"
-    Tora<"He was transfered to the city because the company was short on staff."
+    Tora<"He was transferred to the city because the company was short on staff."
     Tora<"The day after, even less water was spilled from the fountain."
     Tora<"And people kept leaving town till no more water came out of its beautiful spouts."
     Tora<"It's like the fountain needed the people in town to keep going."
@@ -269,9 +269,9 @@ Tora<"For the day the town comes back to live."
 -
 Tora<"I wish I could offer you a warm welcome, but there’s little a memory can do."
 
-Tora<"May I ask you for a favour while you stay in town?"
+Tora<"May I ask you for a favor while you stay in town?"
 
-Patrick<"I… Yes what is it?"
+Patrick<"I… Yes, what is it?"
 
 Tora<"The people left in town haven't seen a new face in some time." 
 
@@ -324,7 +324,7 @@ Tora<"You should find {nudo} in the bar, the building over there."
 === BarChat1
 Helen<"A real human."
 Helen<"I see you’re not from here, welcome to Sander’s. I would serve you something, but- I can’t really, can I?"
-Helen<"Would you give me a hand please?"
+Helen<"Would you give me a hand, please?"
 
 ~startMinigame(21)
 
@@ -371,7 +371,7 @@ Helen<"The farm is south-east of here."
 		//TODO can insert dialogue in the bar between the three men.
 
 - not BarChat1:
-        //nudo shouldn't be visible in the farm unless the player talks with Helen.
+        //nudo shouldn't be visible on the farm unless the player talks with Helen.
 
 - BarChat1 and not NudoFarmChat1:
         ->NudoFarmChat1
@@ -396,7 +396,7 @@ Helen<"The farm is south-east of here."
 === NudoFarmChat1
 Nudo<"Hey there, fella, you’re not from here, are ya?"
 
-Patrick<"That’s… what the barlady said."
+Patrick<"That’s… what the bar lady said."
 
 Nudo<"Don’t sweat it, we didn’t use to care much about outsiders, thousands of people came every year to see and taste the fountain… But now, it’s all dust and weed, and forgotten memories…"
 
@@ -550,11 +550,11 @@ Helen<"Never mind…"
 
 Helen<"Have you tried asking {anton}?"
 
-Helen<"He should be in his home. It's in the oposite side of the plaza, west of here."
+Helen<"He should be in his home. It's on the opposite side of the plaza, west of here."
 ->DONE
 
 ===BarDefaultAfterNudoBeforeAnton
-Helen<"{anton} should be in his home. It's in the oposite side of the plaza, west of here."
+Helen<"{anton} should be in his home. It's on the opposite side of the plaza, west of here."
 ->DONE
 
 ===BarChat3
@@ -614,7 +614,7 @@ Anton<"Yes, it was."
 
 Anton<"Maybe you should try asking {fionna} about an extra tire, her partner’s car could have been left behind."
 
-Anton<"You can find her in the norteast of town, in the chicken coop."
+Anton<"You can find her in the northeast of town, in the chicken coop."
 
 Patrick<"Okay, thanks."
 
@@ -687,7 +687,7 @@ Fionna<"Claire would thank you with an apple pie. I’m not that good with cooki
 ~toraLoc = "_3_FarVillage"
 
 	+ "Where can I find Tora?"
-	Fionna<"She’s went to check on your car, in the forest."
+	Fionna<"She went to check on your car, in the forest."
 
 	//Fionna<"She’s in the viaduct, east of town. She often goes there to visit her father’s tomb."
 	+ "Do you have an extra car tire?"
@@ -698,7 +698,7 @@ Fionna<"Claire would thank you with an apple pie. I’m not that good with cooki
 ->DONE
 
 ===FionnaDefault1
-Fionna<"Oh, these damn chicken won't stay still."
+Fionna<"Oh, these damn chickens won't stay still."
 ->DONE
 
 ===FionnaTractorTire
@@ -717,7 +717,7 @@ Patrick<"O...kay, sure."
 Tora<"I'm- I have the thing you're looking for. A- {carTire}."
 Patrick<"That's great."
 Tora<"You're not... mad at me, for not telling you sooner?"
-    + "No, of coruse not. Why would I be mad at you?"
+    + "No, of course not. Why would I be mad at you?"
     Patrick<"I got to know very interesting people, and I even got the chance to help them."
     Tora<"Really? Thank you, thank you very much for understanding."
     Tora<"It- it was my fault that the fountain broke... And I have been waiting for so long for someone to fix it..."
